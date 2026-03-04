@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 33% 95%;
+    --foreground: 150 25% 10%;
+    --card: 40 30% 97%;
+    --card-foreground: 150 25% 10%;
+    --popover: 40 30% 97%;
+    --popover-foreground: 150 25% 10%;
+    --primary: 150 25% 16%;
+    --primary-foreground: 40 33% 95%;
+    --secondary: 90 12% 56%;
+    --secondary-foreground: 150 25% 10%;
+    --muted: 40 20% 90%;
+    --muted-foreground: 150 10% 40%;
+    --accent: 40 45% 55%;
+    --accent-foreground: 150 25% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 40 20% 85%;
+    --input: 40 20% 85%;
+    --ring: 150 25% 16%;
+    --radius: 0.125rem;
+  }
+
+  .dark {
+    --background: 150 25% 10%;
+    --foreground: 40 33% 95%;
+    --card: 150 25% 12%;
+    --card-foreground: 40 33% 95%;
+    --popover: 150 25% 12%;
+    --popover-foreground: 40 33% 95%;
+    --primary: 40 33% 95%;
+    --primary-foreground: 150 25% 10%;
+    --secondary: 90 12% 30%;
+    --secondary-foreground: 40 33% 95%;
+    --muted: 150 20% 18%;
+    --muted-foreground: 40 20% 60%;
+    --accent: 40 45% 55%;
+    --accent-foreground: 40 33% 95%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 150 15% 20%;
+    --input: 150 15% 20%;
+    --ring: 40 33% 95%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(40, 33%, 95%);
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(150, 25%, 16%);
+  border-radius: 3px;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom font styling */
+.font-serif-display {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  letter-spacing: -0.025em;
+}
+
+.font-sans-clean {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: 0.005em;
+}
+
+/* Typography hierarchy */
+h1 {
+  font-size: 1.1em;
+  line-height: 1.05;
+}
+
+body {
+  line-height: 1.6;
+}
+
+/* Parallax helper */
+.parallax-slow {
+  will-change: transform;
+}
+
+/* Image reveal animation */
+@keyframes imageReveal {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0% 0 0);
+  }
+}
+
+.animate-image-reveal {
+  animation: imageReveal 1.2s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+/* Text reveal */
+@keyframes textRevealUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-text-reveal {
+  animation: textRevealUp 0.8s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+}
+
+/* Horizontal line grow */
+@keyframes lineGrow {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.animate-line-grow {
+  animation: lineGrow 1s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+}
+
+/* Selection color */
+::selection {
+  background: hsl(150, 25%, 16%);
+  color: hsl(40, 33%, 95%);
+}
