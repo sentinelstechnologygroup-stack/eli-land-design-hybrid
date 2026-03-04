@@ -4,8 +4,11 @@ module.exports = {
   content: ["./src/app/**/*.{js,jsx}", "./src/**/*.{js,jsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["var(--font-sans)"],
+      },
+
       // ✅ ELI "Option 2" Modern Luxury Radius Tokens (single source of truth)
-      // These do NOT replace your shadcn/ui radius vars (lg/md/sm) — they ADD ELI-specific tokens.
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",

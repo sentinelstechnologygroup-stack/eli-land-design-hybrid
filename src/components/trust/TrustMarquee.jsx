@@ -6,6 +6,7 @@ import { TRUST_AWARDS } from "@/content/trust";
  * TrustMarquee (Awards-only)
  * - Infinite scrolling row of award badges
  * - NOT links (per your request)
+ * - Hardened so it reads as one continuous row (no wrap)
  */
 export default function TrustMarquee({
   label = "Houzz Awards",
@@ -18,6 +19,7 @@ export default function TrustMarquee({
     return list;
   }, [items]);
 
+  // duplicate list for seamless scroll
   const track = useMemo(() => [...merged, ...merged], [merged]);
 
   const duration = speed === "slow" ? "70s" : speed === "fast" ? "30s" : "45s";
@@ -33,6 +35,16 @@ export default function TrustMarquee({
     tone === "dark"
       ? "bg-white/5 border-white/10"
       : "bg-white/70 border-[#1F2E23]/10";
+
+  const fadeLeft =
+    tone === "dark"
+      ? "bg-gradient-to-r from-[#1F2E23] to-transparent"
+      : "bg-gradient-to-r from-[#F5F0EA] to-transparent";
+
+  const fadeRight =
+    tone === "dark"
+      ? "bg-gradient-to-l from-[#1F2E23] to-transparent"
+      : "bg-gradient-to-l from-[#F5F0EA] to-transparent";
 
   return (
     <section className={shell}>
@@ -52,15 +64,20 @@ export default function TrustMarquee({
           </div>
         </div>
 
-        <div className="mt-8 overflow-hidden rounded-3xl">
+        <div className="mt-8 relative overflow-hidden rounded-3xl">
+          {/* Edge fades (prevents “two sets” look) */}
+          <div className={`pointer-events-none absolute inset-y-0 left-0 w-10 md:w-14 ${fadeLeft}`} />
+          <div className={`pointer-events-none absolute inset-y-0 right-0 w-10 md:w-14 ${fadeRight}`} />
+
           <div
-            className="flex gap-4 md:gap-5 w-max will-change-transform"
+            className="flex gap-4 md:gap-5 w-max will-change-transform whitespace-nowrap"
             style={{ animation: `eli-marquee ${duration} linear infinite` }}
+            aria-label="Awards marquee"
           >
             {track.map((it, idx) => (
               <div
                 key={`${it.src}-${idx}`}
-                className={`flex items-center justify-center rounded-2xl border ${chipBg} px-5 md:px-6 py-4`}
+                className={`flex items-center justify-center rounded-2xl border ${chipBg} px-5 md:px-6 py-4 flex-nowrap`}
               >
                 <img
                   src={it.src}
@@ -70,7 +87,6 @@ export default function TrustMarquee({
                   decoding="async"
                   draggable={false}
                   onError={(e) => {
-                    // makes debugging instant (check console)
                     // eslint-disable-next-line no-console
                     console.warn("Trust badge failed to load:", it.src);
                     e.currentTarget.style.opacity = "0.35";
@@ -86,6 +102,15 @@ export default function TrustMarquee({
         @keyframes eli-marquee {
           from { transform: translateX(0); }
           to { transform: translateX(-50%); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          [aria-label="Awards marquee"] {
+            animation: none !important;
+            transform: none !important;
+            white-space: normal !important;
+            flex-wrap: wrap !important;
+            width: 100% !important;
+          }
         }
       `}</style>
     </section>
