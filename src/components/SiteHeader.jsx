@@ -54,7 +54,7 @@ export default function SiteHeader({ currentPageName, heroUnderHeader = false })
   const MOBILE_SECTIONS = useMemo(() => {
     const design = NAV.find((n) => n.label === "Design");
     const projects = NAV.find((n) => n.label === "Projects");
-    const contact = NAV.find((n) => n.label === "Contact");
+    const consultation = NAV.find((n) => n.href === ROUTES.contact);
     const construction = NAV.find((n) => n.label === "Construction");
 
     return [
@@ -62,7 +62,10 @@ export default function SiteHeader({ currentPageName, heroUnderHeader = false })
       { label: "Design", items: design?.children ?? [design].filter(Boolean) },
       { label: "Construction", items: [construction].filter(Boolean) },
       { label: "Projects", items: projects?.children ?? [projects].filter(Boolean) },
-      { label: "Contact", items: contact?.children ?? [contact].filter(Boolean) },
+      {
+        label: "Schedule",
+        items: consultation?.children ?? [consultation].filter(Boolean),
+      },
     ].filter((s) => s.items && s.items.length);
   }, []);
 
@@ -147,13 +150,14 @@ export default function SiteHeader({ currentPageName, heroUnderHeader = false })
         <div className="hidden lg:flex items-center">
           <Link
             href={ROUTES.contact}
+            aria-label="Schedule a consultation"
             className={
               heroMode && !scrolled
                 ? "inline-flex items-center gap-3 px-6 py-3 rounded-full border border-white/35 text-white text-[11px] tracking-[0.22em] uppercase font-sans-clean font-semibold hover:border-white/55 transition"
                 : "inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[#1F2E23] text-[#F5F0EA] text-[11px] tracking-[0.22em] uppercase font-sans-clean font-semibold hover:opacity-95 transition"
             }
           >
-            Consultation <ArrowUpRight className="w-4 h-4" />
+            Schedule Consultation <ArrowUpRight className="w-4 h-4" />
           </Link>
         </div>
 
@@ -230,9 +234,10 @@ export default function SiteHeader({ currentPageName, heroUnderHeader = false })
                 <Link
                   href={ROUTES.contact}
                   onClick={() => setMobileOpen(false)}
+                  aria-label="Schedule a consultation"
                   className="block w-full text-center bg-[#1F2E23] text-[#F5F0EA] px-6 py-4 rounded-2xl text-[11px] tracking-[0.28em] uppercase font-sans-clean font-semibold"
                 >
-                  Consultation
+                  Schedule Consultation
                 </Link>
               </div>
             </motion.div>

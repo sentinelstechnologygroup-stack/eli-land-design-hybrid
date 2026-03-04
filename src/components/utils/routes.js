@@ -77,10 +77,10 @@ export const NAV = [
   },
 
   {
-    label: "Contact",
+    label: "Schedule Consultation",
     href: ROUTES.contact,
     children: [
-      { label: "Contact", href: ROUTES.contact },
+      { label: "Schedule Consultation", href: ROUTES.contact },
       { label: "Careers", href: ROUTES.careers },
       { label: "Reviews", href: ROUTES.reviews },
       // ✅ add here so it’s easy to find, but not mixed into Awards marquee
