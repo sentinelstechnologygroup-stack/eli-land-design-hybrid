@@ -3,15 +3,13 @@ export const ROUTES = {
   home: "/",
   about: "/about",
 
-  // Contact + Careers
   contact: "/contact",
-  consultation: "/contact#schedule",
+  // schedule consultation anchors to the form section
+  consultation: "/contact#contact-form",
+
+  reviews: "/reviews",
   careers: "/careers-at-eli",
 
-  // Reviews
-  reviews: "/reviews",
-
-  // Hubs
   design: "/design",
   designCommercial: "/design/commercial",
   designResidential: "/design/residential",
@@ -70,19 +68,15 @@ export const NAV = [
 
   {
     label: "Contact",
-    href: ROUTES.consultation,
+    href: ROUTES.contact,
     children: [
       { label: "Schedule Consultation", href: ROUTES.consultation },
-      { label: "Reviews", href: ROUTES.reviews },
       { label: "Careers", href: ROUTES.careers },
-
-      // ✅ add here so it’s easy to find, but not mixed into Awards marquee
-      //{ label: "Affiliations", href: ROUTES.affiliations },
+      { label: "Reviews", href: ROUTES.reviews },
     ],
   },
 ];
 
-// Existing helpers (keep shape the app expects)
 export function createProjectUrl(slug) {
   return `/projects/${slug}`;
 }

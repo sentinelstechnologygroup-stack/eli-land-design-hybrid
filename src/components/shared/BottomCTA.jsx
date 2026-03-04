@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
 import { ROUTES } from "@/components/utils/routes";
+import { trackCTA } from "@/lib/intelligence";
 
 export default function BottomCTA({
   eyebrow = "Ready to start?",
@@ -45,6 +46,7 @@ export default function BottomCTA({
 
             <div className="mt-10 flex flex-col sm:flex-row gap-5 justify-center">
               <Link href={primaryHref}
+                onClick={() => trackCTA("schedule-consultation", "bottom-cta")}
                 className="inline-flex items-center justify-center gap-3 bg-[#F5F0EA] text-[#1F2E23] px-10 py-4 text-[11px] tracking-[0.25em] uppercase font-sans-clean font-semibold rounded-full hover:bg-[#E8E0D4] transition-colors"
               >
                 {primaryLabel}
@@ -52,6 +54,7 @@ export default function BottomCTA({
               </Link>
 
               <Link href={secondaryHref}
+                onClick={() => trackCTA("view-projects", "bottom-cta")}
                 className="inline-flex items-center justify-center gap-3 bg-[#6B7F5E] text-[#F5F0EA] px-10 py-4 text-[11px] tracking-[0.25em] uppercase font-sans-clean font-semibold rounded-full hover:bg-[#5E7152] transition-colors"
                 >
                 {secondaryLabel}

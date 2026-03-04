@@ -1,5 +1,7 @@
 // src/components/pages/Home.jsx
-import React from "react";
+"use client";
+
+import React, { useEffect } from "react";
 import HeroSection from "../home/HeroSection";
 import PhilosophySection from "../home/PhilosophySection";
 import ServicesSection from "../home/ServicesSection";
@@ -8,17 +10,25 @@ import TestimonialsSection from "../home/TestimonialsSection.jsx";
 import MiddleCTA from "../shared/MiddleCTA";
 import CTASection from "@/components/home/CTASection";
 import TrustMarquee from "@/components/trust/TrustMarquee";
+import { registerPageMeta } from "@/lib/intelligence";
 
 export default function Home() {
+  useEffect(() => {
+    registerPageMeta({
+      page: "Home",
+      route: "/",
+      intent: "discovery",
+      primaryCta: "View Projects",
+    });
+  }, []);
+
   return (
     <main>
       <HeroSection />
       <PhilosophySection />
 
-      {/* Awards trust band */}
       <TrustMarquee label="Houzz Awards" tone="light" speed="normal" />
 
-      {/* Single mid-page CTA band (keep this one) */}
       <MiddleCTA tone="dark" />
 
       <ServicesSection />

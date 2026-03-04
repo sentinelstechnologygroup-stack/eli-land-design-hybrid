@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { ROUTES } from "@/components/utils/routes";
+import { trackCTA } from "@/lib/intelligence";
 
 const HERO_IMAGES = [
   "/images/home/hero-01.jpg",
@@ -77,8 +78,10 @@ export default function HeroSection() {
             >
               <div className="flex flex-col sm:flex-row gap-5 sm:items-center">
                 {/* Primary Light Pill */}
-                <Link href={ROUTES.projects}
-                className="inline-flex items-center justify-center gap-3 h-14 px-10 rounded-full
+                <Link
+                  href={ROUTES.projects}
+                  onClick={() => trackCTA("view-projects", "home-hero")}
+                  className="inline-flex items-center justify-center gap-3 h-14 px-10 rounded-full
                            bg-[#6B7F5E] text-[#F5F0EA]
                            text-[11px] tracking-[0.22em] uppercase
                            font-sans-clean font-semibold

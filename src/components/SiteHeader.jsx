@@ -1,12 +1,13 @@
+// src/components/SiteHeader.jsx
 "use client";
 
-// src/components/SiteHeader.jsx
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowUpRight, ChevronDown } from "lucide-react";
 import { NAV, ROUTES } from "./utils/routes";
+import { trackCTA, trackLeadIntent } from "@/lib/intelligence";
 
 /**
  * SiteHeader is "dumb":
@@ -26,13 +27,12 @@ export default function SiteHeader({ currentPageName, heroUnderHeader = false })
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // ✅ Close mobile menu on route change (Next.js)
+  // Close mobile menu on route change
   useEffect(() => {
     setMobileOpen(false);
     setOpenMenu(null);
   }, [pathname]);
 
-  // ✅ Single source of truth (from Layout)
   const heroMode = Boolean(heroUnderHeader);
 
   const HEADER_CONTAINER = "max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20";
@@ -54,7 +54,7 @@ export default function SiteHeader({ currentPageName, heroUnderHeader = false })
   const MOBILE_SECTIONS = useMemo(() => {
     const design = NAV.find((n) => n.label === "Design");
     const projects = NAV.find((n) => n.label === "Projects");
-    const consultation = NAV.find((n) => n.href === ROUTES.consultation);
+    const contact = NAV.find((n) => n.label === "Contact");
     const construction = NAV.find((n) => n.label === "Construction");
 
     return [
@@ -62,12 +62,14 @@ export default function SiteHeader({ currentPageName, heroUnderHeader = false })
       { label: "Design", items: design?.children ?? [design].filter(Boolean) },
       { label: "Construction", items: [construction].filter(Boolean) },
       { label: "Projects", items: projects?.children ?? [projects].filter(Boolean) },
-      {
-        label: "Schedule",
-        items: consultation?.children ?? [consultation].filter(Boolean),
-      },
+      { label: "Contact", items: contact?.children ?? [contact].filter(Boolean) },
     ].filter((s) => s.items && s.items.length);
   }, []);
+
+  const onScheduleClick = (where) => {
+    trackCTA("Schedule Consultation", where, { page: currentPageName || "unknown" });
+    trackLeadIntent("contact_open", { source: where, page: currentPageName || "unknown" });
+  };
 
   return (
     <header ref={headerRef} className={`${headerBase} ${headerBg}`}>
@@ -149,8 +151,9 @@ export default function SiteHeader({ currentPageName, heroUnderHeader = false })
         {/* Desktop CTA */}
         <div className="hidden lg:flex items-center">
           <Link
-            href={ROUTES.consultation}
+            href={ROUTES.contact}
             aria-label="Schedule a consultation"
+            onClick={() => onScheduleClick("Header CTA")}
             className={
               heroMode && !scrolled
                 ? "inline-flex items-center gap-3 px-6 py-3 rounded-full border border-white/35 text-white text-[11px] tracking-[0.22em] uppercase font-sans-clean font-semibold hover:border-white/55 transition"
@@ -232,8 +235,11 @@ export default function SiteHeader({ currentPageName, heroUnderHeader = false })
 
               <div className="p-6 border-t border-[#1F2E23]/10">
                 <Link
-                  href={ROUTES.consultation}
-                  onClick={() => setMobileOpen(false)}
+                  href={ROUTES.contact}
+                  onClick={() => {
+                    onScheduleClick("Mobile CTA");
+                    setMobileOpen(false);
+                  }}
                   aria-label="Schedule a consultation"
                   className="block w-full text-center bg-[#1F2E23] text-[#F5F0EA] px-6 py-4 rounded-2xl text-[11px] tracking-[0.28em] uppercase font-sans-clean font-semibold"
                 >
