@@ -54,7 +54,7 @@ export default function SiteHeader({ currentPageName, heroUnderHeader = false })
   const MOBILE_SECTIONS = useMemo(() => {
     const design = NAV.find((n) => n.label === "Design");
     const projects = NAV.find((n) => n.label === "Projects");
-    const consultation = NAV.find((n) => n.href === ROUTES.contact);
+    const consultation = NAV.find((n) => n.href === ROUTES.consultation);
     const construction = NAV.find((n) => n.label === "Construction");
 
     return [
@@ -149,7 +149,7 @@ export default function SiteHeader({ currentPageName, heroUnderHeader = false })
         {/* Desktop CTA */}
         <div className="hidden lg:flex items-center">
           <Link
-            href={ROUTES.contact}
+            href={ROUTES.consultation}
             aria-label="Schedule a consultation"
             className={
               heroMode && !scrolled
@@ -232,7 +232,7 @@ export default function SiteHeader({ currentPageName, heroUnderHeader = false })
 
               <div className="p-6 border-t border-[#1F2E23]/10">
                 <Link
-                  href={ROUTES.contact}
+                  href={ROUTES.consultation}
                   onClick={() => setMobileOpen(false)}
                   aria-label="Schedule a consultation"
                   className="block w-full text-center bg-[#1F2E23] text-[#F5F0EA] px-6 py-4 rounded-2xl text-[11px] tracking-[0.28em] uppercase font-sans-clean font-semibold"

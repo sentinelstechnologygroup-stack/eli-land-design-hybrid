@@ -36,7 +36,7 @@ export default function CTASection() {
             {/* ✅ Updated Buttons (match global CTA system) */}
             <div className="mt-10 flex flex-col sm:flex-row gap-5">
               {/* Primary Light Pill */}
-              <Link href={ROUTES.contact}
+              <Link href={ROUTES.consultation}
                 className="inline-flex items-center justify-center gap-3 h-14 px-10 rounded-full
                            bg-[#F5F0EA] text-[#1F2E23]
                            text-[11px] tracking-[0.22em] uppercase
@@ -44,7 +44,7 @@ export default function CTASection() {
                            hover:bg-[#E8DDCC]
                            transition-all duration-300"
               >
-                Contact Us
+                Schedule Consultation
                 <ArrowRight className="w-4 h-4" />
               </Link>
 

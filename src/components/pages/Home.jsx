@@ -1,4 +1,4 @@
-// src/pages/Home.jsx
+// src/components/pages/Home.jsx
 import React from "react";
 import HeroSection from "../home/HeroSection";
 import PhilosophySection from "../home/PhilosophySection";

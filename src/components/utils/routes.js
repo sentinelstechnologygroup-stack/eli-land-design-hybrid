@@ -5,45 +5,37 @@ export const ROUTES = {
 
   // Contact + Careers
   contact: "/contact",
+  consultation: "/contact#schedule",
   careers: "/careers-at-eli",
 
   // Reviews
   reviews: "/reviews",
-
-  // ✅ New: Affiliations page
-  //affiliations: "/affiliations",
 
   // Hubs
   design: "/design",
   designCommercial: "/design/commercial",
   designResidential: "/design/residential",
 
-  // ✅ Residential Category Pages (explicit, so cards + routes match)
   residentialMasterPlans: "/design/residential/master-plans",
   residentialPoolOutdoorLiving: "/design/residential/pool-outdoor-living",
   residentialDrainagePlanting: "/design/residential/drainage-planting",
   residentialOutdoorLivingLegacy: "/design/residential/outdoor-living",
 
-  // ✅ Commercial Category Pages (explicit, so cards + routes match)
   commercialLifestyleCenter: "/design/commercial/lifestyle-center",
   commercialMultifamily: "/design/commercial/multifamily",
   commercialOffice: "/design/commercial/office",
   commercialRenderings: "/design/commercial/renderings",
 
-  // ✅ (Optional) Commercial "Galleries" aliases if you ever want them
   commercialGalleries: "/design/commercial/galleries",
   commercialGallery: "/design/commercial/galleries/:slug",
 
-  // ✅ (Optional) Residential Galleries (kept)
   residentialGalleries: "/design/residential/galleries",
   residentialGallery: "/design/residential/galleries/:slug",
 
-  // ✅ Renderings Gallery (sitewide gallery page)
   renderings: "/gallery/renderings",
 
   construction: "/construction",
 
-  // Projects + Gallery
   projects: "/projects",
   projectDetail: "/projects/:slug",
 
@@ -77,12 +69,13 @@ export const NAV = [
   },
 
   {
-    label: "Schedule Consultation",
-    href: ROUTES.contact,
+    label: "Contact",
+    href: ROUTES.consultation,
     children: [
-      { label: "Schedule Consultation", href: ROUTES.contact },
-      { label: "Careers", href: ROUTES.careers },
+      { label: "Schedule Consultation", href: ROUTES.consultation },
       { label: "Reviews", href: ROUTES.reviews },
+      { label: "Careers", href: ROUTES.careers },
+
       // ✅ add here so it’s easy to find, but not mixed into Awards marquee
       //{ label: "Affiliations", href: ROUTES.affiliations },
     ],

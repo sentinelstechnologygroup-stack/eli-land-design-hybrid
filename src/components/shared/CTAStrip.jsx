@@ -7,9 +7,9 @@ import { ROUTES } from "@/components/utils/routes";
 
 export default function CTAStrip({
   title = "Schedule a design consultation today.",
-  body = "Click the button to contact us. We look forward to speaking with you about your project.",
-  primaryLabel = "Contact Us",
-  primaryHref = ROUTES.contact,
+  body = "Click the button to Schedule Consultation. We look forward to speaking with you about your project.",
+  primaryLabel = "Schedule Consultation",
+  primaryHref = ROUTES.consultation,
   secondaryLabel = "View Projects",
   secondaryHref = ROUTES.projects,
 }) {

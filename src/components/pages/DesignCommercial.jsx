@@ -217,7 +217,7 @@ export default function DesignCommercial() {
                   Commercial work is designed to hold up to schedule pressure, site constraints, and long-term
                   maintenance. The goal is simple: a design that looks sharp and builds clean.
                 </p>
-                <Link href={ROUTES.contact}
+                <Link href={ROUTES.consultation}
                   className="group inline-flex items-center gap-3 text-[#1F2E23] text-[12px] tracking-[0.2em] uppercase font-sans-clean font-semibold"
                 >
                   How we build

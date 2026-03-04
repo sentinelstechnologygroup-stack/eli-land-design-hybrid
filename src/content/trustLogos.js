@@ -1,3 +1,4 @@
+// src/content/trustLogos.js
 export const TRUST_AWARDS = [
   {
     key: "houzz-2025",

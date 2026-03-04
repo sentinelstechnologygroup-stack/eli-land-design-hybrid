@@ -77,26 +77,13 @@ export default function HeroSection() {
             >
               <div className="flex flex-col sm:flex-row gap-5 sm:items-center">
                 {/* Primary Light Pill */}
-                <Link href={ROUTES.contact}
-                  className="inline-flex items-center justify-center gap-3 h-14 px-10 rounded-full
-                             bg-[#F5F0EA] text-[#1F2E23]
-                             text-[11px] tracking-[0.22em] uppercase
-                             font-sans-clean font-semibold
-                             hover:bg-[#E8DDCC]
-                             transition-all duration-300"
-                >
-                  Contact Us
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-
-                {/* Secondary Green Pill */}
                 <Link href={ROUTES.projects}
-                  className="inline-flex items-center justify-center gap-3 h-14 px-10 rounded-full
-                             bg-[#6B7F5E] text-[#F5F0EA]
-                             text-[11px] tracking-[0.22em] uppercase
-                             font-sans-clean font-semibold
-                             hover:bg-[#5C714F]
-                             transition-all duration-300"
+                className="inline-flex items-center justify-center gap-3 h-14 px-10 rounded-full
+                           bg-[#6B7F5E] text-[#F5F0EA]
+                           text-[11px] tracking-[0.22em] uppercase
+                           font-sans-clean font-semibold
+                           hover:bg-[#5C714F]
+                           transition-all duration-300"
                 >
                   View Projects
                   <ArrowRight className="w-4 h-4" />

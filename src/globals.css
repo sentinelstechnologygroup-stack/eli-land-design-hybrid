@@ -77,12 +77,12 @@ html {
 
 /* Custom font styling */
 .font-serif-display {
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   letter-spacing: -0.025em;
 }
 
 .font-sans-clean {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
   letter-spacing: 0.005em;
 }
 
@@ -133,8 +133,12 @@ body {
 
 /* Horizontal line grow */
 @keyframes lineGrow {
-  from { width: 0; }
-  to { width: 100%; }
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
 
 .animate-line-grow {

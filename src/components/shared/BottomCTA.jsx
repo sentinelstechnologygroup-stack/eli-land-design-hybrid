@@ -9,8 +9,8 @@ export default function BottomCTA({
   eyebrow = "Ready to start?",
   title = "Schedule a Landscape Design Consultation",
   body = "E.L.I. Land Design is based in The Woodlands and designs projects throughout the Houston area. Schedule a consultation to discuss your site, goals, and timeline. We typically respond within one business day.",
-  primaryLabel = "Contact Us",
-  primaryHref = ROUTES.contact,
+  primaryLabel = "Schedule Consultation",
+  primaryHref = ROUTES.consultation,
   secondaryLabel = "View Projects",
   secondaryHref = ROUTES.projects,
 
