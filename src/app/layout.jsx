@@ -1,9 +1,9 @@
 // src/app/layout.jsx
 import "./globals.css";
-import Layout from "@/Layout";
 import { Inter } from "next/font/google";
+import Layout from "@/Layout";
+import { SITE } from "@/lib/seo";
 
-// ✅ Font (see #5)
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
@@ -11,21 +11,38 @@ const inter = Inter({
 });
 
 export const metadata = {
+  metadataBase: new URL(SITE.url),
+
   title: {
-    default: "ELI Land Design | Landscape Architecture in Texas",
+    default: SITE.title,
     template: "%s | ELI Land Design",
   },
-  description:
-    "Texas landscape architecture and outdoor living design serving The Woodlands and Houston. Master plans, drainage, pool + outdoor living, and commercial landscape design.",
-  metadataBase: new URL("https://eli-land-design-hybrid.vercel.app"),
+
+  description: SITE.description,
+
   openGraph: {
-    title: "ELI Land Design | Landscape Architecture in Texas",
-    description:
-      "Texas landscape architecture and outdoor living design serving The Woodlands and Houston.",
-    url: "https://eli-land-design-hybrid.vercel.app",
-    siteName: "ELI Land Design",
+    title: SITE.title,
+    description: SITE.description,
+    url: SITE.url,
+    siteName: SITE.name,
+    images: [
+      {
+        url: SITE.ogImage,
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "en_US",
     type: "website",
   },
+
+  twitter: {
+    card: "summary_large_image",
+    title: SITE.title,
+    description: SITE.description,
+    images: [SITE.ogImage],
+  },
+
   robots: {
     index: true,
     follow: true,
@@ -36,7 +53,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={inter.variable}>
       <body>
-        <Layout>{children}</Layout>
+        <Layout currentPageName="app">{children}</Layout>
       </body>
     </html>
   );

@@ -76,7 +76,7 @@ export default function DesignResidential() {
       </section>
 
       {/* CATEGORY GRID */}
-      <section className="bg-[#F5F0EA]">
+      <section>
         <div className="px-6 md:px-12 lg:px-20 py-16 md:py-24 max-w-[1440px] mx-auto">
           <AnimatedSection>
             <h2 className="font-serif-display text-[#1F2E23] text-3xl md:text-4xl font-light mb-12">

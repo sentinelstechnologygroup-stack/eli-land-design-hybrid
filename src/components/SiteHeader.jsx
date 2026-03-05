@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowUpRight, ChevronDown } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { NAV, ROUTES } from "./utils/routes";
 import { trackCTA, trackLeadIntent } from "@/lib/intelligence";
 
@@ -53,12 +54,11 @@ export default function SiteHeader({ currentPageName, heroUnderHeader = false })
 
   const MOBILE_SECTIONS = useMemo(() => {
     const design = NAV.find((n) => n.label === "Design");
+    const construction = NAV.find((n) => n.label === "Construction");
     const projects = NAV.find((n) => n.label === "Projects");
     const contact = NAV.find((n) => n.label === "Contact");
-    const construction = NAV.find((n) => n.label === "Construction");
 
     return [
-      { label: "Main", items: [NAV[0], NAV[1]].filter(Boolean) }, // Home, About
       { label: "Design", items: design?.children ?? [design].filter(Boolean) },
       { label: "Construction", items: [construction].filter(Boolean) },
       { label: "Projects", items: projects?.children ?? [projects].filter(Boolean) },
@@ -147,21 +147,22 @@ export default function SiteHeader({ currentPageName, heroUnderHeader = false })
             );
           })}
         </nav>
-
         {/* Desktop CTA */}
         <div className="hidden lg:flex items-center">
-          <Link
-            href={ROUTES.contact}
-            aria-label="Schedule a consultation"
-            onClick={() => onScheduleClick("Header CTA")}
-            className={
-              heroMode && !scrolled
-                ? "inline-flex items-center gap-3 px-6 py-3 rounded-full border border-white/35 text-white text-[11px] tracking-[0.22em] uppercase font-sans-clean font-semibold hover:border-white/55 transition"
-                : "inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[#1F2E23] text-[#F5F0EA] text-[11px] tracking-[0.22em] uppercase font-sans-clean font-semibold hover:opacity-95 transition"
-            }
+          <Button
+            asChild
+            variant={heroMode && !scrolled ? "frosted" : "primary"}
+            size="cta"
+            className={heroMode && !scrolled ? "ring-1 ring-white/25" : ""}
           >
-            Schedule Consultation <ArrowUpRight className="w-4 h-4" />
-          </Link>
+            <Link
+              href={ROUTES.contact}
+              aria-label="Schedule a consultation"
+              onClick={() => onScheduleClick("Header CTA")}
+            >
+              Schedule Consultation <ArrowUpRight className="w-4 h-4" />
+            </Link>
+          </Button>
         </div>
 
         {/* Mobile toggle */}
@@ -181,51 +182,56 @@ export default function SiteHeader({ currentPageName, heroUnderHeader = false })
 
       {/* Mobile menu */}
       <AnimatePresence>
-        {mobileOpen && (
+        {mobileOpen ? (
           <>
-            {/* Backdrop */}
             <motion.div
+              className="fixed inset-0 bg-black/50 z-[998]"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="fixed inset-0 bg-black/40 z-[999]"
               onClick={() => setMobileOpen(false)}
             />
 
-            {/* Drawer */}
             <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ duration: 0.25, ease: "easeOut" }}
-              className="fixed top-0 right-0 h-full w-[75%] max-w-[420px] bg-[#F5F0EA] z-[1000] shadow-2xl flex flex-col"
+              className="fixed top-0 right-0 bottom-0 w-[88vw] max-w-[420px] bg-[#F5F0EA] z-[999] shadow-2xl border-l border-[#1F2E23]/10"
+              initial={{ x: 40, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: 40, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 260, damping: 28 }}
             >
-              <div className="h-[72px] flex items-center justify-end px-6 border-b border-[#1F2E23]/10">
+              <div className="h-[72px] px-6 flex items-center justify-between border-b border-[#1F2E23]/10">
+                <div className="text-[11px] tracking-[0.28em] uppercase font-sans-clean font-semibold text-[#1F2E23]/70">
+                  Menu
+                </div>
                 <button
                   onClick={() => setMobileOpen(false)}
-                  className="w-10 h-10 flex items-center justify-center rounded-xl hover:bg-[#1F2E23]/5 transition"
+                  className="w-11 h-11 rounded-2xl border border-[#1F2E23]/10 bg-white"
+                  aria-label="Close menu"
                 >
-                  <X className="w-5 h-5 text-[#1F2E23]/70" />
+                  <X className="w-5 h-5 text-[#1F2E23]/70 mx-auto" />
                 </button>
               </div>
 
-              <div className="flex-1 overflow-y-auto px-6 py-6">
+              <div className="px-6 py-6 space-y-6">
                 {MOBILE_SECTIONS.map((section) => (
-                  <div key={section.label} className="mb-8">
-                    <div className="text-[9px] tracking-[0.34em] uppercase text-[#1F2E23]/45 font-sans-clean font-semibold mb-3">
+                  <div key={section.label}>
+                    <div className="text-[10px] tracking-[0.3em] uppercase font-sans-clean font-semibold text-[#1F2E23]/45 mb-3">
                       {section.label}
                     </div>
 
-                    <div className="flex flex-col gap-3">
-                      {section.items.map((item) => (
+                    <div className="space-y-2">
+                      {section.items.map((it) => (
                         <Link
-                          key={item.label}
-                          href={item.href}
-                          onClick={() => setMobileOpen(false)}
-                          className="text-[15px] font-sans-clean text-[#1F2E23]/75 hover:text-[#1F2E23] transition-colors"
+                          key={it.label}
+                          href={it.href}
+                          className="block px-4 py-3 rounded-2xl bg-white border border-[#1F2E23]/10 text-[#1F2E23]/75 hover:text-[#1F2E23] hover:bg-[#1F2E23]/5 transition"
                         >
-                          {item.label}
+                          <div className="flex items-center justify-between">
+                            <span className="text-[12px] font-sans-clean font-semibold">
+                              {it.label}
+                            </span>
+                            <ArrowUpRight className="w-4 h-4 text-[#1F2E23]/40" />
+                          </div>
                         </Link>
                       ))}
                     </div>
@@ -234,21 +240,22 @@ export default function SiteHeader({ currentPageName, heroUnderHeader = false })
               </div>
 
               <div className="p-6 border-t border-[#1F2E23]/10">
-                <Link
-                  href={ROUTES.contact}
-                  onClick={() => {
-                    onScheduleClick("Mobile CTA");
-                    setMobileOpen(false);
-                  }}
-                  aria-label="Schedule a consultation"
-                  className="block w-full text-center bg-[#1F2E23] text-[#F5F0EA] px-6 py-4 rounded-2xl text-[11px] tracking-[0.28em] uppercase font-sans-clean font-semibold"
-                >
-                  Schedule Consultation
-                </Link>
+                <Button asChild variant="primary" size="cta" className="w-full">
+                  <Link
+                    href={ROUTES.contact}
+                    onClick={() => {
+                      onScheduleClick("Mobile CTA");
+                      setMobileOpen(false);
+                    }}
+                    aria-label="Schedule a consultation"
+                  >
+                    Schedule Consultation
+                  </Link>
+                </Button>
               </div>
             </motion.div>
           </>
-        )}
+        ) : null}
       </AnimatePresence>
     </header>
   );

@@ -7,7 +7,7 @@ const MEDIA = {
 
 export default function PhilosophySection() {
   return (
-    <section className="bg-[#F5F0EA]">
+    <section>
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-16 md:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           

@@ -136,7 +136,7 @@ export default function Multifamily() {
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.98, opacity: 0 }}
                 transition={{ duration: 0.2 }}
-                className="relative w-full max-w-[1200px]"
+                className="relative w-full "
               >
                 <button
                   type="button"

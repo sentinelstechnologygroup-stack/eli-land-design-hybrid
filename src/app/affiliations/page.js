@@ -1,22 +1,12 @@
-"use client";
-
 // src/app/affiliations/page.js
+import AffiliationsClient from "./AffiliationsClient";
 
-import React, { useEffect, useState } from "react";
+export const metadata = {
+  title: "Affiliations",
+  description:
+    "Professional affiliations and recognition for ELI Land Design and our landscape architecture practice.",
+};
 
-export default function AffiliationsPage() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  // Prevent SSR from evaluating anything that depends on window/document
-  if (!mounted) return null;
-
-  return (
-    <main>
-      {/* Your existing Affiliations page JSX goes here */}
-    </main>
-  );
+export default function Page() {
+  return <AffiliationsClient />;
 }

@@ -5,7 +5,18 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-sans)"],
+        // Keep var(--font-sans) but provide a real fallback stack so fonts never drift
+        sans: [
+          "var(--font-sans)",
+          "Inter",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica",
+          "Arial",
+          "sans-serif",
+        ],
       },
 
       // ✅ ELI "Option 2" Modern Luxury Radius Tokens (single source of truth)
@@ -15,9 +26,9 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
 
         // ✅ ELI Standard
-        button: "0.75rem", // 12px
-        panel: "1.25rem",  // 20px
-        hero: "1.5rem",    // 24px
+        button: "9999px", // ✅ pill
+        panel: "1.25rem", // 20px
+        hero: "1.5rem", // 24px
       },
 
       colors: {

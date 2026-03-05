@@ -1,16 +1,21 @@
-"use client";
-
 // src/app/design/page.jsx
 "use client";
 
-import React from "react";
+import Head from "next/head";
+import Component from "@/components/pages/Design.jsx";
 
-// If your Design page lives here (common in your hybrid):
-import Design from "@/components/pages/Design.jsx";
-
-// If instead you already created a component like /src/components/design/DesignPage.jsx,
-// change the import to that file.
-
-export default function DesignRoutePage() {
-  return <Design />;
+export default function Page() {
+  return (
+    <>
+      <Head>
+        <title>Landscape Architecture Design Services | ELI Land Design</title>
+        <meta
+          name="description"
+          content="Landscape architecture design services for residential and commercial projects across Texas, including planning and site strategy."
+        />
+        <link rel="canonical" href="https://eli-land-design.com/design" />
+      </Head>
+      <Component />
+    </>
+  );
 }

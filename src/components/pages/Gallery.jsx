@@ -22,7 +22,7 @@ export default function Gallery() {
       }
       subtitle="Explore our portfolio organized by project type and design discipline."
     >
-      <section className="py-24 md:py-36 px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto">
+      <section className="py-24 md:py-36">
         <AnimatedSection>
           <GalleryIndex />
         </AnimatedSection>

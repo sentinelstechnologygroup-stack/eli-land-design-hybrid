@@ -1,10 +1,11 @@
-// src/components/home/MiddleCTA.jsx
+// src/components/shared/MiddleCTA.jsx
 import React from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
 import { ROUTES } from "@/components/utils/routes";
 import { trackCTA } from "@/lib/intelligence";
+import { Button } from "@/components/ui/button";
 
 export default function MiddleCTA({
   eyebrow = "Ready to start?",
@@ -14,14 +15,9 @@ export default function MiddleCTA({
   primaryHref = ROUTES.consultation,
   secondaryLabel = "View Projects",
   secondaryHref = ROUTES.projects,
-
-  // styling hooks
   tone = "forest", // "forest" | "sage"
 }) {
-  const toneClass =
-    tone === "sage"
-      ? "bg-[#6B7F5E]"
-      : "bg-[#545E55]"; // your existing bottom CTA vibe
+  const toneClass = tone === "sage" ? "bg-[#6B7F5E]" : "bg-[#545E55]";
 
   return (
     <section className={`border-t border-[#1F2E23]/10 ${toneClass}`}>
@@ -45,21 +41,25 @@ export default function MiddleCTA({
             ) : null}
 
             <div className="mt-10 flex flex-col sm:flex-row gap-5 justify-center">
-              <Link href={primaryHref}
-                onClick={() => trackCTA("schedule-consultation", "middle-cta")}
-                className="inline-flex items-center justify-center gap-3 bg-[#F5F0EA] text-[#1F2E23] px-10 py-4 text-[11px] tracking-[0.25em] uppercase font-sans-clean font-semibold rounded-full hover:bg-[#E8E0D4] transition-colors"
-              >
-                {primaryLabel}
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-
-              <Link href={secondaryHref}
-                onClick={() => trackCTA("view-projects", "middle-cta")}
-                className="inline-flex items-center justify-center gap-3 bg-[#6B7F5E] text-[#F5F0EA] px-10 py-4 text-[11px] tracking-[0.25em] uppercase font-sans-clean font-semibold rounded-full hover:bg-[#5E7152] transition-colors"
+              <Button asChild variant="cta" size="ctaLg">
+                <Link
+                  href={primaryHref}
+                  onClick={() => trackCTA("schedule-consultation", "middle-cta")}
                 >
-                {secondaryLabel}
-                <ArrowRight className="w-4 h-4" />
+                  {primaryLabel}
+                  <ArrowRight className="w-4 h-4" />
                 </Link>
+              </Button>
+
+              <Button asChild variant="ctaSecondary" size="ctaLg">
+                <Link
+                  href={secondaryHref}
+                  onClick={() => trackCTA("view-projects", "middle-cta")}
+                >
+                  {secondaryLabel}
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </Button>
             </div>
           </div>
         </AnimatedSection>

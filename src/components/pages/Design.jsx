@@ -153,7 +153,7 @@ export default function Design() {
       </section>
 
       {/* SUPPORT */}
-      <section className="bg-[#F5F0EA]">
+      <section>
         <div className="px-6 md:px-12 lg:px-20 py-16 md:py-24 max-w-[1440px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-14 items-start">
             <div className="md:col-span-5">

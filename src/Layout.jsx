@@ -1,35 +1,19 @@
 "use client";
 
 // src/Layout.jsx
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import SiteHeader from "./components/SiteHeader";
 import SiteFooter from "./components/SiteFooter";
 import { trackScrollDepth, trackPageView, startEngagementTimer } from "@/lib/intelligence";
 
-export default function Layout({ children, currentPageName }) {
+export default function Layout({ children, currentPageName = "unknown" }) {
   const pathname = usePathname();
   const HEADER_OFFSET = "pt-20 md:pt-24";
 
-  const HERO_ROUTE_MATCHERS = useMemo(
-    () => [
-      (p) => p === "/",
-      (p) => p === "/about",
-      (p) => p === "/contact",
-      (p) => p === "/reviews",
-      (p) => p === "/careers-at-eli",
-      (p) => p.startsWith("/design"),
-      (p) => p.startsWith("/construction"),
-      (p) => p.startsWith("/projects"),
-      (p) => p.startsWith("/portfolio"),
-      (p) => p.startsWith("/gallery"),
-    ],
-    []
-  );
-
   const [hasHeroClass, setHasHeroClass] = useState(false);
 
-  // Observe body class changes (PageShell sets eli-has-hero)
+  // ✅ Observe body class changes (PageShell sets eli-has-hero)
   useEffect(() => {
     if (typeof document === "undefined") return;
 
@@ -43,16 +27,13 @@ export default function Layout({ children, currentPageName }) {
     if (!Obs) return;
 
     const observer = new Obs(read);
-    observer.observe(document.body, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
+    observer.observe(document.body, { attributes: true, attributeFilter: ["class"] });
 
     return () => observer.disconnect();
   }, [pathname]);
 
-  const heroUnderHeader =
-    hasHeroClass || HERO_ROUTE_MATCHERS.some((fn) => fn(pathname));
+  // ✅ Hero mode is now contract-driven (PageShell), with a Home fallback
+  const heroUnderHeader = hasHeroClass || pathname === "/";
 
   // ✅ Hook #1: page view + dwell time
   useEffect(() => {
@@ -88,13 +69,8 @@ export default function Layout({ children, currentPageName }) {
 
   return (
     <div className="min-h-screen bg-[#F5F0EA]">
-      <SiteHeader
-        currentPageName={currentPageName}
-        heroUnderHeader={heroUnderHeader}
-      />
-
+      <SiteHeader currentPageName={currentPageName} heroUnderHeader={heroUnderHeader} />
       <div className={heroUnderHeader ? "" : HEADER_OFFSET}>{children}</div>
-
       <SiteFooter />
     </div>
   );

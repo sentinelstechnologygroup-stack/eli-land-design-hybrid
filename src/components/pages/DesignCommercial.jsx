@@ -202,7 +202,7 @@ export default function DesignCommercial() {
       </section>
 
       {/* SUPPORT */}
-      <section className="bg-[#F5F0EA]">
+      <section>
         <div className="px-6 md:px-12 lg:px-20 py-16 md:py-20 max-w-[1440px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-14 items-start">
             <div className="md:col-span-7">
@@ -217,7 +217,7 @@ export default function DesignCommercial() {
                   Commercial work is designed to hold up to schedule pressure, site constraints, and long-term
                   maintenance. The goal is simple: a design that looks sharp and builds clean.
                 </p>
-                <Link href={ROUTES.consultation}
+                <Link href={ROUTES.contact}
                   className="group inline-flex items-center gap-3 text-[#1F2E23] text-[12px] tracking-[0.2em] uppercase font-sans-clean font-semibold"
                 >
                   How we build
