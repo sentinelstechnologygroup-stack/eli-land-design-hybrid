@@ -1,4 +1,5 @@
-// src/app/design/residential/outdoor-living/page.jsx
+"use client";
+
 import { redirect } from "next/navigation";
 
 export default function Page() {

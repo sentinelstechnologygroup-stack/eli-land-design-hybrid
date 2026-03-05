@@ -1,11 +1,6 @@
-// src/app/gallery/[collection]/page.jsx
-import Component from "@/components/pages/GalleryCollection.jsx";
+"use client";
 
-export const metadata = {
-  title: "Gallery Collection",
-  description:
-    "Explore a gallery collection of ELI Land Design work organized by category and project type.",
-};
+import Component from "@/components/pages/GalleryCollection.jsx";
 
 export default function Page() {
   return <Component />;

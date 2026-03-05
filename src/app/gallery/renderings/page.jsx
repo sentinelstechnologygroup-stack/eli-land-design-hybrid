@@ -1,11 +1,6 @@
-// src/app/gallery/renderings/page.jsx
-import Component from "@/components/pages/Renderings.jsx";
+"use client";
 
-export const metadata = {
-  title: "Renderings",
-  description:
-    "Renderings and visual studies supporting landscape architecture and planning design decisions.",
-};
+import Component from "@/components/pages/Renderings.jsx";
 
 export default function Page() {
   return <Component />;

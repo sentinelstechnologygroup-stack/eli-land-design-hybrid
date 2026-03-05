@@ -1,11 +1,6 @@
-// src/app/design/residential/pool-outdoor-living/page.jsx
-import Component from "@/components/pages/ResidentialPoolOutdoorLiving.jsx";
+"use client";
 
-export const metadata = {
-  title: "Pool & Outdoor Living",
-  description:
-    "Outdoor living and pool environment design focused on comfort, circulation, and cohesive architectural integration.",
-};
+import Component from "@/components/pages/ResidentialPoolOutdoorLiving.jsx";
 
 export default function Page() {
   return <Component />;

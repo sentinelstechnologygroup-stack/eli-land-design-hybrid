@@ -1,11 +1,6 @@
-// src/app/design/residential/master-plans/page.jsx
-import Component from "@/components/pages/ResidentialMasterPlansGrading.jsx";
+"use client";
 
-export const metadata = {
-  title: "Master Plans & Grading",
-  description:
-    "Residential master planning and grading strategy to support site performance, flow, and buildable clarity.",
-};
+import Component from "@/components/pages/ResidentialMasterPlansGrading.jsx";
 
 export default function Page() {
   return <Component />;

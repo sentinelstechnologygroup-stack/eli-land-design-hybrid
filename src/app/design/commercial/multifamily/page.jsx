@@ -1,11 +1,6 @@
-// src/app/design/commercial/multifamily/page.jsx
-import Component from "@/components/pages/Multifamily.jsx";
+"use client";
 
-export const metadata = {
-  title: "Multifamily Landscape Architecture",
-  description:
-    "Multifamily landscape architecture emphasizing resident experience, amenities, circulation, and maintainability.",
-};
+import Component from "@/components/pages/Multifamily.jsx";
 
 export default function Page() {
   return <Component />;

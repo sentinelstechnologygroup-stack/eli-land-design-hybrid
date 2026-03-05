@@ -1,20 +1,12 @@
-"use client";
+// src/app/reviews/page.jsx
+import ReviewsClient from "./ReviewsClient";
 
-import Head from "next/head";
-import Component from "@/components/pages/Projects.jsx";
+export const metadata = {
+  title: "Client Reviews",
+  description:
+    "Read client reviews and testimonials for ELI Land Design. Landscape architecture and land planning in Texas.",
+};
 
 export default function Page() {
-  return (
-    <>
-      <Head>
-        <title>Projects | ELI Land Design</title>
-        <meta
-          name="description"
-          content="Explore ELI Land Design’s landscape architecture portfolio including residential, commercial, and planning projects across Texas."
-        />
-        <link rel="canonical" href="https://eli-land-design.com/projects" />
-      </Head>
-      <Component />
-    </>
-  );
+  return <ReviewsClient />;
 }
