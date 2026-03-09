@@ -7,41 +7,39 @@ import SiteHeader from "./components/SiteHeader";
 import SiteFooter from "./components/SiteFooter";
 import { trackScrollDepth, trackPageView, startEngagementTimer } from "@/lib/intelligence";
 
+const HEADER_HEIGHT = 72;
+
 export default function Layout({ children, currentPageName = "unknown" }) {
   const pathname = usePathname();
-  const HEADER_OFFSET = "pt-20 md:pt-24";
+  const [pageMode, setPageMode] = useState(pathname === "/" ? "hero" : "standard");
 
-  const [hasHeroClass, setHasHeroClass] = useState(false);
-
-  // ✅ Observe body class changes (PageShell sets eli-has-hero)
   useEffect(() => {
     if (typeof document === "undefined") return;
 
-    const read = () => {
-      setHasHeroClass(document.body.classList.contains("eli-has-hero"));
+    const readPageMode = () => {
+      const nextMode = document.body.dataset.eliPageMode;
+      setPageMode(nextMode || (pathname === "/" ? "hero" : "standard"));
     };
 
-    read();
+    readPageMode();
 
     const Obs = typeof MutationObserver !== "undefined" ? MutationObserver : null;
     if (!Obs) return;
 
-    const observer = new Obs(read);
-    observer.observe(document.body, { attributes: true, attributeFilter: ["class"] });
+    const observer = new Obs(readPageMode);
+    observer.observe(document.body, {
+      attributes: true,
+      attributeFilter: ["data-eli-page-mode"],
+    });
 
     return () => observer.disconnect();
   }, [pathname]);
 
-  // ✅ Hero mode is now contract-driven (PageShell), with a Home fallback
-  const heroUnderHeader = hasHeroClass || pathname === "/";
-
-  // ✅ Hook #1: page view + dwell time
   useEffect(() => {
     trackPageView(pathname);
     return startEngagementTimer(pathname);
   }, [pathname]);
 
-  // ✅ Hook #2: scroll depth (throttled by rAF)
   useEffect(() => {
     if (typeof window === "undefined") return;
 
@@ -59,7 +57,7 @@ export default function Layout({ children, currentPageName = "unknown" }) {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // initial ping
+    handleScroll();
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -67,10 +65,17 @@ export default function Layout({ children, currentPageName = "unknown" }) {
     };
   }, []);
 
+  const isHeroPage = pageMode === "hero";
+
   return (
-    <div className="min-h-screen bg-[#F5F0EA]">
-      <SiteHeader currentPageName={currentPageName} heroUnderHeader={heroUnderHeader} />
-      <div className={heroUnderHeader ? "" : HEADER_OFFSET}>{children}</div>
+    <div
+      className="min-h-screen bg-[#F5F0EA]"
+      style={{ "--eli-header-height": `${HEADER_HEIGHT}px` }}
+    >
+      <SiteHeader currentPageName={currentPageName} pageMode={pageMode} />
+      <div style={isHeroPage ? undefined : { paddingTop: "var(--eli-header-height)" }}>
+        {children}
+      </div>
       <SiteFooter />
     </div>
   );

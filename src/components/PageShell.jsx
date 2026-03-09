@@ -7,12 +7,9 @@ import BottomCTA from "./shared/BottomCTA";
 /**
  * PageShell
  * - Standard page wrapper
- * - Hero pages signal Layout/SiteHeader using body class "eli-has-hero"
- * - IMPORTANT: We infer hero mode if heroImage exists (prevents Contact/legacy pages from breaking overlay)
- *
- * Additions:
- * - heroExtras: optional slot rendered inside the hero area (used ONLY by Reviews right now)
- * - BottomCTA is owned here (single source of truth)
+ * - Owns the page mode contract through body dataset: hero | standard
+ * - Owns hero spacing under the fixed header
+ * - Owns the global CTA strip / Bottom CTA behavior
  */
 export default function PageShell({
   hero = false,
@@ -21,43 +18,32 @@ export default function PageShell({
   title,
   subtitle,
   children,
-
-  // CTA STRIP below hero
   showCtaStrip = true,
-
-  // ✅ Hero extras (optional)
   heroExtras = null,
-
-  // ✅ Bottom CTA control
   showBottomCta = true,
   bottomCtaProps = {},
 }) {
   const hasHero = Boolean(hero || heroImage);
 
   useEffect(() => {
-    // ✅ SSR-safe guard (even though this is a client component, keep it deterministic)
     if (typeof document === "undefined") return;
 
-    const cls = "eli-has-hero";
-    if (hasHero) document.body.classList.add(cls);
-    else document.body.classList.remove(cls);
+    document.body.dataset.eliPageMode = hasHero ? "hero" : "standard";
 
     return () => {
-      document.body.classList.remove(cls);
+      delete document.body.dataset.eliPageMode;
     };
   }, [hasHero]);
 
   return (
     <main className="bg-[#F5F0EA]">
-      {/* HERO */}
-      {hasHero && (
-        <section className="relative w-full h-[56vh] min-h-[460px] max-h-[740px] overflow-hidden">
-          {/* image */}
+      {hasHero ? (
+        <section className="relative isolate w-full min-h-[500px] h-[56vh] max-h-[740px] overflow-hidden">
           {heroImage ? (
             <img
               src={heroImage}
               alt={title || "ELI Land Design"}
-              className="absolute inset-0 w-full h-full object-cover object-center"
+              className="absolute inset-0 h-full w-full object-cover object-center"
               loading="eager"
               decoding="async"
             />
@@ -65,52 +51,46 @@ export default function PageShell({
             <div className="absolute inset-0 bg-[#1F2E23]" />
           )}
 
-          {/* overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-[#1F2E23]/35 via-[#1F2E23]/55 to-[#1F2E23]/75" />
 
-          {/* content */}
-          <div className="absolute inset-0">
-            <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 h-full">
-              <div className="h-full flex items-center">
-                <div className="w-full max-w-3xl -translate-y-8 md:-translate-y-10">
-                  {eyebrow && (
-                    <div className="text-[10px] tracking-[0.35em] uppercase font-sans-clean font-semibold text-white/75 mb-6">
+          <div className="relative z-[2] h-full">
+            <div className="mx-auto flex h-full max-w-[1440px] items-center px-6 pt-[calc(var(--eli-header-height)+1.75rem)] pb-14 md:px-12 md:pt-[calc(var(--eli-header-height)+2.25rem)] md:pb-16 lg:px-20">
+              <div className="w-full max-w-[70rem]">
+                <div className="max-w-[60rem]">
+                  {eyebrow ? (
+                    <div className="mb-6 text-[10px] font-sans-clean font-semibold uppercase tracking-[0.35em] text-white/75">
                       {eyebrow}
                     </div>
-                  )}
+                  ) : null}
 
-                  {title && (
-                    <h1 className="font-serif-display text-white text-5xl md:text-6xl font-light leading-[1.02]">
+                  {title ? (
+                    <h1 className="max-w-[18ch] font-serif-display text-[clamp(2.4rem,4.2vw,4.75rem)] font-light leading-[1.02] tracking-tight text-white [text-wrap:balance]">
                       {title}
                     </h1>
-                  )}
+                  ) : null}
 
-                  {subtitle && (
-                    <p className="mt-5 text-white/75 font-sans-clean text-sm md:text-base leading-[1.9] max-w-[72ch]">
+                  {subtitle ? (
+                    <p className="mt-5 max-w-[72ch] text-sm font-sans-clean leading-[1.9] text-white/75 md:text-base">
                       {subtitle}
                     </p>
-                  )}
+                  ) : null}
 
-                  {/* ✅ Reviews-only slot (or any page that needs it) */}
                   {heroExtras ? <div className="mt-8">{heroExtras}</div> : null}
                 </div>
               </div>
             </div>
           </div>
         </section>
-      )}
+      ) : null}
 
-      {/* CTA STRIP (global below hero) */}
       {hasHero && showCtaStrip ? (
         <div className="pt-2 md:pt-4">
           <CTAStrip />
         </div>
       ) : null}
 
-      {/* BODY */}
       <div>{children}</div>
 
-      {/* ✅ BOTTOM CTA (single source of truth) */}
       {showBottomCta ? <BottomCTA {...bottomCtaProps} /> : null}
       <div className="pt-2 md:pt-4" />
     </main>

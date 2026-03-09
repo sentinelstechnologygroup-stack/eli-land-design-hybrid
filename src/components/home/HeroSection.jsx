@@ -53,7 +53,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3, ease: [0.33, 1, 0.68, 1] }}
-              className="font-serif-display text-[#F5F0EA] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-[1.02] tracking-tight"
+              className="max-w-[16ch] font-serif-display text-[#F5F0EA] text-4xl sm:text-5xl md:text-6xl lg:text-[4.35rem] font-light leading-[1.02] tracking-tight [text-wrap:balance]"
             >
               Landscape architecture built for Texas
             </motion.h1>
