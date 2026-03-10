@@ -1,16 +1,10 @@
+// src/components/PageShell.jsx
 "use client";
 
 import React, { useEffect } from "react";
 import CTAStrip from "./shared/CTAStrip";
 import BottomCTA from "./shared/BottomCTA";
 
-/**
- * PageShell
- * - Standard page wrapper
- * - Owns the page mode contract through body dataset: hero | standard
- * - Owns hero spacing under the fixed header
- * - Owns the global CTA strip / Bottom CTA behavior
- */
 export default function PageShell({
   hero = false,
   heroImage,
@@ -31,46 +25,52 @@ export default function PageShell({
     document.body.dataset.eliPageMode = hasHero ? "hero" : "standard";
 
     return () => {
-      delete document.body.dataset.eliPageMode;
+      document.body.dataset.eliPageMode = "standard";
     };
   }, [hasHero]);
 
   return (
-    <main className="bg-[#F5F0EA]">
+    <div className="bg-[#F5F0EA]">
       {hasHero ? (
-        <section className="relative isolate w-full min-h-[500px] h-[56vh] max-h-[740px] overflow-hidden">
-          {heroImage ? (
-            <img
-              src={heroImage}
-              alt={title || "ELI Land Design"}
-              className="absolute inset-0 h-full w-full object-cover object-center"
-              loading="eager"
-              decoding="async"
-            />
-          ) : (
-            <div className="absolute inset-0 bg-[#1F2E23]" />
-          )}
+        <section className="relative w-full overflow-hidden">
+          <div className="relative h-[52vh] min-h-[440px] max-h-[700px]">
+            {heroImage ? (
+              <img
+                src={heroImage}
+                alt={title || "ELI Land Design"}
+                className="absolute inset-0 h-full w-full object-cover object-center"
+                loading="eager"
+                decoding="async"
+              />
+            ) : (
+              <div className="absolute inset-0 bg-[#1F2E23]" />
+            )}
 
-          <div className="absolute inset-0 bg-gradient-to-b from-[#1F2E23]/35 via-[#1F2E23]/55 to-[#1F2E23]/75" />
+            <div className="absolute inset-0 bg-[#102018]/54" />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#09110D]/60 via-[#102018]/28 to-[#102018]/72" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0F1B15]/28 via-transparent to-[#0F1B15]/12" />
+            <div className="absolute inset-x-0 bottom-0 h-[34%] bg-gradient-to-t from-[#102018]/84 to-transparent" />
 
-          <div className="relative z-[2] h-full">
-            <div className="mx-auto flex h-full max-w-[1440px] items-center px-6 pt-[calc(var(--eli-header-height)+1.75rem)] pb-14 md:px-12 md:pt-[calc(var(--eli-header-height)+2.25rem)] md:pb-16 lg:px-20">
-              <div className="w-full max-w-[70rem]">
-                <div className="max-w-[60rem]">
+            <div className="absolute inset-0">
+              <div className="mx-auto flex h-full max-w-[1440px] items-end px-6 pb-12 pt-[calc(var(--eli-header-height)+2rem)] md:px-12 md:pb-14 lg:px-20">
+                <div className="w-full max-w-[920px]">
                   {eyebrow ? (
-                    <div className="mb-6 text-[10px] font-sans-clean font-semibold uppercase tracking-[0.35em] text-white/75">
+                    <div className="mb-5 font-sans-clean text-[10px] font-semibold uppercase tracking-[0.34em] text-white/84">
                       {eyebrow}
                     </div>
                   ) : null}
 
                   {title ? (
-                    <h1 className="max-w-[18ch] font-serif-display text-[clamp(2.4rem,4.2vw,4.75rem)] font-light leading-[1.02] tracking-tight text-white [text-wrap:balance]">
+                    <h1
+                      className="max-w-[14ch] font-serif-display text-[clamp(2.5rem,5vw,5rem)] font-light leading-[0.96] text-white [text-shadow:0_2px_16px_rgba(0,0,0,0.34)]"
+                      style={{ textWrap: "balance" }}
+                    >
                       {title}
                     </h1>
                   ) : null}
 
                   {subtitle ? (
-                    <p className="mt-5 max-w-[72ch] text-sm font-sans-clean leading-[1.9] text-white/75 md:text-base">
+                    <p className="mt-5 max-w-[54rem] font-sans-clean text-sm leading-[1.72] text-white/90 md:text-[17px]">
                       {subtitle}
                     </p>
                   ) : null}
@@ -83,16 +83,11 @@ export default function PageShell({
         </section>
       ) : null}
 
-      {hasHero && showCtaStrip ? (
-        <div className="pt-2 md:pt-4">
-          <CTAStrip />
-        </div>
-      ) : null}
+      {hasHero && showCtaStrip ? <CTAStrip /> : null}
 
       <div>{children}</div>
 
-      {showBottomCta ? <BottomCTA {...bottomCtaProps} /> : null}
-      <div className="pt-2 md:pt-4" />
-    </main>
+      {!hasHero && showBottomCta ? <BottomCTA {...bottomCtaProps} /> : null}
+    </div>
   );
 }

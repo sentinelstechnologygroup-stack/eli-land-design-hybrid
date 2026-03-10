@@ -1,4 +1,6 @@
 // src/components/home/HeroSection.jsx
+"use client";
+
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -17,6 +19,13 @@ export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
+    document.body.dataset.eliPageMode = "hero";
+    return () => {
+      document.body.dataset.eliPageMode = "standard";
+    };
+  }, []);
+
+  useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % HERO_IMAGES.length);
     }, 6000);
@@ -24,7 +33,6 @@ export default function HeroSection() {
   }, []);
 
   return (
-    // ✅ FIX: shorter, consistent hero height
     <section className="relative w-full h-[56vh] min-h-[460px] max-h-[740px] overflow-hidden">
       <AnimatePresence mode="wait">
         <motion.div
@@ -38,58 +46,62 @@ export default function HeroSection() {
           <img
             src={HERO_IMAGES[currentSlide]}
             alt=""
-            className="absolute inset-0 w-full h-full object-cover object-center"
+            className="absolute inset-0 h-full w-full object-cover object-center"
             loading="eager"
             decoding="async"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#1F2E23]/40 to-[#1F2E23]/70" />
+
+          {/* Base dark wash */}
+          <div className="absolute inset-0 bg-[#102018]/48" />
+
+          {/* Strong top overlay so header/nav stays readable */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#09110D]/72 via-[#102018]/28 to-[#102018]/70" />
+
+          {/* Lateral shaping */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0F1B15]/28 via-transparent to-[#0F1B15]/10" />
+
+          {/* Bottom grounding */}
+          <div className="absolute inset-x-0 bottom-0 h-[34%] bg-gradient-to-t from-[#102018]/84 to-transparent" />
         </motion.div>
       </AnimatePresence>
 
-      <div className="absolute inset-0 flex items-end pb-16 md:pb-20 px-6 md:px-12 lg:px-20">
-        <div className="max-w-[1440px] mx-auto w-full">
+      <div className="absolute inset-0 flex items-end px-6 pb-16 md:px-12 md:pb-20 lg:px-20">
+        <div className="mx-auto w-full max-w-[1440px]">
           <div className="max-w-3xl">
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3, ease: [0.33, 1, 0.68, 1] }}
-              className="max-w-[16ch] font-serif-display text-[#F5F0EA] text-4xl sm:text-5xl md:text-6xl lg:text-[4.35rem] font-light leading-[1.02] tracking-tight [text-wrap:balance]"
+              className="max-w-[16ch] font-serif-display text-4xl font-light leading-[1.02] tracking-tight text-[#F5F0EA] sm:text-5xl md:text-6xl lg:text-[4.35rem] [text-wrap:balance] [text-shadow:0_2px_16px_rgba(0,0,0,0.32)]"
             >
-              Landscape architecture built for Texas
+              Landscape Architecture, Site Planning, and Construction Services
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.5, ease: [0.33, 1, 0.68, 1] }}
-              className="mt-6 text-[#F5F0EA]/80 font-sans-clean text-base md:text-lg max-w-xl"
+              className="mt-6 max-w-xl font-sans-clean text-base text-[#F5F0EA]/90 md:text-lg"
             >
               Site planning, grading design, and landscape construction for
               residential and commercial projects throughout The Woodlands and
               Houston.
             </motion.p>
 
-            {/* Pills — corrected to match global style */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.85, delay: 0.65, ease: [0.33, 1, 0.68, 1] }}
               className="mt-9"
             >
-              <div className="flex flex-col sm:flex-row gap-5 sm:items-center">
-                {/* Primary Light Pill */}
+              <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
                 <Link
                   href={ROUTES.projects}
                   onClick={() => trackCTA("view-projects", "home-hero")}
-                  className="inline-flex items-center justify-center gap-3 h-14 px-10 rounded-full
-                           bg-[#6B7F5E] text-[#F5F0EA]
-                           text-[11px] tracking-[0.22em] uppercase
-                           font-sans-clean font-semibold
-                           hover:bg-[#5C714F]
-                           transition-all duration-300"
+                  className="inline-flex h-14 items-center justify-center gap-3 rounded-full bg-[#6B7F5E] px-10 font-sans-clean text-[11px] font-semibold uppercase tracking-[0.22em] text-[#F5F0EA] transition-all duration-300 hover:bg-[#5C714F]"
                 >
                   View Projects
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
             </motion.div>
@@ -97,13 +109,12 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Slide dots */}
-      <div className="absolute bottom-8 left-6 md:left-12 lg:left-20 flex gap-2">
+      <div className="absolute bottom-8 left-6 flex gap-2 md:left-12 lg:left-20">
         {HERO_IMAGES.map((_, idx) => (
           <button
             key={idx}
             onClick={() => setCurrentSlide(idx)}
-            className={`w-8 h-px transition-all rounded-full ${
+            className={`h-px w-8 rounded-full transition-all ${
               idx === currentSlide ? "bg-[#F5F0EA]" : "bg-[#F5F0EA]/30"
             }`}
             aria-label={`Go to slide ${idx + 1}`}

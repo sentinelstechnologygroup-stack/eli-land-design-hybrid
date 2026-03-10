@@ -1,32 +1,31 @@
+// src/Layout.jsx
 "use client";
 
-// src/Layout.jsx
 import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import SiteHeader from "./components/SiteHeader";
 import SiteFooter from "./components/SiteFooter";
-import { trackScrollDepth, trackPageView, startEngagementTimer } from "@/lib/intelligence";
-
-const HEADER_HEIGHT = 72;
+import {
+  trackScrollDepth,
+  trackPageView,
+  startEngagementTimer,
+} from "@/lib/intelligence";
 
 export default function Layout({ children, currentPageName = "unknown" }) {
   const pathname = usePathname();
-  const [pageMode, setPageMode] = useState(pathname === "/" ? "hero" : "standard");
+  const [pageMode, setPageMode] = useState("standard");
 
   useEffect(() => {
     if (typeof document === "undefined") return;
 
-    const readPageMode = () => {
-      const nextMode = document.body.dataset.eliPageMode;
-      setPageMode(nextMode || (pathname === "/" ? "hero" : "standard"));
+    const readMode = () => {
+      const mode = document.body.dataset.eliPageMode || "standard";
+      setPageMode(mode);
     };
 
-    readPageMode();
+    readMode();
 
-    const Obs = typeof MutationObserver !== "undefined" ? MutationObserver : null;
-    if (!Obs) return;
-
-    const observer = new Obs(readPageMode);
+    const observer = new MutationObserver(readMode);
     observer.observe(document.body, {
       attributes: true,
       attributeFilter: ["data-eli-page-mode"],
@@ -65,17 +64,31 @@ export default function Layout({ children, currentPageName = "unknown" }) {
     };
   }, []);
 
-  const isHeroPage = pageMode === "hero";
-
   return (
     <div
       className="min-h-screen bg-[#F5F0EA]"
-      style={{ "--eli-header-height": `${HEADER_HEIGHT}px` }}
+      style={{ "--eli-header-height": "72px" }}
     >
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[2000] focus:rounded-lg focus:bg-[#1F2E23] focus:px-4 focus:py-2 focus:text-white"
+      >
+        Skip to content
+      </a>
+
       <SiteHeader currentPageName={currentPageName} pageMode={pageMode} />
-      <div style={isHeroPage ? undefined : { paddingTop: "var(--eli-header-height)" }}>
+
+      <main
+        id="main-content"
+        className="w-full"
+        style={{
+          paddingTop:
+            pageMode === "hero" ? "0px" : "var(--eli-header-height)",
+        }}
+      >
         {children}
-      </div>
+      </main>
+
       <SiteFooter />
     </div>
   );

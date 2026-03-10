@@ -17,7 +17,7 @@ export default function Gallery() {
         <>
           Project
           <br />
-          <span className="text-[#D4C5A9]">Gallery.</span>
+          Gallery.
         </>
       }
       subtitle="Explore our portfolio organized by project type and design discipline."

@@ -6,15 +6,16 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowUpRight, ChevronDown } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { NAV, ROUTES } from "./utils/routes";
 import { trackCTA, trackLeadIntent } from "@/lib/intelligence";
 
 /**
- * SiteHeader is layout-driven.
- * It receives pageMode from Layout and never infers hero state from routes.
+ * Stable header contract:
+ * - Home + hero pages overlap the header
+ * - Header is transparent on hero top, solid after scroll
+ * - Nav text is strong enough in BOTH states
  */
-export default function SiteHeader({ currentPageName, pageMode = "standard" }) {
+export default function SiteHeader({ currentPageName, heroUnderHeader = false }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState(null);
@@ -22,7 +23,7 @@ export default function SiteHeader({ currentPageName, pageMode = "standard" }) {
   const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 60);
+    const handleScroll = () => setScrolled(window.scrollY > 24);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -32,27 +33,35 @@ export default function SiteHeader({ currentPageName, pageMode = "standard" }) {
     setOpenMenu(null);
   }, [pathname]);
 
-  const heroMode = pageMode === "hero";
+  const isHome = pathname === "/";
+  const heroMode = Boolean(heroUnderHeader || isHome);
+  const heroTop = heroMode && !scrolled;
 
   const HEADER_CONTAINER = "max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20";
 
   const headerBase =
-    "fixed top-0 left-0 right-0 z-[1000] border-b transition-colors duration-300";
+    "fixed top-0 left-0 right-0 z-[1000] transition-[background-color,border-color,box-shadow] duration-300";
 
-  const headerChrome = heroMode && !scrolled
-    ? "border-transparent bg-transparent"
-    : "border-[#1F2E23]/10 bg-[#F5F0EA]/96 backdrop-blur-md";
+  const headerChrome = heroTop
+    ? "border-b border-white/10 bg-transparent shadow-none"
+    : "border-b border-[#1F2E23]/10 bg-[#F5F0EA]/98 shadow-[0_10px_28px_rgba(16,24,18,0.08)]";
 
-  const textColor = heroMode && !scrolled ? "text-white" : "text-[#1F2E23]";
-  const navText = heroMode && !scrolled
-    ? "text-white/82 hover:text-white"
-    : "text-[#1F2E23]/65 hover:text-[#1F2E23]";
+  const brandColor = heroTop ? "text-white" : "text-[#1F2E23]";
+  const heroShadow = heroTop ? "[text-shadow:0_1px_10px_rgba(0,0,0,0.55)]" : "";
 
-  const mobileToggleChrome = heroMode && !scrolled
-    ? "border-white/20 bg-white/10 backdrop-blur-md"
-    : "border-[#1F2E23]/10 bg-white/70";
+  // IMPORTANT: strong text in both states
+  const navTone = heroTop
+    ? "text-white hover:text-white"
+    : "text-[#1F2E23] hover:text-[#1F2E23]";
 
-  const mobileToggleIcon = heroMode && !scrolled ? "text-white" : "text-[#1F2E23]/70";
+  const navClass = `text-[11px] tracking-[0.28em] uppercase font-sans-clean font-semibold transition-colors ${navTone} ${heroShadow}`;
+  const navButtonClass = `inline-flex items-center gap-2 ${navClass}`;
+
+  const mobileToggleChrome = heroTop
+    ? "border-white/25 bg-white/10 backdrop-blur-md"
+    : "border-[#1F2E23]/10 bg-white";
+
+  const mobileToggleIcon = heroTop ? "text-white" : "text-[#1F2E23]";
 
   const MOBILE_SECTIONS = useMemo(() => {
     const design = NAV.find((n) => n.label === "Design");
@@ -69,19 +78,24 @@ export default function SiteHeader({ currentPageName, pageMode = "standard" }) {
   }, []);
 
   const onScheduleClick = (where) => {
-    trackCTA("Schedule Consultation", where, { page: currentPageName || "unknown" });
-    trackLeadIntent("contact_open", { source: where, page: currentPageName || "unknown" });
+    trackCTA("Schedule Consultation", where, {
+      page: currentPageName || "unknown",
+    });
+    trackLeadIntent("contact_open", {
+      source: where,
+      page: currentPageName || "unknown",
+    });
   };
 
   return (
     <header ref={headerRef} className={`${headerBase} ${headerChrome}`}>
-      <div className={`${HEADER_CONTAINER} flex h-[var(--eli-header-height)] items-center justify-between`}>
-        <Link href={ROUTES.home} className={`flex items-center gap-3 ${textColor}`}>
+      <div className={`${HEADER_CONTAINER} flex h-[72px] items-center justify-between`}>
+        <Link href={ROUTES.home} className={`flex items-center gap-3 ${brandColor} ${heroShadow}`}>
           <div className="leading-none">
             <div className="font-sans-clean text-[12px] font-semibold tracking-[0.28em]">
               ELI
             </div>
-            <div className="text-[9px] uppercase tracking-[0.28em] opacity-70">
+            <div className="text-[9px] uppercase tracking-[0.28em] opacity-85">
               Land Design
             </div>
           </div>
@@ -91,6 +105,7 @@ export default function SiteHeader({ currentPageName, pageMode = "standard" }) {
           {NAV.map((item) => {
             if (item.children?.length) {
               const open = openMenu === item.label;
+
               return (
                 <div
                   key={item.label}
@@ -98,12 +113,9 @@ export default function SiteHeader({ currentPageName, pageMode = "standard" }) {
                   onMouseEnter={() => setOpenMenu(item.label)}
                   onMouseLeave={() => setOpenMenu(null)}
                 >
-                  <button
-                    type="button"
-                    className={`inline-flex items-center gap-2 text-[11px] font-sans-clean font-semibold uppercase tracking-[0.28em] transition-colors ${navText}`}
-                  >
+                  <button type="button" className={navButtonClass}>
                     {item.label}
-                    <ChevronDown className="h-4 w-4 opacity-70" />
+                    <ChevronDown className="h-4 w-4 opacity-85" />
                   </button>
 
                   <AnimatePresence>
@@ -122,10 +134,10 @@ export default function SiteHeader({ currentPageName, pageMode = "standard" }) {
                               href={c.href}
                               className="flex items-center justify-between rounded-xl px-4 py-3 transition hover:bg-[#1F2E23]/5"
                             >
-                              <span className="font-sans-clean text-[12px] text-[#1F2E23]/75">
+                              <span className="font-sans-clean text-[12px] font-medium text-[#1F2E23]/88">
                                 {c.label}
                               </span>
-                              <ArrowUpRight className="h-4 w-4 text-[#1F2E23]/45" />
+                              <ArrowUpRight className="h-4 w-4 text-[#1F2E23]/55" />
                             </Link>
                           ))}
                         </div>
@@ -137,11 +149,7 @@ export default function SiteHeader({ currentPageName, pageMode = "standard" }) {
             }
 
             return (
-              <Link
-                key={item.label}
-                href={item.href}
-                className={`text-[11px] tracking-[0.28em] uppercase font-sans-clean font-semibold transition-colors ${navText}`}
-              >
+              <Link key={item.label} href={item.href} className={navClass}>
                 {item.label}
               </Link>
             );
@@ -149,25 +157,24 @@ export default function SiteHeader({ currentPageName, pageMode = "standard" }) {
         </nav>
 
         <div className="hidden lg:flex items-center">
-          <Button
-            asChild
-            variant={heroMode && !scrolled ? "frosted" : "primary"}
-            size="cta"
-            className={heroMode && !scrolled ? "ring-1 ring-white/25" : ""}
+          <Link
+            href={ROUTES.contact}
+            aria-label="Schedule a consultation"
+            onClick={() => onScheduleClick("Header CTA")}
+            className={`inline-flex h-11 items-center justify-center gap-2 rounded-full px-6 text-[13px] font-semibold transition ${
+              heroTop
+                ? "border border-white/35 bg-white/10 text-white backdrop-blur-md hover:bg-white/16"
+                : "border border-[#1F2E23]/14 bg-[#1F2E23] text-white shadow-[0_8px_24px_rgba(16,24,18,0.12)] hover:bg-[#2A3B2E]"
+            }`}
           >
-            <Link
-              href={ROUTES.contact}
-              aria-label="Schedule a consultation"
-              onClick={() => onScheduleClick("Header CTA")}
-            >
-              Schedule Consultation <ArrowUpRight className="h-4 w-4" />
-            </Link>
-          </Button>
+            <span>Schedule Consultation</span>
+            <ArrowUpRight className="h-4 w-4" />
+          </Link>
         </div>
 
         <button
           type="button"
-          className={`inline-flex h-11 w-11 items-center justify-center rounded-2xl border transition-colors lg:hidden ${mobileToggleChrome}`}
+          className={`inline-flex h-11 w-11 items-center justify-center rounded-2xl border lg:hidden ${mobileToggleChrome}`}
           onClick={() => setMobileOpen((v) => !v)}
           aria-label="Toggle menu"
         >
@@ -197,8 +204,8 @@ export default function SiteHeader({ currentPageName, pageMode = "standard" }) {
               exit={{ x: 40, opacity: 0 }}
               transition={{ type: "spring", stiffness: 260, damping: 28 }}
             >
-              <div className="flex h-[var(--eli-header-height)] items-center justify-between border-b border-[#1F2E23]/10 px-6">
-                <div className="text-[11px] font-sans-clean font-semibold uppercase tracking-[0.28em] text-[#1F2E23]/70">
+              <div className="flex h-[72px] items-center justify-between border-b border-[#1F2E23]/10 px-6">
+                <div className="font-sans-clean text-[11px] font-semibold uppercase tracking-[0.28em] text-[#1F2E23]/70">
                   Menu
                 </div>
                 <button
@@ -213,7 +220,7 @@ export default function SiteHeader({ currentPageName, pageMode = "standard" }) {
               <div className="space-y-6 px-6 py-6">
                 {MOBILE_SECTIONS.map((section) => (
                   <div key={section.label}>
-                    <div className="mb-3 text-[10px] font-sans-clean font-semibold uppercase tracking-[0.3em] text-[#1F2E23]/45">
+                    <div className="mb-3 font-sans-clean text-[10px] font-semibold uppercase tracking-[0.3em] text-[#1F2E23]/45">
                       {section.label}
                     </div>
 
@@ -222,13 +229,13 @@ export default function SiteHeader({ currentPageName, pageMode = "standard" }) {
                         <Link
                           key={it.label}
                           href={it.href}
-                          className="block rounded-2xl border border-[#1F2E23]/10 bg-white px-4 py-3 text-[#1F2E23]/75 transition hover:bg-[#1F2E23]/5 hover:text-[#1F2E23]"
+                          className="block rounded-2xl border border-[#1F2E23]/10 bg-white px-4 py-3 text-[#1F2E23]/88 transition hover:bg-[#1F2E23]/5 hover:text-[#1F2E23]"
                         >
                           <div className="flex items-center justify-between">
                             <span className="font-sans-clean text-[12px] font-semibold">
                               {it.label}
                             </span>
-                            <ArrowUpRight className="h-4 w-4 text-[#1F2E23]/40" />
+                            <ArrowUpRight className="h-4 w-4 text-[#1F2E23]/50" />
                           </div>
                         </Link>
                       ))}
@@ -238,18 +245,17 @@ export default function SiteHeader({ currentPageName, pageMode = "standard" }) {
               </div>
 
               <div className="border-t border-[#1F2E23]/10 p-6">
-                <Button asChild variant="primary" size="cta" className="w-full">
-                  <Link
-                    href={ROUTES.contact}
-                    onClick={() => {
-                      onScheduleClick("Mobile CTA");
-                      setMobileOpen(false);
-                    }}
-                    aria-label="Schedule a consultation"
-                  >
-                    Schedule Consultation
-                  </Link>
-                </Button>
+                <Link
+                  href={ROUTES.contact}
+                  onClick={() => {
+                    onScheduleClick("Mobile CTA");
+                    setMobileOpen(false);
+                  }}
+                  aria-label="Schedule a consultation"
+                  className="inline-flex h-11 w-full items-center justify-center rounded-full border border-[#1F2E23]/14 bg-[#1F2E23] px-6 text-[13px] font-semibold text-white transition hover:bg-[#2A3B2E]"
+                >
+                  Schedule Consultation
+                </Link>
               </div>
             </motion.div>
           </>
