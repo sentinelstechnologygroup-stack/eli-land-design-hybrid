@@ -10,11 +10,6 @@ import { Button } from "@/components/ui/button";
 import { NAV, ROUTES } from "./utils/routes";
 import { trackCTA, trackLeadIntent } from "@/lib/intelligence";
 
-/**
- * SiteHeader is "dumb":
- * - It does NOT decide hero/non-hero by route.
- * - Layout decides that and passes heroUnderHeader.
- */
 export default function SiteHeader({ currentPageName, heroUnderHeader = false }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -23,34 +18,31 @@ export default function SiteHeader({ currentPageName, heroUnderHeader = false })
   const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 60);
+    const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => {
     setMobileOpen(false);
     setOpenMenu(null);
   }, [pathname]);
 
   const heroMode = Boolean(heroUnderHeader);
-
+  const heroTop = heroMode && !scrolled;
   const HEADER_CONTAINER = "max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20";
 
   const headerBase =
-    "fixed top-0 left-0 right-0 z-[1000] transition-colors duration-300";
+    "fixed top-0 left-0 right-0 z-[1000] transition-[background-color,border-color,box-shadow] duration-300";
 
-  const headerBg =
-    heroMode && !scrolled
-      ? "bg-transparent"
-      : "bg-[#F5F0EA] border-b border-[#1F2E23]/10";
+  const headerChrome = heroTop
+    ? "border-b border-white/10 bg-transparent shadow-none"
+    : "border-b border-[#1F2E23]/10 bg-[#F5F0EA] shadow-[0_8px_20px_rgba(0,0,0,0.08)]";
 
-  const textColor = heroMode && !scrolled ? "text-white" : "text-[#1F2E23]";
-  const navText =
-    heroMode && !scrolled
-      ? "text-white/80 hover:text-white"
-      : "text-[#1F2E23]/65 hover:text-[#1F2E23]";
+  const textColor = heroTop ? "text-white" : "text-[#1F2E23]";
+  const navTone = heroTop
+    ? "text-white hover:text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.55)]"
+    : "text-[#1F2E23] hover:text-[#1F2E23]";
 
   const MOBILE_SECTIONS = useMemo(() => {
     const design = NAV.find((n) => n.label === "Design");
@@ -72,21 +64,15 @@ export default function SiteHeader({ currentPageName, heroUnderHeader = false })
   };
 
   return (
-    <header ref={headerRef} className={`${headerBase} ${headerBg}`}>
+    <header ref={headerRef} className={`${headerBase} ${headerChrome}`}>
       <div className={`${HEADER_CONTAINER} h-[72px] flex items-center justify-between`}>
-        {/* Brand */}
         <Link href={ROUTES.home} className={`flex items-center gap-3 ${textColor}`}>
           <div className="leading-none">
-            <div className="font-sans-clean font-semibold tracking-[0.28em] text-[12px]">
-              ELI
-            </div>
-            <div className="text-[9px] tracking-[0.28em] uppercase opacity-70">
-              Land Design
-            </div>
+            <div className="font-sans-clean font-semibold tracking-[0.28em] text-[12px]">ELI</div>
+            <div className="text-[9px] tracking-[0.28em] uppercase opacity-85">Land Design</div>
           </div>
         </Link>
 
-        {/* Desktop nav */}
         <nav className="hidden lg:flex items-center gap-8">
           {NAV.map((item) => {
             if (item.children?.length) {
@@ -100,10 +86,10 @@ export default function SiteHeader({ currentPageName, heroUnderHeader = false })
                 >
                   <button
                     type="button"
-                    className={`text-[11px] tracking-[0.28em] uppercase font-sans-clean font-semibold transition-colors inline-flex items-center gap-2 ${navText}`}
+                    className={`text-[11px] tracking-[0.28em] uppercase font-sans-clean font-semibold transition-colors inline-flex items-center gap-2 ${navTone}`}
                   >
                     {item.label}
-                    <ChevronDown className="w-4 h-4 opacity-70" />
+                    <ChevronDown className="w-4 h-4 opacity-85" />
                   </button>
 
                   <AnimatePresence>
@@ -122,10 +108,10 @@ export default function SiteHeader({ currentPageName, heroUnderHeader = false })
                               href={c.href}
                               className="flex items-center justify-between px-4 py-3 rounded-xl hover:bg-[#1F2E23]/5 transition"
                             >
-                              <span className="text-[12px] text-[#1F2E23]/75 font-sans-clean">
+                              <span className="text-[12px] text-[#1F2E23]/88 font-sans-clean font-medium">
                                 {c.label}
                               </span>
-                              <ArrowUpRight className="w-4 h-4 text-[#1F2E23]/45" />
+                              <ArrowUpRight className="w-4 h-4 text-[#1F2E23]/55" />
                             </Link>
                           ))}
                         </div>
@@ -140,20 +126,20 @@ export default function SiteHeader({ currentPageName, heroUnderHeader = false })
               <Link
                 key={item.label}
                 href={item.href}
-                className={`text-[11px] tracking-[0.28em] uppercase font-sans-clean font-semibold transition-colors ${navText}`}
+                className={`text-[11px] tracking-[0.28em] uppercase font-sans-clean font-semibold transition-colors ${navTone}`}
               >
                 {item.label}
               </Link>
             );
           })}
         </nav>
-        {/* Desktop CTA */}
+
         <div className="hidden lg:flex items-center">
           <Button
             asChild
-            variant={heroMode && !scrolled ? "frosted" : "primary"}
+            variant={heroTop ? "frosted" : "primary"}
             size="cta"
-            className={heroMode && !scrolled ? "ring-1 ring-white/25" : ""}
+            className={heroTop ? "ring-1 ring-white/30" : ""}
           >
             <Link
               href={ROUTES.contact}
@@ -165,22 +151,22 @@ export default function SiteHeader({ currentPageName, heroUnderHeader = false })
           </Button>
         </div>
 
-        {/* Mobile toggle */}
         <button
           type="button"
-          className="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-2xl border border-[#1F2E23]/10 bg-white/70"
+          className={`lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-2xl border ${
+            heroTop ? "border-white/25 bg-white/10 backdrop-blur-md" : "border-[#1F2E23]/10 bg-white"
+          }`}
           onClick={() => setMobileOpen((v) => !v)}
           aria-label="Toggle menu"
         >
           {mobileOpen ? (
-            <X className="w-5 h-5 text-[#1F2E23]/70" />
+            <X className={`w-5 h-5 ${heroTop ? "text-white" : "text-[#1F2E23]"}`} />
           ) : (
-            <Menu className="w-5 h-5 text-[#1F2E23]/70" />
+            <Menu className={`w-5 h-5 ${heroTop ? "text-white" : "text-[#1F2E23]"}`} />
           )}
         </button>
       </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen ? (
           <>
@@ -224,13 +210,13 @@ export default function SiteHeader({ currentPageName, heroUnderHeader = false })
                         <Link
                           key={it.label}
                           href={it.href}
-                          className="block px-4 py-3 rounded-2xl bg-white border border-[#1F2E23]/10 text-[#1F2E23]/75 hover:text-[#1F2E23] hover:bg-[#1F2E23]/5 transition"
+                          className="block px-4 py-3 rounded-2xl bg-white border border-[#1F2E23]/10 text-[#1F2E23]/88 hover:text-[#1F2E23] hover:bg-[#1F2E23]/5 transition"
                         >
                           <div className="flex items-center justify-between">
                             <span className="text-[12px] font-sans-clean font-semibold">
                               {it.label}
                             </span>
-                            <ArrowUpRight className="w-4 h-4 text-[#1F2E23]/40" />
+                            <ArrowUpRight className="w-4 h-4 text-[#1F2E23]/50" />
                           </div>
                         </Link>
                       ))}

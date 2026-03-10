@@ -1,70 +1,64 @@
 // src/components/shared/PageHero.jsx
 import React from "react";
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
-/**
- * PageHero — standardized full-bleed hero/banner that sits behind the fixed header.
- * ✅ Matches your existing tone: serif-display headline, clean sans subcopy, restrained overlay.
- */
+const HERO_TITLE_CLASS =
+  "max-w-[24ch] font-serif-display text-[2.6rem] sm:text-[3.1rem] md:text-[3.55rem] lg:text-[3.9rem] xl:text-[4.15rem] font-light leading-[0.98] tracking-[-0.02em] text-white [text-wrap:balance] [text-shadow:0_2px_16px_rgba(0,0,0,0.34)]";
+
 export default function PageHero({
   label,
   title,
   subtitle,
   image,
-  heightClass = "min-h-[80vh] md:min-h-[88vh]",
-  overlayClass = "bg-black/45",
+  heroExtras = null,
+  heightClass = "h-[56vh] min-h-[460px] max-h-[740px]",
   contentMax = "max-w-[1440px]",
-  align = "left", // "left" | "center"
-  ctaLabel,
-  ctaHref,
+  titleClassName = "",
+  subtitleClassName = "",
 }) {
-  const alignWrap =
-    align === "center" ? "items-center text-center" : "items-start text-left";
-
   return (
-    <section className={`relative w-full ${heightClass} overflow-hidden`}>
-      <div className="absolute inset-0">
+    <section className={`relative w-full overflow-hidden ${heightClass}`}>
+      {image ? (
         <img
           src={image}
           alt=""
-          className="h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover object-center"
           loading="eager"
+          decoding="async"
         />
-        <div className={`absolute inset-0 ${overlayClass}`} />
-      </div>
+      ) : (
+        <div className="absolute inset-0 bg-[#1F2E23]" />
+      )}
 
-      <div className={`${contentMax} mx-auto px-6 md:px-12 lg:px-20`}>
-        <div className={`relative pt-32 md:pt-40 pb-20 ${alignWrap}`}>
-          {label ? (
-            <div className="text-[10px] tracking-[0.3em] uppercase font-sans-clean font-semibold text-white/70 mb-8">
-              {label}
+      <div className="absolute inset-0 bg-[#102018]/48" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#09110D]/72 via-[#102018]/28 to-[#102018]/70" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0F1B15]/28 via-transparent to-[#0F1B15]/10" />
+      <div className="absolute inset-x-0 bottom-0 h-[34%] bg-gradient-to-t from-[#102018]/84 to-transparent" />
+
+      <div className="absolute inset-0">
+        <div className={`${contentMax} mx-auto h-full px-6 md:px-12 lg:px-20`}>
+          <div className="flex h-full items-end pb-12 md:pb-14">
+            <div className="w-full max-w-5xl">
+              {label ? (
+                <div className="mb-5 font-sans-clean text-[10px] font-semibold uppercase tracking-[0.34em] text-white/84">
+                  {label}
+                </div>
+              ) : null}
+
+              {title ? (
+                <h1 className={`${HERO_TITLE_CLASS} ${titleClassName}`.trim()}>{title}</h1>
+              ) : null}
+
+              {subtitle ? (
+                <p
+                  className={`mt-5 max-w-[54rem] font-sans-clean text-sm leading-[1.72] text-white/90 md:text-[17px] ${subtitleClassName}`.trim()}
+                >
+                  {subtitle}
+                </p>
+              ) : null}
+
+              {heroExtras ? <div className="mt-8">{heroExtras}</div> : null}
             </div>
-          ) : null}
-
-          {title ? (
-            <h1 className="font-serif-display text-white text-5xl md:text-7xl font-light tracking-tight leading-[1.02] max-w-[18ch]">
-              {title}
-            </h1>
-          ) : null}
-
-          {subtitle ? (
-            <p className="mt-8 text-white/80 font-sans-clean text-sm md:text-base leading-[1.8] max-w-[62ch]">
-              {subtitle}
-            </p>
-          ) : null}
-
-          {ctaLabel && ctaHref ? (
-            <div className="mt-12">
-              <Button asChild variant="ctaOutline" size="cta">
-                <Link href={ctaHref}>
-                  {ctaLabel}
-                  <ArrowUpRight className="w-3 h-3" />
-                </Link>
-              </Button>
-            </div>
-          ) : null}
+          </div>
         </div>
       </div>
     </section>

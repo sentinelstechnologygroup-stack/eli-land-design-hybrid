@@ -3,6 +3,7 @@ import React, { useMemo, useState } from "react";
 import { ExternalLink, Quote, Star } from "lucide-react";
 import PageShell from "../PageShell";
 import AnimatedSection from "../shared/AnimatedSection";
+import { Panel } from "@/components/ui/panel";
 import { Button } from "@/components/ui/button";
 import { REVIEW_SOURCES, getReviews } from "@/content/reviews";
 
@@ -21,7 +22,7 @@ export default function Reviews() {
       href={href}
       target="_blank"
       rel="noreferrer noopener"
-      className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-5 py-2.5 font-sans-clean text-[11px] font-semibold uppercase tracking-[0.22em] text-white transition-colors hover:border-white/35 hover:bg-white/15"
+      className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-5 py-2.5 text-[11px] font-sans-clean font-semibold uppercase tracking-[0.22em] text-white transition-colors hover:border-white/35 hover:bg-white/15"
     >
       <span>{name}</span>
       <ExternalLink className="h-4 w-4 opacity-80" />
@@ -29,9 +30,9 @@ export default function Reviews() {
   );
 
   const ReviewCard = ({ quote, name, meta }) => (
-    <div className="flex h-[420px] flex-col rounded-[28px] border border-white/10 bg-[#1B2D23] p-8 text-white shadow-[0_18px_60px_rgba(7,16,12,0.22)] md:p-9">
+    <Panel className="flex h-[420px] flex-col rounded-2xl border border-white/10 bg-[#203328] p-8 text-white shadow-[0_12px_30px_rgba(0,0,0,0.12)] md:p-9">
       <div className="flex items-center justify-between gap-4">
-        <div className="flex items-center gap-1.5 text-[#D7B65A]">
+        <div className="flex items-center gap-1.5 text-[#D7B55C]">
           {[...Array(5)].map((_, i) => (
             <Star key={i} className="h-4 w-4 fill-current" />
           ))}
@@ -42,23 +43,21 @@ export default function Reviews() {
       </div>
 
       <div className="mt-6 flex min-h-0 flex-1 items-start gap-3 overflow-hidden">
-        <Quote className="mt-1 h-5 w-5 flex-shrink-0 text-white/65" />
-        <div className="min-h-0 flex-1 overflow-y-auto pr-2 custom-review-scroll">
-          <p className="font-sans-clean text-sm leading-[1.9] text-white/88 md:text-[15px]">
+        <Quote className="mt-1 h-5 w-5 flex-shrink-0 text-[#D7B55C]" />
+        <div className="review-scroll min-h-0 flex-1 overflow-y-auto pr-2">
+          <p className="font-sans-clean text-sm leading-[1.85] text-white/88 md:text-[15px]">
             {quote}
           </p>
         </div>
       </div>
 
       <div className="mt-8 border-t border-white/10 pt-6">
-        <div className="font-sans-clean text-sm font-semibold text-white">
-          {String(name).toUpperCase()}
-        </div>
+        <div className="font-sans-clean text-sm font-semibold text-white">{String(name).toUpperCase()}</div>
         <div className="mt-2 font-sans-clean text-[11px] uppercase tracking-[0.14em] text-white/55">
           {meta}
         </div>
       </div>
-    </div>
+    </Panel>
   );
 
   return (
@@ -83,7 +82,7 @@ export default function Reviews() {
               <div className="mb-6 font-sans-clean text-[10px] font-semibold uppercase tracking-[0.25em] text-[#1F2E23]/45">
                 Client Reviews
               </div>
-              <h2 className="font-serif-display text-3xl font-light tracking-tight leading-[1.12] text-[#1F2E23] md:text-4xl">
+              <h2 className="font-serif-display text-3xl font-light leading-[1.12] tracking-tight text-[#1F2E23] md:text-4xl">
                 Trusted for disciplined planning and results that hold up over time.
               </h2>
               <p className="mt-5 max-w-[78ch] font-sans-clean text-sm leading-[1.9] text-[#1F2E23]/65 md:text-base">
@@ -100,7 +99,7 @@ export default function Reviews() {
             ))}
           </div>
 
-          {hasMore ? (
+          {hasMore && (
             <div className="mt-12 flex justify-center">
               <Button
                 type="button"
@@ -111,7 +110,7 @@ export default function Reviews() {
                 Load More Reviews
               </Button>
             </div>
-          ) : null}
+          )}
         </div>
       </section>
     </PageShell>
