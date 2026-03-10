@@ -3,7 +3,6 @@ import React, { useMemo, useState } from "react";
 import { ExternalLink, Quote, Star } from "lucide-react";
 import PageShell from "../PageShell";
 import AnimatedSection from "../shared/AnimatedSection";
-import { Panel } from "@/components/ui/panel";
 import { Button } from "@/components/ui/button";
 import { REVIEW_SOURCES, getReviews } from "@/content/reviews";
 
@@ -13,8 +12,6 @@ const MEDIA = {
 
 export default function Reviews() {
   const [visibleCount, setVisibleCount] = useState(9);
-
-  // ✅ derived (deduped) list from content file
   const REVIEWS = useMemo(() => getReviews(), []);
   const visibleReviews = REVIEWS.slice(0, visibleCount);
   const hasMore = visibleCount < REVIEWS.length;
@@ -24,42 +21,44 @@ export default function Reviews() {
       href={href}
       target="_blank"
       rel="noreferrer noopener"
-      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/25 bg-white/10 text-white text-[11px] tracking-[0.22em] uppercase font-sans-clean font-semibold hover:bg-white/15 hover:border-white/35 transition-colors"
+      className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-5 py-2.5 font-sans-clean text-[11px] font-semibold uppercase tracking-[0.22em] text-white transition-colors hover:border-white/35 hover:bg-white/15"
     >
       <span>{name}</span>
-      <ExternalLink className="w-4 h-4 opacity-80" />
+      <ExternalLink className="h-4 w-4 opacity-80" />
     </a>
   );
 
   const ReviewCard = ({ quote, name, meta }) => (
-    <Panel className="border border-[#1F2E23]/10 bg-[#F8F4ED] p-8 md:p-9">
+    <div className="flex h-[420px] flex-col rounded-[28px] border border-white/10 bg-[#1B2D23] p-8 text-white shadow-[0_18px_60px_rgba(7,16,12,0.22)] md:p-9">
       <div className="flex items-center justify-between gap-4">
-        <div className="flex items-center gap-1.5 text-[#545E55]">
+        <div className="flex items-center gap-1.5 text-[#D7B65A]">
           {[...Array(5)].map((_, i) => (
-            <Star key={i} className="w-4 h-4" />
+            <Star key={i} className="h-4 w-4 fill-current" />
           ))}
         </div>
-        <div className="text-[10px] tracking-[0.25em] uppercase text-[#1F2E23]/45 font-sans-clean font-semibold">
+        <div className="font-sans-clean text-[10px] font-semibold uppercase tracking-[0.25em] text-white/55">
           Client Review
         </div>
       </div>
 
-      <div className="mt-6 flex items-start gap-3">
-        <Quote className="w-5 h-5 text-[#545E55] flex-shrink-0 mt-1" />
-        <p className="text-[#1F2E23]/75 font-sans-clean text-sm md:text-[15px] leading-[1.9]">
-          {quote}
-        </p>
+      <div className="mt-6 flex min-h-0 flex-1 items-start gap-3 overflow-hidden">
+        <Quote className="mt-1 h-5 w-5 flex-shrink-0 text-white/65" />
+        <div className="min-h-0 flex-1 overflow-y-auto pr-2 custom-review-scroll">
+          <p className="font-sans-clean text-sm leading-[1.9] text-white/88 md:text-[15px]">
+            {quote}
+          </p>
+        </div>
       </div>
 
-      <div className="mt-8 pt-6 border-t border-[#1F2E23]/10">
-        <div className="text-[#1F2E23] font-sans-clean text-sm font-semibold">
+      <div className="mt-8 border-t border-white/10 pt-6">
+        <div className="font-sans-clean text-sm font-semibold text-white">
           {String(name).toUpperCase()}
         </div>
-        <div className="mt-2 text-[#1F2E23]/55 font-sans-clean text-[11px] tracking-[0.14em] uppercase">
+        <div className="mt-2 font-sans-clean text-[11px] uppercase tracking-[0.14em] text-white/55">
           {meta}
         </div>
       </div>
-    </Panel>
+    </div>
   );
 
   return (
@@ -69,7 +68,6 @@ export default function Reviews() {
       eyebrow="Reviews"
       title="Reviews & Client Feedback"
       subtitle="Disciplined planning. Clear deliverables. Professional execution. Explore feedback and updates across our profiles."
-      // ✅ pills are now inside the hero (and ONLY this page uses them)
       heroExtras={
         <div className="flex flex-wrap items-center gap-3">
           {REVIEW_SOURCES.map((s) => (
@@ -78,25 +76,23 @@ export default function Reviews() {
         </div>
       }
     >
-      {/* INTRO + GRID */}
-      <section className="py-14 md:py-18 px-6 md:px-12 lg:px-20 bg-[#F5F0EA]">
-        <div className="max-w-[1440px] mx-auto">
+      <section className="bg-[#F5F0EA] px-6 py-14 md:px-12 md:py-18 lg:px-20">
+        <div className="mx-auto max-w-[1440px]">
           <AnimatedSection>
             <div className="max-w-3xl">
-              <div className="text-[10px] tracking-[0.25em] uppercase text-[#1F2E23]/45 font-sans-clean font-semibold mb-6">
+              <div className="mb-6 font-sans-clean text-[10px] font-semibold uppercase tracking-[0.25em] text-[#1F2E23]/45">
                 Client Reviews
               </div>
-              <h2 className="font-serif-display text-[#1F2E23] text-3xl md:text-4xl font-light tracking-tight leading-[1.12]">
-                Trusted for disciplined planning and results that hold up over
-                time.
+              <h2 className="font-serif-display text-3xl font-light tracking-tight leading-[1.12] text-[#1F2E23] md:text-4xl">
+                Trusted for disciplined planning and results that hold up over time.
               </h2>
-              <p className="mt-5 text-[#1F2E23]/65 font-sans-clean text-sm md:text-base leading-[1.9] max-w-[78ch]">
+              <p className="mt-5 max-w-[78ch] font-sans-clean text-sm leading-[1.9] text-[#1F2E23]/65 md:text-base">
                 Below are selected reviews.
               </p>
             </div>
           </AnimatedSection>
 
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
             {visibleReviews.map((r, idx) => (
               <AnimatedSection key={`${r.name}-${idx}`}>
                 <ReviewCard {...r} />
@@ -104,20 +100,18 @@ export default function Reviews() {
             ))}
           </div>
 
-          {hasMore && (
+          {hasMore ? (
             <div className="mt-12 flex justify-center">
               <Button
                 type="button"
                 variant="eli"
-                onClick={() =>
-                  setVisibleCount((n) => Math.min(n + 9, REVIEWS.length))
-                }
-                className="px-12 py-4 h-auto"
+                onClick={() => setVisibleCount((n) => Math.min(n + 9, REVIEWS.length))}
+                className="h-auto px-12 py-4"
               >
                 Load More Reviews
               </Button>
             </div>
-          )}
+          ) : null}
         </div>
       </section>
     </PageShell>

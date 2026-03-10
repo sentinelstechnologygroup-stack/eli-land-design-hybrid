@@ -1,44 +1,47 @@
-// src/Layout.jsx
 "use client";
 
+// src/Layout.jsx
 import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import SiteHeader from "./components/SiteHeader";
 import SiteFooter from "./components/SiteFooter";
-import {
-  trackScrollDepth,
-  trackPageView,
-  startEngagementTimer,
-} from "@/lib/intelligence";
+import { trackScrollDepth, trackPageView, startEngagementTimer } from "@/lib/intelligence";
 
 export default function Layout({ children, currentPageName = "unknown" }) {
   const pathname = usePathname();
-  const [pageMode, setPageMode] = useState("standard");
+  const HEADER_OFFSET = "pt-20 md:pt-24";
 
+  const [hasHeroClass, setHasHeroClass] = useState(false);
+
+  // ✅ Observe body class changes (PageShell sets eli-has-hero)
   useEffect(() => {
     if (typeof document === "undefined") return;
 
-    const readMode = () => {
-      const mode = document.body.dataset.eliPageMode || "standard";
-      setPageMode(mode);
+    const read = () => {
+      setHasHeroClass(document.body.classList.contains("eli-has-hero"));
     };
 
-    readMode();
+    read();
 
-    const observer = new MutationObserver(readMode);
-    observer.observe(document.body, {
-      attributes: true,
-      attributeFilter: ["data-eli-page-mode"],
-    });
+    const Obs = typeof MutationObserver !== "undefined" ? MutationObserver : null;
+    if (!Obs) return;
+
+    const observer = new Obs(read);
+    observer.observe(document.body, { attributes: true, attributeFilter: ["class"] });
 
     return () => observer.disconnect();
   }, [pathname]);
 
+  // ✅ Hero mode is now contract-driven (PageShell), with a Home fallback
+  const heroUnderHeader = hasHeroClass || pathname === "/";
+
+  // ✅ Hook #1: page view + dwell time
   useEffect(() => {
     trackPageView(pathname);
     return startEngagementTimer(pathname);
   }, [pathname]);
 
+  // ✅ Hook #2: scroll depth (throttled by rAF)
   useEffect(() => {
     if (typeof window === "undefined") return;
 
@@ -56,7 +59,7 @@ export default function Layout({ children, currentPageName = "unknown" }) {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
+    handleScroll(); // initial ping
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -65,30 +68,9 @@ export default function Layout({ children, currentPageName = "unknown" }) {
   }, []);
 
   return (
-    <div
-      className="min-h-screen bg-[#F5F0EA]"
-      style={{ "--eli-header-height": "72px" }}
-    >
-      <a
-        href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[2000] focus:rounded-lg focus:bg-[#1F2E23] focus:px-4 focus:py-2 focus:text-white"
-      >
-        Skip to content
-      </a>
-
-      <SiteHeader currentPageName={currentPageName} pageMode={pageMode} />
-
-      <main
-        id="main-content"
-        className="w-full"
-        style={{
-          paddingTop:
-            pageMode === "hero" ? "0px" : "var(--eli-header-height)",
-        }}
-      >
-        {children}
-      </main>
-
+    <div className="min-h-screen bg-[#F5F0EA]">
+      <SiteHeader currentPageName={currentPageName} heroUnderHeader={heroUnderHeader} />
+      <div className={heroUnderHeader ? "" : HEADER_OFFSET}>{children}</div>
       <SiteFooter />
     </div>
   );

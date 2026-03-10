@@ -1,4 +1,4 @@
-// src/components/pages/Projects.jsx
+// src/pages/Projects.jsx
 import React, { useMemo, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Award, MapPin } from "lucide-react";
@@ -61,7 +61,7 @@ export default function Projects() {
         <>
           Featured
           <br />
-          Projects.
+          <span className="text-[#D4C5A9]">Projects.</span>
         </>
       }
       subtitle="Explore a curated view of our work across residential, commercial, and construction coordination."

@@ -146,7 +146,7 @@ export default function About() {
     <PageShell
       hero
       heroImage={MEDIA.hero}
-      eyebrow="E.L.I. Land Design"
+      eyebrow="About E.L.I. Land Design"
       title="Landscape Architecture & Construction Services in Texas"
       subtitle="Licensed landscape architects and construction specialists serving residential and commercial clients throughout The Woodlands, Houston, and surrounding markets since 1997."
     >
