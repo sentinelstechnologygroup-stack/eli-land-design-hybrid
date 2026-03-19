@@ -137,7 +137,7 @@ export default function Design() {
                         {hub.meta.map((m) => (
                           <span
                             key={m}
-                            className="text-[10px] tracking-[0.22em] uppercase font-sans-clean font-semibold text-white/75 border border-white/20 px-3 py-1 rounded-full"
+                            className="text-[10px] tracking-[0.22em] uppercase font-sans-clean font-semibold text-white/75 border border-white/20 px-3 py-1 rounded-none"
                           >
                             {m}
                           </span>

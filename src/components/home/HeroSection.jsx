@@ -60,14 +60,14 @@ export default function HeroSection() {
       <div className="absolute inset-0 flex items-end px-6 pb-16 md:px-12 md:pb-20 lg:px-20">
         <div className="mx-auto w-full max-w-[1440px]">
           <div className="max-w-5xl">
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.3, ease: [0.33, 1, 0.68, 1] }}
-              className="max-w-[24ch] font-serif-display text-[2.6rem] font-light leading-[0.98] tracking-[-0.02em] text-[#F5F0EA] sm:text-[3.1rem] md:text-[3.55rem] lg:text-[3.9rem] xl:text-[4.15rem] [text-wrap:balance] [text-shadow:0_2px_16px_rgba(0,0,0,0.34)]"
-            >
-              Landscape Architecture, Site Planning, and Construction Services
-            </motion.h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.3, ease: [0.33, 1, 0.68, 1] }}
+            className="max-w-[20ch] sm:max-w-[25ch] md:max-w-[30ch] lg:max-w-[35ch] xl:max-w-[40ch] font-serif-display text-[2.6rem] font-light leading-[0.96] tracking-[-0.028em] text-[#F5F0EA] sm:text-[3.1rem] md:text-[3.5rem] lg:text-[3.85rem] xl:text-[4.15rem] [text-wrap:balance] [text-shadow:0_2px_16px_rgba(0,0,0,0.34)]"
+          >
+            Landscape Architecture, Site Planning, and Construction Services
+          </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -90,7 +90,7 @@ export default function HeroSection() {
                 <Link
                   href={ROUTES.projects}
                   onClick={() => trackCTA("view-projects", "home-hero")}
-                  className="inline-flex h-14 items-center justify-center gap-3 rounded-full bg-[#6B7F5E] px-10 font-sans-clean text-[11px] font-semibold uppercase tracking-[0.22em] text-[#F5F0EA] transition-all duration-300 hover:bg-[#5C714F]"
+                  className="inline-flex h-14 items-center justify-center gap-3 rounded-none bg-[#6B7F5E] px-10 font-sans-clean text-[11px] font-semibold uppercase tracking-[0.22em] text-[#F5F0EA] transition-all duration-300 hover:bg-[#5C714F]"
                 >
                   View Projects
                   <ArrowRight className="h-4 w-4" />
@@ -106,7 +106,7 @@ export default function HeroSection() {
           <button
             key={idx}
             onClick={() => setCurrentSlide(idx)}
-            className={`h-px w-8 rounded-full transition-all ${
+            className={`h-px w-8 rounded-none transition-all ${
               idx === currentSlide ? "bg-[#F5F0EA]" : "bg-[#F5F0EA]/30"
             }`}
             aria-label={`Go to slide ${idx + 1}`}

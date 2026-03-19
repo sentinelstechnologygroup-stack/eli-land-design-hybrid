@@ -73,9 +73,11 @@ export default function HeroBanner({
         </motion.div>
       </AnimatePresence>
 
-      <div className={`absolute inset-0 flex items-end px-6 pb-16 md:px-12 md:pb-20 lg:px-20 ${bodyClassName}`}>
+      <div
+        className={`absolute inset-0 flex items-end px-6 pb-16 md:px-12 md:pb-20 lg:px-20 ${bodyClassName}`}
+      >
         <div className="mx-auto w-full max-w-[1440px]">
-          <div className="max-w-4xl">
+          <div className="max-w-5xl">
             {eyebrow ? (
               <div className="mb-6 font-sans-clean text-[10px] font-semibold uppercase tracking-[0.34em] text-white/82 [text-shadow:0_1px_8px_rgba(0,0,0,0.35)]">
                 {eyebrow}
@@ -88,7 +90,7 @@ export default function HeroBanner({
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.95, delay: 0.2, ease: [0.33, 1, 0.68, 1] }}
                 className={[
-                  "max-w-[24ch] font-serif-display text-[2.6rem] font-light leading-[0.98] tracking-[-0.02em] text-[#F5F0EA] sm:text-[3.1rem] md:text-[3.6rem] lg:text-[3.9rem] xl:text-[4.15rem] [text-wrap:balance] [text-shadow:0_2px_16px_rgba(0,0,0,0.34)]",
+                  "max-w-[20ch] sm:max-w-[20ch] md:max-w-[18ch] lg:max-w-[16ch] xl:max-w-[15ch] font-serif-display text-[2.6rem] font-light leading-[0.96] tracking-[-0.028em] text-[#F5F0EA] sm:text-[3.1rem] md:text-[3.5rem] lg:text-[3.85rem] xl:text-[4.15rem] [text-wrap:balance] [text-shadow:0_2px_16px_rgba(0,0,0,0.34)]",
                   titleClassName,
                 ].join(" ")}
               >
@@ -102,7 +104,7 @@ export default function HeroBanner({
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.85, delay: 0.35, ease: [0.33, 1, 0.68, 1] }}
                 className={[
-                  "mt-5 max-w-[58rem] font-sans-clean text-sm leading-[1.72] text-[#F5F0EA]/90 md:text-[17px] [text-shadow:0_1px_12px_rgba(0,0,0,0.26)]",
+                  "mt-6 max-w-[58rem] font-sans-clean text-sm leading-[1.72] text-[#F5F0EA]/90 md:text-[17px] [text-shadow:0_1px_12px_rgba(0,0,0,0.26)]",
                   subtitleClassName,
                 ].join(" ")}
               >
@@ -132,7 +134,9 @@ export default function HeroBanner({
             <button
               key={idx}
               onClick={() => setCurrentSlide(idx)}
-              className={`h-px w-8 rounded-full transition-all ${idx === currentSlide ? "bg-[#F5F0EA]" : "bg-[#F5F0EA]/30"}`}
+              className={`h-px w-8 rounded-none transition-all ${
+                idx === currentSlide ? "bg-[#F5F0EA]" : "bg-[#F5F0EA]/30"
+              }`}
               aria-label={`Go to slide ${idx + 1}`}
             />
           ))}

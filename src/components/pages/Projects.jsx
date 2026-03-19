@@ -77,7 +77,7 @@ export default function Projects() {
                   key={cat}
                   onClick={() => setActive(cat)}
                   className={[
-                    "px-4 py-2 rounded-full border text-[11px] tracking-[0.22em] uppercase font-sans-clean",
+                    "px-4 py-2 rounded-none border text-[11px] tracking-[0.22em] uppercase font-sans-clean",
                     isActive
                       ? "border-[#1F2E23]/20 bg-[#1F2E23] text-[#F5F0EA]"
                       : "border-[#1F2E23]/15 bg-white/60 text-[#1F2E23] hover:bg-white",

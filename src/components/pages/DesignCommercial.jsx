@@ -119,7 +119,7 @@ export default function DesignCommercial() {
             {TAGS.map((t) => (
               <span
                 key={t}
-                className="text-[10px] tracking-[0.22em] uppercase font-sans-clean font-semibold text-[#1F2E23]/55 border border-[#1F2E23]/15 bg-white/50 px-3 py-1 rounded-full"
+                className="text-[10px] tracking-[0.22em] uppercase font-sans-clean font-semibold text-[#1F2E23]/55 border border-[#1F2E23]/15 bg-white/50 px-3 py-1 rounded-none"
               >
                 {t}
               </span>
@@ -173,7 +173,7 @@ export default function DesignCommercial() {
 
                     {/* ✅ UPDATED PILL: more contrast, still translucent */}
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="px-7 py-3 rounded-full border border-white/35 bg-black/35 backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
+                      <div className="px-7 py-3 rounded-none border border-white/35 bg-black/35 backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
                         <span className="text-[10px] tracking-[0.28em] uppercase font-sans-clean font-semibold text-white">
                           {c.title}
                         </span>

@@ -179,7 +179,7 @@ export default function DesignCommercialType() {
                   key={item}
                   className="text-[#1F2E23]/60 font-sans-clean text-sm flex items-start gap-3"
                 >
-                  <span className="w-1.5 h-1.5 bg-[#6B7F5E] rounded-full mt-2 flex-shrink-0"></span>
+                  <span className="w-1.5 h-1.5 bg-[#6B7F5E] rounded-none mt-2 flex-shrink-0"></span>
                   {item}
                 </li>
               ))}
@@ -196,7 +196,7 @@ export default function DesignCommercialType() {
                   key={item}
                   className="text-[#1F2E23]/60 font-sans-clean text-sm flex items-start gap-3"
                 >
-                  <span className="w-1.5 h-1.5 bg-[#6B7F5E] rounded-full mt-2 flex-shrink-0"></span>
+                  <span className="w-1.5 h-1.5 bg-[#6B7F5E] rounded-none mt-2 flex-shrink-0"></span>
                   {item}
                 </li>
               ))}

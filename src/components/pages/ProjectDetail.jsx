@@ -141,7 +141,7 @@ export default function ProjectDetail() {
                         key={service}
                         className="text-[#1F2E23]/60 font-sans-clean text-sm flex items-center gap-2"
                       >
-                        <span className="w-1 h-1 bg-[#6B7F5E] rounded-full" />
+                        <span className="w-1 h-1 bg-[#6B7F5E] rounded-none" />
                         {service}
                       </li>
                     ))}

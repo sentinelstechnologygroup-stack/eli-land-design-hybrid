@@ -144,7 +144,7 @@ export default function Construction() {
       </div>
 
       {/* SHARED BOTTOM CTA */}
-
+      <BottomCTA />
     </PageShell>
   );
 }

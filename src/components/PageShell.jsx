@@ -1,4 +1,5 @@
 "use client";
+// src/components/PageShell.jsx
 
 import React, { useEffect } from "react";
 import CTAStrip from "./shared/CTAStrip";

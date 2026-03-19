@@ -37,7 +37,7 @@ export default function CTASection() {
             <div className="mt-10 flex flex-col sm:flex-row gap-5">
               {/* Primary Light Pill */}
               <Link href={ROUTES.consultation}
-                className="inline-flex items-center justify-center gap-3 h-14 px-10 rounded-full
+                className="inline-flex items-center justify-center gap-3 h-14 px-10 rounded-none
                            bg-[#F5F0EA] text-[#1F2E23]
                            text-[11px] tracking-[0.22em] uppercase
                            font-sans-clean font-semibold
@@ -50,7 +50,7 @@ export default function CTASection() {
 
               {/* Secondary Green Pill */}
               <Link href={ROUTES.projects}
-                className="inline-flex items-center justify-center gap-3 h-14 px-10 rounded-full
+                className="inline-flex items-center justify-center gap-3 h-14 px-10 rounded-none
                            bg-[#6B7F5E] text-[#F5F0EA]
                            text-[11px] tracking-[0.22em] uppercase
                            font-sans-clean font-semibold

@@ -123,7 +123,7 @@ export default function DesignResidential() {
                               key={item}
                               className="text-white/75 font-sans-clean text-sm flex items-center gap-2"
                             >
-                              <span className="w-1 h-1 bg-white/70 rounded-full" />
+                              <span className="w-1 h-1 bg-white/70 rounded-none" />
                               {item}
                             </li>
                           ))}

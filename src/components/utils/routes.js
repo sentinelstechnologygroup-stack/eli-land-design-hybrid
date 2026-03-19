@@ -4,7 +4,6 @@ export const ROUTES = {
   about: "/about",
 
   contact: "/contact",
-  // schedule consultation anchors to the form section
   consultation: "/contact#contact-form",
 
   reviews: "/reviews",
@@ -44,19 +43,7 @@ export const ROUTES = {
 export const NAV = [
   { label: "Home", href: ROUTES.home },
   { label: "About", href: ROUTES.about },
-
-  {
-    label: "Design",
-    href: ROUTES.design,
-    children: [
-      { label: "Overview", href: ROUTES.design },
-      { label: "Commercial", href: ROUTES.designCommercial },
-      { label: "Residential", href: ROUTES.designResidential },
-    ],
-  },
-
   { label: "Construction", href: ROUTES.construction },
-
   {
     label: "Projects",
     href: ROUTES.projects,
@@ -65,16 +52,7 @@ export const NAV = [
       { label: "Gallery", href: ROUTES.gallery },
     ],
   },
-
-  {
-    label: "Contact",
-    href: ROUTES.contact,
-    children: [
-      { label: "Schedule Consultation", href: ROUTES.consultation },
-      { label: "Careers", href: ROUTES.careers },
-      { label: "Reviews", href: ROUTES.reviews },
-    ],
-  },
+  { label: "Reviews", href: ROUTES.reviews },
 ];
 
 export function createProjectUrl(slug) {

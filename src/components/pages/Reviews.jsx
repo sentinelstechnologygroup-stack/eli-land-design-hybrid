@@ -6,6 +6,7 @@ import AnimatedSection from "../shared/AnimatedSection";
 import { Panel } from "@/components/ui/panel";
 import { Button } from "@/components/ui/button";
 import { REVIEW_SOURCES, getReviews } from "@/content/reviews";
+import BottomCTA from "../shared/BottomCTA";
 
 const MEDIA = {
   hero: "/images/contact/reviews/hero.jpg",
@@ -22,7 +23,7 @@ export default function Reviews() {
       href={href}
       target="_blank"
       rel="noreferrer noopener"
-      className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-5 py-2.5 text-[11px] font-sans-clean font-semibold uppercase tracking-[0.22em] text-white transition-colors hover:border-white/35 hover:bg-white/15"
+      className="inline-flex items-center gap-2 rounded-none border border-white/25 bg-white/10 px-5 py-2.5 text-[11px] font-sans-clean font-semibold uppercase tracking-[0.22em] text-white transition-colors hover:border-white/35 hover:bg-white/15"
     >
       <span>{name}</span>
       <ExternalLink className="h-4 w-4 opacity-80" />
@@ -113,6 +114,10 @@ export default function Reviews() {
           )}
         </div>
       </section>
+
+      {/* SHARED BOTTOM CTA */}
+      <BottomCTA />
+
     </PageShell>
   );
 }

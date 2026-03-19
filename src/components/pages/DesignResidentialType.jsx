@@ -145,7 +145,7 @@ export default function DesignResidentialType() {
             <ul className="space-y-3">
               {content.whatWeDeliver.map((item) => (
                 <li key={item} className="text-[#1F2E23]/60 font-sans-clean text-sm flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-[#6B7F5E] rounded-full mt-2 flex-shrink-0" />
+                  <span className="w-1.5 h-1.5 bg-[#6B7F5E] rounded-none mt-2 flex-shrink-0" />
                   {item}
                 </li>
               ))}
@@ -157,7 +157,7 @@ export default function DesignResidentialType() {
             <ul className="space-y-3">
               {content.idealFor.map((item) => (
                 <li key={item} className="text-[#1F2E23]/60 font-sans-clean text-sm flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-[#6B7F5E] rounded-full mt-2 flex-shrink-0" />
+                  <span className="w-1.5 h-1.5 bg-[#6B7F5E] rounded-none mt-2 flex-shrink-0" />
                   {item}
                 </li>
               ))}

@@ -114,7 +114,7 @@ export default function CareersAtELI() {
                         key={`${o.title}-b-${i}`}
                         className="flex items-start gap-3 text-sm text-[#1F2E23]/70 font-sans-clean"
                       >
-                        <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#1F2E23]/35 shrink-0" />
+                        <span className="mt-[7px] w-1.5 h-1.5 rounded-none bg-[#1F2E23]/35 shrink-0" />
                         <span>{item}</span>
                       </li>
                     ))}

@@ -190,12 +190,12 @@ export default function TestimonialsSection() {
                     type="button"
                     onClick={() => jumpTo(i)}
                     aria-label={`Go to testimonial ${i + 1}`}
-                    className="relative h-2 w-10 rounded-full bg-[#1F2E23]/15 overflow-hidden transition-opacity hover:opacity-90"
+                    className="relative h-2 w-10 rounded-none bg-[#1F2E23]/15 overflow-hidden transition-opacity hover:opacity-90"
                   >
                     {/* inactive state keeps subtle bar; active state fills */}
                     {isActive && (
                       <div
-                        className="absolute inset-y-0 left-0 bg-[#1F2E23] rounded-full"
+                        className="absolute inset-y-0 left-0 bg-[#1F2E23] rounded-none"
                         style={{ width: `${Math.max(0, Math.min(1, progress)) * 100}%` }}
                       />
                     )}

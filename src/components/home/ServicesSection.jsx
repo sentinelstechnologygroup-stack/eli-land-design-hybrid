@@ -70,7 +70,7 @@ export default function ServicesSection() {
                       {service.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="text-[10px] tracking-[0.15em] uppercase text-[#F5F0EA]/100 font-sans-clean px-3 py-1 border border-[#F5F0EA]/100 rounded-full"
+                          className="text-[10px] tracking-[0.15em] uppercase text-[#F5F0EA]/100 font-sans-clean px-3 py-1 border border-[#F5F0EA]/100 rounded-none"
                         >
                           {tag}
                         </span>

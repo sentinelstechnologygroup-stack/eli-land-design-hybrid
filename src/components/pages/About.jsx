@@ -321,6 +321,7 @@ export default function About() {
       </section>
 
       {/* SHARED BOTTOM CTA */}
+      <BottomCTA />
 
     </PageShell>
   );
