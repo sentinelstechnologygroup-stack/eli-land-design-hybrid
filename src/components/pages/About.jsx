@@ -1,17 +1,10 @@
 // src/pages/About.jsx
 import React from "react";
-import Link from "next/link";
-import { ArrowRight, Award, Users, MapPin } from "lucide-react";
+import { Award, Users, MapPin } from "lucide-react";
 import PageShell from "../PageShell";
 import AnimatedSection from "../shared/AnimatedSection";
-import { ROUTES } from "@/components/utils/routes";
-import { Button } from "@/components/ui/button";
 import { Panel } from "@/components/ui/panel";
 import BottomCTA from "@/components/shared/BottomCTA";
-
-// =============================
-// Easy-to-edit Config Blocks
-// =============================
 
 const MEDIA = {
   hero: "/images/about/hero.jpg",
@@ -59,85 +52,72 @@ const APPROACH = [
   },
 ];
 
+const HISTORY = [
+  "E.L.I. land design was founded in 1997 by Chris K. Eiseman with a single truck, a hard work ethic, and a love for the outdoors. He realized he wanted to set his business apart from the everyday landscape company, so he turned to the school of Landscape Architecture at Texas A&M University.",
+  "With the knowledge of both design and construction, E.L.I. land design can utilize these skills to provide our clients with an all-encompassing design from conceptual site planning to placing site furnishings. E.L.I. land design is licensed in Texas and our project experience in design and construction ranges from parks and recreation facilities to high-end resort design.",
+  "To this day, that founding spirit of craftsmanship remains a hallmark of our firm, supporting collaboration and innovation. The team that has joined Chris continues to seek a higher purpose for our work—creating outdoor spaces where clients and nature come together in harmony.",
+];
+
+const TIMELINE = [
+  {
+    year: "1997",
+    label: "Founded by Chris K. Eiseman",
+  },
+  {
+    year: "2002",
+    label: "Chris graduates from Texas A&M",
+  },
+  {
+    year: "2012",
+    label: "Matt Louderback joins as RLA",
+  },
+  {
+    year: "Today",
+    label: "24+ years of excellence",
+  },
+];
+
 const TEAM = [
   {
-    label: "Principal",
+    label: "Founder & Lead Designer",
     name: "Chris K. Eiseman",
     suffix: "RLA",
-    credentials: [],
     image: MEDIA.chris,
-    email: "chris@elilanddesign.com",
-    bio: [
-      "Chris grew up in northern California then moved to Texas where his family decided to call home. As the son of a master carpenter and a florist, his childhood was always surrounded by plants and construction, and not much has changed.",
-      "Chris began his career in the landscape field at the age of 10 by cutting grass and gardening within the local community. Those early years provided great educational experience teaching him the importance of quality work as well as many lessons in customer service.",
-      "Chris founded E.L.I. land design in the spring of 1997 at the age of 20 and quickly realized that he wanted to set his business apart from the everyday landscape company. To do so he turned to Texas A&M's College of Architecture. In 2002, Chris graduated with a bachelor’s degree in Landscape Architecture and since then has been designing and building landscapes for commercial and residential clients in the Houston area.",
-      "Today, Chris is married to his college sweetheart Katie. They have settled down in Montgomery with their two dogs. They love to cook, travel, and enjoy the outdoors. Chris is an avid outdoorsman, practitioner of Brazilian Jiu Jitsu, and an instrument rated pilot.",
-      "He is a licensed landscape architect in the state of Texas and holds a Texas Irrigators license. He is known for his honesty and quality craftsmanship. Very rarely do you have someone who not only can design a site but can do the construction as well (and sometimes both simultaneously).",
-      "Whether working on a large scale multi-acre facility or small private garden, working with plants remains Chris’s most passionate aspect of landscape architecture. The ELI website is a good sampling of his work but he is always looking for a new challenge—feel free to contact Chris directly to discuss your upcoming project.",
-    ],
+    bio:
+      "Chris founded E.L.I. land design in 1997 and graduated from Texas A&M's College of Architecture in 2002. With over 24 years of experience, he brings both design artistry and construction expertise to every project.",
   },
   {
     label: "Landscape Architect",
     name: "Matt Louderback",
     suffix: "RLA",
-    credentials: [],
     image: MEDIA.matt,
-    email: null,
-    bio: [
-      "Matt Louderback joined E.L.I. land design in 2012 after graduating from Texas A&M University. Matt’s childhood was spent growing up in Colorado where he developed a love for the outdoors and the natural environment.",
-      "Upon moving to Texas, Matt developed a passion for art and graphite drawing. He enjoys being able to create something out of nothing. Those two passions led him to pursue a degree in Landscape Architecture at Texas A&M.",
-      "Matt is a registered Landscape Architect and is involved with the design, construction documentation, and renderings at E.L.I. land design.",
-    ],
+    bio:
+      "Matt joined E.L.I. in 2012 after graduating from Texas A&M University. A registered Landscape Architect, Matt is involved with design, construction documentation, and renderings.",
   },
 ];
 
-function CredentialsLine({ suffix, credentials }) {
-  const list = [
-    suffix ? suffix : null,
-    ...(Array.isArray(credentials) ? credentials : []),
-  ].filter(Boolean);
-
-  if (!list.length) return null;
-
+function TeamCard({ person }) {
   return (
-    <div className="text-[11px] tracking-[0.22em] uppercase text-[#1F2E23]/45 font-sans-clean font-semibold mt-2">
-      {list.join(" • ")}
-    </div>
-  );
-}
-
-function LeaderText({ person }) {
-  return (
-    <div className="flex flex-col justify-start h-full">
-      <div className="text-[9px] tracking-[0.3em] uppercase text-[#1F2E23]/40 font-sans-clean font-semibold mb-4">
-        {person.label}
-      </div>
-
-      <h3 className="font-serif-display text-[#1F2E23] text-3xl md:text-4xl font-light">
-        {person.name}
-      </h3>
-
-      <CredentialsLine suffix={person.suffix} credentials={person.credentials} />
-
-      <div className="w-14 h-px bg-[#1F2E23]/80 my-7"></div>
-
-      <div className="space-y-5 text-[#1F2E23]/70 font-sans-clean text-[15px] leading-[1.75]">
-        {person.bio.map((para, i) => (
-          <p key={i}>{para}</p>
-        ))}
-      </div>
-
-      {person.email ? (
-        <div className="mt-7">
-          <a
-            href={`mailto:${person.email}`}
-            className="text-[#1F2E23]/65 font-sans-clean text-sm underline underline-offset-4 hover:text-[#1F2E23] transition-colors"
-          >
-            {person.email}
-          </a>
+    <Panel className="overflow-hidden border border-[#1F2E23]/10 bg-white shadow-none rounded-none">
+      <img
+        src={person.image}
+        alt={`${person.name}, ${person.suffix}`}
+        className="w-full aspect-[4/3] object-cover"
+        loading="lazy"
+        decoding="async"
+      />
+      <div className="p-5 md:p-6">
+        <h3 className="font-sans-clean text-[24px] leading-tight text-[#1F2E23]">
+          {person.name}, {person.suffix}
+        </h3>
+        <div className="mt-2 text-[12px] tracking-[0.04em] text-[#D86F3D] font-sans-clean font-semibold">
+          {person.label}
         </div>
-      ) : null}
-    </div>
+        <p className="mt-4 text-[#1F2E23]/70 font-sans-clean text-[14px] leading-[1.75]">
+          {person.bio}
+        </p>
+      </div>
+    </Panel>
   );
 }
 
@@ -151,68 +131,64 @@ export default function About() {
       subtitle="Licensed landscape architects and construction specialists serving residential and commercial clients throughout The Woodlands, Houston, and surrounding markets since 1997."
     >
       {/* Authority Statement */}
-        <section className="py-10 px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-start">
-            
-            {/* LEFT COLUMN */}
-            <div className="space-y-10">
-              <AnimatedSection>
-                <h2 className="font-serif-display text-[#1F2E23] text-4xl md:text-5xl font-light leading-[1.05]">
-                  Technical site planning.
-                  <br />
-                  Quality construction.
-                </h2>
-                <div className="w-16 h-px bg-[#1F2E23] mt-6"></div>
-              </AnimatedSection>
+      <section className="py-10 px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-start">
+          <div className="space-y-10">
+            <AnimatedSection>
+              <h2 className="font-serif-display text-[#1F2E23] text-4xl md:text-5xl font-light leading-[1.05]">
+                Technical site planning.
+                <br />
+                Quality construction.
+              </h2>
+              <div className="w-16 h-px bg-[#1F2E23] mt-6"></div>
+            </AnimatedSection>
 
-              {/* ✅ Rounded Image Panel */}
-              <AnimatedSection delay={0.15}>
-                <Panel className="shadow-sm border border-[#1F2E23]/10">
-                  <img
-                    src={MEDIA.authority}
-                    alt="Landscape design planning and construction documentation"
-                    className="w-full aspect-[4/3] object-cover"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </Panel>
-              </AnimatedSection>
-            </div>
-
-            {/* RIGHT COLUMN */}
-            <div className="space-y-6">
-              <AnimatedSection delay={0.2}>
-                <p className="text-[#1F2E23]/70 font-sans-clean text-base leading-[1.75]">
-                  E.L.I. Land Design was established in 1997 by Chris K. Eiseman, a
-                  licensed Texas landscape architect with expertise in residential
-                  estate design, commercial site planning, and landscape
-                  construction. The firm provides comprehensive services from
-                  initial site analysis through final installation, with in-house
-                  design and construction capabilities.
-                </p>
-              </AnimatedSection>
-
-              <AnimatedSection delay={0.3}>
-                <p className="text-[#1F2E23]/70 font-sans-clean text-base leading-[1.75]">
-                  Project types include private estates, custom residential
-                  properties, multifamily communities, office parks, retail
-                  centers, and municipal landscapes. Services include master
-                  planning, grading and drainage design, construction
-                  documentation, irrigation design, planting plans, and design-build
-                  installation.
-                </p>
-              </AnimatedSection>
-
-              <AnimatedSection delay={0.4}>
-                <p className="text-[#1F2E23]/70 font-sans-clean text-base leading-[1.75]">
-                  The firm specializes in technically challenging sites—poor
-                  drainage, steep slopes, tight budgets, and coordination with
-                  civil engineers, architects, and general contractors.
-                </p>
-              </AnimatedSection>
-            </div>
+            <AnimatedSection delay={0.15}>
+              <Panel className="shadow-sm border border-[#1F2E23]/10 rounded-none overflow-hidden">
+                <img
+                  src={MEDIA.authority}
+                  alt="Landscape design planning and construction documentation"
+                  className="w-full aspect-[4/3] object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </Panel>
+            </AnimatedSection>
           </div>
-        </section>
+
+          <div className="space-y-6">
+            <AnimatedSection delay={0.2}>
+              <p className="text-[#1F2E23]/70 font-sans-clean text-base leading-[1.75]">
+                E.L.I. Land Design was established in 1997 by Chris K. Eiseman, a
+                licensed Texas landscape architect with expertise in residential
+                estate design, commercial site planning, and landscape
+                construction. The firm provides comprehensive services from
+                initial site analysis through final installation, with in-house
+                design and construction capabilities.
+              </p>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.3}>
+              <p className="text-[#1F2E23]/70 font-sans-clean text-base leading-[1.75]">
+                Project types include private estates, custom residential
+                properties, multifamily communities, office parks, retail
+                centers, and municipal landscapes. Services include master
+                planning, grading and drainage design, construction
+                documentation, irrigation design, planting plans, and design-build
+                installation.
+              </p>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.4}>
+              <p className="text-[#1F2E23]/70 font-sans-clean text-base leading-[1.75]">
+                The firm specializes in technically challenging sites—poor
+                drainage, steep slopes, tight budgets, and coordination with
+                civil engineers, architects, and general contractors.
+              </p>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
 
       {/* Experience Stats */}
       <section className="py-10 px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto border-t border-[#1F2E23]/10">
@@ -238,7 +214,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Approach (Color Band) */}
+      {/* Approach */}
       <section className="border-t border-[#1F2E23]/10">
         <div className="bg-[#1F2E23]">
           <div className="py-10 px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto">
@@ -275,54 +251,63 @@ export default function About() {
         </div>
       </section>
 
-      {/* Leadership */}
-      <section className="py-10 px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto border-t border-[#1F2E23]/10">
+      {/* History */}
+      <section className="py-14 px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto border-t border-[#1F2E23]/10">
         <AnimatedSection>
-          <h2 className="font-serif-display text-[#1F2E23] text-4xl md:text-5xl font-light mb-20">
-            Leadership
-          </h2>
+          <div className="max-w-[1120px] mx-auto">
+            <h2 className="font-serif-display text-[#1F2E23] text-4xl md:text-5xl font-light">
+              History
+            </h2>
+            <div className="w-14 h-px bg-[#D86F3D] mt-4 mb-10"></div>
+
+            <div className="space-y-6 max-w-[1040px]">
+              {HISTORY.map((paragraph, idx) => (
+                <p
+                  key={idx}
+                  className="text-[#1F2E23]/70 font-sans-clean text-[15px] leading-[1.8]"
+                >
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+
+            <div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-10 text-center">
+              {TIMELINE.map((item) => (
+                <div key={item.year}>
+                  <div className="font-sans-clean text-[30px] md:text-[34px] font-semibold leading-none text-[#D86F3D]">
+                    {item.year}
+                  </div>
+                  <div className="mt-4 text-[#1F2E23]/55 font-sans-clean text-[12px] leading-[1.6]">
+                    {item.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </AnimatedSection>
+      </section>
+
+      {/* Our Team */}
+      <section className="py-14 px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto">
+        <AnimatedSection>
+          <div className="text-center">
+            <h2 className="font-serif-display text-[#1F2E23] text-4xl md:text-5xl font-light">
+              Our Team
+            </h2>
+            <div className="w-14 h-px bg-[#D86F3D] mt-4 mx-auto"></div>
+          </div>
         </AnimatedSection>
 
-        <div className="space-y-24">
-          {TEAM.map((p, idx) => {
-            const reverse = idx % 2 === 1;
-
-            return (
-              <div
-                key={p.name}
-                className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-start"
-              >
-                {/* IMAGE COLUMN */}
-                <AnimatedSection
-                  className={reverse ? "order-1 md:order-2" : "order-1 md:order-1"}
-                >
-                  <Panel className="border border-[#1F2E23]/10 bg-[#F8F4ED]">
-                    <img
-                      src={p.image}
-                      alt={`${p.name}${p.suffix ? `, ${p.suffix}` : ""}`}
-                      className="w-full aspect-[4/3] md:aspect-[1/1] object-cover"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </Panel>
-                </AnimatedSection>
-
-                {/* TEXT COLUMN */}
-                <AnimatedSection
-                  delay={0.15}
-                  className={reverse ? "order-2 md:order-1" : "order-2 md:order-2"}
-                >
-                  <LeaderText person={p} />
-                </AnimatedSection>
-              </div>
-            );
-          })}
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[1120px] mx-auto">
+          {TEAM.map((person, idx) => (
+            <AnimatedSection key={person.name} delay={idx * 0.1}>
+              <TeamCard person={person} />
+            </AnimatedSection>
+          ))}
         </div>
       </section>
 
-      {/* SHARED BOTTOM CTA */}
       <BottomCTA />
-
     </PageShell>
   );
 }

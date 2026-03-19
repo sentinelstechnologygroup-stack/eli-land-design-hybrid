@@ -15,37 +15,37 @@ const MEDIA = {
 const TESTIMONIALS = [
   {
     quote:
-      "I am pleased to recommend Chris Eiseman and E.L.I. land design. Chris and his company completed a thorough and creative design of our entire 2.8 acre lot including tennis and basketball courts, a bridge, and complex drainage system. Their execution of the design and installation was excellent as was their follow-up over the last two years. We are extremely happy with the completed project.",
+      "I am pleased to recommend the ELI Design Team. They completed a thorough and creative design of our entire 2.8 acre lot including tennis and basketball courts, a bridge, and complex drainage system. Their execution of the design and installation was excellent as was their follow-up over the last two years. We are extremely happy with the completed project.",
     name: "Mickey Barrett",
     meta: "E.L.I Client",
   },
   {
     quote:
-      "The E.L.I. team consistently provides my clients with the highest standard in residential landscape architecture. Chris works with each client to create an outdoor living space tailored to their lifestyle. Combined with the quality of craftsmanship, my clients receive the best value.",
+      "The E.L.I. team consistently provides my clients with the highest standard in residential landscape architecture. The ELI Team works with each client to create an outdoor living space tailored to their lifestyle. Combined with the quality of craftsmanship, my clients receive the best value.",
     name: "Brian Foster",
     meta: "Sugar Creek Homes",
   },
   {
     quote:
-      "E.L.I. has been the perfect fit for our landscaping needs. Chris worked closely with us to develop an innovative design that fits our lifestyle. The yard was breathtaking and E.L.I. followed up to make sure everything survived. Customer service was top notch.",
+      "E.L.I. has been the perfect fit for our landscaping needs. The ELI Team worked closely with us to develop an innovative design that fits our lifestyle. The yard was breathtaking and E.L.I. followed up to make sure everything survived. Customer service was top notch.",
     name: "Jean Smith",
     meta: "Lake Conroe",
   },
   {
     quote:
-      "We interviewed multiple landscapers. When we met Chris Eiseman we instantly felt the value of working with a Landscape Architect. Clear plan, clear proposal, and great post-install service.",
+      "We interviewed multiple landscapers. When we met the ELI Team we instantly felt the value of working with a Landscape Architect. Clear plan, clear proposal, and great post-install service.",
     name: "Pamela & Randall Ponder",
     meta: "The Woodlands",
   },
   {
     quote:
-      "We have used Chris and his team at ELI for almost 5 years and they have done an awesome job. Very attentive to the client's requests and do a fabulous job!",
+      "We have used the ELI Team for almost 5 years and they have done an awesome job. Very attentive to the client's requests and do a fabulous job!",
     name: "Chuck Jordan",
     meta: "E.L.I Client",
   },
   {
     quote:
-      "E.L.I. designed our swimming pool and backyard environment. Chris, Matt, and James (and crews) did an awesome job. We are thrilled with the design, work process, and final outcome. Highly recommend!",
+      "E.L.I. designed our swimming pool and backyard environment. The ELI Design Team did an awesome job. We are thrilled with the design, work process, and final outcome. Highly recommend!",
     name: "Ron Proctor",
     meta: "E.L.I Client",
   },
@@ -63,7 +63,7 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      "We have used Chris Eiseman and his company's services on two homes now. The execution followed the plan and turned out fantastic. Huge smile on our faces yet again.",
+      "We have used the ELI Team's services on two homes now. The execution followed the plan and turned out fantastic. Huge smile on our faces yet again.",
     name: "Casey & Carrie Salge",
     meta: "Cypress",
   },
