@@ -39,20 +39,21 @@ export default function SiteHeader({ currentPageName }) {
   const MOBILE_SECTIONS = useMemo(() => {
     const home = navItems.find((n) => n.label === "Home");
     const about = navItems.find((n) => n.label === "About");
-    const construction = navItems.find((n) => n.label === "Construction");
     const projects = navItems.find((n) => n.label === "Projects");
+    const gallery = navItems.find((n) => n.label === "Gallery");
     const reviews = navItems.find((n) => n.label === "Reviews");
 
     return [
       { label: "Overview", items: [home, about].filter(Boolean) },
-      { label: "Services", items: [construction].filter(Boolean) },
-      { label: "Projects", items: projects?.children ?? (projects ? [projects] : []) },
+      { label: "Explore", items: [projects, gallery].filter(Boolean) },
       { label: "More", items: [reviews].filter(Boolean) },
     ].filter((section) => section.items && section.items.length);
   }, [navItems]);
 
   const onScheduleClick = (where) => {
-    trackCTA("Schedule Consultation", where, { page: currentPageName || "unknown" });
+    trackCTA("Schedule Consultation", where, {
+      page: currentPageName || "unknown",
+    });
     trackLeadIntent("contact_open", {
       source: where,
       page: currentPageName || "unknown",
@@ -195,7 +196,7 @@ export default function SiteHeader({ currentPageName }) {
             })}
           </nav>
 
-          {/* Mobile file stack / menu button on RIGHT */}
+          {/* Mobile menu button */}
           <div className="flex lg:hidden">
             <button
               type="button"
@@ -256,6 +257,7 @@ export default function SiteHeader({ currentPageName }) {
                         <Link
                           key={it.label}
                           href={it.href}
+                          onClick={() => setMobileOpen(false)}
                           className="block rounded-none border border-[#1F2E23]/10 bg-white px-4 py-3 text-[#1F2E23]/88 transition hover:bg-[#1F2E23]/5 hover:text-[#1F2E23]"
                         >
                           <div className="flex items-center justify-between">

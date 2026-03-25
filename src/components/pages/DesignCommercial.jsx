@@ -7,6 +7,7 @@ import AnimatedSection from "../shared/AnimatedSection";
 import { ROUTES } from "@/components/utils/routes";
 import PortfolioMarquee from "@/components/portfolio/PortfolioMarquee";
 import BottomCTA from "@/components/shared/BottomCTA";
+import HubBreakCTA from "@/components/home/HubBreakCTA";
 
 const MEDIA = {
   hero: "/images/design/commercial/hero.jpg",
@@ -31,6 +32,11 @@ const CATEGORIES = [
     description:
       "Entry sequence, plazas, pedestrian flow, and durable materials that elevate the experience and perform long-term.",
     image: MEDIA.card1,
+    scope: [
+      "Site planning",
+      "Amenity coordination",
+      "Hardscape + planted systems",
+    ],
   },
   {
     slug: "multifamily",
@@ -39,6 +45,11 @@ const CATEGORIES = [
     description:
       "Amenity courts, pool decks, lighting, planting strategy, and circulation designed for daily use and durability.",
     image: MEDIA.card2,
+    scope: [
+      "Amenity courts",
+      "Pool + common areas",
+      "Lighting + landscape coordination",
+    ],
   },
   {
     slug: "office",
@@ -47,6 +58,11 @@ const CATEGORIES = [
     description:
       "Shade, circulation, signage zones, planting systems, and clean detailing across a cohesive site plan.",
     image: MEDIA.card3,
+    scope: [
+      "Campus planning",
+      "Circulation + entries",
+      "Streetscape + planting",
+    ],
   },
   {
     slug: "renderings",
@@ -55,8 +71,75 @@ const CATEGORIES = [
     description:
       "High-confidence concept and visual direction to align teams before documentation and construction.",
     image: MEDIA.card4,
+    scope: [
+      "Concept visuals",
+      "Presentation imagery",
+      "Design communication",
+    ],
   },
 ];
+
+function CommercialGridCard({ item, href, delay = 0 }) {
+  return (
+    <AnimatedSection delay={delay}>
+      <Link href={href} className="group block h-full">
+        <article className="relative isolate h-full overflow-hidden border border-[#1F2E23]/10 bg-[#D7D1C7] shadow-[0_18px_50px_rgba(16,24,18,0.12)] transition-all duration-500 group-hover:shadow-[0_28px_70px_rgba(16,24,18,0.18)]">
+          <div className="relative aspect-[1/1] sm:aspect-[1.08/1] lg:aspect-[1.42/1]">
+            <img
+              src={item.image}
+              alt={item.title}
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.06]"
+              loading="lazy"
+              decoding="async"
+            />
+
+            <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-black/40 to-black/75" />
+            <div className="absolute inset-0 bg-[#1F2E23]/10 mix-blend-multiply" />
+
+            <div className="absolute inset-0 flex flex-col justify-between p-4 sm:p-5 md:p-6 lg:p-8">
+              <div>
+                <h3 className="max-w-[14ch] font-serif-display text-[1.15rem] font-light leading-[1.02] tracking-[-0.02em] text-white sm:text-[1.3rem] md:text-[1.7rem] lg:text-[2.15rem]">
+                  {item.title}
+                </h3>
+
+                <p className="mt-3 max-w-[32rem] font-sans-clean text-[12px] leading-[1.6] text-white/85 sm:text-[12.5px] md:text-[13px] lg:mt-5 lg:text-[15px] lg:leading-[1.75]">
+                  {item.description}
+                </p>
+              </div>
+
+              <div className="pt-4 lg:pt-8">
+                <div className="border-t border-white/18 pt-4 lg:pt-5">
+                  <div className="mb-3 text-[9px] font-sans-clean font-semibold uppercase tracking-[0.28em] text-white/65 lg:text-[10px]">
+                    Typical Scope
+                  </div>
+
+                  <ul className="space-y-2 lg:space-y-3">
+                    {item.scope.map((scopeItem) => (
+                      <li
+                        key={scopeItem}
+                        className="flex items-start gap-2.5 text-white/85"
+                      >
+                        <span className="mt-[7px] h-[5px] w-[5px] shrink-0 bg-white/80" />
+                        <span className="font-sans-clean text-[11px] leading-[1.45] sm:text-[11.5px] md:text-[12px] lg:text-[15px] lg:leading-[1.55]">
+                          {scopeItem}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="mt-4 inline-flex items-center gap-2 font-sans-clean text-[10px] font-semibold uppercase tracking-[0.24em] text-white lg:mt-6 lg:text-[11px]">
+                  View Gallery
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </Link>
+    </AnimatedSection>
+  );
+}
 
 export default function DesignCommercial() {
   const base = ROUTES.designCommercial || "/design/commercial";
@@ -141,7 +224,8 @@ export default function DesignCommercial() {
               </h2>
             </div>
 
-            <Link href={ROUTES.gallery ?? "/gallery"}
+            <Link
+              href={ROUTES.gallery ?? "/gallery"}
               className="text-[11px] tracking-[0.2em] uppercase font-sans-clean font-semibold text-[#1F2E23]/70 hover:text-[#1F2E23]"
             >
               View built work →
@@ -152,54 +236,20 @@ export default function DesignCommercial() {
 
       {/* CATEGORY GRID */}
       <section className="px-6 md:px-12 lg:px-20 py-10 md:py-12 max-w-[1440px] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-6 lg:gap-8">
           {CATEGORIES.map((c, idx) => (
-            <AnimatedSection key={c.slug} delay={idx * 0.08}>
-              <Link href={`${base}/${c.slug}`} className="group block">
-                <div className="border border-[#1F2E23]/10 bg-white rounded-2xl overflow-hidden">
-                  <div className="relative overflow-hidden bg-[#E8E0D4]">
-                    <div className="aspect-[16/7]">
-                      <img
-                        src={c.image}
-                        alt={c.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    </div>
-
-                    {/* subtle gradient as before */}
-                    <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/35 via-black/0 to-black/0" />
-
-                    {/* ✅ UPDATED PILL: more contrast, still translucent */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="px-7 py-3 rounded-none border border-white/35 bg-black/35 backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
-                        <span className="text-[10px] tracking-[0.28em] uppercase font-sans-clean font-semibold text-white">
-                          {c.title}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="p-7 md:p-8">
-                    <p className="text-[10px] tracking-[0.25em] uppercase font-sans-clean font-semibold text-[#1F2E23]/45 mb-3">
-                      {c.label}
-                    </p>
-                    <p className="text-[#1F2E23]/70 font-sans-clean text-sm leading-[1.8] mb-5">
-                      {c.description}
-                    </p>
-
-                    <div className="inline-flex items-center gap-2 text-[11px] tracking-[0.2em] uppercase font-sans-clean font-semibold text-[#1F2E23]">
-                      Explore
-                      <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            </AnimatedSection>
+            <CommercialGridCard
+              key={c.slug}
+              item={c}
+              href={`${base}/${c.slug}`}
+              delay={idx * 0.08}
+            />
           ))}
         </div>
       </section>
+
+      {/* HUB BREAK CTA */}
+      <HubBreakCTA />
 
       {/* SUPPORT */}
       <section>
@@ -217,7 +267,8 @@ export default function DesignCommercial() {
                   Commercial work is designed to hold up to schedule pressure, site constraints, and long-term
                   maintenance. The goal is simple: a design that looks sharp and builds clean.
                 </p>
-                <Link href={ROUTES.contact}
+                <Link
+                  href={ROUTES.contact}
                   className="group inline-flex items-center gap-3 text-[#1F2E23] text-[12px] tracking-[0.2em] uppercase font-sans-clean font-semibold"
                 >
                   How we build
@@ -245,18 +296,18 @@ export default function DesignCommercial() {
         </div>
       </section>
 
-      {/* ✅ GALLERY TEASER — MARQUEE */}
-      <section className="bg-[#E8E0D4] py-10 md:py-14">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
-          <PortfolioMarquee
-            items={PORTFOLIO_GALLERIES}
-            title="Commercial Design Portfolio"
-            ctaLabel="View Full Portfolio"
-            ctaHref={ROUTES.gallery ?? "/gallery"}
-            bgColor="#E8E0D4"
-          />
-        </div>
-      </section>
+        {/* ✅ GALLERY TEASER — MARQUEE */}
+        <section className="bg-[#F5F0EA] py-10 md:py-14">
+          <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
+            <PortfolioMarquee
+              items={PORTFOLIO_GALLERIES}
+              title="Commercial Design Portfolio"
+              ctaLabel="View Full Portfolio"
+              ctaHref={ROUTES.gallery ?? "/gallery"}
+              bgColor="#F5F0EA"
+            />
+          </div>
+        </section>
 
       <BottomCTA />
     </PageShell>

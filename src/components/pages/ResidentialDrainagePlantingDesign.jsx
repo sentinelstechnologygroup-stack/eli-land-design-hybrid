@@ -3,6 +3,7 @@ import React, { useMemo } from "react";
 import PageShell from "../PageShell";
 import GallerySection from "@/components/gallery/GallerySection";
 import { ROUTES } from "@/components/utils/routes";
+import BottomCTA from "@/components/shared/BottomCTA";
 
 const MEDIA = {
   hero: "/images/design/residential/drainage-planting/drainage-planting-hero.jpg",
@@ -49,7 +50,7 @@ export default function ResidentialDrainagePlantingDesign() {
         gap={6}
       />
 
-      {/* SHARED BOTTOM CTA */}
+      <BottomCTA />
     </PageShell>
   );
 }

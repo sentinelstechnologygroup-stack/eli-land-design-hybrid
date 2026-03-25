@@ -5,77 +5,65 @@ import React, { useEffect } from "react";
 import HeroSection from "../home/HeroSection";
 import CTASection from "@/components/home/CTASection";
 import HomeHubSection from "@/components/home/HomeHubSection";
-import HubBreakCTA from "@/components/home/HubBreakCTA";
 import { ROUTES } from "@/components/utils/routes";
 import { registerPageMeta } from "@/lib/intelligence";
 
-const COMMERCIAL_ITEMS = [
+const HOME_HUB_ITEMS = [
   {
-    title: "Lifestyle Center",
+    title: "Commercial Design",
     description:
       "Entry sequence, plazas, pedestrian flow, and durable material selection planned for long-term use and clean execution.",
-    includes: ["Site planning", "Arrival + circulation", "Hardscape + planted systems"],
-    href: ROUTES.commercialLifestyleCenter,
+    includes: [
+      "Lifestyle centers",
+      "Multi-family",
+      "Office",
+      "Renderings",
+    ],
+    href: ROUTES.designCommercial,
     image: "/images/design/commercial/thumbnails/lifestyle-center.jpg",
+    ctaLabel: "View Categories",
   },
   {
-    title: "Multifamily",
+    title: "Residential Design",
     description:
-      "Amenity environments, circulation, planting coordination, and grading strategy designed for daily resident use and maintenance reality.",
-    includes: ["Amenity courts", "Pool + common areas", "Lighting + landscape coordination"],
-    href: ROUTES.commercialMultifamily,
-    image: "/images/design/commercial/thumbnails/multifamily.jpg",
-  },
-  {
-    title: "Office",
-    description:
-      "Campus and office landscapes structured around visibility, movement, shade, materials, and durable site performance.",
-    includes: ["Campus planning", "Circulation + entries", "Streetscape + planting"],
-    href: ROUTES.commercialOffice,
-    image: "/images/design/commercial/thumbnails/office.jpg",
-  },
-  {
-    title: "Renderings",
-    description:
-      "Concept visuals that clarify design intent, align stakeholders, and support presentation before documentation and construction.",
-    includes: ["Concept visuals", "Presentation imagery", "Design communication"],
-    href: ROUTES.commercialRenderings,
-    image: "/images/design/commercial/thumbnails/renderings.jpg",
-  },
-];
-
-const RESIDENTIAL_ITEMS = [
-  {
-    title: "Master Plans & Grading",
-    description:
-      "Buildable master plans with grading strategy, drainage performance, and coordinated hardscape layout.",
-    includes: ["Site analysis", "Grading + drainage", "Phasing + constructability"],
-    href: ROUTES.residentialMasterPlans,
-    image: "/images/design/residential/thumbnails/master-plans.jpg",
-  },
-  {
-    title: "Pool & Outdoor Living",
-    description:
-      "Outdoor living environments planned for circulation, structure coordination, and long-term use.",
-    includes: ["Pools + terraces", "Outdoor kitchens", "Lighting + planting coordination"],
-    href: ROUTES.residentialPoolOutdoorLiving,
+      "Amenity environments, circulation, planning coordination, and grading strategy designed for daily resident use and maintenance reality.",
+    includes: [
+      "Private residences",
+      "Estates",
+      "Ranches",
+      "Renderings",
+    ],
+    href: ROUTES.designResidential,
     image: "/images/design/residential/thumbnails/pool-outdoor-living.jpg",
+    ctaLabel: "View Categories",
   },
   {
-    title: "Drainage & Planting Design",
+    title: "About",
     description:
-      "Drainage solutions and planting systems designed for Texas conditions and maintenance reality.",
-    includes: ["Drainage strategy", "Planting systems", "Irrigation coordination"],
-    href: ROUTES.residentialDrainagePlanting,
-    image: "/images/design/residential/thumbnails/drainage-planting.jpg",
+      "Learn more about E.L.I. Land Design, our history, professional approach, and the team behind the work.",
+    includes: [
+      "Firm overview",
+      "History",
+      "Professional approach",
+      "Our team",
+    ],
+    href: ROUTES.about,
+    image: "/images/design/commercial/thumbnails/office.jpg",
+    ctaLabel: "View Page",
   },
   {
-    title: "Renderings",
+    title: "Gallery",
     description:
-      "Concept renderings that help visualize design intent, materials, and spatial relationships before construction.",
-    includes: ["Concept visuals", "Material + lighting studies", "Presentation-ready imagery"],
-    href: ROUTES.renderings,
-    image: "/images/design/residential/thumbnails/renderings.jpg",
+      "Concept visuals, project imagery, and presentation-ready renderings that communicate design intent and craftsmanship.",
+    includes: [
+      "Concept visuals",
+      "Presentation imagery",
+      "Project collections",
+      "Renderings",
+    ],
+    href: ROUTES.gallery,
+    image: "/images/design/commercial/thumbnails/renderings.jpg",
+    ctaLabel: "View Gallery",
   },
 ];
 
@@ -111,14 +99,7 @@ export default function Home() {
 
       <HomeHubSection
         title="Commercial Design Categories"
-        items={COMMERCIAL_ITEMS}
-      />
-
-      <HubBreakCTA />
-
-      <HomeHubSection
-        title="Residential Design Categories"
-        items={RESIDENTIAL_ITEMS}
+        items={HOME_HUB_ITEMS}
       />
 
       <CTASection />

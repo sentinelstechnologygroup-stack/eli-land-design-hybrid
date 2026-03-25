@@ -1,7 +1,6 @@
-"use client";
+// src/app/design/residential/page.jsx
+import DesignResidential from "@/components/pages/DesignResidential";
 
-import Component from "@/components/pages/DesignResidential.jsx";
-
-export default function Page() {
-  return <Component />;
+export default function ResidentialDesignPage() {
+  return <DesignResidential />;
 }

@@ -37,8 +37,8 @@ export default function SiteFooter() {
               {[
                 { label: "Home", href: ROUTES.home },
                 { label: "About", href: ROUTES.about },
-                { label: "Construction", href: ROUTES.construction },
                 { label: "Projects", href: ROUTES.projects },
+                { label: "Gallery", href: ROUTES.gallery },
                 { label: "Reviews", href: ROUTES.reviews },
                 { label: "Contact", href: ROUTES.contact },
                 { label: "Careers at ELI", href: ROUTES.careers },

@@ -31,27 +31,19 @@ export const ROUTES = {
 
   renderings: "/gallery/renderings",
 
-  construction: "/construction",
 
   projects: "/projects",
   projectDetail: "/projects/:slug",
 
   gallery: "/gallery",
-  galleryCollection: "/gallery/:collection",
 };
 
 export const NAV = [
   { label: "Home", href: ROUTES.home },
   { label: "About", href: ROUTES.about },
-  { label: "Construction", href: ROUTES.construction },
-  {
-    label: "Projects",
-    href: ROUTES.projects,
-    children: [
-      { label: "All Projects", href: ROUTES.projects },
-      { label: "Gallery", href: ROUTES.gallery },
-    ],
-  },
+  { label: "Projects", href: ROUTES.projects },
+  { label: "Gallery", href: ROUTES.gallery },
+
   { label: "Reviews", href: ROUTES.reviews },
 ];
 
