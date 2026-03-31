@@ -90,7 +90,7 @@ const HOME_HUB_ITEMS = [
       "How to apply",
     ],
     href: ROUTES.careers,
-    image: "/images/design/commercial/thumbnails/renderings.jpg",
+    image: "/images/contact/careers-at-eli/apply/hero.jpg",
     ctaLabel: "View Careers",
   },
 ];

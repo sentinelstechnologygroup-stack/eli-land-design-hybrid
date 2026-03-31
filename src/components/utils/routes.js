@@ -1,32 +1,15 @@
 // src/components/utils/routes.js
+
 export const ROUTES = {
   home: "/",
   about: "/about",
-
   contact: "/contact",
-  consultation: "/contact#contact-form",
+  consultation: "/contact",
 
-  reviews: "/reviews",
-  careers: "/careers-at-eli",
-  newProjects: "/new-projects",
-
-  design: "/design",
   designCommercial: "/design/commercial",
   designResidential: "/design/residential",
 
-  residentialMasterPlans: "/design/residential/master-plans",
-  residentialPoolOutdoorLiving: "/design/residential/pool-outdoor-living",
-  residentialDrainagePlanting: "/design/residential/drainage-planting",
-  residentialOutdoorLivingLegacy: "/design/residential/outdoor-living",
-
-  commercialLifestyleCenter: "/design/commercial/lifestyle-center",
-  commercialMultifamily: "/design/commercial/multifamily",
-  commercialOffice: "/design/commercial/office",
-  commercialRenderings: "/design/commercial/renderings",
-
-  commercialGalleries: "/design/commercial/galleries",
-  commercialGallery: (slug) => `/design/commercial/galleries/${slug}`,
-
+  commercialGalleries: (slug) => `/design/commercial/galleries/${slug}`,
   residentialGalleries: "/design/residential/galleries",
   residentialGallery: (slug) => `/design/residential/galleries/${slug}`,
 
@@ -35,7 +18,12 @@ export const ROUTES = {
   projects: "/projects",
   projectDetail: (slug) => `/projects/${slug}`,
 
+  newProjects: "/new-projects",
+  newProjectDetail: (slug) => `/new-projects/${slug}`,
+
   gallery: "/gallery",
+  reviews: "/reviews",
+  careersAtEli: "/careers-at-eli",
 };
 
 export const NAV = [
@@ -44,7 +32,7 @@ export const NAV = [
   { label: "Projects", href: ROUTES.projects },
   { label: "Gallery", href: ROUTES.gallery },
   { label: "Reviews", href: ROUTES.reviews },
-  //( label: "CareersAtELI", href: ROUTES.careers ),
+  { label: "Careers", href: ROUTES.careersAtEli },
 ];
 
 export function createProjectUrl(slug) {
@@ -53,4 +41,8 @@ export function createProjectUrl(slug) {
 
 export function createGalleryUrl(collection) {
   return `/gallery/${collection}`;
+}
+
+export function createNewProjectUrl(slug) {
+  return `/new-projects/${slug}`;
 }

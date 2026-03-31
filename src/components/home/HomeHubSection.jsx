@@ -234,7 +234,7 @@ function HubCard({ item, onOpenProject }) {
 
   if (isMarquee) {
     return (
-      <div className="group relative flex min-h-[440px] overflow-hidden rounded-[28px] border border-black/10 bg-[#D8D0C4] shadow-[0_20px_60px_rgba(31,46,35,0.10)]">
+      <div className="group relative flex min-h-[440px] overflow-hidden rounded-none border border-black/10 bg-[#D8D0C4] shadow-[0_20px_60px_rgba(31,46,35,0.10)]">
         {cardBody}
       </div>
     );
@@ -243,7 +243,7 @@ function HubCard({ item, onOpenProject }) {
   return (
     <Link
       href={href}
-      className="group relative flex min-h-[440px] overflow-hidden rounded-[28px] border border-black/10 bg-[#D8D0C4] shadow-[0_20px_60px_rgba(31,46,35,0.10)] transition-transform duration-300 hover:-translate-y-1"
+      className="group relative flex min-h-[440px] overflow-hidden rounded-none border border-black/10 bg-[#D8D0C4] shadow-[0_20px_60px_rgba(31,46,35,0.10)] transition-transform duration-300 hover:-translate-y-1"
     >
       {cardBody}
     </Link>

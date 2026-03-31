@@ -42,11 +42,12 @@ export default function SiteHeader({ currentPageName }) {
     const projects = navItems.find((n) => n.label === "Projects");
     const gallery = navItems.find((n) => n.label === "Gallery");
     const reviews = navItems.find((n) => n.label === "Reviews");
+    const careers = navItems.find((n) => n.label === "Careers");
 
     return [
       { label: "Overview", items: [home, about].filter(Boolean) },
       { label: "Explore", items: [projects, gallery].filter(Boolean) },
-      { label: "More", items: [reviews].filter(Boolean) },
+      { label: "More", items: [reviews, careers].filter(Boolean) },
     ].filter((section) => section.items && section.items.length);
   }, [navItems]);
 
@@ -73,7 +74,6 @@ export default function SiteHeader({ currentPageName }) {
       <div
         className={`${HEADER_CONTAINER} grid h-[74px] grid-cols-[auto_1fr_auto] items-center gap-3 lg:grid-cols-[1fr_auto_1fr]`}
       >
-        {/* LEFT: LOGO */}
         <div className="flex items-center justify-start">
           <Link href={ROUTES.home} className="flex shrink-0 items-center">
             <img
@@ -84,9 +84,7 @@ export default function SiteHeader({ currentPageName }) {
           </Link>
         </div>
 
-        {/* CENTER: CTA STACK */}
         <div className="flex items-center justify-center">
-          {/* Mobile / Tablet */}
           <div className="flex flex-col items-center gap-1 lg:hidden">
             <Link
               href={ROUTES.contact}
@@ -109,7 +107,6 @@ export default function SiteHeader({ currentPageName }) {
             </a>
           </div>
 
-          {/* Desktop */}
           <div className="hidden lg:flex flex-col items-center gap-1">
             <Link
               href={ROUTES.contact}
@@ -133,7 +130,6 @@ export default function SiteHeader({ currentPageName }) {
           </div>
         </div>
 
-        {/* RIGHT: DESKTOP NAV / MOBILE MENU */}
         <div className="flex items-center justify-end">
           <nav className="hidden lg:flex items-center gap-10">
             {navItems.map((item) => {
@@ -196,7 +192,6 @@ export default function SiteHeader({ currentPageName }) {
             })}
           </nav>
 
-          {/* Mobile menu button */}
           <div className="flex lg:hidden">
             <button
               type="button"
