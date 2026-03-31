@@ -1,94 +1,308 @@
-// src/components/home/HomeHubSection.jsx
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import AnimatedSection from "@/components/shared/AnimatedSection";
+import { ArrowUpRight, ChevronLeft, ChevronRight, X } from "lucide-react";
 
-function HubCard({ item, delay = 0 }) {
+function StandardPanelVisual({ image = "", title = "" }) {
   return (
-    <AnimatedSection delay={delay}>
-      <Link href={item.href} className="group block h-full">
-        <article className="relative isolate h-full overflow-hidden rounded-[none] border border-white/20 bg-[#D7D1C7] shadow-[0_18px_50px_rgba(16,24,18,0.12)] transition-all duration-500 group-hover:shadow-[0_28px_70px_rgba(16,24,18,0.18)]">
-          <div className="relative aspect-[1/1] sm:aspect-[1.08/1] lg:aspect-[1.42/1]">
-            <img
-              src={item.image}
-              alt={item.title}
-              className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.06]"
-              loading="lazy"
-              decoding="async"
-            />
-
-            {/* consistent cinematic overlay */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-black/40 to-black/75" />
-
-            {/* subtle green tone for brand consistency */}
-            <div className="absolute inset-0 bg-[#1F2E23]/10 mix-blend-multiply" />
-
-            <div className="absolute inset-x-0 top-0 h-[1px] bg-white/25" />
-
-            <div className="absolute inset-0 flex flex-col justify-between p-4 sm:p-5 md:p-6 lg:p-8">
-              <div>
-                <h3 className="max-w-[12ch] font-serif-display text-[1.15rem] font-light leading-[1.02] tracking-[-0.02em] text-white sm:text-[1.3rem] md:text-[1.7rem] lg:text-[2.15rem]">
-                  {item.title}
-                </h3>
-
-                <p className="mt-3 max-w-[32rem] font-sans-clean text-[12px] leading-[1.6] text-white/85 sm:text-[12.5px] md:text-[13px] lg:mt-5 lg:text-[15px] lg:leading-[1.75]">
-                  {item.description}
-                </p>
-              </div>
-
-              <div className="pt-4 lg:pt-8">
-                <div className="border-t border-white/18 pt-4 lg:pt-5">
-                  <div className="mb-3 text-[9px] font-sans-clean font-semibold uppercase tracking-[0.28em] text-white/65 lg:text-[10px]">
-                    Typical Scope
-                  </div>
-
-                  <ul className="space-y-2 lg:space-y-3">
-                    {item.includes.map((scopeItem) => (
-                      <li
-                        key={scopeItem}
-                        className="flex items-start gap-2.5 text-white/85"
-                      >
-                        <span className="mt-[7px] h-[5px] w-[5px] shrink-0 rounded-none bg-white/80" />
-                        <span className="font-sans-clean text-[11px] leading-[1.45] sm:text-[11.5px] md:text-[12px] lg:text-[15px] lg:leading-[1.55]">
-                          {scopeItem}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="mt-4 inline-flex items-center gap-2 font-sans-clean text-[10px] font-semibold uppercase tracking-[0.24em] text-white lg:mt-6 lg:text-[11px]">
-                  View Gallery
-                  <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
-      </Link>
-    </AnimatedSection>
+    <>
+      <img
+        src={image}
+        alt={title}
+        className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+      />
+      <div className="absolute inset-0 bg-black/30" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.06)_0%,rgba(0,0,0,0.18)_36%,rgba(0,0,0,0.70)_100%)]" />
+    </>
   );
 }
 
-export default function HomeHubSection({ title, items }) {
+function Lightbox({ project, activeIndex, setActiveIndex, onClose }) {
+  const total = project?.images?.length || 0;
+
+  useEffect(() => {
+    function onKeyDown(e) {
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowLeft" && total > 1) {
+        setActiveIndex((prev) => (prev - 1 + total) % total);
+      }
+      if (e.key === "ArrowRight" && total > 1) {
+        setActiveIndex((prev) => (prev + 1) % total);
+      }
+    }
+
+    document.addEventListener("keydown", onKeyDown);
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [onClose, setActiveIndex, total]);
+
+  if (!project || !total) return null;
+
   return (
-    <section>
-      <div className="mx-auto max-w-[1440px] px-4 pb-6 md:px-8 md:pb-8 lg:px-20 lg:pb-10">
-        <AnimatedSection>
-          <h2 className="mb-4 font-sans-clean text-[13px] font-semibold text-[#1F2E23] md:mb-5 md:text-[15px]">
+    <div
+      className="fixed inset-0 z-[2000] flex items-center justify-center bg-black/85 p-4"
+      onClick={onClose}
+    >
+      <div
+        className="relative w-full max-w-[1200px] overflow-hidden rounded-[24px] bg-[#111111] shadow-[0_20px_100px_rgba(0,0,0,0.55)]"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="flex items-center justify-between border-b border-white/10 px-4 py-3 md:px-5">
+          <div>
+            <h3 className="text-[16px] font-semibold text-white md:text-[18px]">
+              {project.title}
+            </h3>
+            <p className="mt-1 text-[11px] uppercase tracking-[0.16em] text-white/60">
+              {activeIndex + 1} of {total}
+            </p>
+          </div>
+
+          <button
+            type="button"
+            onClick={onClose}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white transition hover:bg-white/10"
+            aria-label="Close lightbox"
+          >
+            <X className="h-5 w-5" />
+          </button>
+        </div>
+
+        <div className="relative aspect-[16/10] w-full bg-black">
+          <img
+            src={project.images[activeIndex]}
+            alt={`${project.title} ${activeIndex + 1}`}
+            className="h-full w-full object-contain"
+          />
+
+          {total > 1 && (
+            <>
+              <button
+                type="button"
+                onClick={() =>
+                  setActiveIndex((prev) => (prev - 1 + total) % total)
+                }
+                className="absolute left-3 top-1/2 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-black/40 text-white transition hover:bg-black/60"
+                aria-label="Previous image"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setActiveIndex((prev) => (prev + 1) % total)}
+                className="absolute right-3 top-1/2 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-black/40 text-white transition hover:bg-black/60"
+                aria-label="Next image"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </button>
+            </>
+          )}
+        </div>
+
+        {total > 1 && (
+          <div className="flex gap-3 overflow-x-auto border-t border-white/10 px-4 py-4 md:px-5">
+            {project.images.map((img, idx) => {
+              const active = idx === activeIndex;
+              return (
+                <button
+                  key={`${project.id}-${idx}`}
+                  type="button"
+                  onClick={() => setActiveIndex(idx)}
+                  className={`relative h-20 w-28 shrink-0 overflow-hidden rounded-[14px] border ${
+                    active
+                      ? "border-white/60 ring-2 ring-white/20"
+                      : "border-white/10"
+                  }`}
+                  aria-label={`View image ${idx + 1}`}
+                >
+                  <img
+                    src={img}
+                    alt={`${project.title} thumbnail ${idx + 1}`}
+                    className="h-full w-full object-cover"
+                  />
+                </button>
+              );
+            })}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function MarqueePanelVisual({ projects = [], onOpenProject }) {
+  const marqueeProjects =
+    Array.isArray(projects) && projects.length ? [...projects, ...projects] : [];
+
+  return (
+    <div className="absolute inset-0 overflow-hidden">
+      <div className="pointer-events-none absolute inset-0 z-[1] bg-black/30" />
+<div className="pointer-events-none absolute inset-0 z-[2] bg-[linear-gradient(180deg,rgba(0,0,0,0.06)_0%,rgba(0,0,0,0.18)_36%,rgba(0,0,0,0.70)_100%)]" />
+
+<div className="relative z-[3] flex h-full w-max animate-[hubMarquee_24s_linear_infinite] gap-3 px-3 py-3 group-hover:[animation-play-state:paused]">
+        {marqueeProjects.map((project, idx) => (
+          <button
+            key={`${project.id}-${idx}`}
+            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              onOpenProject(project);
+            }}
+            className="h-full w-[220px] shrink-0 overflow-hidden rounded-[20px] md:w-[240px]"
+            aria-label={`Open ${project.title}`}
+          >
+            <img
+              src={project.cover}
+              alt={project.title}
+              className="h-full w-full object-cover transition-transform duration-500 hover:scale-[1.03]"
+            />
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function HubCard({ item, onOpenProject }) {
+  const {
+    title,
+    includes = [],
+    href = "#",
+    image,
+    ctaLabel = "View Page",
+    isMarquee = false,
+    marqueeProjects = [],
+  } = item;
+
+  const cardBody = (
+    <div className="relative min-h-[440px] w-full overflow-hidden">
+      {isMarquee ? (
+        <MarqueePanelVisual
+          projects={marqueeProjects}
+          onOpenProject={onOpenProject}
+        />
+      ) : (
+        <StandardPanelVisual image={image} title={title} />
+      )}
+
+      <div className="absolute inset-0 z-10 flex flex-col p-5 md:p-6">
+        <div>
+          <h3 className="text-[22px] font-semibold tracking-[-0.02em] text-white md:text-[26px]">
+            {title}
+          </h3>
+
+          <div className="mt-3 h-[2px] w-full bg-white/65" />
+
+          {includes.length > 0 ? (
+            <div className="mt-4">
+              <p className="text-[12px] font-bold uppercase tracking-[0.18em] text-white">
+                Typical Scope
+              </p>
+
+              <ul className="mt-2 space-y-1.5">
+                {includes.map((entry) => (
+                  <li
+                    key={`${title}-${entry}`}
+                    className="text-[14px] leading-[1.6] text-white md:text-[15px]"
+                  >
+                    {entry}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+        </div>
+
+        <div className="mt-auto flex items-center justify-between pt-5">
+          <span className="inline-flex items-center gap-2 text-[13px] font-semibold uppercase tracking-[0.14em] text-white">
+            {ctaLabel}
+          </span>
+
+          <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-colors duration-300 group-hover:bg-white/18">
+            <ArrowUpRight className="h-4 w-4" />
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+
+  if (isMarquee) {
+    return (
+      <div className="group relative flex min-h-[440px] overflow-hidden rounded-[28px] border border-black/10 bg-[#D8D0C4] shadow-[0_20px_60px_rgba(31,46,35,0.10)]">
+        {cardBody}
+      </div>
+    );
+  }
+
+  return (
+    <Link
+      href={href}
+      className="group relative flex min-h-[440px] overflow-hidden rounded-[28px] border border-black/10 bg-[#D8D0C4] shadow-[0_20px_60px_rgba(31,46,35,0.10)] transition-transform duration-300 hover:-translate-y-1"
+    >
+      {cardBody}
+    </Link>
+  );
+}
+
+export default function HomeHubSection({ title = "Explore", items = [] }) {
+  const [lightboxProject, setLightboxProject] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const openProject = (project) => {
+    setLightboxProject(project);
+    setActiveIndex(0);
+  };
+
+  const closeProject = () => {
+    setLightboxProject(null);
+    setActiveIndex(0);
+  };
+
+  return (
+    <section className="pb-10 md:pb-14 lg:pb-16">
+      <div className="mx-auto max-w-[1440px] px-4 md:px-8 lg:px-20">
+        <div className="mb-5 md:mb-7">
+          <h2 className="text-[28px] font-semibold tracking-[-0.03em] text-[#1F2E23] md:text-[36px]">
             {title}
           </h2>
-        </AnimatedSection>
+        </div>
 
-        <div className="grid grid-cols-2 gap-3 md:gap-5 lg:gap-7">
-          {items.map((item, index) => (
-            <HubCard key={item.title} item={item} delay={index * 0.05} />
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+          {items.map((item) => (
+            <HubCard
+              key={item.title}
+              item={item}
+              onOpenProject={openProject}
+            />
           ))}
         </div>
       </div>
+
+      {lightboxProject ? (
+        <Lightbox
+          project={lightboxProject}
+          activeIndex={activeIndex}
+          setActiveIndex={setActiveIndex}
+          onClose={closeProject}
+        />
+      ) : null}
+
+      <style jsx>{`
+        @keyframes hubMarquee {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(calc(-50% - 6px));
+          }
+        }
+      `}</style>
     </section>
   );
 }

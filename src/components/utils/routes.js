@@ -8,6 +8,7 @@ export const ROUTES = {
 
   reviews: "/reviews",
   careers: "/careers-at-eli",
+  newProjects: "/new-projects",
 
   design: "/design",
   designCommercial: "/design/commercial",
@@ -24,16 +25,15 @@ export const ROUTES = {
   commercialRenderings: "/design/commercial/renderings",
 
   commercialGalleries: "/design/commercial/galleries",
-  commercialGallery: "/design/commercial/galleries/:slug",
+  commercialGallery: (slug) => `/design/commercial/galleries/${slug}`,
 
   residentialGalleries: "/design/residential/galleries",
-  residentialGallery: "/design/residential/galleries/:slug",
+  residentialGallery: (slug) => `/design/residential/galleries/${slug}`,
 
   renderings: "/gallery/renderings",
 
-
   projects: "/projects",
-  projectDetail: "/projects/:slug",
+  projectDetail: (slug) => `/projects/${slug}`,
 
   gallery: "/gallery",
 };
@@ -43,8 +43,8 @@ export const NAV = [
   { label: "About", href: ROUTES.about },
   { label: "Projects", href: ROUTES.projects },
   { label: "Gallery", href: ROUTES.gallery },
-
   { label: "Reviews", href: ROUTES.reviews },
+  //( label: "CareersAtELI", href: ROUTES.careers ),
 ];
 
 export function createProjectUrl(slug) {

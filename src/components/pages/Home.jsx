@@ -1,4 +1,4 @@
-// src/components/pages/Home.jsx
+// src/components/pages/home.jsx
 "use client";
 
 import React, { useEffect } from "react";
@@ -45,7 +45,7 @@ const HOME_HUB_ITEMS = [
       "Firm overview",
       "History",
       "Professional approach",
-      "Our team",
+      "Leadership",
     ],
     href: ROUTES.about,
     image: "/images/design/commercial/thumbnails/office.jpg",
@@ -56,14 +56,42 @@ const HOME_HUB_ITEMS = [
     description:
       "Concept visuals, project imagery, and presentation-ready renderings that communicate design intent and craftsmanship.",
     includes: [
-      "Concept visuals",
-      "Presentation imagery",
       "Project collections",
+      "Presentation imagery",
       "Renderings",
+      "Visual references",
     ],
     href: ROUTES.gallery,
     image: "/images/design/commercial/thumbnails/renderings.jpg",
     ctaLabel: "View Gallery",
+  },
+  {
+    title: "New Projects",
+    description:
+      "Browse current and recently added project folders in a separate gallery kept apart from the main Projects portfolio.",
+    includes: [
+      "Recent project folders",
+      "Current work",
+      "Separate gallery",
+      "New additions",
+    ],
+    href: ROUTES.newProjects,
+    image: "/images/new-projects/hero.jpg",
+    ctaLabel: "View Gallery",
+  },
+  {
+    title: "Careers at ELI",
+    description:
+      "Explore opportunities to join E.L.I. Land Design and learn what the firm values in design, planning, and project delivery.",
+    includes: [
+      "Firm culture",
+      "Open opportunities",
+      "Professional standards",
+      "How to apply",
+    ],
+    href: ROUTES.careers,
+    image: "/images/design/commercial/thumbnails/renderings.jpg",
+    ctaLabel: "View Careers",
   },
 ];
 
