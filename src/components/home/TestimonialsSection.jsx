@@ -15,7 +15,7 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      "E.L.I. Land Design exceeded our expectations at every turn. Their design vision and construction quality are unmatched in the Houston area.",
+      "ELI Land Design exceeded our expectations at every turn. Their design vision and construction quality are unmatched in the Houston area.",
     author: "Vargos Development Group",
     location: "Houston, TX",
   },
@@ -39,13 +39,13 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      "The E.L.I. team consistently provides my clients with the highest standard in residential landscape architecture. Chris works with each client to create an outdoor living space that is tailored to their individual lifestyle. Combined with the quality of craftsmanship, I have peace of mind that my clients receive the best value.",
+      "The ELI team consistently provides my clients with the highest standard in residential landscape architecture. Chris works with each client to create an outdoor living space that is tailored to their individual lifestyle. Combined with the quality of craftsmanship, I have peace of mind that my clients receive the best value.",
     author: "BRIAN FOSTER",
     location: "Sugar Creek Homes",
   },
   {
     quote:
-      "E.L.I. designed our swimming pool and backyard environment. Chris, Matt, and James (and crews) did an awesome job. We are thrilled with the design, work process, and final outcome. They created a great vision, and transformed our backyard into a truly beautiful and functional retreat. Highly recommend!!",
+      "ELI designed our swimming pool and backyard environment. Chris, Matt, and James (and crews) did an awesome job. We are thrilled with the design, work process, and final outcome. They created a great vision, and transformed our backyard into a truly beautiful and functional retreat. Highly recommend!!",
     author: "RON PROCTOR",
     location: "Carlton Woods, TX",
   },

@@ -35,7 +35,7 @@ export default function AboutTeaser() {
             </h2>
             <div className="w-16 h-px bg-[#1F2E23] mb-8" />
             <p className="text-[#1F2E23]/70 font-sans-clean text-base leading-[1.75] mb-6">
-              Founder and principal of E.L.I. Land Design. Licensed landscape architect with 27+ years of experience in residential estate design, commercial site planning, and landscape construction throughout Texas.
+              Founder and principal of ELI Land Design. Licensed landscape architect with 27+ years of experience in residential estate design, commercial site planning, and landscape construction throughout Texas.
             </p>
             <p className="text-[#1F2E23]/70 font-sans-clean text-base leading-[1.75] mb-10">
               Specializes in projects requiring technical site analysis, grading and drainage solutions, and coordination with civil engineers, architects, and general contractors.

@@ -35,7 +35,7 @@ export default function PhilosophySection() {
           {/* RIGHT */}
           <div className="lg:col-span-6">
             <p className="text-[#1F2E23]/65 font-sans-clean text-sm md:text-base leading-[1.85]">
-              E.L.I. Land Design provides landscape architecture, site planning, and
+              ELI Land Design provides landscape architecture, site planning, and
               construction services for residential and commercial projects throughout
               The Woodlands, Houston, and surrounding Texas markets. Established in
               1997, we specialize in projects that require technical site planning—

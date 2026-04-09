@@ -21,13 +21,13 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      "The E.L.I. team consistently provides my clients with the highest standard in residential landscape architecture. The ELI Team works with each client to create an outdoor living space tailored to their lifestyle. Combined with the quality of craftsmanship, my clients receive the best value.",
+      "The ELI team consistently provides my clients with the highest standard in residential landscape architecture. The ELI Team works with each client to create an outdoor living space tailored to their lifestyle. Combined with the quality of craftsmanship, my clients receive the best value.",
     name: "Brian Foster",
     meta: "Sugar Creek Homes",
   },
   {
     quote:
-      "E.L.I. has been the perfect fit for our landscaping needs. The ELI Team worked closely with us to develop an innovative design that fits our lifestyle. The yard was breathtaking and E.L.I. followed up to make sure everything survived. Customer service was top notch.",
+      "ELI has been the perfect fit for our landscaping needs. The ELI Team worked closely with us to develop an innovative design that fits our lifestyle. The yard was breathtaking and ELI followed up to make sure everything survived. Customer service was top notch.",
     name: "Jean Smith",
     meta: "Lake Conroe",
   },
@@ -45,7 +45,7 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      "E.L.I. designed our swimming pool and backyard environment. The ELI Design Team did an awesome job. We are thrilled with the design, work process, and final outcome. Highly recommend!",
+      "ELI designed our swimming pool and backyard environment. The ELI Design Team did an awesome job. We are thrilled with the design, work process, and final outcome. Highly recommend!",
     name: "Ron Proctor",
     meta: "E.L.I Client",
   },

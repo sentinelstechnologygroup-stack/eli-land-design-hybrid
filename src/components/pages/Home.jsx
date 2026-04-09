@@ -10,7 +10,7 @@ import { registerPageMeta } from "@/lib/intelligence";
 
 const HOME_HUB_ITEMS = [
   {
-    title: "Commercial Design",
+    title: "Commercial Landscape Architecture",
     description:
       "Entry sequence, plazas, pedestrian flow, and durable material selection planned for long-term use and clean execution.",
     includes: [
@@ -24,7 +24,7 @@ const HOME_HUB_ITEMS = [
     ctaLabel: "View Categories",
   },
   {
-    title: "Residential Design",
+    title: "Residential Landscape Architecture",
     description:
       "Amenity environments, circulation, planning coordination, and grading strategy designed for daily resident use and maintenance reality.",
     includes: [
@@ -38,9 +38,9 @@ const HOME_HUB_ITEMS = [
     ctaLabel: "View Categories",
   },
   {
-    title: "About",
+    title: "About ELI Land Design",
     description:
-      "Learn more about E.L.I. Land Design, our history, professional approach, and the team behind the work.",
+      "Learn more about ELI Land Design, our history, professional approach, and the team behind the work.",
     includes: [
       "Firm overview",
       "History",
@@ -80,9 +80,9 @@ const HOME_HUB_ITEMS = [
     ctaLabel: "View Gallery",
   },
   {
-    title: "Careers at ELI",
+    title: "Careers at ELI Land Design",
     description:
-      "Explore opportunities to join E.L.I. Land Design and learn what the firm values in design, planning, and project delivery.",
+      "Explore opportunities to join ELI Land Design and learn what the firm values in design, planning, and project delivery.",
     includes: [
       "Firm culture",
       "Open opportunities",
@@ -126,7 +126,7 @@ export default function Home() {
       </section>
 
       <HomeHubSection
-        title="Commercial Design Categories"
+        title=""
         items={HOME_HUB_ITEMS}
       />
 

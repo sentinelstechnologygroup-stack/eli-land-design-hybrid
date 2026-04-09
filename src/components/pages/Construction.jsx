@@ -67,7 +67,7 @@ export default function Construction() {
           <div className="md:col-span-7">
             <AnimatedSection delay={0.2}>
               <p className="text-[#1F2E23]/60 font-sans-clean text-base md:text-lg leading-[1.8] mb-6">
-                E.L.I. Land Design provides landscape construction services throughout The Woodlands and Houston area. Our crews install hardscape, irrigation systems, landscape lighting, drainage infrastructure, and plant materials according to design specifications. By controlling both design and construction in-house, we ensure build quality matches design intent without communication gaps or substitutions.
+                ELI Land Design provides landscape construction services throughout The Woodlands and Houston area. Our crews install hardscape, irrigation systems, landscape lighting, drainage infrastructure, and plant materials according to design specifications. By controlling both design and construction in-house, we ensure build quality matches design intent without communication gaps or substitutions.
               </p>
               <p className="text-[#1F2E23]/60 font-sans-clean text-base md:text-lg leading-[1.8] mb-6">
                 We manage all phases of construction—from site preparation and grading through final installation and cleanup. Our process includes pre-construction meetings, material selection verification, phased installation scheduling, and quality control inspections at each stage.

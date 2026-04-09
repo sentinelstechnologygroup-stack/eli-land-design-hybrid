@@ -53,8 +53,8 @@ const APPROACH = [
 ];
 
 const HISTORY = [
-  "E.L.I. land design was founded in 1997 by Chris K. Eiseman with a single truck, a hard work ethic, and a love for the outdoors. He realized he wanted to set his business apart from the everyday landscape company, so he turned to the school of Landscape Architecture at Texas A&M University.",
-  "With the knowledge of both design and construction, E.L.I. land design can utilize these skills to provide our clients with an all-encompassing design from conceptual site planning to placing site furnishings. E.L.I. land design is licensed in Texas and our project experience in design and construction ranges from parks and recreation facilities to high-end resort design.",
+  "ELI land design was founded in 1997 by Chris K. Eiseman with a single truck, a hard work ethic, and a love for the outdoors. He realized he wanted to set his business apart from the everyday landscape company, so he turned to the school of Landscape Architecture at Texas A&M University.",
+  "With the knowledge of both design and construction, ELI land design can utilize these skills to provide our clients with an all-encompassing design from conceptual site planning to placing site furnishings. ELI land design is licensed in Texas and our project experience in design and construction ranges from parks and recreation facilities to high-end resort design.",
   "To this day, that founding spirit of craftsmanship remains a hallmark of our firm, supporting collaboration and innovation. The team that has joined Chris continues to seek a higher purpose for our work—creating outdoor spaces where clients and nature come together in harmony.",
 ];
 
@@ -84,7 +84,7 @@ const TEAM = [
     suffix: "RLA",
     image: MEDIA.chris,
     bio:
-      "Chris founded E.L.I. land design in 1997 and graduated from Texas A&M's College of Architecture in 2002. With over 24 years of experience, he brings both design artistry and construction expertise to every project.",
+      "Chris founded ELI land design in 1997 and graduated from Texas A&M's College of Architecture in 2002. With over 24 years of experience, he brings both design artistry and construction expertise to every project.",
   },
   {
     label: "Landscape Architect",
@@ -92,7 +92,7 @@ const TEAM = [
     suffix: "RLA",
     image: MEDIA.matt,
     bio:
-      "Matt joined E.L.I. in 2012 after graduating from Texas A&M University. A registered Landscape Architect, Matt is involved with design, construction documentation, and renderings.",
+      "Matt joined ELI in 2012 after graduating from Texas A&M University. A registered Landscape Architect, Matt is involved with design, construction documentation, and renderings.",
   },
 ];
 
@@ -126,7 +126,7 @@ export default function About() {
     <PageShell
       hero
       heroImage={MEDIA.hero}
-      eyebrow="About E.L.I. Land Design"
+      eyebrow="About ELI Land Design"
       title="Landscape Architecture & Construction Services in Texas"
       subtitle="Licensed landscape architects and construction specialists serving residential and commercial clients throughout The Woodlands, Houston, and surrounding markets since 1997."
     >
@@ -159,7 +159,7 @@ export default function About() {
           <div className="space-y-6">
             <AnimatedSection delay={0.2}>
               <p className="text-[#1F2E23]/70 font-sans-clean text-base leading-[1.75]">
-                E.L.I. Land Design was established in 1997 by Chris K. Eiseman, a
+                ELI Land Design was established in 1997 by Chris K. Eiseman, a
                 licensed Texas landscape architect with expertise in residential
                 estate design, commercial site planning, and landscape
                 construction. The firm provides comprehensive services from

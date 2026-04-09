@@ -76,7 +76,7 @@ export default function ContactClient() {
                 <AnimatedSection>
                   <div>
                     <h2 className="font-serif-display text-[#1F2E23] text-3xl md:text-4xl font-light mb-10">
-                      E.L.I. Land Design
+                      ELI Land Design
                     </h2>
 
                     <div className="space-y-8">
