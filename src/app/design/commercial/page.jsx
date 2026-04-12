@@ -1,9 +1,7 @@
-// src/app/construction/page.jsx
-import Component from "@/components/pages/Construction.jsx";
-import { getPageMetadata } from "@/lib/seo";
+// src/app/design/commercial/page.jsx
 
-export const metadata = getPageMetadata("construction");
+import DesignCommercial from "@/components/pages/DesignCommercial";
 
 export default function Page() {
-  return <Component />;
+  return <DesignCommercial />;
 }

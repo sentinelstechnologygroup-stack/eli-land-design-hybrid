@@ -47,7 +47,7 @@ export default function MiddleCTA({
                   onClick={() => trackCTA("schedule-consultation", "middle-cta")}
                 >
                   {primaryLabel}
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
 
@@ -57,7 +57,7 @@ export default function MiddleCTA({
                   onClick={() => trackCTA("view-projects", "middle-cta")}
                 >
                   {secondaryLabel}
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
             </div>

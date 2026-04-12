@@ -28,11 +28,11 @@ export default function PageHero({
         <div className="absolute inset-0 bg-[#1F2E23]" />
       )}
 
-      <div className="absolute inset-0 bg-[#07100B]/58" />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#040806]/82 via-[#08110C]/52 to-[#102018]/84" />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#08110C]/44 via-[#08110C]/18 to-[#08110C]/34" />
-      <div className="absolute inset-0 backdrop-[brightness(.58)]" />
-      <div className="absolute inset-x-0 bottom-0 h-[38%] bg-gradient-to-t from-[#08110C]/92 to-transparent" />
+      <div className="absolute inset-0 bg-[#07100B]/62" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#040806]/82 via-[#08110C]/50 to-[#102018]/86" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#08110C]/42 via-[#08110C]/16 to-[#08110C]/30" />
+      <div className="absolute inset-0 backdrop-[brightness(.62)]" />
+      <div className="absolute inset-x-0 bottom-0 h-[42%] bg-gradient-to-t from-[#08110C]/94 to-transparent" />
 
       <div className="absolute inset-0">
         <div className={`${contentMax} mx-auto h-full px-6 md:px-12 lg:px-20`}>
@@ -47,7 +47,7 @@ export default function PageHero({
               {title ? (
                 <h1
                   className={[
-                    "max-w-[20ch] sm:max-w-[25ch] md:max-w-[30ch] lg:max-w-[35ch] xl:max-w-[40ch] font-serif-display text-[2.6rem] font-light leading-[0.96] tracking-[-0.03em] text-[#F5F0EA] sm:text-[3.1rem] md:text-[3.5rem] lg:text-[3.85rem] xl:text-[4.15rem] [text-wrap:balance] [text-shadow:0_3px_18px_rgba(0,0,0,0.52)]",
+                    "max-w-[16ch] sm:max-w-[18ch] md:max-w-[20ch] lg:max-w-[22ch] font-serif-display text-[2.85rem] font-light leading-[0.94] tracking-[-0.03em] text-[#F5F0EA] sm:text-[3.2rem] md:text-[3.6rem] lg:text-[4rem] xl:text-[4.25rem] [text-wrap:balance] [text-shadow:0_3px_18px_rgba(0,0,0,0.52)]",
                     titleClassName,
                   ].join(" ").trim()}
                 >
@@ -58,7 +58,7 @@ export default function PageHero({
               {subtitle ? (
                 <p
                   className={[
-                    "mt-6 max-w-[58rem] font-sans-clean text-sm leading-[1.72] text-[#F5F0EA]/92 md:text-[17px] [text-shadow:0_2px_12px_rgba(0,0,0,0.42)]",
+                    "mt-5 max-w-[46rem] font-sans-clean text-[15px] leading-[1.72] text-[#F5F0EA]/92 md:text-[17px] [text-shadow:0_2px_12px_rgba(0,0,0,0.42)]",
                     subtitleClassName,
                   ].join(" ").trim()}
                 >

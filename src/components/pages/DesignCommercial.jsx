@@ -1,9 +1,12 @@
-// src/pages/DesignCommercial.jsx
+// src/components/pages/DesignCommercial.jsx
+
+"use client";
+
 import React, { useMemo } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import PageShell from "../shared/PageShell";
-import AnimatedSection from "../shared/AnimatedSection";
+import PageShell from "@/components/shared/PageShell";
+import AnimatedSection from "@/components/shared/AnimatedSection";
 import { ROUTES } from "@/components/utils/routes";
 import PortfolioMarquee from "@/components/portfolio/PortfolioMarquee";
 import BottomCTA from "@/components/shared/BottomCTA";
@@ -22,7 +25,13 @@ const MEDIA = {
   hubSupport: "/images/design/hub/support.jpg",
 };
 
-const TAGS = ["Site planning", "Circulation", "Grading + drainage", "Materials", "Planted systems"];
+const TAGS = [
+  "Site planning",
+  "Circulation",
+  "Grading + drainage",
+  "Materials",
+  "Planted systems",
+];
 
 const CATEGORIES = [
   {
@@ -30,12 +39,10 @@ const CATEGORIES = [
     label: "Property + Category",
     title: "Lifestyle Center",
     description:
-      "Entry sequence, plazas, pedestrian flow, and durable materials that elevate the experience and perform long-term.",
+      " ",
     image: MEDIA.card1,
     scope: [
-      "Site planning",
-      "Amenity coordination",
-      "Hardscape + planted systems",
+
     ],
   },
   {
@@ -43,12 +50,10 @@ const CATEGORIES = [
     label: "Community + Amenity",
     title: "Multifamily",
     description:
-      "Amenity courts, pool decks, lighting, planting strategy, and circulation designed for daily use and durability.",
+      " ",
     image: MEDIA.card2,
     scope: [
-      "Amenity courts",
-      "Pool + common areas",
-      "Lighting + landscape coordination",
+
     ],
   },
   {
@@ -56,12 +61,10 @@ const CATEGORIES = [
     label: "Campus + Streetscape",
     title: "Office",
     description:
-      "Shade, circulation, signage zones, planting systems, and clean detailing across a cohesive site plan.",
+      " ",
     image: MEDIA.card3,
     scope: [
-      "Campus planning",
-      "Circulation + entries",
-      "Streetscape + planting",
+
     ],
   },
   {
@@ -69,12 +72,10 @@ const CATEGORIES = [
     label: "Concept Visualization",
     title: "Renderings",
     description:
-      "High-confidence concept and visual direction to align teams before documentation and construction.",
+      " ",
     image: MEDIA.card4,
     scope: [
-      "Concept visuals",
-      "Presentation imagery",
-      "Design communication",
+
     ],
   },
 ];
@@ -98,9 +99,13 @@ function CommercialGridCard({ item, href, delay = 0 }) {
 
             <div className="absolute inset-0 flex flex-col justify-between p-4 sm:p-5 md:p-6 lg:p-8">
               <div>
-                <h3 className="max-w-[14ch] font-serif-display text-[1.15rem] font-light leading-[1.02] tracking-[-0.02em] text-white sm:text-[1.3rem] md:text-[1.7rem] lg:text-[2.15rem]">
+                <div className="mb-3 text-[9px] font-sans-clean font-semibold uppercase tracking-[0.28em] text-white/65 lg:text-[10px]">
+                  {item.label}
+                </div>
+
+                <h3 className="whitespace-nowrap overflow-hidden text-ellipsis font-serif-display text-[1.15rem] font-light leading-[1.02] tracking-[-0.02em] text-white sm:text-[1.3rem] md:text-[1.7rem] lg:text-[2.15rem]">
                   {item.title}
-                </h3>
+                </h3> 
 
                 <p className="mt-3 max-w-[32rem] font-sans-clean text-[12px] leading-[1.6] text-white/85 sm:text-[12.5px] md:text-[13px] lg:mt-5 lg:text-[15px] lg:leading-[1.75]">
                   {item.description}
@@ -109,10 +114,6 @@ function CommercialGridCard({ item, href, delay = 0 }) {
 
               <div className="pt-4 lg:pt-8">
                 <div className="border-t border-white/18 pt-4 lg:pt-5">
-                  <div className="mb-3 text-[9px] font-sans-clean font-semibold uppercase tracking-[0.28em] text-white/65 lg:text-[10px]">
-                    
-                  </div>
-
                   <ul className="space-y-2 lg:space-y-3">
                     {item.scope.map((scopeItem) => (
                       <li
@@ -149,7 +150,8 @@ export default function DesignCommercial() {
       {
         href: ROUTES.gallery ?? "/gallery",
         title: "Lifestyle Center",
-        subtitle: "Entry sequence, plazas, pedestrian flow, durable materials.",
+        subtitle:
+          "Entry sequence, plazas, pedestrian flow, durable materials.",
         image: MEDIA.tileCommercial,
       },
       {
@@ -167,7 +169,8 @@ export default function DesignCommercial() {
       {
         href: ROUTES.gallery ?? "/gallery",
         title: "Streetscape + Entries",
-        subtitle: "Arrival sequence, hardscape structure, planted systems.",
+        subtitle:
+          "Arrival sequence, hardscape structure, planted systems.",
         image: MEDIA.hubSupport,
       },
       {
@@ -179,7 +182,8 @@ export default function DesignCommercial() {
       {
         href: ROUTES.gallery ?? "/gallery",
         title: "Community Landscapes",
-        subtitle: "Phasing, durability, performance under maintenance reality.",
+        subtitle:
+          "Phasing, durability, performance under maintenance reality.",
         image: MEDIA.tileResidential,
       },
     ],
@@ -195,14 +199,13 @@ export default function DesignCommercial() {
       title="Commercial Design"
       subtitle="Landscape architecture for commercial environments—focused on durability, grading rationale, planted systems that perform, and schedule, maintenance, and budget reality."
     >
-      {/* TAGS / CHIPS */}
-      <section className="px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto">
+      <section className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-20">
         <AnimatedSection>
-          <div className="flex flex-wrap gap-2 md:gap-3 border-y border-[#1F2E23]/10 py-6 md:py-8">
+          <div className="flex flex-wrap gap-2 border-y border-[#1F2E23]/10 py-6 md:gap-3 md:py-8">
             {TAGS.map((t) => (
               <span
                 key={t}
-                className="text-[10px] tracking-[0.22em] uppercase font-sans-clean font-semibold text-[#1F2E23]/55 border border-[#1F2E23]/15 bg-white/50 px-3 py-1 rounded-none"
+                className="rounded-none border border-[#1F2E23]/15 bg-white/50 px-3 py-1 text-[10px] font-sans-clean font-semibold uppercase tracking-[0.22em] text-[#1F2E23]/55"
               >
                 {t}
               </span>
@@ -211,22 +214,21 @@ export default function DesignCommercial() {
         </AnimatedSection>
       </section>
 
-      {/* GRID HEADER */}
-      <section className="px-6 md:px-12 lg:px-20 pt-12 md:pt-14 max-w-[1440px] mx-auto">
+      <section className="mx-auto max-w-[1440px] px-6 pt-12 md:px-12 md:pt-14 lg:px-20">
         <AnimatedSection>
           <div className="flex items-end justify-between gap-6">
             <div>
-              <p className="text-[10px] tracking-[0.28em] uppercase font-sans-clean font-semibold text-[#1F2E23]/55 mb-3">
+              <p className="mb-3 text-[10px] font-sans-clean font-semibold uppercase tracking-[0.28em] text-[#1F2E23]/55">
                 Portfolio by category
               </p>
-              <h2 className="font-serif-display text-[#1F2E23] text-2xl md:text-3xl font-light">
+              <h2 className="font-serif-display text-2xl font-light text-[#1F2E23] md:text-3xl">
                 Galleries with dedicated pages.
               </h2>
             </div>
 
             <Link
               href={ROUTES.gallery ?? "/gallery"}
-              className="text-[11px] tracking-[0.2em] uppercase font-sans-clean font-semibold text-[#1F2E23]/70 hover:text-[#1F2E23]"
+              className="text-[11px] font-sans-clean font-semibold uppercase tracking-[0.2em] text-[#1F2E23]/70 hover:text-[#1F2E23]"
             >
               View built work →
             </Link>
@@ -234,9 +236,8 @@ export default function DesignCommercial() {
         </AnimatedSection>
       </section>
 
-      {/* CATEGORY GRID */}
-      <section className="px-6 md:px-12 lg:px-20 py-10 md:py-12 max-w-[1440px] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-6 lg:gap-8">
+      <section className="mx-auto max-w-[1440px] px-6 py-10 md:px-12 md:py-12 lg:px-20">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-6 lg:gap-8">
           {CATEGORIES.map((c, idx) => (
             <CommercialGridCard
               key={c.slug}
@@ -248,43 +249,42 @@ export default function DesignCommercial() {
         </div>
       </section>
 
-      {/* HUB BREAK CTA */}
       <HubBreakCTA />
 
-      {/* SUPPORT */}
       <section>
-        <div className="px-6 md:px-12 lg:px-20 py-16 md:py-20 max-w-[1440px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-14 items-start">
+        <div className="mx-auto max-w-[1440px] px-6 py-16 md:px-12 md:py-20 lg:px-20">
+          <div className="grid grid-cols-1 items-start gap-10 md:grid-cols-12 md:gap-14">
             <div className="md:col-span-7">
               <AnimatedSection>
-                <p className="text-[10px] tracking-[0.28em] uppercase font-sans-clean font-semibold text-[#1F2E23]/55 mb-4">
+                <p className="mb-4 text-[10px] font-sans-clean font-semibold uppercase tracking-[0.28em] text-[#1F2E23]/55">
                   Featured focus
                 </p>
-                <h3 className="font-serif-display text-[#1F2E23] text-3xl md:text-4xl font-light leading-[1.1] mb-6">
+                <h3 className="mb-6 font-serif-display text-3xl font-light leading-[1.1] text-[#1F2E23] md:text-4xl">
                   Clean details. Real-world execution.
                 </h3>
-                <p className="text-[#1F2E23]/60 font-sans-clean text-base leading-[1.85] mb-6">
-                  Commercial work is designed to hold up to schedule pressure, site constraints, and long-term
-                  maintenance. The goal is simple: a design that looks sharp and builds clean.
+                <p className="mb-6 text-base leading-[1.85] text-[#1F2E23]/60 font-sans-clean">
+                  Commercial work is designed to hold up to schedule pressure,
+                  site constraints, and long-term maintenance. The goal is
+                  simple: a design that looks sharp and builds clean.
                 </p>
                 <Link
                   href={ROUTES.contact}
-                  className="group inline-flex items-center gap-3 text-[#1F2E23] text-[12px] tracking-[0.2em] uppercase font-sans-clean font-semibold"
+                  className="group inline-flex items-center gap-3 text-[12px] font-sans-clean font-semibold uppercase tracking-[0.2em] text-[#1F2E23]"
                 >
                   How we build
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </AnimatedSection>
             </div>
 
             <div className="md:col-span-5">
               <AnimatedSection delay={0.1}>
-                <div className="border border-[#1F2E23]/10 bg-white overflow-hidden rounded-2xl">
+                <div className="overflow-hidden rounded-2xl border border-[#1F2E23]/10 bg-white">
                   <div className="aspect-[4/3]">
                     <img
                       src={MEDIA.support}
                       alt="Commercial design details"
-                      className="w-full h-full object-cover"
+                      className="h-full w-full object-cover"
                       loading="lazy"
                       decoding="async"
                     />
@@ -296,18 +296,17 @@ export default function DesignCommercial() {
         </div>
       </section>
 
-        {/* ✅ GALLERY TEASER — MARQUEE */}
-        <section className="bg-[#F5F0EA] py-10 md:py-14">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
-            <PortfolioMarquee
-              items={PORTFOLIO_GALLERIES}
-              title="Commercial Design Portfolio"
-              ctaLabel="View Full Portfolio"
-              ctaHref={ROUTES.gallery ?? "/gallery"}
-              bgColor="#F5F0EA"
-            />
-          </div>
-        </section>
+      <section className="bg-[#F5F0EA] py-10 md:py-14">
+        <div className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-20">
+          <PortfolioMarquee
+            items={PORTFOLIO_GALLERIES}
+            title="Commercial Design Portfolio"
+            ctaLabel="View Full Portfolio"
+            ctaHref={ROUTES.gallery ?? "/gallery"}
+            bgColor="#F5F0EA"
+          />
+        </div>
+      </section>
 
       <BottomCTA />
     </PageShell>

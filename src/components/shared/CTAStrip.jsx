@@ -11,7 +11,7 @@ import { trackCTA } from "@/lib/intelligence";
 export default function CTAStrip({
   eyebrow,
   title = "Schedule a design consultation today.",
-  description = "Click the button to Schedule Consultation. We look forward to speaking with you about your project.",
+  description = "Click the button below to schedule your consultation. We look forward to speaking with you about your project.",
   primaryLabel = "Schedule Consultation",
   primaryHref,
   secondaryLabel = "View Projects",
@@ -27,7 +27,7 @@ export default function CTAStrip({
         <div className="grid items-center gap-8 lg:grid-cols-[1.35fr_auto] lg:gap-12">
           <div>
             {eyebrow ? (
-              <div className="text-[11px] font-sans-clean font-semibold uppercase tracking-[0.28em] text-[#F5F0EA]/62">
+              <div className="font-sans-clean text-[11px] font-semibold uppercase tracking-[0.28em] text-[#F5F0EA]/62">
                 {eyebrow}
               </div>
             ) : null}

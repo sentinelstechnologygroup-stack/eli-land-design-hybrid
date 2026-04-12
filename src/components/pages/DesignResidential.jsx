@@ -1,9 +1,9 @@
-"use client";
 // src/components/DesignResidential.jsx
+"use client";
 import React, { useMemo } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import PageShell from "@/components/shared/PageShell";
+import PageShell from "@/components/PageShell";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 import CTASection from "@/components/home/CTASection";
 import HubBreakCTA from "@/components/home/HubBreakCTA";
@@ -33,11 +33,9 @@ const GRID_ITEMS = [
   {
     title: "Master Plans & Grading",
     description:
-      "Buildable master plans with grading strategy, drainage performance, and coordinated hardscape layout.",
+      " ",
     includes: [
-      "Site analysis",
-      "Grading + drainage",
-      "Phasing + constructability",
+
     ],
     href:
       ROUTES.residentialMasterPlans ||
@@ -47,11 +45,9 @@ const GRID_ITEMS = [
   {
     title: "Pool & Outdoor Living",
     description:
-      "Outdoor living environments planned for circulation, structure coordination, and long-term use.",
+      " ",
     includes: [
-      "Pools + terraces",
-      "Outdoor kitchens",
-      "Lighting + planting coordination",
+
     ],
     href:
       ROUTES.residentialPoolOutdoorLiving ||
@@ -61,11 +57,9 @@ const GRID_ITEMS = [
   {
     title: "Drainage & Planting Design",
     description:
-      "Drainage solutions and planting systems designed for Texas conditions and maintenance reality.",
+      " ",
     includes: [
-      "Drainage strategy",
-      "Planting systems",
-      "Irrigation coordination",
+
     ],
     href:
       ROUTES.residentialDrainagePlanting ||
@@ -75,11 +69,9 @@ const GRID_ITEMS = [
   {
     title: "Renderings",
     description:
-      "Concept renderings that help visualize design intent, materials, and spatial relationships before construction.",
+      " ",
     includes: [
-      "Concept visuals",
-      "Material + lighting studies",
-      "Presentation-ready imagery",
+
     ],
     href: ROUTES.galleryRenderings || "/gallery/renderings",
     image: MEDIA.renderings,
@@ -105,9 +97,9 @@ function GridCard({ item, delay = 0 }) {
 
             <div className="absolute inset-0 flex flex-col justify-between p-4 sm:p-5 md:p-6 lg:p-8">
               <div>
-                <h3 className="max-w-[14ch] font-serif-display text-[1.15rem] font-light leading-[1.02] tracking-[-0.02em] text-white sm:text-[1.3rem] md:text-[1.7rem] lg:text-[2.15rem]">
-                  {item.title}
-                </h3>
+            <h3 className="whitespace-nowrap overflow-hidden text-ellipsis font-serif-display text-[1.15rem] font-light leading-[1.02] tracking-[-0.02em] text-white sm:text-[1.3rem] md:text-[1.7rem] lg:text-[2.15rem]">
+              {item.title}
+            </h3>
 
                 <p className="mt-3 max-w-[32rem] font-sans-clean text-[12px] leading-[1.6] text-white/85 sm:text-[12.5px] md:text-[13px] lg:mt-5 lg:text-[15px] lg:leading-[1.75]">
                   {item.description}
@@ -117,7 +109,7 @@ function GridCard({ item, delay = 0 }) {
               <div className="pt-4 lg:pt-8">
                 <div className="border-t border-white/18 pt-4 lg:pt-5">
                   <div className="mb-3 text-[9px] font-sans-clean font-semibold uppercase tracking-[0.28em] text-white/65 lg:text-[10px]">
-                    
+                    Typical Scope
                   </div>
 
                   <ul className="space-y-2 lg:space-y-3">
