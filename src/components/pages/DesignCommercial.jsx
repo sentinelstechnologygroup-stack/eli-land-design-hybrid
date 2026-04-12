@@ -1,5 +1,4 @@
 // src/components/pages/DesignCommercial.jsx
-
 "use client";
 
 import React, { useMemo } from "react";
@@ -38,52 +37,40 @@ const CATEGORIES = [
     slug: "lifestyle-center",
     label: "Property + Category",
     title: "Lifestyle Center",
-    description:
-      " ",
+    description: "",
     image: MEDIA.card1,
-    scope: [
-
-    ],
+    scope: [],
   },
   {
     slug: "multifamily",
     label: "Community + Amenity",
     title: "Multifamily",
-    description:
-      " ",
+    description: "",
     image: MEDIA.card2,
-    scope: [
-
-    ],
+    scope: [],
   },
   {
     slug: "office",
     label: "Campus + Streetscape",
     title: "Office",
-    description:
-      " ",
+    description: "",
     image: MEDIA.card3,
-    scope: [
-
-    ],
+    scope: [],
   },
   {
     slug: "renderings",
     label: "Concept Visualization",
     title: "Renderings",
-    description:
-      " ",
+    description: "",
     image: MEDIA.card4,
-    scope: [
-
-    ],
+    scope: [],
   },
 ];
 
 function CommercialGridCard({ item, href, delay = 0 }) {
   return (
     <AnimatedSection delay={delay}>
-      <Link href={href} className="group block h-full">
+      <Link href={href} className="group block h-full no-underline">
         <article className="relative isolate h-full overflow-hidden border border-[#1F2E23]/10 bg-[#D7D1C7] shadow-[0_18px_50px_rgba(16,24,18,0.12)] transition-all duration-500 group-hover:shadow-[0_28px_70px_rgba(16,24,18,0.18)]">
           <div className="relative aspect-[1/1] sm:aspect-[1.08/1] lg:aspect-[1.42/1]">
             <img
@@ -93,45 +80,23 @@ function CommercialGridCard({ item, href, delay = 0 }) {
               loading="lazy"
               decoding="async"
             />
-
-            <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-black/40 to-black/75" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/18 via-black/28 to-black/64" />
             <div className="absolute inset-0 bg-[#1F2E23]/10 mix-blend-multiply" />
 
             <div className="absolute inset-0 flex flex-col justify-between p-4 sm:p-5 md:p-6 lg:p-8">
               <div>
-                <div className="mb-3 text-[9px] font-sans-clean font-semibold uppercase tracking-[0.28em] text-white/65 lg:text-[10px]">
-                  {item.label}
-                </div>
-
-                <h3 className="whitespace-nowrap overflow-hidden text-ellipsis font-serif-display text-[1.15rem] font-light leading-[1.02] tracking-[-0.02em] text-white sm:text-[1.3rem] md:text-[1.7rem] lg:text-[2.15rem]">
+                <div className="mb-3 type-micro text-white/65">{item.label}</div>
+                <h3 className="type-card-title-single text-[1.15rem] text-white sm:text-[1.3rem] md:text-[1.7rem] lg:text-[2.15rem]">
                   {item.title}
-                </h3> 
-
-                <p className="mt-3 max-w-[32rem] font-sans-clean text-[12px] leading-[1.6] text-white/85 sm:text-[12.5px] md:text-[13px] lg:mt-5 lg:text-[15px] lg:leading-[1.75]">
-                  {item.description}
-                </p>
+                </h3>
               </div>
 
               <div className="pt-4 lg:pt-8">
                 <div className="border-t border-white/18 pt-4 lg:pt-5">
-                  <ul className="space-y-2 lg:space-y-3">
-                    {item.scope.map((scopeItem) => (
-                      <li
-                        key={scopeItem}
-                        className="flex items-start gap-2.5 text-white/85"
-                      >
-                        <span className="mt-[7px] h-[5px] w-[5px] shrink-0 bg-white/80" />
-                        <span className="font-sans-clean text-[11px] leading-[1.45] sm:text-[11.5px] md:text-[12px] lg:text-[15px] lg:leading-[1.55]">
-                          {scopeItem}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="mt-4 inline-flex items-center gap-2 font-sans-clean text-[10px] font-semibold uppercase tracking-[0.24em] text-white lg:mt-6 lg:text-[11px]">
-                  View Gallery
-                  <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+                  <div className="inline-flex items-center gap-2 type-button text-white">
+                    View Gallery
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+                  </div>
                 </div>
               </div>
             </div>
@@ -145,13 +110,12 @@ function CommercialGridCard({ item, href, delay = 0 }) {
 export default function DesignCommercial() {
   const base = ROUTES.designCommercial || "/design/commercial";
 
-  const PORTFOLIO_GALLERIES = useMemo(
+  const portfolioGalleries = useMemo(
     () => [
       {
         href: ROUTES.gallery ?? "/gallery",
         title: "Lifestyle Center",
-        subtitle:
-          "Entry sequence, plazas, pedestrian flow, durable materials.",
+        subtitle: "Entry sequence, plazas, pedestrian flow, durable materials.",
         image: MEDIA.tileCommercial,
       },
       {
@@ -169,8 +133,7 @@ export default function DesignCommercial() {
       {
         href: ROUTES.gallery ?? "/gallery",
         title: "Streetscape + Entries",
-        subtitle:
-          "Arrival sequence, hardscape structure, planted systems.",
+        subtitle: "Arrival sequence, hardscape structure, planted systems.",
         image: MEDIA.hubSupport,
       },
       {
@@ -182,8 +145,7 @@ export default function DesignCommercial() {
       {
         href: ROUTES.gallery ?? "/gallery",
         title: "Community Landscapes",
-        subtitle:
-          "Phasing, durability, performance under maintenance reality.",
+        subtitle: "Phasing, durability, performance under maintenance reality.",
         image: MEDIA.tileResidential,
       },
     ],
@@ -192,43 +154,38 @@ export default function DesignCommercial() {
 
   return (
     <PageShell
-      currentPageName="DesignCommercial"
       hero
       heroImage={MEDIA.hero}
       eyebrow="Design — Commercial"
       title="Commercial Design"
       subtitle="Landscape architecture for commercial environments—focused on durability, grading rationale, planted systems that perform, and schedule, maintenance, and budget reality."
     >
-      <section className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-20">
+      <section className="mx-auto max-w-[1440px] px-6 md:px-10 lg:px-20">
         <AnimatedSection>
           <div className="flex flex-wrap gap-2 border-y border-[#1F2E23]/10 py-6 md:gap-3 md:py-8">
-            {TAGS.map((t) => (
+            {TAGS.map((tag) => (
               <span
-                key={t}
-                className="rounded-none border border-[#1F2E23]/15 bg-white/50 px-3 py-1 text-[10px] font-sans-clean font-semibold uppercase tracking-[0.22em] text-[#1F2E23]/55"
+                key={tag}
+                className="border border-[#1F2E23]/15 bg-white/50 px-3 py-1 type-micro text-[#1F2E23]/55"
               >
-                {t}
+                {tag}
               </span>
             ))}
           </div>
         </AnimatedSection>
       </section>
 
-      <section className="mx-auto max-w-[1440px] px-6 pt-12 md:px-12 md:pt-14 lg:px-20">
+      <section className="mx-auto max-w-[1440px] px-6 pt-12 md:px-10 md:pt-14 lg:px-20">
         <AnimatedSection>
           <div className="flex items-end justify-between gap-6">
             <div>
-              <p className="mb-3 text-[10px] font-sans-clean font-semibold uppercase tracking-[0.28em] text-[#1F2E23]/55">
-                Portfolio by category
-              </p>
-              <h2 className="font-serif-display text-2xl font-light text-[#1F2E23] md:text-3xl">
-                Galleries with dedicated pages.
-              </h2>
+              <p className="mb-3 type-micro text-[#1F2E23]/55">Portfolio by category</p>
+              <h2 className="type-h2 text-[#1F2E23]">Galleries with dedicated pages.</h2>
             </div>
 
             <Link
               href={ROUTES.gallery ?? "/gallery"}
-              className="text-[11px] font-sans-clean font-semibold uppercase tracking-[0.2em] text-[#1F2E23]/70 hover:text-[#1F2E23]"
+              className="type-button text-[#1F2E23]/70 hover:text-[#1F2E23] no-underline"
             >
               View built work →
             </Link>
@@ -236,13 +193,13 @@ export default function DesignCommercial() {
         </AnimatedSection>
       </section>
 
-      <section className="mx-auto max-w-[1440px] px-6 py-10 md:px-12 md:py-12 lg:px-20">
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-6 lg:gap-8">
-          {CATEGORIES.map((c, idx) => (
+      <section className="mx-auto max-w-[1440px] px-6 py-10 md:px-10 md:py-12 lg:px-20">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8">
+          {CATEGORIES.map((category, idx) => (
             <CommercialGridCard
-              key={c.slug}
-              item={c}
-              href={`${base}/${c.slug}`}
+              key={category.slug}
+              item={category}
+              href={`${base}/${category.slug}`}
               delay={idx * 0.08}
             />
           ))}
@@ -252,24 +209,20 @@ export default function DesignCommercial() {
       <HubBreakCTA />
 
       <section>
-        <div className="mx-auto max-w-[1440px] px-6 py-16 md:px-12 md:py-20 lg:px-20">
+        <div className="mx-auto max-w-[1440px] px-6 py-16 md:px-10 md:py-20 lg:px-20">
           <div className="grid grid-cols-1 items-start gap-10 md:grid-cols-12 md:gap-14">
             <div className="md:col-span-7">
               <AnimatedSection>
-                <p className="mb-4 text-[10px] font-sans-clean font-semibold uppercase tracking-[0.28em] text-[#1F2E23]/55">
-                  Featured focus
-                </p>
-                <h3 className="mb-6 font-serif-display text-3xl font-light leading-[1.1] text-[#1F2E23] md:text-4xl">
-                  Clean details. Real-world execution.
-                </h3>
-                <p className="mb-6 text-base leading-[1.85] text-[#1F2E23]/60 font-sans-clean">
-                  Commercial work is designed to hold up to schedule pressure,
-                  site constraints, and long-term maintenance. The goal is
-                  simple: a design that looks sharp and builds clean.
+                <p className="mb-4 type-micro text-[#1F2E23]/55">Featured Focus</p>
+                <h3 className="type-h2 text-[#1F2E23]">Clean details. Real-world execution.</h3>
+                <p className="mt-6 type-body text-eli-muted">
+                  Commercial work is designed to hold up to schedule pressure, site
+                  constraints, and long-term maintenance. The goal is simple: a design
+                  that looks sharp and builds clean.
                 </p>
                 <Link
                   href={ROUTES.contact}
-                  className="group inline-flex items-center gap-3 text-[12px] font-sans-clean font-semibold uppercase tracking-[0.2em] text-[#1F2E23]"
+                  className="mt-8 inline-flex items-center gap-3 type-button text-[#1F2E23] no-underline"
                 >
                   How we build
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -279,7 +232,7 @@ export default function DesignCommercial() {
 
             <div className="md:col-span-5">
               <AnimatedSection delay={0.1}>
-                <div className="overflow-hidden rounded-2xl border border-[#1F2E23]/10 bg-white">
+                <div className="overflow-hidden border border-[#1F2E23]/10 bg-white">
                   <div className="aspect-[4/3]">
                     <img
                       src={MEDIA.support}
@@ -297,9 +250,9 @@ export default function DesignCommercial() {
       </section>
 
       <section className="bg-[#F5F0EA] py-10 md:py-14">
-        <div className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-20">
+        <div className="mx-auto max-w-[1440px] px-6 md:px-10 lg:px-20">
           <PortfolioMarquee
-            items={PORTFOLIO_GALLERIES}
+            items={portfolioGalleries}
             title="Commercial Design Portfolio"
             ctaLabel="View Full Portfolio"
             ctaHref={ROUTES.gallery ?? "/gallery"}

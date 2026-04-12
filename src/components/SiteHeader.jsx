@@ -31,7 +31,7 @@ export default function SiteHeader({ currentPageName }) {
   const navTone = "text-[#1F2E23] hover:text-[#1F2E23]";
 
   const PHONE_DISPLAY = "(281) 555-1234";
-  const PHONE_LINK = "tel:+12815551234";
+  const PHONE_LINK = "tel:+12812592610";
 
   const MOBILE_CTA_WIDTH = "w-[172px]";
   const DESKTOP_CTA_WIDTH = "w-[220px]";

@@ -27,19 +27,19 @@ export default function HeroSection() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % HERO_IMAGES.length);
-    }, 6000);
+    }, 6500);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <section className="relative w-full h-[56vh] min-h-[460px] max-h-[740px] overflow-hidden">
+    <section className="relative w-full overflow-hidden h-[54vh] min-h-[440px] max-h-[720px] md:h-[58vh]">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentSlide}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 1.2, ease: [0.33, 1, 0.68, 1] }}
+          transition={{ duration: 1.1, ease: [0.33, 1, 0.68, 1] }}
           className="absolute inset-0"
         >
           <img
@@ -49,66 +49,62 @@ export default function HeroSection() {
             loading="eager"
             decoding="async"
           />
-
-          <div className="absolute inset-0 bg-[#07100B]/58" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#040806]/82 via-[#08110C]/52 to-[#102018]/84" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#08110C]/44 via-[#08110C]/18 to-[#08110C]/34" />
-          <div className="absolute inset-0 backdrop-[brightness(.58)]" />
-          <div className="absolute inset-x-0 bottom-0 h-[38%] bg-gradient-to-t from-[#08110C]/92 to-transparent" />
+          <div className="absolute inset-0 bg-[#08110C]/56" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#08110C]/72 via-[#08110C]/34 to-[#08110C]/82" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#08110C]/52 via-[#08110C]/22 to-[#08110C]/22" />
+          <div className="absolute inset-x-0 bottom-0 h-[42%] bg-gradient-to-t from-[#08110C]/92 to-transparent" />
         </motion.div>
       </AnimatePresence>
 
-      <div className="absolute inset-0 flex items-end px-6 pb-16 md:px-12 md:pb-20 lg:px-20">
-        <div className="mx-auto w-full max-w-[1440px]">
-          <div className="max-w-5xl">
+      <div className="absolute inset-0 flex items-end">
+        <div className="mx-auto w-full max-w-[1440px] px-6 pb-14 md:px-10 md:pb-16 lg:px-20 lg:pb-20">
+          <div className="max-w-[860px]">
             <motion.h1
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 26 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.3, ease: [0.33, 1, 0.68, 1] }}
-              className="max-w-[20ch] sm:max-w-[25ch] md:max-w-[30ch] lg:max-w-[35ch] xl:max-w-[40ch] font-serif-display text-[2.6rem] font-light leading-[0.96] tracking-[-0.03em] text-[#F5F0EA] sm:text-[3.1rem] md:text-[3.5rem] lg:text-[3.85rem] xl:text-[4.15rem] [text-wrap:balance] [text-shadow:0_3px_18px_rgba(0,0,0,0.52)]"
+              transition={{ duration: 0.95, delay: 0.25, ease: [0.33, 1, 0.68, 1] }}
+              className="type-hero max-w-[16ch] text-[#F5F0EA] [text-shadow:0_3px_18px_rgba(0,0,0,0.44)]"
             >
               Landscape Architecture, Site Planning, and Construction Services
             </motion.h1>
 
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.5, ease: [0.33, 1, 0.68, 1] }}
-              className="mt-6 max-w-xl font-sans-clean text-base leading-[1.72] text-[#F5F0EA]/92 md:text-lg [text-shadow:0_2px_12px_rgba(0,0,0,0.42)]"
+              transition={{ duration: 0.85, delay: 0.42, ease: [0.33, 1, 0.68, 1] }}
+              className="mt-5 max-w-[660px] type-body text-[#F5F0EA]/92 [text-shadow:0_2px_10px_rgba(0,0,0,0.34)]"
             >
-              Site planning, grading design, and landscape construction for
-              residential and commercial projects throughout The Woodlands and
-              Houston.
+              Site planning, grading design, and landscape construction for residential and
+              commercial projects throughout The Woodlands and Houston.
             </motion.p>
 
             <motion.div
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.85, delay: 0.65, ease: [0.33, 1, 0.68, 1] }}
-              className="mt-9"
+              transition={{ duration: 0.8, delay: 0.56, ease: [0.33, 1, 0.68, 1] }}
+              className="mt-8"
             >
-              <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
-                <Link
-                  href={ROUTES.projects}
-                  onClick={() => trackCTA("view-projects", "home-hero")}
-                  className="inline-flex h-14 items-center justify-center gap-3 rounded-none bg-[#6B7F5E] px-10 font-sans-clean text-[11px] font-semibold uppercase tracking-[0.22em] text-[#F5F0EA] transition-all duration-300 hover:bg-[#5C714F]"
-                >
-                  View Projects
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-              </div>
+              <Link
+                href={ROUTES.projects}
+                onClick={() => trackCTA("view-projects", "home-hero")}
+                className="inline-flex h-12 items-center justify-center gap-3 bg-[#6B7F5E] px-8 type-button text-[#F5F0EA] transition-colors duration-300 hover:bg-[#5C714F] no-underline"
+              >
+                View Projects
+                <ArrowRight className="h-4 w-4" />
+              </Link>
             </motion.div>
           </div>
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-6 flex gap-2 md:left-12 lg:left-20">
+      <div className="absolute bottom-6 left-6 flex gap-2 md:left-10 lg:left-20">
         {HERO_IMAGES.map((_, idx) => (
           <button
             key={idx}
+            type="button"
             onClick={() => setCurrentSlide(idx)}
-            className={`h-px w-8 rounded-none transition-all ${
-              idx === currentSlide ? "bg-[#F5F0EA]" : "bg-[#F5F0EA]/30"
+            className={`h-px w-8 transition-all ${
+              idx === currentSlide ? "bg-[#F5F0EA]" : "bg-[#F5F0EA]/28"
             }`}
             aria-label={`Go to slide ${idx + 1}`}
           />

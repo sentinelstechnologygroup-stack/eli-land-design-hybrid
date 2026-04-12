@@ -3,12 +3,14 @@
 
 import React, { useEffect, useMemo, useState } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
-import PageShell from "../shared/PageShell";
-import AnimatedSection from "../shared/AnimatedSection";
+import PageShell from "@/components/shared/PageShell";
+import AnimatedSection from "@/components/shared/AnimatedSection";
 import BottomCTA from "@/components/shared/BottomCTA";
 
 const MEDIA = {
   hero: "/images/gallery/hero.jpg",
+  commercialFallback: "/images/design/commercial/thumbnails/lifestyle-center.jpg",
+  residentialFallback: "/images/design/residential/thumbnails/pool-outdoor-living.jpg",
 };
 
 const COMMERCIAL_IMAGES = Array.from({ length: 15 }, (_, i) => {
@@ -17,6 +19,7 @@ const COMMERCIAL_IMAGES = Array.from({ length: 15 }, (_, i) => {
     src: `/images/gallery/Commercial-${num}.jpg`,
     title: `Commercial ${num}`,
     type: "commercial",
+    fallback: MEDIA.commercialFallback,
   };
 });
 
@@ -26,6 +29,7 @@ const RESIDENTIAL_IMAGES = Array.from({ length: 15 }, (_, i) => {
     src: `/images/gallery/Residential-${num}.jpg`,
     title: `Residential ${num}`,
     type: "residential",
+    fallback: MEDIA.residentialFallback,
   };
 });
 
@@ -43,7 +47,7 @@ function FilterButton({ active, onClick, children }) {
       type="button"
       onClick={onClick}
       className={[
-        "border px-5 py-3 text-[11px] font-sans-clean font-semibold uppercase tracking-[0.28em] transition-colors",
+        "border px-5 py-3 type-button transition-colors",
         active
           ? "border-[#1F2E23] bg-[#1F2E23] text-white"
           : "border-[#1F2E23]/12 bg-white/50 text-[#1F2E23] hover:bg-white hover:border-[#1F2E23]/20",
@@ -83,10 +87,7 @@ function Lightbox({ items, activeIndex, onClose, onPrev, onNext }) {
   const activeItem = items[activeIndex];
 
   return (
-    <div
-      className="fixed inset-0 z-[1200] bg-black/80 backdrop-blur-[2px]"
-      onClick={onClose}
-    >
+    <div className="fixed inset-0 z-[1200] bg-black/80 backdrop-blur-[2px]" onClick={onClose}>
       <button
         type="button"
         onClick={onClose}
@@ -131,16 +132,15 @@ function Lightbox({ items, activeIndex, onClose, onPrev, onNext }) {
             className="max-h-[82vh] w-auto max-w-full object-contain shadow-[0_24px_80px_rgba(0,0,0,0.35)]"
             loading="eager"
             decoding="async"
+            onError={(e) => {
+              e.currentTarget.src = activeItem.fallback;
+            }}
           />
 
           <div className="mt-4 text-center">
-            <div className="font-sans-clean text-[11px] font-semibold uppercase tracking-[0.28em] text-white/70">
-              {activeItem.type}
-            </div>
-            <div className="mt-2 font-serif-display text-[26px] leading-tight text-white md:text-[32px]">
-              {activeItem.title}
-            </div>
-            <div className="mt-2 font-sans-clean text-[12px] text-white/60">
+            <div className="type-micro text-white/70">{activeItem.type}</div>
+            <div className="mt-2 type-h3 text-white">{activeItem.title}</div>
+            <div className="mt-2 type-small text-white/60">
               {activeIndex + 1} / {items.length}
             </div>
           </div>
@@ -164,7 +164,6 @@ export default function Gallery() {
   }, [activeFilter]);
 
   const openLightbox = (index) => setActiveIndex(index);
-
   const closeLightbox = () => setActiveIndex(null);
 
   const goPrev = () => {
@@ -220,6 +219,9 @@ export default function Gallery() {
                       className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                       loading="lazy"
                       decoding="async"
+                      onError={(e) => {
+                        e.currentTarget.src = item.fallback;
+                      }}
                     />
                   </div>
                 </button>
