@@ -15,32 +15,32 @@ export default function MiddleCTA({
   primaryHref = ROUTES.consultation,
   secondaryLabel = "View Projects",
   secondaryHref = ROUTES.projects,
-  tone = "forest", // "forest" | "sage"
+  tone = "forest",
 }) {
   const toneClass = tone === "sage" ? "bg-[#6B7F5E]" : "bg-[#545E55]";
 
   return (
-    <section className={`border-t border-[#1F2E23]/10 ${toneClass}`}>
-      <div className="py-12 md:py-10 px-6 md:px-12 lg:px-14 max-w-[1440px] mx-auto">
+    <section className={`border-t border-[#1F2E23]/10 ${toneClass} text-[#F5F0EA]`}>
+      <div className="mx-auto max-w-[1440px] px-6 py-12 md:px-12 md:py-10 lg:px-14">
         <AnimatedSection>
           <div className="text-center">
             {eyebrow ? (
-              <div className="text-[10px] tracking-[0.35em] uppercase font-sans-clean font-semibold text-[#F5F0EA]/70 mb-6">
+              <div className="mb-6 font-sans-clean text-[10px] font-semibold uppercase tracking-[0.35em] text-[#F5F0EA]/72">
                 {eyebrow}
               </div>
             ) : null}
 
-            <h2 className="font-serif-display text-[#F5F0EA] text-3xl md:text-4xl lg:text-5xl font-light leading-[1.05]">
+            <h2 className="font-serif-display text-3xl font-light leading-[1.05] text-[#F5F0EA] md:text-4xl lg:text-5xl">
               {title}
             </h2>
 
             {body ? (
-              <p className="mt-6 text-[#F5F0EA]/75 font-sans-clean text-sm md:text-base leading-[1.9] max-w-3xl mx-auto">
+              <p className="mx-auto mt-6 max-w-3xl font-sans-clean text-sm leading-[1.9] text-[#F5F0EA]/82 md:text-base">
                 {body}
               </p>
             ) : null}
 
-            <div className="mt-10 flex flex-col sm:flex-row gap-5 justify-center">
+            <div className="mt-10 flex flex-col justify-center gap-5 sm:flex-row">
               <Button asChild variant="cta" size="ctaLg">
                 <Link
                   href={primaryHref}

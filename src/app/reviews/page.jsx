@@ -1,11 +1,8 @@
 // src/app/reviews/page.jsx
 import ReviewsClient from "./ReviewsClient";
+import { getPageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Client Reviews",
-  description:
-    "Read client reviews and testimonials for ELI Land Design. Landscape architecture and land planning in Texas.",
-};
+export const metadata = getPageMetadata("reviews");
 
 export default function Page() {
   return <ReviewsClient />;

@@ -5,7 +5,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, X, ChevronLeft, ChevronRight } from "lucide-react";
-import PageShell from "../PageShell";
+import PageShell from "../shared/PageShell";
 import AnimatedSection from "../shared/AnimatedSection";
 import BottomCTA from "../shared/BottomCTA";
 import { getNewProjectBySlug } from "@/data/newProjectsData";

@@ -1,6 +1,6 @@
 // src/pages/LifestyleCenter.jsx
 import React, { useMemo } from "react";
-import PageShell from "../PageShell";
+import PageShell from "../shared/PageShell";
 import GallerySection from "@/components/gallery/GallerySection";
 import { ROUTES } from "@/components/utils/routes";
 

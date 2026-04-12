@@ -1,6 +1,6 @@
 // src/pages/Renderings.jsx
 import React, { useMemo } from "react";
-import PageShell from "../PageShell";
+import PageShell from "../shared/PageShell";
 import GallerySection from "@/components/gallery/GallerySection";
 import { ROUTES } from "@/components/utils/routes";
 import BottomCTA from "@/components/shared/BottomCTA";

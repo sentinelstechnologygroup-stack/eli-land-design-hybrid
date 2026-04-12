@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { Phone, Mail, MapPin } from "lucide-react";
-import PageShell from "@/components/PageShell";
+import PageShell from "@/components/shared/PageShell";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 import { Panel } from "@/components/ui/panel";
 import { Button } from "@/components/ui/button";

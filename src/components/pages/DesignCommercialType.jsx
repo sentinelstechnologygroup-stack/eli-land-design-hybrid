@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { ArrowRight, Home } from "lucide-react";
-import PageShell from "../PageShell";
+import PageShell from "../shared/PageShell";
 import AnimatedSection from "../shared/AnimatedSection";
 import GallerySection from "../gallery/GallerySection";
 import { ROUTES } from "@/components/utils/routes";

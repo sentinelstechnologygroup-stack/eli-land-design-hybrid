@@ -14,10 +14,7 @@ const HOME_HUB_ITEMS = [
     description:
       "Entry sequence, plazas, pedestrian flow, and durable material selection planned for long-term use and clean execution.",
     includes: [
-      "Lifestyle centers",
-      "Multi-family",
-      "Office",
-      "Renderings",
+
     ],
     href: ROUTES.designCommercial,
     image: "/images/design/commercial/thumbnails/lifestyle-center.jpg",
@@ -28,10 +25,7 @@ const HOME_HUB_ITEMS = [
     description:
       "Amenity environments, circulation, planning coordination, and grading strategy designed for daily resident use and maintenance reality.",
     includes: [
-      "Private residences",
-      "Estates",
-      "Ranches",
-      "Renderings",
+
     ],
     href: ROUTES.designResidential,
     image: "/images/design/residential/thumbnails/pool-outdoor-living.jpg",
@@ -42,10 +36,7 @@ const HOME_HUB_ITEMS = [
     description:
       "Learn more about ELI Land Design, our history, professional approach, and the team behind the work.",
     includes: [
-      "Firm overview",
-      "History",
-      "Professional approach",
-      "Leadership",
+
     ],
     href: ROUTES.about,
     image: "/images/design/commercial/thumbnails/office.jpg",
@@ -56,10 +47,7 @@ const HOME_HUB_ITEMS = [
     description:
       "Concept visuals, project imagery, and presentation-ready renderings that communicate design intent and craftsmanship.",
     includes: [
-      "Project collections",
-      "Presentation imagery",
-      "Renderings",
-      "Visual references",
+
     ],
     href: ROUTES.gallery,
     image: "/images/design/commercial/thumbnails/renderings.jpg",
@@ -70,10 +58,7 @@ const HOME_HUB_ITEMS = [
     description:
       "Browse current and recently added project folders in a separate gallery kept apart from the main Projects portfolio.",
     includes: [
-      "Recent project folders",
-      "Current work",
-      "Separate gallery",
-      "New additions",
+  
     ],
     href: ROUTES.newProjects,
     image: "/images/new-projects/hero.jpg",
@@ -84,10 +69,7 @@ const HOME_HUB_ITEMS = [
     description:
       "Explore opportunities to join ELI Land Design and learn what the firm values in design, planning, and project delivery.",
     includes: [
-      "Firm culture",
-      "Open opportunities",
-      "Professional standards",
-      "How to apply",
+
     ],
     href: ROUTES.careers,
     image: "/images/contact/careers-at-eli/apply/hero.jpg",

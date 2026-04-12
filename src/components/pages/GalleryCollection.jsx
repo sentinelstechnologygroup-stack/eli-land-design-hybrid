@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
-import PageShell from "../PageShell";
+import PageShell from "../shared/PageShell";
 import GalleryGrid from "../gallery/GalleryGrid";
 import GalleryLightbox from "../gallery/GalleryLightbox";
 import { getCollectionById } from "../gallery/types";

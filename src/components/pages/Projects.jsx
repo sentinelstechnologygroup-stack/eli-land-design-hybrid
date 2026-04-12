@@ -1,161 +1,198 @@
-// src/pages/Projects.jsx
+// src/components/pages/Projects.jsx
+"use client";
+
 import React, { useMemo, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Award, MapPin } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import PageShell from "@/components/shared/PageShell";
+import { ROUTES } from "@/components/utils/routes";
 
-import PageShell from "../PageShell";
-import AnimatedSection from "../shared/AnimatedSection";
-import { ROUTES, createProjectUrl } from "@/components/utils/routes";
-import { Panel } from "@/components/ui/panel";
-import BottomCTA from "@/components/shared/BottomCTA";
-
-const CATEGORIES = ["All Projects", "Residential", "Commercial", "Construction"];
-
-const PROJECTS = [
+const PROJECT_CARDS = [
   {
-    title: "Carlton Woods Estate",
-    category: "Residential",
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80",
-    slug: "carlton-woods-estate",
-    location: "The Woodlands, TX",
+    title: "Commercial Landscape Architecture",
+    href: ROUTES.designCommercial || "/design/commercial",
+    image: "/images/projects/commercial-landscape-architecture.jpg",
+    cta: "View Categories",
   },
   {
-    title: "Harper’s Landing",
-    category: "Commercial",
-    image: "https://images.unsplash.com/photo-1600566753190-17fbaa2a6c3b?w=1600&q=80",
-    slug: "harpers-landing",
-    location: "Houston, TX",
+    title: "Residential Landscape Architecture",
+    href: ROUTES.designResidential || "/design/residential",
+    image: "/images/projects/residential-landscape-architecture.jpg",
+    cta: "View Categories",
   },
   {
-    title: "Spring Creek Residence",
-    category: "Residential",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80",
-    slug: "spring-creek-residence",
-    location: "Spring, TX",
+    title: "About ELI Land Design",
+    href: ROUTES.about || "/about",
+    image: "/images/projects/about-eli-land-design.jpg",
+    cta: "View Page",
   },
   {
-    title: "Woodlands Commons",
-    category: "Commercial",
-    image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1600&q=80",
-    slug: "woodlands-commons",
-    location: "The Woodlands, TX",
+    title: "Gallery",
+    href: ROUTES.gallery || "/gallery",
+    image: "/images/projects/gallery.jpg",
+    cta: "View Gallery",
+  },
+  {
+    title: "New Projects",
+    href: ROUTES.newProjects || "/new-projects",
+    image: "/images/projects/new-projects.jpg",
+    cta: "View Gallery",
+  },
+  {
+    title: "Careers at ELI Land Design",
+    href: ROUTES.careersAtEli || "/careers-at-eli",
+    image: "/images/projects/careers.jpg",
+    cta: "View Careers",
   },
 ];
 
-export default function Projects() {
-  const [active, setActive] = useState("All Projects");
+function ProjectCard({ item }) {
+  return (
+    <Link href={item.href} className="group block">
+      <article className="relative overflow-hidden bg-[#D9D2C7]">
+        <div className="relative aspect-[1.15/1] overflow-hidden">
+          <img
+            src={item.image}
+            alt={item.title}
+            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            loading="lazy"
+            decoding="async"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#08110C]/18 via-[#08110C]/18 to-[#08110C]/72" />
+          <div className="absolute inset-0 bg-[#08110C]/18 transition-colors duration-500 group-hover:bg-[#08110C]/26" />
+        </div>
 
-  const filtered = useMemo(() => {
-    if (active === "All Projects") return PROJECTS;
-    return PROJECTS.filter((p) => p.category === active);
-  }, [active]);
+        <div className="absolute inset-x-0 top-0 p-5 md:p-6">
+          <h3 className="font-serif-display text-[1.75rem] leading-[1.02] tracking-[-0.02em] text-[#F5F0EA] [text-shadow:0_2px_14px_rgba(0,0,0,0.42)]">
+            {item.title}
+          </h3>
+        </div>
+
+        <div className="absolute inset-x-0 bottom-0 flex items-end justify-between p-5 md:p-6">
+          <span className="font-sans-clean text-[10px] font-semibold uppercase tracking-[0.26em] text-[#F5F0EA]">
+            {item.cta}
+          </span>
+
+          <span className="inline-flex h-8 w-8 items-center justify-center border border-[#F5F0EA]/28 bg-[#F5F0EA]/10 text-[#F5F0EA] backdrop-blur-sm transition-all duration-300 group-hover:bg-[#F5F0EA] group-hover:text-[#1F2E23]">
+            <ArrowRight className="h-4 w-4" />
+          </span>
+        </div>
+      </article>
+    </Link>
+  );
+}
+
+export default function Projects() {
+  const [activeFilter, setActiveFilter] = useState("all");
+
+  const filters = useMemo(
+    () => [
+      { key: "all", label: "All" },
+      { key: "featured", label: "Featured" },
+    ],
+    []
+  );
+
+  const filteredCards = useMemo(() => {
+    if (activeFilter === "all") return PROJECT_CARDS;
+    return PROJECT_CARDS;
+  }, [activeFilter]);
 
   return (
     <PageShell
-      currentPageName="Projects"
       hero
-      heroImage="/images/projects/all-projects/projects-hero.jpg"
-      eyebrow="Portfolio"
-      title={
-        <>
-          Featured
-          <br />
-          <span className="text-[#D4C5A9]">Projects.</span>
-        </>
-      }
-      subtitle="Explore a curated view of our work across residential, commercial, and construction coordination."
+      heroImage="/images/projects/hero.jpg"
+      currentPageName="projects"
+      title="Landscape Architecture, Site Planning, and Construction Services"
+      description="Explore commercial and residential landscape architecture, project galleries, firm background, and current opportunities at ELI Land Design."
     >
-      <section className="py-24 md:py-36 px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto">
-        <AnimatedSection>
-          {/* Filter */}
-          <div className="flex flex-wrap gap-3 mb-10">
-            {CATEGORIES.map((cat) => {
-              const isActive = active === cat;
+      <section className="bg-[#F5F0EA]">
+        <div className="mx-auto max-w-[1440px] px-6 py-14 md:px-10 md:py-16 lg:px-20">
+          <div className="max-w-4xl">
+            <p className="font-sans-clean text-[15px] leading-8 text-[#4A564D]">
+              ELI Land Design provides landscape architecture, site planning,
+              and construction services for residential and commercial projects
+              throughout The Woodlands, Houston, and surrounding Texas markets.
+            </p>
+          </div>
+
+          <div className="mt-8 flex flex-wrap gap-3">
+            {filters.map((filter) => {
+              const isActive = activeFilter === filter.key;
               return (
                 <button
-                  key={cat}
-                  onClick={() => setActive(cat)}
-                  className={[
-                    "px-4 py-2 rounded-none border text-[11px] tracking-[0.22em] uppercase font-sans-clean",
+                  key={filter.key}
+                  type="button"
+                  onClick={() => setActiveFilter(filter.key)}
+                  className={`inline-flex items-center justify-center border px-4 py-2 font-sans-clean text-[10px] font-semibold uppercase tracking-[0.22em] transition-colors ${
                     isActive
-                      ? "border-[#1F2E23]/20 bg-[#1F2E23] text-[#F5F0EA]"
-                      : "border-[#1F2E23]/15 bg-white/60 text-[#1F2E23] hover:bg-white",
-                  ].join(" ")}
+                      ? "border-[#1F2E23] bg-[#1F2E23] text-[#F5F0EA]"
+                      : "border-[#1F2E23]/16 bg-transparent text-[#1F2E23] hover:border-[#1F2E23]/36"
+                  }`}
                 >
-                  {cat}
+                  {filter.label}
                 </button>
               );
             })}
           </div>
 
-          {/* Grid */}
-          <AnimatePresence mode="popLayout">
+          <AnimatePresence mode="wait">
             <motion.div
-              key={active}
-              initial={{ opacity: 0, y: 10 }}
+              key={activeFilter}
+              initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.25 }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+              exit={{ opacity: 0, y: -18 }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
+              className="mt-10 grid gap-4 md:grid-cols-2 md:gap-5"
             >
-              {filtered.map((p) => (
-                <Link
-                  key={p.slug} href={typeof createProjectUrl === "function" ? createProjectUrl(p.slug) : ROUTES.projects}
-                  className="block"
-                >
-                  <Panel
-                    variant="light"
-                    className="group cursor-pointer overflow-hidden rounded-2xl"
-                  >
-                    {/* Image */}
-                    <div className="relative aspect-[4/3] bg-[#E5DED4] overflow-hidden">
-                      <img
-                        src={p.image}
-                        alt={p.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                        loading="lazy"
-                      />
-                      <div className="absolute inset-0 bg-[#1F2E23]/0 group-hover:bg-[#1F2E23]/40 transition-all duration-500" />
-                    </div>
-
-                    {/* Info */}
-                    <div className="p-6">
-                      <span className="text-[9px] tracking-[0.22em] uppercase text-[#1F2E23]/55 font-sans-clean">
-                        {p.category}
-                      </span>
-
-                      <h3 className="font-serif-display text-[#1F2E23] text-2xl font-light mt-3 mb-3 group-hover:text-[#6B7F5E] transition-colors">
-                        {p.title}
-                      </h3>
-
-                      <div className="flex items-center gap-2 text-[#1F2E23]/55 text-sm font-sans-clean">
-                        <MapPin className="w-4 h-4" />
-                        <span>{p.location}</span>
-                      </div>
-
-                      <div className="mt-5 inline-flex items-center gap-2 text-[11px] tracking-[0.22em] uppercase font-sans-clean text-[#1F2E23]/70 group-hover:text-[#1F2E23] transition-colors">
-                        View Project <ArrowRight className="w-4 h-4" />
-                      </div>
-                    </div>
-                  </Panel>
-                </Link>
+              {filteredCards.map((item) => (
+                <ProjectCard key={item.title} item={item} />
               ))}
             </motion.div>
           </AnimatePresence>
 
-          {/* Bottom note */}
-          <div className="mt-14 flex items-center gap-3 text-[#1F2E23]/70">
-            <Award className="w-5 h-5" />
-            <span className="font-sans-clean text-sm">
-              Built for constructability, clarity, and consistent visual standards.
-            </span>
-          </div>
-        </AnimatedSection>
-      </section>
+          <div className="mt-12 grid gap-6 border-t border-[#1F2E23]/12 pt-8 md:grid-cols-3">
+            <div className="flex items-start gap-3">
+              <Award className="mt-1 h-4 w-4 text-[#6B7F5E]" />
+              <div>
+                <div className="font-serif-display text-[1.5rem] text-[#1F2E23]">
+                  27+ Years
+                </div>
+                <p className="mt-2 font-sans-clean text-sm leading-7 text-[#5A665D]">
+                  Licensed landscape architecture practice serving Texas clients
+                  since 1997.
+                </p>
+              </div>
+            </div>
 
-      {/* SHARED BOTTOM CTA */}
-      <BottomCTA />
+            <div className="flex items-start gap-3">
+              <Award className="mt-1 h-4 w-4 text-[#6B7F5E]" />
+              <div>
+                <div className="font-serif-display text-[1.5rem] text-[#1F2E23]">
+                  500+ Projects
+                </div>
+                <p className="mt-2 font-sans-clean text-sm leading-7 text-[#5A665D]">
+                  Residential estates, commercial developments, and community
+                  landscapes completed.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3">
+              <MapPin className="mt-1 h-4 w-4 text-[#6B7F5E]" />
+              <div>
+                <div className="font-serif-display text-[1.5rem] text-[#1F2E23]">
+                  Regional Focus
+                </div>
+                <p className="mt-2 font-sans-clean text-sm leading-7 text-[#5A665D]">
+                  The Woodlands, Houston, and surrounding Texas markets.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </PageShell>
   );
 }

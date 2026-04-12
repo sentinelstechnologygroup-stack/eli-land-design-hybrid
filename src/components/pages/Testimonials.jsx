@@ -2,7 +2,7 @@
 import React, { useMemo, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Quote, Star } from "lucide-react";
-import PageShell from "../PageShell";
+import PageShell from "../shared/PageShell";
 import AnimatedSection from "../shared/AnimatedSection";
 import { ROUTES } from "@/components/utils/routes";
 import BottomCTA from "@/components/shared/BottomCTA";

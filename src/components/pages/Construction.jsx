@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowRight, Hammer, Droplets, Lightbulb, TreePine } from "lucide-react";
-import PageShell from "../PageShell";
+import PageShell from "../shared/PageShell";
 import AnimatedSection from "../shared/AnimatedSection";
 import SectionDivider from "../shared/SectionDivider";
 import GallerySection from "../gallery/GallerySection";

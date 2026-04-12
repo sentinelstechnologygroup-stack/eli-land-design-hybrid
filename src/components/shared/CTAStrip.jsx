@@ -22,25 +22,25 @@ export default function CTAStrip({
   const safeSecondaryHref = secondaryHref || ROUTES.projects || "/projects";
 
   return (
-    <section className={`bg-[#1F2E23] ${className}`}>
+    <section className={`bg-[#1F2E23] text-[#F5F0EA] ${className}`}>
       <div className="mx-auto max-w-[1440px] px-6 py-14 md:px-10 md:py-16 lg:px-20">
         <div className="grid items-center gap-8 lg:grid-cols-[1.35fr_auto] lg:gap-12">
           <div>
             {eyebrow ? (
-              <div className="text-[11px] font-sans-clean font-semibold uppercase tracking-[0.28em] text-white/58">
+              <div className="text-[11px] font-sans-clean font-semibold uppercase tracking-[0.28em] text-[#F5F0EA]/62">
                 {eyebrow}
               </div>
             ) : null}
 
             <h2
-              className={`font-serif-display text-[34px] leading-tight text-white md:text-[42px] ${
+              className={`font-serif-display text-[34px] font-light leading-[1.04] text-[#F5F0EA] md:text-[42px] ${
                 eyebrow ? "mt-4" : ""
               }`}
             >
               {title}
             </h2>
 
-            <p className="mt-4 max-w-[760px] font-sans-clean text-[15px] leading-7 text-white/72">
+            <p className="mt-4 max-w-[760px] font-sans-clean text-[15px] leading-7 text-[#F5F0EA]/80">
               {description}
             </p>
           </div>

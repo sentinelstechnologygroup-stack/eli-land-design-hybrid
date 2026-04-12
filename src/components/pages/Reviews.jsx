@@ -1,7 +1,7 @@
 // src/pages/Reviews.jsx
 import React, { useMemo, useState } from "react";
 import { ExternalLink, Quote, Star } from "lucide-react";
-import PageShell from "../PageShell";
+import PageShell from "../shared/PageShell";
 import AnimatedSection from "../shared/AnimatedSection";
 import { Panel } from "@/components/ui/panel";
 import { Button } from "@/components/ui/button";

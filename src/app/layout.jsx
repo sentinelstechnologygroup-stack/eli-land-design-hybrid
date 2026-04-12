@@ -1,6 +1,6 @@
 // src/app/layout.jsx
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Inter, Cormorant_Garamond } from "next/font/google";
 import Layout from "@/Layout";
 import { SITE } from "@/lib/seo";
 
@@ -10,16 +10,20 @@ const inter = Inter({
   variable: "--font-sans",
 });
 
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+  variable: "--font-display",
+});
+
 export const metadata = {
   metadataBase: new URL(SITE.url),
-
   title: {
     default: SITE.title,
     template: "%s | ELI Land Design",
   },
-
   description: SITE.description,
-
   openGraph: {
     title: SITE.title,
     description: SITE.description,
@@ -35,14 +39,12 @@ export const metadata = {
     locale: "en_US",
     type: "website",
   },
-
   twitter: {
     card: "summary_large_image",
     title: SITE.title,
     description: SITE.description,
     images: [SITE.ogImage],
   },
-
   robots: {
     index: true,
     follow: true,
@@ -51,7 +53,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${inter.variable} ${cormorant.variable}`}>
       <body>
         <Layout currentPageName="app">{children}</Layout>
       </body>

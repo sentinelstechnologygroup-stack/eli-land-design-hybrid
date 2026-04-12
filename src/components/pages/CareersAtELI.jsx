@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowRight, Briefcase, Users, MapPin, Mail } from "lucide-react";
-import PageShell from "../PageShell";
+import PageShell from "../shared/PageShell";
 import AnimatedSection from "../shared/AnimatedSection";
 import { ROUTES } from "@/components/utils/routes";
 import { Panel } from "@/components/ui/panel";

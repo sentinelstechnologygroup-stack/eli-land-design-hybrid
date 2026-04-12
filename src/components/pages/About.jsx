@@ -1,7 +1,7 @@
 // src/pages/About.jsx
 import React from "react";
 import { Award, Users, MapPin } from "lucide-react";
-import PageShell from "../PageShell";
+import PageShell from "../shared/PageShell";
 import AnimatedSection from "../shared/AnimatedSection";
 import { Panel } from "@/components/ui/panel";
 import BottomCTA from "@/components/shared/BottomCTA";

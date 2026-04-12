@@ -13,7 +13,7 @@ export default function SiteFooter() {
         <div className="grid gap-10 md:grid-cols-3">
           <div>
             <img
-              src="/logo/logo-white.png"
+              src="/logo/logo.png"
               alt="ELI Land Design"
               className="h-12 w-auto object-contain"
             />

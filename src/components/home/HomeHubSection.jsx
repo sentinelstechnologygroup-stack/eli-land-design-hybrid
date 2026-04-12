@@ -202,7 +202,7 @@ function HubCard({ item, onOpenProject }) {
           {includes.length > 0 ? (
             <div className="mt-4">
               <p className="text-[12px] font-bold uppercase tracking-[0.18em] text-white">
-                Typical Scope
+                
               </p>
 
               <ul className="mt-2 space-y-1.5">

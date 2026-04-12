@@ -1,7 +1,9 @@
-"use client";
+// src/app/projects/page.jsx
+import Projects from "@/components/pages/Projects.jsx";
+import { getPageMetadata } from "@/lib/seo";
 
-import Component from "@/components/pages/Projects.jsx";
+export const metadata = getPageMetadata("projects");
 
 export default function Page() {
-  return <Component />;
+  return <Projects />;
 }

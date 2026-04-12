@@ -50,30 +50,31 @@ export default function HeroSection() {
             decoding="async"
           />
 
-          <div className="absolute inset-0 bg-[#102018]/48" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#09110D]/72 via-[#102018]/28 to-[#102018]/70" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0F1B15]/28 via-transparent to-[#0F1B15]/10" />
-          <div className="absolute inset-x-0 bottom-0 h-[34%] bg-gradient-to-t from-[#102018]/84 to-transparent" />
+          <div className="absolute inset-0 bg-[#07100B]/58" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#040806]/82 via-[#08110C]/52 to-[#102018]/84" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#08110C]/44 via-[#08110C]/18 to-[#08110C]/34" />
+          <div className="absolute inset-0 backdrop-[brightness(.58)]" />
+          <div className="absolute inset-x-0 bottom-0 h-[38%] bg-gradient-to-t from-[#08110C]/92 to-transparent" />
         </motion.div>
       </AnimatePresence>
 
       <div className="absolute inset-0 flex items-end px-6 pb-16 md:px-12 md:pb-20 lg:px-20">
         <div className="mx-auto w-full max-w-[1440px]">
           <div className="max-w-5xl">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.3, ease: [0.33, 1, 0.68, 1] }}
-            className="max-w-[20ch] sm:max-w-[25ch] md:max-w-[30ch] lg:max-w-[35ch] xl:max-w-[40ch] font-serif-display text-[2.6rem] font-light leading-[0.96] tracking-[-0.028em] text-[#F5F0EA] sm:text-[3.1rem] md:text-[3.5rem] lg:text-[3.85rem] xl:text-[4.15rem] [text-wrap:balance] [text-shadow:0_2px_16px_rgba(0,0,0,0.34)]"
-          >
-            Landscape Architecture, Site Planning, and Construction Services
-          </motion.h1>
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.3, ease: [0.33, 1, 0.68, 1] }}
+              className="max-w-[20ch] sm:max-w-[25ch] md:max-w-[30ch] lg:max-w-[35ch] xl:max-w-[40ch] font-serif-display text-[2.6rem] font-light leading-[0.96] tracking-[-0.03em] text-[#F5F0EA] sm:text-[3.1rem] md:text-[3.5rem] lg:text-[3.85rem] xl:text-[4.15rem] [text-wrap:balance] [text-shadow:0_3px_18px_rgba(0,0,0,0.52)]"
+            >
+              Landscape Architecture, Site Planning, and Construction Services
+            </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.5, ease: [0.33, 1, 0.68, 1] }}
-              className="mt-6 max-w-xl font-sans-clean text-base text-[#F5F0EA]/90 md:text-lg"
+              className="mt-6 max-w-xl font-sans-clean text-base leading-[1.72] text-[#F5F0EA]/92 md:text-lg [text-shadow:0_2px_12px_rgba(0,0,0,0.42)]"
             >
               Site planning, grading design, and landscape construction for
               residential and commercial projects throughout The Woodlands and

@@ -1,15 +1,8 @@
-"use client";
-
 // src/app/design/page.jsx
-"use client";
-
-import React from "react";
-
-// If your Design page lives here (common in your hybrid):
 import Design from "@/components/pages/Design.jsx";
+import { getPageMetadata } from "@/lib/seo";
 
-// If instead you already created a component like /src/components/design/DesignPage.jsx,
-// change the import to that file.
+export const metadata = getPageMetadata("design");
 
 export default function DesignRoutePage() {
   return <Design />;

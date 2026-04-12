@@ -38,7 +38,7 @@ function HubCard({ item, delay = 0 }) {
               <div className="pt-4 lg:pt-8">
                 <div className="border-t border-white/18 pt-4 lg:pt-5">
                   <div className="mb-3 text-[9px] font-sans-clean font-semibold uppercase tracking-[0.28em] text-white/65 lg:text-[10px]">
-                    Typical Scope
+                    
                   </div>
 
                   <ul className="space-y-2 lg:space-y-3">

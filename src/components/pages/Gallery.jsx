@@ -3,7 +3,7 @@
 
 import React, { useEffect, useMemo, useState } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
-import PageShell from "../PageShell";
+import PageShell from "../shared/PageShell";
 import AnimatedSection from "../shared/AnimatedSection";
 import BottomCTA from "@/components/shared/BottomCTA";
 

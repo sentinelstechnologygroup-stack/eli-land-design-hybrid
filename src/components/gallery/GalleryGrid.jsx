@@ -1,4 +1,6 @@
 // src/components/gallery/GalleryGrid.jsx
+"use client";
+
 import React, { useMemo, useState, useCallback } from "react";
 import { Panel } from "@/components/ui/panel";
 import GalleryLightbox from "@/components/gallery/GalleryLightbox";
@@ -7,7 +9,7 @@ export default function GalleryGrid({
   items = [],
   label = "Gallery",
   columns = 3,
-  gap = 10, // ✅ increased spacing by default
+  gap = 10,
   tileAspect = "aspect-[4/3]",
 }) {
   const images = useMemo(() => (items || []).filter(Boolean), [items]);
@@ -31,7 +33,6 @@ export default function GalleryGrid({
       ? "grid-cols-1 md:grid-cols-2"
       : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3";
 
-  // ✅ Tailwind-safe gap mapping (avoids dynamic class pitfalls)
   const gapClass =
     gap === 0
       ? "gap-0"
@@ -66,7 +67,7 @@ export default function GalleryGrid({
           <Panel
             key={img.src || idx}
             variant="light"
-            className="bg-transparent overflow-hidden rounded-3xl"
+            className="overflow-hidden bg-transparent rounded-3xl"
           >
             <button
               type="button"
@@ -74,16 +75,17 @@ export default function GalleryGrid({
               className="group block w-full text-left"
               aria-label={`Open image ${idx + 1}`}
             >
-              {/* ✅ Image ONLY (no caption band below) */}
-              <div className={`relative ${tileAspect} bg-[#E5DED4] overflow-hidden`}>
+              <div
+                className={`relative ${tileAspect} overflow-hidden bg-[#E5DED4]`}
+              >
                 <img
                   src={img.src}
                   alt={img.alt || `${label} ${idx + 1}`}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
                   decoding="async"
                 />
-                <div className="absolute inset-0 bg-[#1F2E23]/0 group-hover:bg-[#1F2E23]/35 transition-all duration-500" />
+                <div className="absolute inset-0 bg-[#1F2E23]/0 transition-all duration-500 group-hover:bg-[#1F2E23]/35" />
               </div>
             </button>
           </Panel>
