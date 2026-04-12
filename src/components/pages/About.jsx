@@ -73,7 +73,7 @@ const TIMELINE = [
   },
   {
     year: "Today",
-    label: "24+ years of excellence",
+    label: "27+ years of excellence",
   },
 ];
 
@@ -84,7 +84,7 @@ const TEAM = [
     suffix: "RLA",
     image: MEDIA.chris,
     bio:
-      "Chris founded ELI land design in 1997 and graduated from Texas A&M's College of Architecture in 2002. With over 24 years of experience, he brings both design artistry and construction expertise to every project.",
+      "Chris founded ELI land design in 1997 and graduated from Texas A&M's College of Architecture in 2002. With over 27 years of experience, he brings both design artistry and construction expertise to every project.",
   },
   {
     label: "Landscape Architect",
