@@ -22,9 +22,9 @@ export default function SiteFooter() {
         <div className="grid gap-10 md:grid-cols-3 md:gap-12">
           <div>
             <img
-              src="/logo/logo.png"
+              src="/logo/WEBSITE LOGO 2026 ALL WHITE.png"
               alt="ELI Land Design"
-              className="h-12 w-auto object-contain"
+              className="h-36 w-auto object-contain"
               loading="lazy"
               decoding="async"
             />
