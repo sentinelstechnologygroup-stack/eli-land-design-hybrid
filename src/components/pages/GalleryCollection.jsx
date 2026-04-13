@@ -23,7 +23,8 @@ export default function GalleryCollection() {
         eyebrow="Gallery"
         title="Collection not found"
         subtitle="The collection you're looking for doesn't exist."
-      >
+      
+      heroContentAlign="center">
         <Link href="/gallery"
           className="inline-flex items-center gap-2 text-[12px] tracking-[0.2em] uppercase font-sans-clean font-medium text-[#1F2E23] hover:text-[#6B7F5E] transition-colors"
         >
@@ -46,7 +47,8 @@ export default function GalleryCollection() {
       eyebrow="Gallery Collection"
       title={collection.title}
       subtitle={collection.subtitle}
-    >
+    
+      heroContentAlign="center">
       <section className="py-24 md:py-36 px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto">
         <AnimatedSection>
           <div className="mb-12">

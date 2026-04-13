@@ -65,7 +65,8 @@ export default function Multifamily() {
       eyebrow="Commercial Design Category"
       title="Multifamily"
       subtitle="Amenity courts, pool decks, lighting, planting strategy, and circulation designed for daily use and durability."
-    >
+    
+      heroContentAlign="center">
       {/* Intro */}
       <section className="px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto pt-14 md:pt-16 pb-10">
         <AnimatedSection>

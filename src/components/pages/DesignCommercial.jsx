@@ -156,6 +156,7 @@ export default function DesignCommercial() {
     <PageShell
       hero
       heroImage={MEDIA.hero}
+      heroContentAlign="center"
       eyebrow="Design — Commercial"
       title="Commercial Design"
       subtitle="Landscape architecture for commercial environments—focused on durability, grading rationale, planted systems that perform, and schedule, maintenance, and budget reality."
@@ -179,8 +180,12 @@ export default function DesignCommercial() {
         <AnimatedSection>
           <div className="flex items-end justify-between gap-6">
             <div>
-              <p className="mb-3 type-micro text-[#1F2E23]/55">Portfolio by category</p>
-              <h2 className="type-h2 text-[#1F2E23]">Galleries with dedicated pages.</h2>
+              <p className="mb-3 type-micro text-[#1F2E23]/55">
+                Portfolio by category
+              </p>
+              <h2 className="type-h2 text-[#1F2E23]">
+                Galleries with dedicated pages.
+              </h2>
             </div>
 
             <Link
@@ -213,12 +218,16 @@ export default function DesignCommercial() {
           <div className="grid grid-cols-1 items-start gap-10 md:grid-cols-12 md:gap-14">
             <div className="md:col-span-7">
               <AnimatedSection>
-                <p className="mb-4 type-micro text-[#1F2E23]/55">Featured Focus</p>
-                <h3 className="type-h2 text-[#1F2E23]">Clean details. Real-world execution.</h3>
+                <p className="mb-4 type-micro text-[#1F2E23]/55">
+                  Featured Focus
+                </p>
+                <h3 className="type-h2 text-[#1F2E23]">
+                  Clean details. Real-world execution.
+                </h3>
                 <p className="mt-6 type-body text-eli-muted">
-                  Commercial work is designed to hold up to schedule pressure, site
-                  constraints, and long-term maintenance. The goal is simple: a design
-                  that looks sharp and builds clean.
+                  Commercial work is designed to hold up to schedule pressure,
+                  site constraints, and long-term maintenance. The goal is simple:
+                  a design that looks sharp and builds clean.
                 </p>
                 <Link
                   href={ROUTES.contact}

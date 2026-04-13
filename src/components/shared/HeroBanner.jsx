@@ -34,9 +34,11 @@ export default function HeroBanner({
 
   useEffect(() => {
     if (!isSlider) return undefined;
+
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroImages.length);
     }, 6000);
+
     return () => clearInterval(interval);
   }, [heroImages.length, isSlider]);
 
@@ -65,11 +67,12 @@ export default function HeroBanner({
             <div className="absolute inset-0 bg-[#1F2E23]" />
           )}
 
-          <div className="absolute inset-0 bg-[#07100B]/58" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#040806]/82 via-[#08110C]/52 to-[#102018]/84" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#08110C]/44 via-[#08110C]/18 to-[#08110C]/34" />
-          <div className="absolute inset-0 backdrop-[brightness(.58)]" />
-          <div className="absolute inset-x-0 bottom-0 h-[38%] bg-gradient-to-t from-[#08110C]/92 to-transparent" />
+          {/* Canonical hero contrast hierarchy */}
+          <div className="absolute inset-0 bg-[#08110C]/34" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#08110C]/58 via-[#08110C]/18 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#08110C]/42 via-[#08110C]/16 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-[46%] bg-gradient-to-t from-[#08110C]/74 to-transparent" />
+
           {overlayClassName ? <div className={`absolute inset-0 ${overlayClassName}`} /> : null}
         </motion.div>
       </AnimatePresence>
@@ -78,9 +81,9 @@ export default function HeroBanner({
         className={`absolute inset-0 flex items-end px-6 pb-16 md:px-12 md:pb-20 lg:px-20 ${bodyClassName}`}
       >
         <div className="mx-auto w-full max-w-[1440px]">
-          <div className="max-w-5xl">
+          <div className="max-w-[1240px]">
             {eyebrow ? (
-              <div className="mb-6 font-sans-clean text-[10px] font-semibold uppercase tracking-[0.34em] text-[#F5F0EA]/86 [text-shadow:0_1px_8px_rgba(0,0,0,0.48)]">
+              <div className="mb-6 type-micro text-[#F5F0EA]/78 [text-shadow:0_1px_8px_rgba(0,0,0,0.32)]">
                 {eyebrow}
               </div>
             ) : null}
@@ -91,7 +94,10 @@ export default function HeroBanner({
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.95, delay: 0.2, ease: [0.33, 1, 0.68, 1] }}
                 className={[
-                  "max-w-[20ch] sm:max-w-[25ch] md:max-w-[30ch] lg:max-w-[35ch] xl:max-w-[40ch] font-serif-display text-[2.6rem] font-light leading-[0.96] tracking-[-0.03em] text-[#F5F0EA] sm:text-[3.1rem] md:text-[3.5rem] lg:text-[3.85rem] xl:text-[4.15rem] [text-wrap:balance] [text-shadow:0_3px_18px_rgba(0,0,0,0.52)]",
+                  "font-serif-display font-semibold text-[#F5F0EA]",
+                  "text-[clamp(2.1rem,3.7vw,3.8rem)] leading-[0.96] tracking-[-0.03em]",
+                  "[text-shadow:0_3px_18px_rgba(0,0,0,0.32)] [text-wrap:balance]",
+                  "max-w-[18ch] sm:max-w-[19ch] md:max-w-[20ch] lg:max-w-[21ch] xl:max-w-[22ch]",
                   titleClassName,
                 ].join(" ")}
               >
@@ -105,7 +111,8 @@ export default function HeroBanner({
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.85, delay: 0.35, ease: [0.33, 1, 0.68, 1] }}
                 className={[
-                  "mt-6 max-w-[58rem] font-sans-clean text-sm leading-[1.72] text-[#F5F0EA]/92 md:text-[17px] [text-shadow:0_2px_12px_rgba(0,0,0,0.42)]",
+                  "mt-6 max-w-[58rem] font-sans-clean text-sm leading-[1.72] text-[#F5F0EA]/90 md:text-[17px]",
+                  "[text-shadow:0_2px_12px_rgba(0,0,0,0.22)]",
                   subtitleClassName,
                 ].join(" ")}
               >
@@ -134,6 +141,7 @@ export default function HeroBanner({
           {heroImages.map((_, idx) => (
             <button
               key={idx}
+              type="button"
               onClick={() => setCurrentSlide(idx)}
               className={`h-px w-8 rounded-none transition-all ${
                 idx === currentSlide ? "bg-[#F5F0EA]" : "bg-[#F5F0EA]/30"

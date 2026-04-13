@@ -37,7 +37,8 @@ export default function ResidentialPoolOutdoorLiving() {
       eyebrow="Residential Design Category"
       title="Pool & Outdoor Living"
       subtitle="Outdoor living environments planned for circulation, structure coordination, and long-term use."
-    >
+    
+      heroContentAlign="center">
       <GallerySection
         backHref={ROUTES.designResidential ?? "/design/residential"}
         backLabel="Back to Residential Categories"

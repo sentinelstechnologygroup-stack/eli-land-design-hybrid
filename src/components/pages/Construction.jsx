@@ -52,7 +52,8 @@ export default function Construction() {
       eyebrow="Services"
       title="Landscape Construction Services"
       subtitle="Precision installation of hardscape, irrigation, lighting, drainage, and planting systems for residential and commercial projects in The Woodlands and Houston."
-    >
+    
+      heroContentAlign="center">
       {/* Intro */}
       <section className="py-24 md:py-36 px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-16">

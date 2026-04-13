@@ -6,7 +6,6 @@ import { Award, Users, MapPin } from "lucide-react";
 import PageShell from "@/components/shared/PageShell";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 import { Panel } from "@/components/ui/panel";
-import BottomCTA from "@/components/shared/BottomCTA";
 
 const MEDIA = {
   hero: "/images/about/hero.jpg",
@@ -92,7 +91,7 @@ function TeamCard({ person }) {
       <img
         src={person.image}
         alt={`${person.name}, ${person.suffix}`}
-        className="w-full aspect-[4/3] object-cover"
+        className="aspect-[4/3] w-full object-cover"
         loading="lazy"
         decoding="async"
       />
@@ -114,7 +113,8 @@ export default function About() {
       heroImage={MEDIA.hero}
       eyebrow="About ELI Land Design"
       title="Landscape Architecture & Construction Services in Texas"
-      subtitle="27+ Years of experience delivering landscape architecture and construction services across Texas."
+      subtitle="27+ years of experience delivering landscape architecture and construction services across Texas."
+      heroContentAlign="end"
     >
       <section className="mx-auto max-w-[1440px] px-6 py-14 md:px-10 md:py-16 lg:px-20">
         <div className="grid grid-cols-1 gap-14 md:grid-cols-2 md:items-start">
@@ -133,7 +133,7 @@ export default function About() {
                 <img
                   src={MEDIA.authority}
                   alt="Landscape planning and construction documentation"
-                  className="w-full aspect-[4/3] object-cover"
+                  className="aspect-[4/3] w-full object-cover"
                   loading="lazy"
                   decoding="async"
                 />
@@ -145,8 +145,8 @@ export default function About() {
             <AnimatedSection>
               <p className="type-body text-eli-muted">
                 ELI Land Design provides landscape architecture and site planning
-                built for real-world conditions—balancing aesthetics, constructability,
-                and long-term performance.
+                built for real-world conditions—balancing aesthetics,
+                constructability, and long-term performance.
               </p>
             </AnimatedSection>
 
@@ -159,9 +159,9 @@ export default function About() {
 
             <AnimatedSection delay={0.16}>
               <p className="type-body text-eli-muted">
-                The firm specializes in technically challenging sites and complex
-                coordination environments where planning quality directly affects
-                buildability, schedule, and long-term results.
+                The firm specializes in technically challenging sites and
+                complex coordination environments where planning quality
+                directly affects buildability, schedule, and long-term results.
               </p>
             </AnimatedSection>
           </div>
@@ -179,7 +179,9 @@ export default function About() {
                     <Icon className="mt-1 h-5 w-5 text-[#6B7F5E]" />
                     <div>
                       <div className="type-h3 text-[#1F2E23]">{item.value}</div>
-                      <p className="mt-2 type-small text-eli-muted">{item.description}</p>
+                      <p className="mt-2 type-small text-eli-muted">
+                        {item.description}
+                      </p>
                     </div>
                   </div>
                 </AnimatedSection>
@@ -192,15 +194,17 @@ export default function About() {
       <section className="bg-[#1F2E23]">
         <div className="mx-auto max-w-[1440px] px-6 py-14 md:px-10 md:py-16 lg:px-20">
           <AnimatedSection>
-            <h2 className="type-h2 text-[#F5F0EA]">Professional Approach</h2>
+            <h2 className="type-h2 text-white">Professional Approach</h2>
           </AnimatedSection>
 
           <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-3">
             {APPROACH.map((item, index) => (
               <AnimatedSection key={item.title} delay={index * 0.08}>
                 <div>
-                  <h3 className="type-h3 text-[#F5F0EA]">{item.title}</h3>
-                  <p className="mt-3 type-body text-[#F5F0EA]/78">{item.description}</p>
+                  <h3 className="type-h3 text-white">{item.title}</h3>
+                  <p className="mt-4 type-body text-white/90">
+                    {item.description}
+                  </p>
                 </div>
               </AnimatedSection>
             ))}
@@ -211,7 +215,7 @@ export default function About() {
       <section className="border-t border-[#1F2E23]/10">
         <div className="mx-auto max-w-[1120px] px-6 py-14 md:px-10 md:py-16">
           <AnimatedSection>
-            <h2 className="type-h2 text-[#1F2E23]">History</h2>
+            <h2 className="type-h2 text-[#2c2e1f]">History</h2>
             <div className="mt-4 h-px w-14 bg-[#D86F3D]" />
           </AnimatedSection>
 
@@ -229,7 +233,9 @@ export default function About() {
                 <div className="text-[30px] font-semibold leading-none text-[#D86F3D] md:text-[34px]">
                   {item.year}
                 </div>
-                <div className="mt-4 type-small text-[#1F2E23]/55">{item.label}</div>
+                <div className="mt-4 type-small text-[#1F2E23]/55">
+                  {item.label}
+                </div>
               </AnimatedSection>
             ))}
           </div>
@@ -254,8 +260,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
-      <BottomCTA />
     </PageShell>
   );
 }

@@ -60,7 +60,8 @@ export default function ProjectDetail() {
 
   if (!project) {
     return (
-      <PageShell eyebrow="Projects" title="Project not found" subtitle="The project you're looking for doesn't exist.">
+      <PageShell eyebrow="Projects" title="Project not found" subtitle="The project you're looking for doesn't exist."
+      heroContentAlign="center">
         <Link href="/projects"
           className="inline-flex items-center gap-2 text-[12px] tracking-[0.2em] uppercase font-sans-clean font-medium text-[#1F2E23] hover:text-[#6B7F5E] transition-colors"
         >
@@ -72,7 +73,8 @@ export default function ProjectDetail() {
   }
 
   return (
-    <PageShell hero heroImage={project.heroImage} eyebrow="Project" title={project.title} subtitle={project.subtitle}>
+    <PageShell hero heroImage={project.heroImage} eyebrow="Project" title={project.title} subtitle={project.subtitle}
+      heroContentAlign="center">
       {/* Project Details */}
       <section className="py-24 md:py-36 px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto">
         <AnimatedSection>

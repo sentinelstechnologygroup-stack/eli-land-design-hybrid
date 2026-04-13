@@ -66,6 +66,8 @@ export default function Projects() {
     <PageShell
       hero
       heroImage="/images/projects/hero.jpg"
+      heroContentAlign="center"
+      eyebrow="Projects"
       title="Featured Projects"
       subtitle="Explore a curated view of our work across residential, commercial, and construction coordination."
       ctaStripProps={{

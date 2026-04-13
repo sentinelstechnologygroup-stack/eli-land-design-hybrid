@@ -130,7 +130,8 @@ export default function DesignCommercialType() {
         eyebrow="Commercial Design"
         title="Page Not Found"
         subtitle="The page you're looking for doesn't exist."
-      >
+      
+      heroContentAlign="center">
         <section className="py-24 px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto text-center">
           <Link href={ROUTES.designCommercial}
             className="group inline-flex items-center gap-3 text-[#1F2E23] hover:text-[#6B7F5E] transition-colors"
@@ -150,7 +151,8 @@ export default function DesignCommercialType() {
       eyebrow="Commercial"
       title={content.title}
       subtitle={content.lead}
-    >
+    
+      heroContentAlign="center">
       {/* Breadcrumbs */}
       <section className="py-8 px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto border-b border-[#1F2E23]/10">
         <div className="flex items-center gap-2 text-xs font-sans-clean text-[#1F2E23]/40">

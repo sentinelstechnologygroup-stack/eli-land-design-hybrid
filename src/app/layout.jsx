@@ -4,6 +4,7 @@ import { Montserrat, Roboto } from "next/font/google";
 import "./globals.css";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import { SITE } from "@/lib/seo";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -20,6 +21,7 @@ const roboto = Roboto({
 });
 
 export const metadata = {
+  metadataBase: new URL(SITE.url),
   title: "ELI Land Design",
   description:
     "Landscape architecture, site planning, and construction services.",
@@ -30,9 +32,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${montserrat.variable} ${roboto.variable}`}>
       <body className="bg-[#F5F0EA] text-[#1F2E23]">
         <SiteHeader />
-        <div className="pt-[74px]">
-          {children}
-        </div>
+        <div className="pt-[74px]">{children}</div>
         <SiteFooter />
       </body>
     </html>

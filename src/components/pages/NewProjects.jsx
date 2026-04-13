@@ -53,7 +53,8 @@ export default function NewProjects() {
       eyebrow="Fresh Work"
       title="New Projects"
       subtitle="Browse recent residential and commercial work in a clean gallery format."
-    >
+    
+      heroContentAlign="center">
       <section className="bg-[#F5F0EA]">
         <div className="mx-auto max-w-[1440px] px-6 py-14 md:px-10 md:py-16 lg:px-20">
           <AnimatedSection>

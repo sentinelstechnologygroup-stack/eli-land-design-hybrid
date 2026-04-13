@@ -1,3 +1,4 @@
+// src/components/pages/Contact.client.jsx
 "use client";
 
 import React, { useState } from "react";
@@ -31,7 +32,7 @@ export default function ContactClient() {
   };
 
   const FieldLabel = ({ children }) => (
-    <div className="text-[10px] tracking-[0.25em] uppercase text-[#1F2E23]/55 font-sans-clean font-semibold mb-2">
+    <div className="mb-2 font-sans-clean text-[10px] font-semibold uppercase tracking-[0.25em] text-[#1F2E23]/55">
       {children}
     </div>
   );
@@ -43,6 +44,7 @@ export default function ContactClient() {
     <PageShell
       hero
       heroImage={MEDIA.hero}
+      heroContentAlign="center"
       eyebrow="Contact"
       title={submitted ? "Thank You" : "Schedule a Consultation"}
       subtitle={
@@ -50,45 +52,43 @@ export default function ContactClient() {
           ? "We've received your inquiry and will respond within one business day."
           : "Discuss your landscape architecture project with a licensed professional. We typically respond within one business day."
       }
-      // ✅ Contact should not show any global CTAs
       showCtaStrip={false}
       showBottomCta={false}
     >
       {submitted ? (
-        <section className="py-16 md:py-20 px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto text-center">
-          <p className="text-[#1F2E23]/65 font-sans-clean text-lg max-w-xl mx-auto leading-[1.8]">
+        <section className="mx-auto max-w-[1440px] px-6 py-16 text-center md:px-12 md:py-20 lg:px-20">
+          <p className="mx-auto max-w-xl font-sans-clean text-lg leading-[1.8] text-[#1F2E23]/65">
             If you need to add details, email us directly at{" "}
             <a
-              href="mailto:chris@elilanddesign.com"
-              className="text-[#1F2E23] underline underline-offset-4 hover:opacity-70 transition-opacity"
+              href="mailto:info@elilanddesign.com"
+              className="text-[#1F2E23] underline underline-offset-4 transition-opacity hover:opacity-70"
             >
-              chris@elilanddesign.com
+              info@elilanddesign.com
             </a>
             .
           </p>
         </section>
       ) : (
-        <section className="py-16 md:py-20 px-6 md:px-12 lg:px-20 bg-[#F5F0EA]">
-          <div className="max-w-[1440px] mx-auto">
+        <section className="bg-[#F5F0EA] px-6 py-16 md:px-12 md:py-20 lg:px-20">
+          <div className="mx-auto max-w-[1440px]">
             <Panel className="border border-[#1F2E23]/10 bg-[#F8F4ED]">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-20 px-8 md:px-12 lg:px-16 py-14 md:py-16">
-                {/* Contact Info */}
+              <div className="grid grid-cols-1 gap-16 px-8 py-14 md:grid-cols-2 md:gap-20 md:px-12 md:py-16 lg:px-16">
                 <AnimatedSection>
                   <div>
-                    <h2 className="font-serif-display text-[#1F2E23] text-3xl md:text-4xl font-light mb-10">
+                    <h2 className="mb-10 font-serif-display text-3xl font-light text-[#1F2E23] md:text-4xl">
                       ELI Land Design
                     </h2>
 
                     <div className="space-y-8">
                       <div className="flex items-start gap-4">
-                        <Phone className="w-5 h-5 text-[#545E55] flex-shrink-0 mt-1" />
+                        <Phone className="mt-1 h-5 w-5 flex-shrink-0 text-[#545E55]" />
                         <div>
-                          <div className="text-[10px] tracking-[0.25em] uppercase text-[#1F2E23]/45 font-sans-clean mb-2">
+                          <div className="mb-2 font-sans-clean text-[10px] uppercase tracking-[0.25em] text-[#1F2E23]/45">
                             Phone
                           </div>
                           <a
                             href="tel:2812592610"
-                            className="text-[#1F2E23] font-sans-clean text-lg hover:text-[#545E55] transition-colors"
+                            className="font-sans-clean text-lg text-[#1F2E23] transition-colors hover:text-[#545E55]"
                           >
                             281.259.2610
                           </a>
@@ -96,27 +96,27 @@ export default function ContactClient() {
                       </div>
 
                       <div className="flex items-start gap-4">
-                        <Mail className="w-5 h-5 text-[#545E55] flex-shrink-0 mt-1" />
+                        <Mail className="mt-1 h-5 w-5 flex-shrink-0 text-[#545E55]" />
                         <div>
-                          <div className="text-[10px] tracking-[0.25em] uppercase text-[#1F2E23]/45 font-sans-clean mb-2">
+                          <div className="mb-2 font-sans-clean text-[10px] uppercase tracking-[0.25em] text-[#1F2E23]/45">
                             Email
                           </div>
                           <a
-                            href="mailto:chris@elilanddesign.com"
-                            className="text-[#1F2E23] font-sans-clean text-lg hover:text-[#545E55] transition-colors"
+                            href="mailto:info@elilanddesign.com"
+                            className="font-sans-clean text-lg text-[#1F2E23] transition-colors hover:text-[#545E55]"
                           >
-                            chris@elilanddesign.com
+                            info@elilanddesign.com
                           </a>
                         </div>
                       </div>
 
                       <div className="flex items-start gap-4">
-                        <MapPin className="w-5 h-5 text-[#545E55] flex-shrink-0 mt-1" />
+                        <MapPin className="mt-1 h-5 w-5 flex-shrink-0 text-[#545E55]" />
                         <div>
-                          <div className="text-[10px] tracking-[0.25em] uppercase text-[#1F2E23]/45 font-sans-clean mb-2">
+                          <div className="mb-2 font-sans-clean text-[10px] uppercase tracking-[0.25em] text-[#1F2E23]/45">
                             Address
                           </div>
-                          <div className="text-[#1F2E23] font-sans-clean text-base leading-relaxed">
+                          <div className="font-sans-clean text-base leading-relaxed text-[#1F2E23]">
                             P.O. Box 131264
                             <br />
                             The Woodlands, TX 77393
@@ -124,11 +124,11 @@ export default function ContactClient() {
                         </div>
                       </div>
 
-                      <div className="pt-8 border-t border-[#1F2E23]/10">
-                        <div className="text-[10px] tracking-[0.25em] uppercase text-[#1F2E23]/45 font-sans-clean mb-2">
+                      <div className="border-t border-[#1F2E23]/10 pt-8">
+                        <div className="mb-2 font-sans-clean text-[10px] uppercase tracking-[0.25em] text-[#1F2E23]/45">
                           Service Area
                         </div>
-                        <p className="text-[#1F2E23]/70 font-sans-clean text-sm leading-[1.75]">
+                        <p className="font-sans-clean text-sm leading-[1.75] text-[#1F2E23]/70">
                           The Woodlands, Houston, Spring, Conroe, Tomball,
                           Magnolia, and surrounding communities in Montgomery and
                           Harris counties.
@@ -138,7 +138,6 @@ export default function ContactClient() {
                   </div>
                 </AnimatedSection>
 
-                {/* Form */}
                 <AnimatedSection>
                   <div>
                     <form
@@ -231,7 +230,7 @@ export default function ContactClient() {
                         Send Message
                       </Button>
 
-                      <p className="text-[#1F2E23]/55 text-xs font-sans-clean leading-[1.7]">
+                      <p className="font-sans-clean text-xs leading-[1.7] text-[#1F2E23]/55">
                         By submitting, you agree we may contact you regarding
                         your inquiry. We do not sell your information.
                       </p>

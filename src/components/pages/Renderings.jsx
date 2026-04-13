@@ -35,7 +35,8 @@ export default function Renderings() {
       eyebrow="Gallery"
       title="Renderings"
       subtitle="Concept visualizations and design renderings that support client decision-making and build clarity."
-    >
+    
+      heroContentAlign="center">
       <GallerySection
         backHref={ROUTES.gallery ?? "/gallery"}
         backLabel="Back to Gallery"

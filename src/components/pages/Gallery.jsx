@@ -184,6 +184,7 @@ export default function Gallery() {
     <PageShell
       hero
       heroImage={MEDIA.hero}
+      heroContentAlign="center"
       eyebrow="Gallery"
       title="Project Gallery"
       subtitle="Browse commercial and residential gallery images."

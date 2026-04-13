@@ -38,7 +38,8 @@ export default function ResidentialMasterPlansGrading() {
       eyebrow="Residential Design Category"
       title="Master Plans & Grading"
       subtitle="Buildable master plans with grading strategy, drainage performance, and coordinated hardscape layout."
-    >
+    
+      heroContentAlign="center">
       <GallerySection
         backHref={ROUTES.designResidential ?? "/design/residential"}
         backLabel="Back to Residential Categories"

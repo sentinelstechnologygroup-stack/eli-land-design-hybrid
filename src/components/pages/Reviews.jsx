@@ -130,7 +130,8 @@ export default function Reviews() {
       title="Reviews & Client Feedback"
       subtitle="Disciplined planning. Clear deliverables. Professional execution. Explore feedback and updates across our profiles."
       heroExtras={
-        <div className="flex flex-wrap items-center gap-3">
+        <div className="flex flex-wrap items-center gap-3"
+      heroContentAlign="center">
           {REVIEW_SOURCES.map((source) => (
             <HeroSourcePill key={source.name} name={source.name} href={source.href} />
           ))}

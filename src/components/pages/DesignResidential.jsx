@@ -138,7 +138,8 @@ export default function DesignResidential() {
       eyebrow="Residential Design"
       title="Residential Design"
       subtitle="Master planning, grading and drainage strategy, outdoor living design, planting systems, and construction documentation for private estates and custom homes."
-    >
+    
+      heroContentAlign="center">
       <section className="bg-[#F5F0EA]">
         <div className="mx-auto max-w-[1440px] px-6 py-14 md:px-10 md:py-16 lg:px-20">
           <div className="max-w-3xl">

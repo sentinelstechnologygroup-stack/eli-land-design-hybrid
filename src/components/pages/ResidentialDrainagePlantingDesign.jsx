@@ -38,7 +38,8 @@ export default function ResidentialDrainagePlantingDesign() {
       eyebrow="Residential Design Category"
       title="Drainage & Planting Design"
       subtitle="Drainage solutions and planting systems designed for Texas conditions and maintenance reality."
-    >
+    
+      heroContentAlign="center">
       <GallerySection
         backHref={ROUTES.designResidential ?? "/design/residential"}
         backLabel="Back to Residential Categories"

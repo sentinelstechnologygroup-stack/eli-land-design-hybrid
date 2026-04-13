@@ -118,7 +118,8 @@ export default function Testimonials() {
       eyebrow="Testimonials"
       title="Trusted outcomes. Disciplined execution."
       subtitle="Selected client feedback reflecting how we plan, communicate, and build landscape environments with clarity and precision."
-    >
+    
+      heroContentAlign="center">
       {/* Intro (Renderings pattern) */}
       <section className="px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto pt-14 md:pt-16 pb-10">
         <AnimatedSection>

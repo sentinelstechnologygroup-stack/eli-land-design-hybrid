@@ -63,7 +63,8 @@ export default function CareersAtELI() {
       subtitle="Current openings and interest submissions. If you’re aligned with disciplined planning and build-ready execution, we’d like to hear from you."
       showCtaStrip={false}
       showBottomCta={false}
-    >
+    
+      heroContentAlign="center">
       <section className="mx-auto max-w-[1440px] px-6 pb-10 pt-14 md:px-10 md:pt-16 lg:px-20">
         <AnimatedSection>
           <p className="max-w-3xl type-body text-eli-muted">
@@ -145,7 +146,7 @@ export default function CareersAtELI() {
 
             <div className="mt-8">
               <Button asChild variant="eli" size="eli">
-                <a href="mailto:chris@elilanddesign.com" className="inline-flex items-center gap-4">
+                <a href="mailto:info@elilanddesign.com" className="inline-flex items-center gap-4">
                   <Mail className="h-4 w-4" />
                   Email Resume
                 </a>

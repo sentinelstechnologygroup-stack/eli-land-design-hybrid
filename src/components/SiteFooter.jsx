@@ -59,7 +59,7 @@ export default function SiteFooter() {
                 href="tel:+12812592610"
                 className="w-fit no-underline transition-colors hover:text-[#F5F0EA]"
               >
-                (281) 555-1234
+                (281) 259-2610
               </a>
 
               <a

@@ -35,7 +35,8 @@ export default function CommercialRenderings() {
       eyebrow="Commercial Design Category"
       title="Commercial Renderings"
       subtitle="Visualizations that align stakeholders and accelerate design decisions—materials, lighting, and spatial experience."
-    >
+    
+      heroContentAlign="center">
       <GallerySection
         backHref={ROUTES.designCommercial ?? "/design/commercial"}
         backLabel="Back to Commercial Categories"

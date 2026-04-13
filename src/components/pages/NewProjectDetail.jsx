@@ -118,7 +118,8 @@ export default function NewProjectDetail({ slug }) {
         eyebrow="Not Found"
         title="Project Not Found"
         subtitle="The requested project gallery could not be found."
-      >
+      
+      heroContentAlign="center">
         <section className="bg-[#F5F0EA]">
           <div className="mx-auto max-w-[1440px] px-6 py-14 md:px-10 md:py-16 lg:px-20">
             <Link
@@ -166,7 +167,8 @@ export default function NewProjectDetail({ slug }) {
       eyebrow={project.category}
       title={project.title}
       subtitle={project.description}
-    >
+    
+      heroContentAlign="center">
       <section className="bg-[#F5F0EA]">
         <div className="mx-auto max-w-[1440px] px-6 py-14 md:px-10 md:py-16 lg:px-20">
           <AnimatedSection>

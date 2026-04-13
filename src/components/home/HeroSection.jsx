@@ -9,10 +9,22 @@ import { ROUTES } from "@/components/utils/routes";
 import { trackCTA } from "@/lib/intelligence";
 
 const HERO_IMAGES = [
-  "/images/home/hero-01.jpg",
-  "/images/home/hero-02.jpg",
-  "/images/home/hero-03.jpg",
-  "/images/home/hero-04.jpg",
+  {
+    src: "/images/home/hero-01.jpg",
+    alt: "Luxury residential landscape architecture and construction project in The Woodlands, Texas",
+  },
+  {
+    src: "/images/home/hero-02.jpg",
+    alt: "Residential landscape architecture site planning project in the Houston area",
+  },
+  {
+    src: "/images/home/hero-03.jpg",
+    alt: "Landscape construction and outdoor living design project in Texas",
+  },
+  {
+    src: "/images/home/hero-04.jpg",
+    alt: "High-end residential landscape architecture and grading design project in Houston, Texas",
+  },
 ];
 
 export default function HeroSection() {
@@ -28,14 +40,17 @@ export default function HeroSection() {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % HERO_IMAGES.length);
     }, 6500);
+
     return () => clearInterval(interval);
   }, []);
 
+  const activeImage = HERO_IMAGES[currentSlide];
+
   return (
-    <section className="relative w-full overflow-hidden h-[54vh] min-h-[440px] max-h-[720px] md:h-[58vh]">
+    <section className="relative h-[54vh] min-h-[440px] max-h-[720px] w-full overflow-hidden md:h-[58vh]">
       <AnimatePresence mode="wait">
         <motion.div
-          key={currentSlide}
+          key={activeImage.src}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -43,36 +58,38 @@ export default function HeroSection() {
           className="absolute inset-0"
         >
           <img
-            src={HERO_IMAGES[currentSlide]}
-            alt=""
+            src={activeImage.src}
+            alt={activeImage.alt}
             className="absolute inset-0 h-full w-full object-cover object-center"
             loading="eager"
             decoding="async"
           />
-          <div className="absolute inset-0 bg-[#08110C]/56" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#08110C]/72 via-[#08110C]/34 to-[#08110C]/82" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#08110C]/52 via-[#08110C]/22 to-[#08110C]/22" />
-          <div className="absolute inset-x-0 bottom-0 h-[42%] bg-gradient-to-t from-[#08110C]/92 to-transparent" />
+
+          {/* Canonical hero contrast hierarchy */}
+          <div className="absolute inset-0 bg-[#08110C]/34" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#08110C]/58 via-[#08110C]/18 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#08110C]/42 via-[#08110C]/16 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-[46%] bg-gradient-to-t from-[#08110C]/74 to-transparent" />
         </motion.div>
       </AnimatePresence>
 
       <div className="absolute inset-0 flex items-end">
         <div className="mx-auto w-full max-w-[1440px] px-6 pb-14 md:px-10 md:pb-16 lg:px-20 lg:pb-20">
-          <div className="max-w-[860px]">
+          <div className="max-w-[980px]">
             <motion.h1
               initial={{ opacity: 0, y: 26 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.95, delay: 0.25, ease: [0.33, 1, 0.68, 1] }}
-              className="type-hero max-w-[16ch] text-[#F5F0EA] [text-shadow:0_3px_18px_rgba(0,0,0,0.44)]"
+              className="font-serif-display max-w-[13ch] text-[clamp(2.6rem,5vw,4.75rem)] font-semibold leading-[0.94] tracking-[-0.03em] text-[#F5F0EA] [text-shadow:0_3px_18px_rgba(0,0,0,0.32)] [text-wrap:balance] sm:max-w-[14ch] md:max-w-[15ch] lg:max-w-[16ch]"
             >
-              Landscape Architecture, Site Planning, and Construction Services
+              Architecture, Site Planning, and Construction Services
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.85, delay: 0.42, ease: [0.33, 1, 0.68, 1] }}
-              className="mt-5 max-w-[660px] type-body text-[#F5F0EA]/92 [text-shadow:0_2px_10px_rgba(0,0,0,0.34)]"
+              className="mt-5 max-w-[660px] type-body text-[#F5F0EA]/90 [text-shadow:0_2px_10px_rgba(0,0,0,0.22)]"
             >
               Site planning, grading design, and landscape construction for residential and
               commercial projects throughout The Woodlands and Houston.
@@ -87,7 +104,7 @@ export default function HeroSection() {
               <Link
                 href={ROUTES.projects}
                 onClick={() => trackCTA("view-projects", "home-hero")}
-                className="inline-flex h-12 items-center justify-center gap-3 bg-[#6B7F5E] px-8 type-button text-[#F5F0EA] transition-colors duration-300 hover:bg-[#5C714F] no-underline"
+                className="inline-flex h-12 items-center justify-center gap-3 bg-[#6B7F5E] px-8 type-button text-[#F5F0EA] no-underline transition-colors duration-300 hover:bg-[#5C714F]"
               >
                 View Projects
                 <ArrowRight className="h-4 w-4" />
@@ -98,9 +115,9 @@ export default function HeroSection() {
       </div>
 
       <div className="absolute bottom-6 left-6 flex gap-2 md:left-10 lg:left-20">
-        {HERO_IMAGES.map((_, idx) => (
+        {HERO_IMAGES.map((image, idx) => (
           <button
-            key={idx}
+            key={image.src}
             type="button"
             onClick={() => setCurrentSlide(idx)}
             className={`h-px w-8 transition-all ${

@@ -33,13 +33,13 @@ const PAGE_SEO = {
     path: "/design",
   },
   designCommercial: {
-    title: "Commercial Landscape Architecture",
+    title: "Commercial Landscape Architecture Services",
     description:
       "Commercial landscape architecture for lifestyle centers, multifamily, office environments, and supporting renderings across Texas.",
     path: "/design/commercial",
   },
   designResidential: {
-    title: "Residential Landscape Architecture",
+    title: "Residential Landscape Architecture Services",
     description:
       "Residential landscape architecture for private estates, master plans, grading strategy, pool and outdoor living, drainage, and planting design.",
     path: "/design/residential",
@@ -88,6 +88,10 @@ const PAGE_SEO = {
   },
 };
 
+function withBrand(title) {
+  return title.includes(SITE.name) ? title : `${title} | ${SITE.name}`;
+}
+
 function buildMetadata({
   title,
   description,
@@ -95,14 +99,16 @@ function buildMetadata({
   image = SITE.ogImage,
   noIndex = false,
 }) {
+  const fullTitle = withBrand(title);
+
   return {
-    title,
+    title: fullTitle,
     description,
     alternates: {
       canonical: path,
     },
     openGraph: {
-      title,
+      title: fullTitle,
       description,
       url: path,
       siteName: SITE.name,
@@ -111,6 +117,7 @@ function buildMetadata({
           url: image,
           width: 1200,
           height: 630,
+          alt: fullTitle,
         },
       ],
       locale: "en_US",
@@ -118,7 +125,7 @@ function buildMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title,
+      title: fullTitle,
       description,
       images: [image],
     },

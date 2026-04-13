@@ -34,7 +34,8 @@ export default function LifestyleCenter() {
       eyebrow="Commercial Design Category"
       title="Lifestyle Center"
       subtitle="Entry sequence, plazas, pedestrian flow, and durable materials that elevate the experience and perform long-term."
-    >
+    
+      heroContentAlign="center">
       <GallerySection
         backHref={ROUTES.designCommercial ?? "/design/commercial"}
         backLabel="Back to Commercial Categories"
