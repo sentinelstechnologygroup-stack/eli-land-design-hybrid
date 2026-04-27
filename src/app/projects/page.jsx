@@ -1,9 +1,6 @@
 // src/app/projects/page.jsx
-import Projects from "@/components/pages/Projects.jsx";
-import { getPageMetadata } from "@/lib/seo";
-
-export const metadata = getPageMetadata("projects");
+import { notFound } from "next/navigation";
 
 export default function Page() {
-  return <Projects />;
+  notFound();
 }

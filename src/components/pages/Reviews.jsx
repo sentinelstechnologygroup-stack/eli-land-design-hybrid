@@ -5,7 +5,6 @@ import React, { useMemo, useState } from "react";
 import { Quote, Star } from "lucide-react";
 import PageShell from "@/components/shared/PageShell";
 import AnimatedSection from "@/components/shared/AnimatedSection";
-import BottomCTA from "@/components/shared/BottomCTA";
 import { Panel } from "@/components/ui/panel";
 import { Button } from "@/components/ui/button";
 
@@ -125,18 +124,18 @@ export default function Reviews() {
   return (
     <PageShell
       hero
-      heroImage={MEDIA.hero}
+      heroImage="/images/reviews/hero.jpg"
       eyebrow="Reviews"
       title="Reviews & Client Feedback"
       subtitle="Disciplined planning. Clear deliverables. Professional execution. Explore feedback and updates across our profiles."
+      heroContentAlign="center"
       heroExtras={
-        <div className="flex flex-wrap items-center gap-3"
-      heroContentAlign="center">
+        <div className="flex flex-wrap items-center gap-3">
           {REVIEW_SOURCES.map((source) => (
             <HeroSourcePill key={source.name} name={source.name} href={source.href} />
           ))}
         </div>
-      }
+  }
     >
       <section className="bg-[#F5F0EA] px-6 py-14 md:px-10 md:py-16 lg:px-20">
         <div className="mx-auto max-w-[1440px]">
@@ -174,8 +173,6 @@ export default function Reviews() {
           )}
         </div>
       </section>
-
-      <BottomCTA />
     </PageShell>
   );
 }

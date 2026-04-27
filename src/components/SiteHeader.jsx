@@ -39,14 +39,17 @@ export default function SiteHeader({ currentPageName }) {
   const MOBILE_SECTIONS = useMemo(() => {
     const home = navItems.find((n) => n.label === "Home");
     const about = navItems.find((n) => n.label === "About");
-    const projects = navItems.find((n) => n.label === "Projects");
-    const gallery = navItems.find((n) => n.label === "Gallery");
+    const commercialGallery = navItems.find((n) => n.label === "Commercial Gallery");
+    const residentialGallery = navItems.find((n) => n.label === "Residential Gallery");
     const reviews = navItems.find((n) => n.label === "Reviews");
     const careers = navItems.find((n) => n.label === "Careers");
 
     return [
       { label: "Overview", items: [home, about].filter(Boolean) },
-      { label: "Explore", items: [projects, gallery].filter(Boolean) },
+      {
+        label: "Galleries",
+        items: [commercialGallery, residentialGallery].filter(Boolean),
+      },
       { label: "More", items: [reviews, careers].filter(Boolean) },
     ].filter((section) => section.items && section.items.length);
   }, [navItems]);

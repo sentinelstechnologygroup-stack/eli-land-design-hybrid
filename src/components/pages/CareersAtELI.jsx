@@ -59,8 +59,8 @@ export default function CareersAtELI() {
       hero
       heroImage={MEDIA.hero}
       eyebrow="Careers"
-      title="Build disciplined landscapes with a team that takes pride in the work."
-      subtitle="Current openings and interest submissions. If you’re aligned with disciplined planning and build-ready execution, we’d like to hear from you."
+      title="Build with a disciplined team."
+      subtitle="Landscape architecture, site planning, and construction—done with precision and pride."
       showCtaStrip={false}
       showBottomCta={false}
     

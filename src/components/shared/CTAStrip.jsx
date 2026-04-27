@@ -19,7 +19,7 @@ export default function CTAStrip({
   className = "",
 }) {
   const safePrimaryHref = primaryHref || ROUTES.consultation || ROUTES.contact || "/contact";
-  const safeSecondaryHref = secondaryHref || ROUTES.projects || "/projects";
+  const safeSecondaryHref = secondaryHref || ROUTES.gallery || "/projects";
 
   return (
     <section className={`bg-[#1F2E23] text-[#F5F0EA] ${className}`}>

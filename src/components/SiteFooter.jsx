@@ -8,7 +8,7 @@ import { ROUTES } from "@/components/utils/routes";
 const FOOTER_LINKS = [
   { label: "Home", href: ROUTES.home || "/" },
   { label: "About", href: ROUTES.about || "/about" },
-  { label: "Projects", href: ROUTES.projects || "/projects" },
+  { label: "Projects", href: ROUTES.gallery || "/projects" },
   { label: "Gallery", href: ROUTES.gallery || "/gallery" },
   { label: "Reviews", href: ROUTES.reviews || "/reviews" },
   { label: "Careers at ELI", href: ROUTES.careers || "/careers-at-eli" },

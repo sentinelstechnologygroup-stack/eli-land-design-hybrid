@@ -1,68 +1,54 @@
 // src/components/home/CTASection.jsx
+"use client";
+
 import React from "react";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import AnimatedSection from "../shared/AnimatedSection";
 import { ROUTES } from "@/components/utils/routes";
-
-const IMG = "/images/home/cta.jpg";
 
 export default function CTASection() {
   return (
-    <section className="relative py-16 md:py-20 overflow-hidden">
-      {/* Background Image */}
-      <img
-        src={IMG}
-        alt="Landscape architecture consultation"
-        className="absolute inset-0 w-full h-full object-cover"
-        loading="lazy"
-      />
+    <section className="relative w-full overflow-hidden">
+      <div className="absolute inset-0">
+        <img
+          src="/images/home/cta.jpg"
+          alt="Landscape design project"
+          className="h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-[#0B1A12]/70" />
+      </div>
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-[#1F2E23]/80" />
+      <div className="relative mx-auto max-w-[1440px] px-6 py-16 md:px-10 md:py-20 lg:px-20">
+        <div className="max-w-[720px]">
+          <h2 className="text-[32px] md:text-[42px] font-semibold text-[#F5F0EA] leading-tight">
+            Ready to discuss your project?
+          </h2>
 
-      <div className="relative max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
-        <AnimatedSection>
-          <div className="max-w-2xl">
-            <h2 className="font-serif-display text-[#F5F0EA] text-4xl md:text-5xl font-light leading-[1.05]">
-              Ready to discuss your project?
-            </h2>
+          <p className="mt-4 text-[#F5F0EA]/80 text-[15px] leading-[1.8]">
+            Schedule a consultation to discuss your site, project scope, and timeline.
+            We typically respond within one business day.
+          </p>
 
-            <p className="mt-6 text-[#F5F0EA]/75 font-sans-clean text-base max-w-xl">
-              Schedule a consultation to discuss your site, project scope, and
-              timeline. We typically respond within one business day.
-            </p>
+          <div className="mt-8 flex flex-wrap gap-4">
+            {/* Primary CTA */}
+            <Link
+              href={ROUTES.contact}
+              className="inline-flex items-center justify-center h-14 px-10 bg-[#F5F0EA] text-[#1F2E23]
+                         text-[11px] tracking-[0.22em] uppercase"
+            >
+              Schedule Consultation
+            </Link>
 
-            {/* ✅ Updated Buttons (match global CTA system) */}
-            <div className="mt-10 flex flex-col sm:flex-row gap-5">
-              {/* Primary Light Pill */}
-              <Link href={ROUTES.consultation}
-                className="inline-flex items-center justify-center gap-3 h-14 px-10 rounded-none
-                           bg-[#F5F0EA] text-[#1F2E23]
-                           text-[11px] tracking-[0.22em] uppercase
-                           font-sans-clean font-semibold
-                           hover:bg-[#E8DDCC]
-                           transition-all duration-300"
-              >
-                Schedule Consultation
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-
-              {/* Secondary Green Pill */}
-              <Link href={ROUTES.projects}
-                className="inline-flex items-center justify-center gap-3 h-14 px-10 rounded-none
-                           bg-[#6B7F5E] text-[#F5F0EA]
-                           text-[11px] tracking-[0.22em] uppercase
-                           font-sans-clean font-semibold
-                           hover:bg-[#5C714F]
-                           transition-all duration-300"
-              >
-                View Projects
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
+            {/* Secondary CTA (FIXED) */}
+            <Link
+              href={ROUTES.gallery}   // ✅ FIX HERE
+              className="inline-flex items-center justify-center h-14 px-10
+                         bg-[#6B7F5E] text-[#F5F0EA]
+                         text-[11px] tracking-[0.22em] uppercase"
+            >
+              View Gallery
+            </Link>
           </div>
-        </AnimatedSection>
+        </div>
       </div>
     </section>
   );

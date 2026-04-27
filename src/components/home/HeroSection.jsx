@@ -13,16 +13,24 @@ const HERO_IMAGES = [
     src: "/images/home/hero-01.jpg",
     alt: "Luxury residential landscape architecture and construction project in The Woodlands, Texas",
   },
-  {
+    {
     src: "/images/home/hero-02.jpg",
     alt: "Residential landscape architecture site planning project in the Houston area",
   },
-  {
+    {
     src: "/images/home/hero-03.jpg",
     alt: "Landscape construction and outdoor living design project in Texas",
   },
-  {
+   {
     src: "/images/home/hero-04.jpg",
+    alt: "High-end residential landscape architecture and grading design project in Houston, Texas",
+  },
+    {
+    src: "/images/home/hero-05.jpg",
+    alt: "High-end residential landscape architecture and grading design project in Houston, Texas",
+  },
+    {
+    src: "/images/home/hero-07.jpg",
     alt: "High-end residential landscape architecture and grading design project in Houston, Texas",
   },
 ];
@@ -102,11 +110,11 @@ export default function HeroSection() {
               className="mt-8"
             >
               <Link
-                href={ROUTES.projects}
-                onClick={() => trackCTA("view-projects", "home-hero")}
+                href={ROUTES.gallery}
+                onClick={() => trackCTA("view-gallery", "home-hero")}
                 className="inline-flex h-12 items-center justify-center gap-3 bg-[#6B7F5E] px-8 type-button text-[#F5F0EA] no-underline transition-colors duration-300 hover:bg-[#5C714F]"
               >
-                View Projects
+                View gallery
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </motion.div>

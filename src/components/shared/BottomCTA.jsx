@@ -49,7 +49,7 @@ export default function CTASection() {
               </Link>
 
               {/* Secondary Green Pill */}
-              <Link href={ROUTES.projects}
+              <Link href={ROUTES.gallery}
                 className="inline-flex items-center justify-center gap-3 h-14 px-10 rounded-none
                            bg-[#6B7F5E] text-[#F5F0EA]
                            text-[11px] tracking-[0.22em] uppercase

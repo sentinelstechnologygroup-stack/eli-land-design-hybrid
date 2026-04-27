@@ -6,20 +6,8 @@ export const ROUTES = {
   contact: "/contact",
   consultation: "/contact",
 
-  designCommercial: "/design/commercial",
-  designResidential: "/design/residential",
-
-  commercialGalleries: (slug) => `/design/commercial/galleries/${slug}`,
-  residentialGalleries: "/design/residential/galleries",
-  residentialGallery: (slug) => `/design/residential/galleries/${slug}`,
-
-  renderings: "/gallery/renderings",
-
-  projects: "/projects",
-  projectDetail: (slug) => `/projects/${slug}`,
-
-  newProjects: "/new-projects",
-  newProjectDetail: (slug) => `/new-projects/${slug}`,
+  commercialGallery: "/gallery/commercial",
+  residentialGalleryMain: "/gallery/residential",
 
   gallery: "/gallery",
   reviews: "/reviews",
@@ -29,20 +17,8 @@ export const ROUTES = {
 export const NAV = [
   { label: "Home", href: ROUTES.home },
   { label: "About", href: ROUTES.about },
-  { label: "Projects", href: ROUTES.projects },
-  { label: "Gallery", href: ROUTES.gallery },
+  { label: "Commercial Gallery", href: ROUTES.commercialGallery },
+  { label: "Residential Gallery", href: ROUTES.residentialGalleryMain },
   { label: "Reviews", href: ROUTES.reviews },
   { label: "Careers", href: ROUTES.careersAtEli },
 ];
-
-export function createProjectUrl(slug) {
-  return `/projects/${slug}`;
-}
-
-export function createGalleryUrl(collection) {
-  return `/gallery/${collection}`;
-}
-
-export function createNewProjectUrl(slug) {
-  return `/new-projects/${slug}`;
-}

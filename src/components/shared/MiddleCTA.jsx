@@ -14,7 +14,7 @@ export default function MiddleCTA({
   primaryLabel = "Schedule Consultation",
   primaryHref = ROUTES.consultation,
   secondaryLabel = "View Projects",
-  secondaryHref = ROUTES.projects,
+  secondaryHref = ROUTES.gallery,
   tone = "forest",
 }) {
   const toneClass = tone === "sage" ? "bg-[#6B7F5E]" : "bg-[#545E55]";

@@ -129,7 +129,7 @@ export default function Testimonials() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
-            <Link href={ROUTES.projects}
+            <Link href={ROUTES.gallery}
               className="inline-flex items-center gap-4 bg-[#1F2E23] text-[#F5F0EA] px-10 py-4 text-[11px] tracking-[0.28em] uppercase font-sans-clean font-semibold hover:opacity-95 transition rounded-2xl"
             >
               View Projects <ArrowRight className="w-4 h-4" />

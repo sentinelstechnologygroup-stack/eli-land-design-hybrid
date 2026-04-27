@@ -42,7 +42,7 @@ export default function HubBreakCTA() {
                 </Link>
 
                 <Link
-                  href={ROUTES.projects}
+                  href={ROUTES.gallery}
                   className="inline-flex h-10 items-center justify-center gap-2 rounded-none bg-[#6B7F5E] px-4 font-sans-clean text-[9px] font-semibold uppercase tracking-[0.22em] text-[#F5F0EA] transition-colors duration-300 hover:bg-[#5E7251] md:h-11 md:px-5 md:text-[10px]"
                 >
                   View Projects

@@ -20,7 +20,7 @@ export default function FeaturedProjects() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {PROJECTS.map((project, idx) => (
             <AnimatedSection key={project.title} delay={idx * 0.1}>
-              <Link href={ROUTES.projects} className="block">
+              <Link href={ROUTES.gallery} className="block">
                 <div className="group relative overflow-hidden aspect-[4/3] rounded-2xl">
                   <img
                     src={project.image}
@@ -45,7 +45,7 @@ export default function FeaturedProjects() {
         </div>
 
         <div className="mt-12 md:mt-14 text-center">
-          <Link href={ROUTES.projects}
+          <Link href={ROUTES.gallery}
             className="inline-flex items-center gap-3 text-[11px] tracking-[0.25em] uppercase font-sans-clean font-semibold text-[#1F2E23] hover:text-[#6B7F5E] transition-colors"
           >
             View All Projects
