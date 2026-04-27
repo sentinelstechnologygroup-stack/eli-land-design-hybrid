@@ -15,10 +15,9 @@ export default function PageShell({
   title = "",
   subtitle = "",
   heroExtras = null,
-  heroContentAlign = "center",
   heroTitleClassName = "",
-  heroSubtitleClassName = "",
-  heroImageClassName = "object-cover object-[center_50%]",
+  heroubtitleClassName = "",
+  heroImageClassName = "object-cover object-center",
   ctaStripProps = null,
   showCtaStrip = true,
   showBottomCta = true,
@@ -36,9 +35,8 @@ export default function PageShell({
             subtitle={subtitle}
             image={heroImage}
             heroExtras={heroExtras}
-            contentAlign={heroContentAlign}
             titleClassName={heroTitleClassName}
-            subtitleClassName={heroSubtitleClassName}
+            subtitleClassName={heroubtitleClassName}
             imageClassName={heroImageClassName}
           />
         )}

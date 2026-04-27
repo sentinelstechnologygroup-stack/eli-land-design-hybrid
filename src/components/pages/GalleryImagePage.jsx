@@ -7,14 +7,14 @@ import PageShell from "@/components/shared/PageShell";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 
 const COMMERCIAL_COUNT = 16;
-const RESIDENTIAL_COUNT = 77;
+const RESIDENTIAL_COUNT = 74;
 
 const MEDIA = {
   hero: "/images/hero/commercial-hero.jpg",
   commercialHero: "/images/hero/commercial-hero.jpg",
   residentialHero: "/images/hero/residential-hero.jpg",
-  commercialFallback: "/images/hero/lifestyle-center-hero.jpg",
-  residentialFallback: "/images/hero/pool-outdoor-living-hero.jpg",
+  commercialFallback: "/images/gallery/commercial/01.jpg",
+  residentialFallback: "/images/gallery/residential/01.jpg",
 };
 
 function makeGalleryImages({ type, count, fallback }) {
@@ -219,14 +219,13 @@ export default function GalleryImagePage({
     <PageShell
       hero
       heroImage={heroImage}
-      heroContentAlign="center"
-      heroImageClassName="object-cover object-[center_40%]"
+      heroImageClassName="object-cover object-center"
       heroTitleClassName="max-w-none xl:whitespace-nowrap"
       eyebrow="Gallery"
       title={title}
       subtitle={subtitle}
     >
-        <section className="bg-[#F5F0EA]">
+      <section className="bg-[#F5F0EA]">
         <div className="mx-auto max-w-[1440px] px-6 py-14 md:px-10 md:py-16 lg:px-20">
           <AnimatedSection>
             <div className="flex flex-wrap gap-3">
@@ -268,7 +267,6 @@ export default function GalleryImagePage({
           </div>
         </div>
       </section>
-
 
       <Lightbox
         items={filteredImages}

@@ -21,7 +21,7 @@ export default function PageShell({
   bottomCtaProps = {},
 }) {
   const hasHero = Boolean(hero || heroImage);
-  const heroSubtitle = subtitle || description;
+  const heroubtitle = subtitle || description;
 
   useEffect(() => {
     if (typeof document === "undefined") return;
@@ -41,7 +41,7 @@ export default function PageShell({
         <PageHero
           label={eyebrow}
           title={title}
-          subtitle={heroSubtitle}
+          subtitle={heroubtitle}
           image={heroImage}
           heroExtras={heroExtras}
         />

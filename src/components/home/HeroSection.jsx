@@ -8,34 +8,35 @@ import { ArrowRight } from "lucide-react";
 import { ROUTES } from "@/components/utils/routes";
 import { trackCTA } from "@/lib/intelligence";
 
+
 const HERO_IMAGES = [
   {
-    src: "/images/hero/hero-01.jpg",
+    src: "/images/hero/home-hero-01.jpg",
     alt: "Residential landscape architecture project featuring custom home, outdoor living space, and waterfront design in The Woodlands, Texas",
   },
   {
-    src: "/images/hero/hero-02.jpg",
+    src: "/images/hero/home-hero-02.jpg",
     alt: "Commercial landscape architecture and site planning project for multi-family development in the Houston area",
   },
   {
-    src: "/images/hero/hero-03.jpg",
+    src: "/images/hero/home-hero-03.jpg",
     alt: "Residential landscape design and construction project with lawn grading, planting, and outdoor space planning in Texas",
   },
   {
-    src: "/images/hero/hero-04.jpg",
+    src: "/images/hero/home-hero-04.jpg",
     alt: "Commercial landscape construction project with apartment complex, hardscape, and amenity layout design",
   },
   {
-    src: "/images/hero/hero-05.jpg",
+    src: "/images/hero/home-hero-05.jpg",
     alt: "Residential landscape architecture project featuring luxury outdoor living, pool design, and architectural lighting",
   },
   {
-    src: "/images/hero/hero-06.jpg",
+    src: "/images/hero/home-hero-06.jpg",
     alt: "Commercial landscape architecture project with pool amenity, hardscape, and community layout for multi-family development",
   },
 ];
 
-export default function HeroSection() {
+  export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
@@ -55,7 +56,7 @@ export default function HeroSection() {
   const activeImage = HERO_IMAGES[currentSlide];
 
   return (
-    <section className="relative h-[54vh] min-h-[440px] max-h-[720px] w-full overflow-hidden md:h-[58vh]">
+    <section className="relative h-[clamp(420px,39.583vw,760px)] w-full overflow-hidden bg-[#102015]">
       <AnimatePresence mode="wait">
         <motion.div
           key={activeImage.src}
@@ -73,22 +74,21 @@ export default function HeroSection() {
             decoding="async"
           />
 
-          {/* Canonical hero contrast hierarchy */}
-          <div className="absolute inset-0 bg-[#08110C]/34" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#08110C]/58 via-[#08110C]/18 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#08110C]/42 via-[#08110C]/16 to-transparent" />
-          <div className="absolute inset-x-0 bottom-0 h-[46%] bg-gradient-to-t from-[#08110C]/74 to-transparent" />
+          <div className="absolute inset-0 bg-[#08110C]/28" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#08110C]/50 via-[#08110C]/12 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#08110C]/48 via-[#08110C]/14 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-[40%] bg-gradient-to-t from-[#08110C]/62 to-transparent" />
         </motion.div>
       </AnimatePresence>
 
-      <div className="absolute inset-0 flex items-end">
-        <div className="mx-auto w-full max-w-[1440px] px-6 pb-14 md:px-10 md:pb-16 lg:px-20 lg:pb-20">
+      <div className="absolute inset-0 flex items-center">
+        <div className="mx-auto w-full max-w-[1440px] px-6 md:px-10 lg:px-20 -translate-y-[4%]">
           <div className="max-w-[980px]">
             <motion.h1
               initial={{ opacity: 0, y: 26 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.95, delay: 0.25, ease: [0.33, 1, 0.68, 1] }}
-              className="font-serif-display max-w-[13ch] text-[clamp(2.6rem,5vw,4.75rem)] font-semibold leading-[0.94] tracking-[-0.03em] text-[#F5F0EA] [text-shadow:0_3px_18px_rgba(0,0,0,0.32)] [text-wrap:balance] sm:max-w-[14ch] md:max-w-[15ch] lg:max-w-[16ch]"
+              className="font-serif-display max-w-[13ch] text-[clamp(2.6rem,5vw,4.75rem)] font-semibold leading-[0.94] tracking-[-0.03em] text-[#F5F0EA] [text-shadow:0_3px_18px_rgba(0,0,0,0.45)] [text-wrap:balance] sm:max-w-[14ch] md:max-w-[15ch] lg:max-w-[16ch]"
             >
               Architecture, Site Planning, and Construction Services
             </motion.h1>
@@ -97,7 +97,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.85, delay: 0.42, ease: [0.33, 1, 0.68, 1] }}
-              className="mt-5 max-w-[660px] type-body text-[#F5F0EA]/90 [text-shadow:0_2px_10px_rgba(0,0,0,0.22)]"
+              className="mt-5 max-w-[660px] type-body text-[#F5F0EA]/90 [text-shadow:0_2px_10px_rgba(0,0,0,0.35)]"
             >
               Site planning, grading design, and landscape construction for residential and
               commercial projects throughout The Woodlands and Houston.

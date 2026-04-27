@@ -100,7 +100,7 @@ function ReviewCard({ quote, name, meta }) {
 
       <div className="mt-6 flex flex-1 items-start gap-3 overflow-hidden">
         <Quote className="mt-1 h-5 w-5 flex-shrink-0 text-[#D7B55C]" />
-        <div className="min-h-0 flex-1 overflow-y-auto pr-2 review-scroll">
+        <div className="review-scroll min-h-0 flex-1 overflow-y-auto pr-2">
           <p className="type-small text-white/90 md:text-[15px] md:leading-[1.85]">
             {quote}
           </p>
@@ -108,7 +108,9 @@ function ReviewCard({ quote, name, meta }) {
       </div>
 
       <div className="mt-8 border-t border-white/10 pt-6">
-        <div className="text-sm font-semibold text-white">{String(name).toUpperCase()}</div>
+        <div className="text-sm font-semibold text-white">
+          {String(name).toUpperCase()}
+        </div>
         <div className="mt-2 type-micro text-white/55">{meta}</div>
       </div>
     </Panel>
@@ -118,32 +120,43 @@ function ReviewCard({ quote, name, meta }) {
 export default function Reviews() {
   const [visibleCount, setVisibleCount] = useState(9);
 
-  const visibleReviews = useMemo(() => REVIEWS.slice(0, visibleCount), [visibleCount]);
+  const visibleReviews = useMemo(
+    () => REVIEWS.slice(0, visibleCount),
+    [visibleCount]
+  );
+
   const hasMore = visibleCount < REVIEWS.length;
 
   return (
     <PageShell
       hero
-      heroImage="/images/hero/reviews-hero.jpg"
+      heroImage={MEDIA.hero}
+      heroImageClassName="object-cover object-center"
       eyebrow="Reviews"
       title="Reviews & Client Feedback"
       subtitle="Disciplined planning. Clear deliverables. Professional execution. Explore feedback and updates across our profiles."
-      heroContentAlign="center"
       heroExtras={
         <div className="flex flex-wrap items-center gap-3">
           {REVIEW_SOURCES.map((source) => (
-            <HeroSourcePill key={source.name} name={source.name} href={source.href} />
+            <HeroSourcePill
+              key={source.name}
+              name={source.name}
+              href={source.href}
+            />
           ))}
         </div>
-  }
+      }
     >
       <section className="bg-[#F5F0EA] px-6 py-14 md:px-10 md:py-16 lg:px-20">
         <div className="mx-auto max-w-[1440px]">
           <AnimatedSection>
             <div className="max-w-3xl">
-              <div className="mb-6 type-micro text-[#1F2E23]/45">Client Reviews</div>
+              <div className="mb-6 type-micro text-[#1F2E23]/45">
+                Client Reviews
+              </div>
               <h2 className="type-h2 text-[#1F2E23]">
-                Trusted for disciplined planning and results that hold up over time.
+                Trusted for disciplined planning and results that hold up over
+                time.
               </h2>
               <p className="mt-5 max-w-[78ch] type-body text-eli-muted">
                 Below are selected reviews.
@@ -164,7 +177,9 @@ export default function Reviews() {
               <Button
                 type="button"
                 variant="eli"
-                onClick={() => setVisibleCount((n) => Math.min(n + 9, REVIEWS.length))}
+                onClick={() =>
+                  setVisibleCount((n) => Math.min(n + 9, REVIEWS.length))
+                }
                 className="h-auto px-12 py-4"
               >
                 Load More Reviews

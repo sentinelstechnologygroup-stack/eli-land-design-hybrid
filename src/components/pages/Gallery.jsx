@@ -8,7 +8,7 @@ export default function Gallery() {
   return (
     <GalleryImagePage
       mode="all"
-      title="Project Gallery"
+      title="Gallery"
       subtitle="Browse all commercial and residential gallery images, or filter by category."
     />
   );

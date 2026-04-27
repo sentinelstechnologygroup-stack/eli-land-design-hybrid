@@ -6,13 +6,13 @@ import Link from "next/link";
 import { ROUTES } from "@/components/utils/routes";
 
 const FOOTER_LINKS = [
-  { label: "Home", href: ROUTES.home || "/" },
-  { label: "About", href: ROUTES.about || "/about" },
-  { label: "Projects", href: ROUTES.gallery || "/projects" },
-  { label: "Gallery", href: ROUTES.gallery || "/gallery" },
-  { label: "Reviews", href: ROUTES.reviews || "/reviews" },
-  { label: "Careers at ELI", href: ROUTES.careers || "/careers-at-eli" },
-  { label: "Contact", href: ROUTES.contact || "/contact" },
+  { label: "Home", href: ROUTES.home },
+  { label: "About", href: ROUTES.about },
+  { label: "Commercial Gallery", href: ROUTES.commercialGallery },
+  { label: "Residential Gallery", href: ROUTES.residentialGalleryMain },
+  { label: "Reviews", href: ROUTES.reviews },
+  { label: "Careers at ELI", href: ROUTES.careersAtEli },
+  { label: "Contact", href: ROUTES.contact },
 ];
 
 export default function SiteFooter() {
