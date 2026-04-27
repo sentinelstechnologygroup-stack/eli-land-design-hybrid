@@ -9,7 +9,7 @@ import PortfolioMarquee from "@/components/portfolio/PortfolioMarquee";
 import BottomCTA from "@/components/shared/BottomCTA";
 
 const MEDIA = {
-  hero: "/images/design/hub/hero.jpg",
+  hero: "/images/hero/design-hero.jpg",
   commercial: "/images/design/hub/tile-commercial.jpg",
   residential: "/images/design/hub/tile-residential.jpg",
   support: "/images/design/hub/support.jpg",

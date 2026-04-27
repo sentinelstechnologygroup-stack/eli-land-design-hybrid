@@ -8,7 +8,7 @@ import AnimatedSection from "@/components/shared/AnimatedSection";
 import { Panel } from "@/components/ui/panel";
 
 const MEDIA = {
-  hero: "/images/about/hero.jpg",
+  hero: "/images/hero/about-hero.jpg",
   authority: "/images/about/authority.jpg",
   chris: "/images/about/chris.jpg",
   matt: "/images/about/matt.jpg",

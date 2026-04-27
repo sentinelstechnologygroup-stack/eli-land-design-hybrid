@@ -12,7 +12,7 @@ import BottomCTA from "@/components/shared/BottomCTA";
 import HubBreakCTA from "@/components/home/HubBreakCTA";
 
 const MEDIA = {
-  hero: "/images/design/commercial/hero.jpg",
+  hero: "//images/hero/commercial-hero.jpg",
   card1: "/images/design/commercial/thumbnails/lifestyle-center.jpg",
   card2: "/images/design/commercial/thumbnails/multifamily.jpg",
   card3: "/images/design/commercial/thumbnails/office.jpg",

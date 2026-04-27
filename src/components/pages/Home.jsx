@@ -48,7 +48,7 @@ const HOME_HUB_ITEMS = [
     {
     title: "Client Reviews",
     href: ROUTES.reviews,
-    image: "/images/contact/reviews/hero.jpg", // use existing reviews hero image
+    image: "/images/hero/reviews-hero.jpg", // use existing reviews hero image
     ctaLabel: "View Reviews",
   },
   //{
@@ -66,7 +66,7 @@ const HOME_HUB_ITEMS = [
       "Explore opportunities to join ELI Land Design and learn what the firm values in design, planning, and project delivery.",
     includes: [],
     href: ROUTES.careersAtEli,
-    image: "/images/contact/careers-at-eli/apply/hero.jpg",
+    image: "/images/hero/careers-hero.jpg",
     ctaLabel: "View Careers",
   },
 ];

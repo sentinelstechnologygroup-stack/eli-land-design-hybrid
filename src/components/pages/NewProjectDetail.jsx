@@ -114,7 +114,7 @@ export default function NewProjectDetail({ slug }) {
     return (
       <PageShell
         hero
-        heroImage="/images/projects/hero.jpg"
+        heroImage="/images/hero/projects-hero.jpg"
         eyebrow="Not Found"
         title="Project Not Found"
         subtitle="The requested project gallery could not be found."

@@ -5,7 +5,7 @@ import GallerySection from "@/components/gallery/GallerySection";
 import { ROUTES } from "@/components/utils/routes";
 
 const MEDIA = {
-  hero: "/images/design/residential/pool-outdoor-living/hero.jpg",
+  hero: "/images/hero/residential-pool-outdoor-living/hero.jpg",
 };
 
 const IMAGES = [

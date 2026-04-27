@@ -13,7 +13,7 @@ import { Panel } from "@/components/ui/panel";
 import BottomCTA from "@/components/shared/BottomCTA";
 
 const MEDIA = {
-  hero: "/images/design/commercial/multifamily/multifamily-hero.jpg",
+  hero: "/images/hero/multifamily-hero.jpg",
 };
 
 const IMAGES = [

@@ -10,28 +10,28 @@ import { trackCTA } from "@/lib/intelligence";
 
 const HERO_IMAGES = [
   {
-    src: "/images/home/hero-01.jpg",
-    alt: "Luxury residential landscape architecture and construction project in The Woodlands, Texas",
+    src: "/images/hero/hero-01.jpg",
+    alt: "Residential landscape architecture project featuring custom home, outdoor living space, and waterfront design in The Woodlands, Texas",
   },
-    {
-    src: "/images/home/hero-02.jpg",
-    alt: "Residential landscape architecture site planning project in the Houston area",
+  {
+    src: "/images/hero/hero-02.jpg",
+    alt: "Commercial landscape architecture and site planning project for multi-family development in the Houston area",
   },
-    {
-    src: "/images/home/hero-03.jpg",
-    alt: "Landscape construction and outdoor living design project in Texas",
+  {
+    src: "/images/hero/hero-03.jpg",
+    alt: "Residential landscape design and construction project with lawn grading, planting, and outdoor space planning in Texas",
   },
-   {
-    src: "/images/home/hero-04.jpg",
-    alt: "High-end residential landscape architecture and grading design project in Houston, Texas",
+  {
+    src: "/images/hero/hero-04.jpg",
+    alt: "Commercial landscape construction project with apartment complex, hardscape, and amenity layout design",
   },
-    {
-    src: "/images/home/hero-05.jpg",
-    alt: "High-end residential landscape architecture and grading design project in Houston, Texas",
+  {
+    src: "/images/hero/hero-05.jpg",
+    alt: "Residential landscape architecture project featuring luxury outdoor living, pool design, and architectural lighting",
   },
-    {
-    src: "/images/home/hero-07.jpg",
-    alt: "High-end residential landscape architecture and grading design project in Houston, Texas",
+  {
+    src: "/images/hero/hero-06.jpg",
+    alt: "Commercial landscape architecture project with pool amenity, hardscape, and community layout for multi-family development",
   },
 ];
 

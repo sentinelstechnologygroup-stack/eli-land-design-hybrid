@@ -12,7 +12,7 @@ import PortfolioMarquee from "@/components/portfolio/PortfolioMarquee";
 import { ROUTES } from "@/components/utils/routes";
 
 const MEDIA = {
-  hero: "/images/design/residential/residential-hero.jpg",
+  hero: "/images/hero/residential-hero.jpg",
   masterPlans: "/images/design/residential/thumbnails/master-plans-grading.jpg",
   poolOutdoor: "/images/design/residential/thumbnails/pool-outdoor-living.jpg",
   drainagePlanting: "/images/design/residential/thumbnails/drainage-planting-design.jpg",

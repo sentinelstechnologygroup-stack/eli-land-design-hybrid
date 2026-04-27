@@ -10,11 +10,11 @@ const COMMERCIAL_COUNT = 16;
 const RESIDENTIAL_COUNT = 77;
 
 const MEDIA = {
-  hero: "/images/gallery/commercial/hero.jpg",
-  commercialHero: "/images/gallery/commercial/hero.jpg",
-  residentialHero: "/images/gallery/residential/hero.jpg",
-  commercialFallback: "/images/design/commercial/thumbnails/lifestyle-center.jpg",
-  residentialFallback: "/images/design/residential/thumbnails/pool-outdoor-living.jpg",
+  hero: "/images/hero/commercial-hero.jpg",
+  commercialHero: "/images/hero/commercial-hero.jpg",
+  residentialHero: "/images/hero/residential-hero.jpg",
+  commercialFallback: "/images/hero/lifestyle-center-hero.jpg",
+  residentialFallback: "/images/hero/pool-outdoor-living-hero.jpg",
 };
 
 function makeGalleryImages({ type, count, fallback }) {

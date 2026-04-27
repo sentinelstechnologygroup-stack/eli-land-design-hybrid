@@ -11,7 +11,7 @@ import { Panel } from "@/components/ui/panel";
 import { Button } from "@/components/ui/button";
 
 const MEDIA = {
-  hero: "/images/contact/careers-at-eli/apply/hero.jpg",
+  hero: "/images/hero/careers-hero.jpg",
 };
 
 const OPENINGS = [

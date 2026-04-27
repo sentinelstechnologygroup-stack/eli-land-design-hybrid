@@ -5,7 +5,7 @@ import GallerySection from "@/components/gallery/GallerySection";
 import { ROUTES } from "@/components/utils/routes";
 
 const MEDIA = {
-  hero: "/images/design/residential/master-plans/master-plans-hero.jpg",
+  hero: "/images/hero/master-plans-hero.jpg",
 };
 
 const IMAGES = [

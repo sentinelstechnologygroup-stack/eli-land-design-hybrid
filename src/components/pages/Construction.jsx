@@ -48,7 +48,7 @@ export default function Construction() {
   return (
     <PageShell
       hero
-      heroImage="/images/construction/hero.jpg"
+      heroImage="/images/hero/construction-hero.jpg"
       eyebrow="Services"
       title="Landscape Construction Services"
       subtitle="Precision installation of hardscape, irrigation, lighting, drainage, and planting systems for residential and commercial projects in The Woodlands and Houston."

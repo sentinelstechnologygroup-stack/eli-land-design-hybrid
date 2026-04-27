@@ -8,7 +8,7 @@ import { ROUTES } from "@/components/utils/routes";
 import BottomCTA from "@/components/shared/BottomCTA";
 
 const MEDIA = {
-  hero: "/images/contact/testimonials/testimonials-hero.jpg", // placeholder until final asset exists
+  hero: "/images/hero/testimonials-hero.jpg", // placeholder until final asset exists
 };
 
 // ✅ Edit this list anytime — grid updates automatically

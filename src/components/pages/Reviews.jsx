@@ -9,7 +9,7 @@ import { Panel } from "@/components/ui/panel";
 import { Button } from "@/components/ui/button";
 
 const MEDIA = {
-  hero: "/images/contact/reviews/hero.jpg",
+  hero: "/images/hero/reviews-hero.jpg",
 };
 
 const REVIEW_SOURCES = [
@@ -124,7 +124,7 @@ export default function Reviews() {
   return (
     <PageShell
       hero
-      heroImage="/images/reviews/hero.jpg"
+      heroImage="/images/hero/reviews-hero.jpg"
       eyebrow="Reviews"
       title="Reviews & Client Feedback"
       subtitle="Disciplined planning. Clear deliverables. Professional execution. Explore feedback and updates across our profiles."

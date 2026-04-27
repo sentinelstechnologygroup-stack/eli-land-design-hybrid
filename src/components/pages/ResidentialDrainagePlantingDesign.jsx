@@ -6,7 +6,7 @@ import { ROUTES } from "@/components/utils/routes";
 import BottomCTA from "@/components/shared/BottomCTA";
 
 const MEDIA = {
-  hero: "/images/design/residential/drainage-planting/drainage-planting-hero.jpg",
+  hero: "/images/hero/residential-drainage-planting-hero.jpg",
 };
 
 const IMAGES = [

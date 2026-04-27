@@ -9,7 +9,7 @@ import { Panel } from "@/components/ui/panel";
 import { Button } from "@/components/ui/button";
 
 const MEDIA = {
-  hero: "/images/contact/hero.jpg",
+  hero: "/images/hero/contact-hero.jpg",
 };
 
 export default function ContactClient() {
