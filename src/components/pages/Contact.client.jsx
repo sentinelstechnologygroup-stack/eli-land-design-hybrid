@@ -141,16 +141,15 @@ export default function ContactClient() {
                 <AnimatedSection>
                   <div>
                     <form
-                      id="contact-form"
-                      onSubmit={handleSubmit}
+                      action="https://formspree.io/f/xdayrzow"
+                      method="POST"
                       className="space-y-8"
                     >
                       <div>
                         <FieldLabel>Full Name *</FieldLabel>
                         <input
+                          name="name"
                           placeholder="Name"
-                          value={formData.name}
-                          onChange={onChange("name")}
                           required
                           className={InputBase}
                           autoComplete="name"
@@ -161,9 +160,8 @@ export default function ContactClient() {
                         <FieldLabel>Email *</FieldLabel>
                         <input
                           type="email"
+                          name="email"
                           placeholder="Email"
-                          value={formData.email}
-                          onChange={onChange("email")}
                           required
                           className={InputBase}
                           autoComplete="email"
@@ -174,9 +172,8 @@ export default function ContactClient() {
                         <FieldLabel>Phone *</FieldLabel>
                         <input
                           type="tel"
+                          name="phone"
                           placeholder="Phone"
-                          value={formData.phone}
-                          onChange={onChange("phone")}
                           required
                           className={InputBase}
                           autoComplete="tel"
@@ -186,40 +183,35 @@ export default function ContactClient() {
                       <div>
                         <FieldLabel>Project Type *</FieldLabel>
                         <select
-                          value={formData.projectType}
-                          onChange={onChange("projectType")}
+                          name="projectType"
                           required
                           className={`${InputBase} appearance-none`}
+                          defaultValue=""
                         >
                           <option value="" disabled>
                             Select a project type
                           </option>
-                          <option value="residential-design">
-                            Residential Design
-                          </option>
-                          <option value="commercial-design">
-                            Commercial Design
-                          </option>
-                          <option value="construction">
-                            Landscape Construction
-                          </option>
-                          <option value="consultation">
-                            General Consultation
-                          </option>
+                          <option value="residential-design">Residential Design</option>
+                          <option value="commercial-design">Commercial Design</option>
+                          <option value="construction">Landscape Construction</option>
+                          <option value="consultation">General Consultation</option>
                         </select>
                       </div>
 
                       <div>
                         <FieldLabel>Project Details *</FieldLabel>
                         <textarea
+                          name="message"
                           placeholder="Share scope, location, timeline, and any reference details."
-                          value={formData.message}
-                          onChange={onChange("message")}
                           required
                           rows={6}
                           className={`${InputBase} resize-none`}
                         />
                       </div>
+
+                      {/* Optional hidden fields */}
+                      <input type="hidden" name="_subject" value="New ELI Land Design Inquiry" />
+                      <input type="hidden" name="_replyto" value="email" />
 
                       <Button
                         type="submit"
@@ -231,8 +223,7 @@ export default function ContactClient() {
                       </Button>
 
                       <p className="font-sans-clean text-xs leading-[1.7] text-[#1F2E23]/55">
-                        By submitting, you agree we may contact you regarding
-                        your inquiry. We do not sell your information.
+                        By submitting, you agree we may contact you regarding your inquiry. We do not sell your information.
                       </p>
                     </form>
                   </div>
