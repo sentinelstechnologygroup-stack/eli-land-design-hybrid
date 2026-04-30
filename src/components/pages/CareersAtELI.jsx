@@ -28,15 +28,17 @@ const OPENINGS = [
     ],
   },
   {
-    title: "Field Coordination (Project Support)",
+    title: "Landscape Foreman (Project Support)",
     location: "Greater Houston",
     summary:
-      "Assist with site coordination, scheduling touchpoints, and construction documentation flow.",
+      "Assist with site coordination, scheduling touchpoints, and construction documentation flow across active projects.",
     bullets: [
       "Experience reading landscape plans.",
       "Strong communication with crews and vendors.",
       "Detail-oriented documentation skills.",
       "Reliable transportation required.",
+      "3–5 years landscape installation experience required.",
+      "Clean driving record required.",
     ],
   },
   {
@@ -59,18 +61,18 @@ export default function CareersAtELI() {
       hero
       heroImage={MEDIA.hero}
       eyebrow="Careers"
-      title="Build with a disciplined team."
-      subtitle="Landscape architecture, site planning, and construction—done with precision and pride."
+      title="Careers at ELI Land Design"
+      subtitle="Join a team focused on high-quality landscape architecture, practical design work, and real-world project execution."
       showCtaStrip={false}
       showBottomCta={false}
-    
-      heroContentAlign="center">
+      heroContentAlign="center"
+    >
       <section className="mx-auto max-w-[1440px] px-6 pb-10 pt-14 md:px-10 md:pt-16 lg:px-20">
         <AnimatedSection>
           <p className="max-w-3xl type-body text-eli-muted">
-            We’re a small team that values clear communication, professional standards,
-            and practical design thinking. Roles may be contract, part-time, or
-            project-based depending on workload.
+            We’re a small team that values clear communication, professional
+            standards, and practical design thinking. Roles may be contract,
+            part-time, seasonal, or project-based depending on workload.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
@@ -97,12 +99,17 @@ export default function CareersAtELI() {
         <AnimatedSection>
           <div className="mb-6 flex items-center gap-3">
             <Briefcase className="h-5 w-5 text-[#1F2E23]/60" />
-            <div className="type-micro text-[#1F2E23]/70">Current Openings</div>
+            <div className="type-micro text-[#1F2E23]/70">
+              Current Openings
+            </div>
           </div>
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
             {OPENINGS.map((opening) => (
-              <Panel key={opening.title} className="border border-[#1F2E23]/10 bg-white/70 p-7 shadow-none">
+              <Panel
+                key={opening.title}
+                className="border border-[#1F2E23]/10 bg-white/70 p-7 shadow-none"
+              >
                 <div className="type-h3 text-[#1F2E23]">{opening.title}</div>
 
                 <div className="mt-4 flex items-center gap-2 type-small text-[#1F2E23]/60">
@@ -110,7 +117,9 @@ export default function CareersAtELI() {
                   {opening.location}
                 </div>
 
-                <p className="mt-4 type-small text-[#1F2E23]/60">{opening.summary}</p>
+                <p className="mt-4 type-small text-[#1F2E23]/60">
+                  {opening.summary}
+                </p>
 
                 {opening.bullets?.length > 0 && (
                   <ul className="mt-5 space-y-2">
@@ -136,17 +145,22 @@ export default function CareersAtELI() {
           <Panel className="border border-[#1F2E23]/10 bg-[#F5F0EA]/55 p-8 shadow-none md:p-10">
             <div className="flex items-center gap-3">
               <Users className="h-5 w-5 text-[#1F2E23]/60" />
-              <div className="type-micro text-[#1F2E23]/70">Submit Interest</div>
+              <div className="type-micro text-[#1F2E23]/70">
+                Submit Interest
+              </div>
             </div>
 
             <p className="mt-5 max-w-3xl type-body text-eli-muted">
-              For now, please email your resume and a brief note on the type of work
-              you’re looking for.
+              Please email your resume and a brief note about the type
+              of work you’re seeking to info@elilanddesign.com.
             </p>
 
             <div className="mt-8">
               <Button asChild variant="eli" size="eli">
-                <a href="mailto:info@elilanddesign.com" className="inline-flex items-center gap-4">
+                <a
+                  href="mailto:info@elilanddesign.com"
+                  className="inline-flex items-center gap-4"
+                >
                   <Mail className="h-4 w-4" />
                   Email Resume
                 </a>

@@ -42,33 +42,33 @@ const APPROACH = [
       "Site analysis, grading strategy, drainage design, and construction documentation that account for existing conditions, municipal requirements, and buildability constraints.",
   },
   {
-    title: "Execution",
+    title: "Design",
     description:
-      "In-house construction crews managing hardscape installation, grading, irrigation, and planting so design intent translates cleanly to built reality.",
+      "Landscape architecture, planting design, irrigation coordination, and visual planning shaped around aesthetics, constructability, and long-term performance.",
   },
   {
-    title: "Stewardship",
+    title: "Coordination",
     description:
-      "Long-term project support, warranty service, and consultation for maintenance strategies that preserve design quality and system performance.",
+      "Clear documentation and coordination support for builders, consultants, vendors, and project teams so design intent carries through the construction process.",
   },
 ];
 
 const HISTORY = [
   "ELI Land Design was founded in 1997 by Chris K. Eiseman with a strong work ethic and a commitment to quality work that performs in the field.",
-  "With expertise in both design and construction, the firm delivers full-scope landscape architecture from conceptual planning through installation.",
-  "That founding mindset continues today—focused on craftsmanship, collaboration, and outdoor spaces that are both beautiful and buildable.",
+  "With expertise in landscape architecture, planning, and construction documentation, the firm supports projects from conceptual planning through detailed implementation guidance.",
+  "That founding mindset continues today—focused on practical design, clear communication, and outdoor spaces that are both beautiful and buildable.",
 ];
 
 const TIMELINE = [
   { year: "1997", label: "Founded by Chris K. Eiseman" },
   { year: "2002", label: "Chris graduates Texas A&M" },
-  { year: "2012", label: "Matt Louderback joins as RLA" },
-  { year: "Today", label: "27+ years of excellence" },
+  { year: "2012", label: "Matt Louderback joins as Professional Landscape Architect" },
+  { year: "Today", label: "27+ years of experience" },
 ];
 
 const TEAM = [
   {
-    label: "Founder & Lead Designer",
+    label: "Founder",
     name: "Chris K. Eiseman",
     suffix: "RLA",
     image: MEDIA.chris,
@@ -76,7 +76,7 @@ const TEAM = [
       "With over 27 years of experience, Chris brings both design and construction expertise to every project.",
   },
   {
-    label: "Landscape Architect",
+    label: "Landscape Architect, Lead Designer",
     name: "Matt Louderback",
     suffix: "RLA",
     image: MEDIA.matt,
@@ -112,8 +112,8 @@ export default function About() {
       hero
       heroImage={MEDIA.hero}
       eyebrow="About ELI Land Design"
-      title="Landscape Architecture & Construction Services in Texas"
-      subtitle="27+ years of experience delivering landscape architecture and construction services across Texas."
+      title="Landscape Architecture & Site Planning in Texas"
+      subtitle="Landscape architecture focused on real-world performance, constructability, and long-term value."
       heroContentAlign="end"
     >
       <section className="mx-auto max-w-[1440px] px-6 py-14 md:px-10 md:py-16 lg:px-20">
@@ -123,7 +123,7 @@ export default function About() {
               <h2 className="type-h2 text-[#1F2E23]">
                 Technical site planning.
                 <br />
-                Quality construction.
+                Practical design.
               </h2>
               <div className="mt-4 h-px w-16 bg-[#D86F3D]" />
             </AnimatedSection>
@@ -144,24 +144,35 @@ export default function About() {
           <div className="space-y-6">
             <AnimatedSection>
               <p className="type-body text-eli-muted">
-                ELI Land Design provides landscape architecture and site planning
-                built for real-world conditions—balancing aesthetics,
-                constructability, and long-term performance.
+                ELI Land Design is a landscape architecture firm providing site
+                planning and design for residential and commercial projects
+                across The Woodlands, Houston, and surrounding Texas markets.
               </p>
             </AnimatedSection>
 
             <AnimatedSection delay={0.08}>
               <p className="type-body text-eli-muted">
-                Services include master planning, grading, drainage, irrigation,
-                planting plans, and full design-build coordination.
+                ELI focuses on creating landscapes that are not only
+                visually compelling, but also buildable, efficient, and durable
+                over time. Every project is approached with a balance of design
+                intent, engineering awareness, and construction coordination.
               </p>
             </AnimatedSection>
 
             <AnimatedSection delay={0.16}>
               <p className="type-body text-eli-muted">
-                The firm specializes in technically challenging sites and
+                Services include master planning, grading, drainage design,
+                irrigation systems, planting design, and full construction
+                documentation.
+              </p>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.24}>
+              <p className="type-body text-eli-muted">
+                We specialize in technically challenging sites and
                 complex coordination environments where planning quality
-                directly affects buildability, schedule, and long-term results.
+                directly impacts buildability, schedule, and long-term
+                performance.
               </p>
             </AnimatedSection>
           </div>

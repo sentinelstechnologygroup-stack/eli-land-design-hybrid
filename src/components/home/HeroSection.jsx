@@ -8,7 +8,6 @@ import { ArrowRight } from "lucide-react";
 import { ROUTES } from "@/components/utils/routes";
 import { trackCTA } from "@/lib/intelligence";
 
-
 const HERO_IMAGES = [
   {
     src: "/images/hero/home-hero-01.jpg",
@@ -20,15 +19,15 @@ const HERO_IMAGES = [
   },
   {
     src: "/images/hero/home-hero-03.jpg",
-    alt: "Residential landscape design and construction project with lawn grading, planting, and outdoor space planning in Texas",
+    alt: "Residential landscape architecture project with lawn grading, planting, and outdoor space planning in Texas",
   },
   {
     src: "/images/hero/home-hero-04.jpg",
-    alt: "Commercial landscape construction project with apartment complex, hardscape, and amenity layout design",
+    alt: "Commercial landscape architecture project with apartment complex, hardscape, and amenity layout design",
   },
   {
     src: "/images/hero/home-hero-05.jpg",
-    alt: "Residential landscape architecture project featuring luxury outdoor living, pool design, and architectural lighting",
+    alt: "Residential landscape architecture project featuring luxury outdoor living, pool planning, and architectural lighting",
   },
   {
     src: "/images/hero/home-hero-06.jpg",
@@ -36,7 +35,7 @@ const HERO_IMAGES = [
   },
 ];
 
-  export default function HeroSection() {
+export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
@@ -74,10 +73,10 @@ const HERO_IMAGES = [
             decoding="async"
           />
 
-          <div className="absolute inset-0 bg-[#08110C]/28" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#08110C]/50 via-[#08110C]/12 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#08110C]/48 via-[#08110C]/14 to-transparent" />
-          <div className="absolute inset-x-0 bottom-0 h-[40%] bg-gradient-to-t from-[#08110C]/62 to-transparent" />
+          <div className="absolute inset-0 bg-[#08110C]/32" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#08110C]/52 via-[#08110C]/14 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#08110C]/50 via-[#08110C]/16 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-[40%] bg-gradient-to-t from-[#08110C]/64 to-transparent" />
         </motion.div>
       </AnimatePresence>
 
@@ -87,26 +86,41 @@ const HERO_IMAGES = [
             <motion.h1
               initial={{ opacity: 0, y: 26 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.95, delay: 0.25, ease: [0.33, 1, 0.68, 1] }}
-              className="font-serif-display max-w-[13ch] text-[clamp(2.6rem,5vw,4.75rem)] font-semibold leading-[0.94] tracking-[-0.03em] text-[#F5F0EA] [text-shadow:0_3px_18px_rgba(0,0,0,0.45)] [text-wrap:balance] sm:max-w-[14ch] md:max-w-[15ch] lg:max-w-[16ch]"
+              transition={{
+                duration: 0.95,
+                delay: 0.25,
+                ease: [0.33, 1, 0.68, 1],
+              }}
+              className="font-serif-display max-w-[920px] text-[clamp(2.6rem,5vw,4.75rem)] font-semibold leading-[0.94] tracking-[-0.03em] text-[#F5F0EA] [text-shadow:0_4px_22px_rgba(0,0,0,0.58)]"
             >
-              Architecture, Site Planning, and Construction Services
+              Landscape Architecture,
+              <br />
+              Site Planning & Landscape
+              <br />
+              Construction Service
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.85, delay: 0.42, ease: [0.33, 1, 0.68, 1] }}
-              className="mt-5 max-w-[660px] type-body text-[#F5F0EA]/90 [text-shadow:0_2px_10px_rgba(0,0,0,0.35)]"
+              transition={{
+                duration: 0.85,
+                delay: 0.42,
+                ease: [0.33, 1, 0.68, 1],
+              }}
+              className="mt-5 max-w-[760px] type-body !text-white [text-shadow:0_3px_14px_rgba(0,0,0,0.6)]"
             >
-              Site planning, grading design, and landscape construction for residential and
-              commercial projects throughout The Woodlands and Houston.
+              High-end residential and commercial landscape design across The Woodlands and Greater Houston.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.56, ease: [0.33, 1, 0.68, 1] }}
+              transition={{
+                duration: 0.8,
+                delay: 0.56,
+                ease: [0.33, 1, 0.68, 1],
+              }}
               className="mt-8"
             >
               <Link

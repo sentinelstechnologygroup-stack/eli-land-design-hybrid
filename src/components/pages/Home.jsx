@@ -33,7 +33,7 @@ const HOME_HUB_ITEMS = [
       "Learn more about ELI Land Design, our history, professional approach, and the team behind the work.",
     includes: [],
     href: ROUTES.about,
-    image: "/images/design/commercial/thumbnails/office.jpg",
+    image: "/images/about/about-home-thumbnail.jpg",
     ctaLabel: "View Page",
   },
   {
@@ -45,21 +45,15 @@ const HOME_HUB_ITEMS = [
     image: "/images/design/commercial/thumbnails/renderings.jpg",
     ctaLabel: "View Gallery",
   },
-    {
+  {
     title: "Client Reviews",
+    description:
+      "Read feedback from clients across residential and commercial landscape architecture projects.",
+    includes: [],
     href: ROUTES.reviews,
-    image: "/images/hero/reviews-hero.jpg", // use existing reviews hero image
+    image: "/images/hero/reviews-hero.jpg",
     ctaLabel: "View Reviews",
   },
-  //{
-  //  title: "New Projects",
-  //  description:
-  //    "Browse current and recently added project folders in a separate gallery kept apart from the main Projects portfolio.",
-  //  includes: [],
-  //  href: ROUTES.newProjects,
-  //  image: "/images/new-projects/hero.jpg",
-  //  ctaLabel: "View Gallery",
-  //},
   {
     title: "Careers at ELI Land Design",
     description:
@@ -93,9 +87,9 @@ export default function Home() {
             </h2>
 
             <p className="mt-3 max-w-3xl font-sans-clean text-[13px] leading-[1.75] text-[#1F2E23]/75 md:text-[15px] md:leading-[1.9]">
-              ELI Land Design provides landscape architecture, site planning,
-              and construction services for residential and commercial projects
-              throughout The Woodlands, Houston, and surrounding Texas markets.
+              ELI Land Design is a landscape architecture firm focused on site
+              planning and design for real-world conditions—balancing
+              aesthetics, constructability, and long-term performance.
             </p>
           </div>
         </div>
