@@ -51,7 +51,11 @@ export default function MiddleCTA({
                 </Link>
               </Button>
 
-              <Button asChild variant="ctaSecondary" size="ctaLg">
+              <Button
+                asChild
+                size="ctaLg"
+                className="border border-[#F5F0EA]/70 bg-[#F5F0EA]/10 text-[#F5F0EA] hover:bg-[#F5F0EA] hover:text-[#1F2E23] backdrop-blur-sm"
+              >
                 <Link
                   href={secondaryHref}
                   onClick={() => trackCTA("view-projects", "middle-cta")}

@@ -5,9 +5,15 @@ import React, { useEffect, useMemo, useState } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import PageShell from "@/components/shared/PageShell";
 import AnimatedSection from "@/components/shared/AnimatedSection";
+import MiddleCTA from "@/components/shared/MiddleCTA";
+import { ROUTES } from "@/components/utils/routes";
 
 const COMMERCIAL_COUNT = 16;
 const RESIDENTIAL_COUNT = 74;
+
+// Strategic CTA checkpoints only.
+// Keeps gallery flow intact and avoids repetitive ad-like interruptions.
+const MID_GALLERY_CTA_INDEXES = [12, 30, 54];
 
 const MEDIA = {
   hero: "/images/hero/commercial-hero.jpg",
@@ -58,6 +64,42 @@ function FilterButton({ active, onClick, children }) {
     >
       {children}
     </button>
+  );
+}
+
+function GalleryCheckpointCTA({ activeFilter, index }) {
+  const isCommercial = activeFilter === "commercial";
+  const isResidential = activeFilter === "residential";
+
+  const secondaryLabel = isCommercial
+    ? "View Residential Work"
+    : isResidential
+      ? "View Commercial Work"
+      : "View Galleries";
+
+  const secondaryHref = isCommercial
+    ? ROUTES.residentialGalleryMain
+    : isResidential
+      ? ROUTES.commercialGallery
+      : ROUTES.gallery;
+
+  const tone = index === 30 ? "forest" : "sage";
+
+  return (
+    <div className="sm:col-span-2 lg:col-span-3">
+      <div className="my-16 md:my-20 lg:my-24">
+        <MiddleCTA
+          eyebrow="Planning a Project?"
+          title="Let’s discuss your site, scope, and timeline."
+          body="ELI Land Design helps residential and commercial clients move from early planning to clear, buildable landscape architecture."
+          primaryLabel="Schedule Consultation"
+          primaryHref={ROUTES.contact}
+          secondaryLabel={secondaryLabel}
+          secondaryHref={secondaryHref}
+          tone={tone}
+        />
+      </div>
+    </div>
   );
 }
 
@@ -243,26 +285,35 @@ export default function GalleryImagePage({
 
           <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-7">
             {filteredImages.map((item, index) => (
-              <AnimatedSection key={item.src} delay={(index % 6) * 0.04}>
-                <button
-                  type="button"
-                  onClick={() => openLightbox(index)}
-                  className="group block w-full overflow-hidden border border-[#1F2E23]/10 bg-white transition-shadow duration-300 hover:shadow-[0_18px_50px_rgba(16,24,18,0.10)]"
-                >
-                  <div className="aspect-[4/3] overflow-hidden bg-[#E8E0D4]">
-                    <img
-                      src={item.src}
-                      alt={item.title}
-                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                      loading="lazy"
-                      decoding="async"
-                      onError={(e) => {
-                        e.currentTarget.src = item.fallback;
-                      }}
-                    />
-                  </div>
-                </button>
-              </AnimatedSection>
+              <React.Fragment key={item.src}>
+                {MID_GALLERY_CTA_INDEXES.includes(index) && (
+                  <GalleryCheckpointCTA
+                    activeFilter={activeFilter}
+                    index={index}
+                  />
+                )}
+
+                <AnimatedSection delay={(index % 6) * 0.04}>
+                  <button
+                    type="button"
+                    onClick={() => openLightbox(index)}
+                    className="group block w-full overflow-hidden border border-[#1F2E23]/10 bg-white transition-shadow duration-300 hover:shadow-[0_18px_50px_rgba(16,24,18,0.10)]"
+                  >
+                    <div className="aspect-[4/3] overflow-hidden bg-[#E8E0D4]">
+                      <img
+                        src={item.src}
+                        alt={item.title}
+                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                        loading="lazy"
+                        decoding="async"
+                        onError={(e) => {
+                          e.currentTarget.src = item.fallback;
+                        }}
+                      />
+                    </div>
+                  </button>
+                </AnimatedSection>
+              </React.Fragment>
             ))}
           </div>
         </div>

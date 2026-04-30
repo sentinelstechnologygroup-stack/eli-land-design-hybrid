@@ -82,7 +82,7 @@ export default function HeroSection() {
 
       <div className="absolute inset-0 flex items-center">
         <div className="mx-auto w-full max-w-[1440px] px-6 md:px-10 lg:px-20 -translate-y-[4%]">
-          <div className="max-w-[980px]">
+          <div className="max-w-none whitespace-nowrap">
             <motion.h1
               initial={{ opacity: 0, y: 26 }}
               animate={{ opacity: 1, y: 0 }}
@@ -108,7 +108,7 @@ export default function HeroSection() {
                 delay: 0.42,
                 ease: [0.33, 1, 0.68, 1],
               }}
-              className="mt-5 max-w-[760px] type-body !text-white [text-shadow:0_3px_14px_rgba(0,0,0,0.6)]"
+                className="mt-5 text-white text-[15px] md:text-[17px] font-medium whitespace-nowrap"
             >
               High-end residential and commercial landscape design across The Woodlands and Greater Houston.
             </motion.p>

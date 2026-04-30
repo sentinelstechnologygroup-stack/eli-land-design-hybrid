@@ -13,9 +13,11 @@ const MEDIA = {
 };
 
 const REVIEW_SOURCES = [
-  { name: "Facebook", href: "#" },
-  { name: "Houzz", href: "#" },
+  { name: "Facebook", href: "https://www.facebook.com/elilanddesign#" },
+  { name: "Houzz", href: "https://www.houzz.com/professionals/landscape-architects-and-landscape-designers/e-l-i-land-design-llc-pfvwus-pf~378023936" },
   { name: "Google", href: "#" },
+  { name: "Instagram", href: "https://www.instagram.com/elilanddesign/" },
+
 ];
 
 const REVIEWS = [
@@ -23,31 +25,31 @@ const REVIEWS = [
     name: "Mickey Barrett",
     meta: "E.L.I Client",
     quote:
-      "Ian placed to recommend Chris Eiseman and ELI Land Design. Chris and his company completed a thorough and creative design on our entire 2.8 acre lot including tennis and basketball courts, a bridge, and complex drainage system. Their execution of the design and installation was excellent as was their communication throughout.",
+      "The ELI Land Design completed a thorough and creative design on our entire 2.8 acre lot including tennis and basketball courts, a bridge, and complex drainage system. Their execution of the design and installation was excellent as was their communication throughout.",
   },
   {
     name: "Brian Foster",
     meta: "Sugar Creek Homes",
     quote:
-      "The ELI team consistently provides my clients with the highest standard in residential landscape architecture. Chris works with each client to create an outdoor living space tailored to their individual lifestyle. Combined with the quality of craftsmanship, I have peace of mind that my clients receive the best value.",
+      "The ELI team consistently provides my clients with the highest standard in residential landscape architecture. The ELI team works with each client to create an outdoor living space tailored to their individual lifestyle. Combined with the quality of craftsmanship, I have peace of mind that my clients receive the best value.",
   },
   {
     name: "Jean Smith",
     meta: "Lake Conroe",
     quote:
-      "ELI has been the perfect fit for our landscaping needs. When we decided to remodel our home and update our landscaping Chris worked closely with us to develop an innovative design that works great with our lifestyle. Upon completion of the project, our yard was breathtaking and our home was brought to life.",
+      "ELI has been the perfect fit for our landscaping needs. When we decided to remodel our home and update our landscaping the ELI team worked closely with us to develop an innovative design that works great with our lifestyle. Upon completion of the project, our yard was breathtaking and our home was brought to life.",
   },
   {
     name: "Pamela and Randall Ponder",
     meta: "The Woodlands",
     quote:
-      "My husband and I interviewed a number of landscapes to help us complete our pool landscape. When we met Chris Eiseman we could instantly feel the value in working with a Landscape Architect. We knew the look we wanted for our pool landscape and some of the plant species that we wanted incorporated into the design. The result was beautiful and functional.",
+      "My husband and I interviewed a number of landscapes to help us complete our pool landscape. When we met the ELI team, we could instantly feel the value in working with a Landscape Architect. We knew the look we wanted for our pool landscape and some of the plant species that we wanted incorporated into the design. The result was beautiful and functional.",
   },
   {
     name: "Casey and Carrie Salge",
     meta: "Cypress",
     quote:
-      "We have used Chris Eiseman and his company’s services on two homes now. Our first home in Fairfield 10 years ago was in serious need of updated landscaping. Chris and his team designed and installed a turn key product including irrigation and landscaping. My wife was absolutely delighted, and I was impressed by the professionalism and follow-through.",
+      "We have used the ELI team and their company’s services on two homes now. Our first home in Fairfield 10 years ago was in serious need of updated landscaping. The ELI team and their design professionals designed and installed a turn key product including irrigation and landscaping. My wife was absolutely delighted, and I was impressed by the professionalism and follow-through.",
   },
   {
     name: "Dan Mosher",
@@ -59,19 +61,19 @@ const REVIEWS = [
     name: "Ron Proctor",
     meta: "ELI Client",
     quote:
-      "ELI designed our swimming pool and backyard environment. Chris, Matt, and James did an awesome job. We were thrilled with the design, work process, and final outcome. They created a great vision and transformed our backyard into a truly beautiful and functional retreat.",
+      "ELI designed our swimming pool and backyard environment. the ELI team did an awesome job. We were thrilled with the design, work process, and final outcome. They created a great vision and transformed our backyard into a truly beautiful and functional retreat.",
   },
   {
     name: "Alejandra Palmeros-Irvine",
     meta: "ELI Client",
     quote:
-      "Excellent experience. We hired Chris to renovate our front entry, landscaping and drainage. We wanted a clean, modern and updated design with a water feature. Chris had great ideas and the final result was amazing. Very professional and timely project despite it occurring during bad weather.",
+      "Excellent experience. We hired the ELI team to renovate our front entry, landscaping and drainage. We wanted a clean, modern and updated design with a water feature. The ELI team had great ideas and the final result was amazing. Very professional and timely project despite it occurring during bad weather.",
   },
   {
     name: "Chuck Jordan",
     meta: "ELI Client",
     quote:
-      "We have used Chris and his team at ELI for almost 5 years and they have done an awesome job. Very attentive to the client's requests and do a fabulous job.",
+      "We have used ELI for almost 5 years and they have done an awesome job. Very attentive to the client's requests and do a fabulous job.",
   },
 ];
 
@@ -79,7 +81,7 @@ function HeroSourcePill({ name, href }) {
   return (
     <a
       href={href}
-      className="inline-flex items-center border border-white/18 bg-white/10 px-4 py-2 type-micro text-white/78 no-underline backdrop-blur-sm transition hover:bg-white/16"
+      className="inline-flex items-center border border-white/40 bg-white/10 px-4 py-2 type-micro text-white no-underline backdrop-blur-sm transition hover:bg-white/20"
     >
       {name}
     </a>
