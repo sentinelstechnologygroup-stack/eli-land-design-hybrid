@@ -6,10 +6,10 @@ import AnimatedSection from "../shared/AnimatedSection";
 import { ROUTES } from "@/components/utils/routes";
 
 const PROJECTS = [
-  { title: "Playa Vista Apartments", category: "Multifamily Landscape", image: "/images/home/featured-01.jpg" },
-  { title: "Magnolia, TX Residence", category: "Residential Landscape Architecture", image: "/images/home/featured-02.jpg" },
-  { title: "Spring Creek Residence", category: "Pool & Outdoor Living", image: "/images/home/featured-03.jpg" },
-  { title: "Woodlands Commons", category: "Landscape Architecture", image: "/images/home/featured-04.jpg" },
+  { title: "Playa Vista Apartments", category: "Multifamily Landscape", image: "/images/home/featured-01.webp" },
+  { title: "Magnolia, TX Residence", category: "Residential Landscape Architecture", image: "/images/home/featured-02.webp" },
+  { title: "Spring Creek Residence", category: "Pool & Outdoor Living", image: "/images/home/featured-03.webp" },
+  { title: "Woodlands Commons", category: "Landscape Architecture", image: "/images/home/featured-04.webp" },
 ];
 
 export default function FeaturedProjects() {

@@ -11,7 +11,7 @@ import BottomCTA from "@/components/shared/BottomCTA";
 
 // Local hero placeholders (swap later)
 const MEDIA = {
-  hero: "/images/design/residential.jpg",
+  hero: "/images/design/residential.webp",
 };
 
 const TYPE_MAP = {

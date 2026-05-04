@@ -5,26 +5,26 @@ import GallerySection from "@/components/gallery/GallerySection";
 import { ROUTES } from "@/components/utils/routes";
 
 const MEDIA = {
-  hero: "/images/hero/residential-pool-outdoor-living/hero.jpg",
+  hero: "/images/hero/residential-pool-outdoor-living/hero.webp",
 };
 
 const IMAGES = [
-  { src: "/images/design/residential/pool-outdoor-living/01.jpg", alt: "Pool & Outdoor Living placeholder 01" },
-  { src: "/images/design/residential/pool-outdoor-living/02.jpg", alt: "Pool & Outdoor Living placeholder 02" },
-  { src: "/images/design/residential/pool-outdoor-living/03.jpg", alt: "Pool & Outdoor Living placeholder 03" },
-  { src: "/images/design/residential/pool-outdoor-living/04.jpg", alt: "Pool & Outdoor Living placeholder 04" },
-  { src: "/images/design/residential/pool-outdoor-living/05.jpg", alt: "Pool & Outdoor Living placeholder 05" },
-  { src: "/images/design/residential/pool-outdoor-living/06.jpg", alt: "Pool & Outdoor Living placeholder 06" },
-  { src: "/images/design/residential/pool-outdoor-living/07.jpg", alt: "Pool & Outdoor Living placeholder 07" },
-  { src: "/images/design/residential/pool-outdoor-living/08.jpg", alt: "Pool & Outdoor Living placeholder 08" },
-  { src: "/images/design/residential/pool-outdoor-living/09.jpg", alt: "Pool & Outdoor Living placeholder 09" },
-  { src: "/images/design/residential/pool-outdoor-living/10.jpg", alt: "Pool & Outdoor Living placeholder 10" },
-  { src: "/images/design/residential/pool-outdoor-living/11.jpg", alt: "Pool & Outdoor Living placeholder 11" },
-  { src: "/images/design/residential/pool-outdoor-living/12.jpg", alt: "Pool & Outdoor Living placeholder 12" },
-  { src: "/images/design/residential/pool-outdoor-living/13.jpg", alt: "Pool & Outdoor Living placeholder 13" },
-  { src: "/images/design/residential/pool-outdoor-living/14.jpg", alt: "Pool & Outdoor Living placeholder 14" },
-  { src: "/images/design/residential/pool-outdoor-living/15.jpg", alt: "Pool & Outdoor Living placeholder 15" },
-  { src: "/images/design/residential/pool-outdoor-living/16.jpg", alt: "Pool & Outdoor Living placeholder 16" },
+  { src: "/images/design/residential/pool-outdoor-living/01.webp", alt: "Pool & Outdoor Living placeholder 01" },
+  { src: "/images/design/residential/pool-outdoor-living/02.webp", alt: "Pool & Outdoor Living placeholder 02" },
+  { src: "/images/design/residential/pool-outdoor-living/03.webp", alt: "Pool & Outdoor Living placeholder 03" },
+  { src: "/images/design/residential/pool-outdoor-living/04.webp", alt: "Pool & Outdoor Living placeholder 04" },
+  { src: "/images/design/residential/pool-outdoor-living/05.webp", alt: "Pool & Outdoor Living placeholder 05" },
+  { src: "/images/design/residential/pool-outdoor-living/06.webp", alt: "Pool & Outdoor Living placeholder 06" },
+  { src: "/images/design/residential/pool-outdoor-living/07.webp", alt: "Pool & Outdoor Living placeholder 07" },
+  { src: "/images/design/residential/pool-outdoor-living/08.webp", alt: "Pool & Outdoor Living placeholder 08" },
+  { src: "/images/design/residential/pool-outdoor-living/09.webp", alt: "Pool & Outdoor Living placeholder 09" },
+  { src: "/images/design/residential/pool-outdoor-living/10.webp", alt: "Pool & Outdoor Living placeholder 10" },
+  { src: "/images/design/residential/pool-outdoor-living/11.webp", alt: "Pool & Outdoor Living placeholder 11" },
+  { src: "/images/design/residential/pool-outdoor-living/12.webp", alt: "Pool & Outdoor Living placeholder 12" },
+  { src: "/images/design/residential/pool-outdoor-living/13.webp", alt: "Pool & Outdoor Living placeholder 13" },
+  { src: "/images/design/residential/pool-outdoor-living/14.webp", alt: "Pool & Outdoor Living placeholder 14" },
+  { src: "/images/design/residential/pool-outdoor-living/15.webp", alt: "Pool & Outdoor Living placeholder 15" },
+  { src: "/images/design/residential/pool-outdoor-living/16.webp", alt: "Pool & Outdoor Living placeholder 16" },
 ];
 
 export default function ResidentialPoolOutdoorLiving() {

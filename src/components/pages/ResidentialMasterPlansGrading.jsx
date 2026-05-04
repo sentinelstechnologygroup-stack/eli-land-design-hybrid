@@ -5,26 +5,26 @@ import GallerySection from "@/components/gallery/GallerySection";
 import { ROUTES } from "@/components/utils/routes";
 
 const MEDIA = {
-  hero: "/images/hero/master-plans-hero.jpg",
+  hero: "/images/hero/master-plans-hero.webp",
 };
 
 const IMAGES = [
-  { src: "/images/design/residential/master-plans/01.jpg", alt: "Master Plans placeholder 01" },
-  { src: "/images/design/residential/master-plans/02.jpg", alt: "Master Plans placeholder 02" },
-  { src: "/images/design/residential/master-plans/03.jpg", alt: "Master Plans placeholder 03" },
-  { src: "/images/design/residential/master-plans/04.jpg", alt: "Master Plans placeholder 04" },
-  { src: "/images/design/residential/master-plans/05.jpg", alt: "Master Plans placeholder 05" },
-  { src: "/images/design/residential/master-plans/06.jpg", alt: "Master Plans placeholder 06" },
-  { src: "/images/design/residential/master-plans/07.jpg", alt: "Master Plans placeholder 07" },
-  { src: "/images/design/residential/master-plans/08.jpg", alt: "Master Plans placeholder 08" },
-  { src: "/images/design/residential/master-plans/09.jpg", alt: "Master Plans placeholder 09" },
-  { src: "/images/design/residential/master-plans/10.jpg", alt: "Master Plans placeholder 10" },
-  { src: "/images/design/residential/master-plans/11.jpg", alt: "Master Plans placeholder 11" },
-  { src: "/images/design/residential/master-plans/12.jpg", alt: "Master Plans placeholder 12" },
-  { src: "/images/design/residential/master-plans/13.jpg", alt: "Master Plans placeholder 13" },
-  { src: "/images/design/residential/master-plans/14.jpg", alt: "Master Plans placeholder 14" },
-  { src: "/images/design/residential/master-plans/15.jpg", alt: "Master Plans placeholder 15" },
-  { src: "/images/design/residential/master-plans/16.jpg", alt: "Master Plans placeholder 16" },
+  { src: "/images/design/residential/master-plans/01.webp", alt: "Master Plans placeholder 01" },
+  { src: "/images/design/residential/master-plans/02.webp", alt: "Master Plans placeholder 02" },
+  { src: "/images/design/residential/master-plans/03.webp", alt: "Master Plans placeholder 03" },
+  { src: "/images/design/residential/master-plans/04.webp", alt: "Master Plans placeholder 04" },
+  { src: "/images/design/residential/master-plans/05.webp", alt: "Master Plans placeholder 05" },
+  { src: "/images/design/residential/master-plans/06.webp", alt: "Master Plans placeholder 06" },
+  { src: "/images/design/residential/master-plans/07.webp", alt: "Master Plans placeholder 07" },
+  { src: "/images/design/residential/master-plans/08.webp", alt: "Master Plans placeholder 08" },
+  { src: "/images/design/residential/master-plans/09.webp", alt: "Master Plans placeholder 09" },
+  { src: "/images/design/residential/master-plans/10.webp", alt: "Master Plans placeholder 10" },
+  { src: "/images/design/residential/master-plans/11.webp", alt: "Master Plans placeholder 11" },
+  { src: "/images/design/residential/master-plans/12.webp", alt: "Master Plans placeholder 12" },
+  { src: "/images/design/residential/master-plans/13.webp", alt: "Master Plans placeholder 13" },
+  { src: "/images/design/residential/master-plans/14.webp", alt: "Master Plans placeholder 14" },
+  { src: "/images/design/residential/master-plans/15.webp", alt: "Master Plans placeholder 15" },
+  { src: "/images/design/residential/master-plans/16.webp", alt: "Master Plans placeholder 16" },
 ];
 
 export default function ResidentialMasterPlansGrading() {

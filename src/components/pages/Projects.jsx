@@ -65,7 +65,7 @@ export default function Projects() {
   return (
     <PageShell
       hero
-      heroImage="/images/hero/projects-hero.jpg"
+      heroImage="/images/hero/projects-hero.webp"
       heroContentAlign="center"
       eyebrow="Projects"
       title="Featured Projects"

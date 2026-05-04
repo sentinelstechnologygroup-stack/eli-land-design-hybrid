@@ -4,51 +4,123 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import PageShell from "@/components/shared/PageShell";
-import AnimatedSection from "@/components/shared/AnimatedSection";
 import MiddleCTA from "@/components/shared/MiddleCTA";
 import { ROUTES } from "@/components/utils/routes";
 
 const COMMERCIAL_COUNT = 16;
 const RESIDENTIAL_COUNT = 74;
-
-// Strategic CTA checkpoints only.
-// Keeps gallery flow intact and avoids repetitive ad-like interruptions.
-const MID_GALLERY_CTA_INDEXES = [12, 30, 54];
+const COMMERCIAL_RENDERING_COUNT = 48;
+const RESIDENTIAL_RENDERING_COUNT = 39;
 
 const MEDIA = {
-  hero: "/images/hero/commercial-hero.jpg",
-  commercialHero: "/images/hero/commercial-hero.jpg",
-  residentialHero: "/images/hero/residential-hero.jpg",
-  commercialFallback: "/images/gallery/commercial/01.jpg",
-  residentialFallback: "/images/gallery/residential/01.jpg",
+  hero: "/images/gallery/hero.webp",
+  commercialHero: "/images/hero/commercial-hero.webp",
+  residentialHero: "/images/hero/residential-hero.webp",
+  commercialFallback: "/images/gallery/commercial/01.webp",
+  residentialFallback: "/images/gallery/residential/01.webp",
+  commercialRenderingFallback: "/images/renderings/commercial/01.webp",
+  residentialRenderingFallback: "/images/renderings/residential/01.webp",
 };
 
-function makeGalleryImages({ type, count, fallback }) {
+function makeImages({ folder, count, titlePrefix, type, category, fallback }) {
   return Array.from({ length: count }, (_, i) => {
     const num = String(i + 1).padStart(2, "0");
 
     return {
-      src: `/images/gallery/${type}/${num}.jpg`,
-      title: `${type === "commercial" ? "Commercial" : "Residential"} ${num}`,
+      src: `${folder}/${num}.webp`,
+      title: `${titlePrefix} ${num}`,
       type,
+      category,
       fallback,
     };
   });
 }
 
-const COMMERCIAL_IMAGES = makeGalleryImages({
-  type: "commercial",
+const COMMERCIAL_IMAGES = makeImages({
+  folder: "/images/gallery/commercial",
   count: COMMERCIAL_COUNT,
+  titlePrefix: "Commercial",
+  type: "commercial",
+  category: "Commercial",
   fallback: MEDIA.commercialFallback,
 });
 
-const RESIDENTIAL_IMAGES = makeGalleryImages({
-  type: "residential",
+const RESIDENTIAL_IMAGES = makeImages({
+  folder: "/images/gallery/residential",
   count: RESIDENTIAL_COUNT,
+  titlePrefix: "Residential",
+  type: "residential",
+  category: "Residential",
   fallback: MEDIA.residentialFallback,
 });
 
-const ALL_IMAGES = [...COMMERCIAL_IMAGES, ...RESIDENTIAL_IMAGES];
+const COMMERCIAL_RENDERINGS = makeImages({
+  folder: "/images/renderings/commercial",
+  count: COMMERCIAL_RENDERING_COUNT,
+  titlePrefix: "Commercial Rendering",
+  type: "commercial-rendering",
+  category: "Commercial Rendering",
+  fallback: MEDIA.commercialRenderingFallback,
+});
+
+const RESIDENTIAL_RENDERINGS = makeImages({
+  folder: "/images/renderings/residential",
+  count: RESIDENTIAL_RENDERING_COUNT,
+  titlePrefix: "Residential Rendering",
+  type: "residential-rendering",
+  category: "Residential Rendering",
+  fallback: MEDIA.residentialRenderingFallback,
+});
+
+const ALL_IMAGES = [
+  ...COMMERCIAL_IMAGES,
+  ...RESIDENTIAL_IMAGES,
+  ...COMMERCIAL_RENDERINGS,
+  ...RESIDENTIAL_RENDERINGS,
+];
+
+function getFilters(mode) {
+  if (mode === "commercial") {
+    return [
+      { key: "all", label: "All" },
+      { key: "commercial", label: "Commercial" },
+      { key: "commercial-rendering", label: "Commercial Rendering" },
+    ];
+  }
+
+  if (mode === "residential") {
+    return [
+      { key: "all", label: "All" },
+      { key: "residential", label: "Residential" },
+      { key: "residential-rendering", label: "Residential Rendering" },
+    ];
+  }
+
+  return [
+    { key: "all", label: "All" },
+    { key: "commercial", label: "Commercial" },
+    { key: "residential", label: "Residential" },
+    { key: "commercial-rendering", label: "Commercial Rendering" },
+    { key: "residential-rendering", label: "Residential Rendering" },
+  ];
+}
+
+function getImagesForFilter(filter, mode) {
+  if (filter === "commercial") return COMMERCIAL_IMAGES;
+  if (filter === "residential") return RESIDENTIAL_IMAGES;
+  if (filter === "commercial-rendering") return COMMERCIAL_RENDERINGS;
+  if (filter === "residential-rendering") return RESIDENTIAL_RENDERINGS;
+
+  if (mode === "commercial") {
+    return [...COMMERCIAL_IMAGES, ...COMMERCIAL_RENDERINGS];
+  }
+
+  if (mode === "residential") {
+    return [...RESIDENTIAL_IMAGES, ...RESIDENTIAL_RENDERINGS];
+  }
+
+  return ALL_IMAGES;
+}
 
 function FilterButton({ active, onClick, children }) {
   return (
@@ -67,23 +139,17 @@ function FilterButton({ active, onClick, children }) {
   );
 }
 
-function GalleryCheckpointCTA({ activeFilter, index }) {
-  const isCommercial = activeFilter === "commercial";
-  const isResidential = activeFilter === "residential";
+function GalleryCheckpointCTA({ activeFilter }) {
+  const isCommercial =
+    activeFilter === "commercial" || activeFilter === "commercial-rendering";
 
   const secondaryLabel = isCommercial
     ? "View Residential Work"
-    : isResidential
-      ? "View Commercial Work"
-      : "View Galleries";
+    : "View Commercial Work";
 
   const secondaryHref = isCommercial
     ? ROUTES.residentialGalleryMain
-    : isResidential
-      ? ROUTES.commercialGallery
-      : ROUTES.gallery;
-
-  const tone = index === 30 ? "forest" : "sage";
+    : ROUTES.commercialGallery;
 
   return (
     <div className="sm:col-span-2 lg:col-span-3">
@@ -96,15 +162,32 @@ function GalleryCheckpointCTA({ activeFilter, index }) {
           primaryHref={ROUTES.contact}
           secondaryLabel={secondaryLabel}
           secondaryHref={secondaryHref}
-          tone={tone}
+          tone="sage"
         />
       </div>
     </div>
   );
 }
 
+function SafeGalleryImage({ item, className }) {
+  return (
+    <img
+      src={item.src}
+      alt={item.title}
+      className={className}
+      loading="lazy"
+      decoding="async"
+      onError={(e) => {
+        if (e.currentTarget.dataset.fallbackApplied === "true") return;
+        e.currentTarget.dataset.fallbackApplied = "true";
+        e.currentTarget.src = item.fallback;
+      }}
+    />
+  );
+}
+
 function Lightbox({ items, activeIndex, onClose, onPrev, onNext }) {
-  const isOpen = activeIndex != null && !!items[activeIndex];
+  const isOpen = activeIndex !== null && !!items[activeIndex];
 
   useEffect(() => {
     if (!isOpen) {
@@ -181,12 +264,16 @@ function Lightbox({ items, activeIndex, onClose, onPrev, onNext }) {
             loading="eager"
             decoding="async"
             onError={(e) => {
+              if (e.currentTarget.dataset.fallbackApplied === "true") return;
+              e.currentTarget.dataset.fallbackApplied = "true";
               e.currentTarget.src = activeItem.fallback;
             }}
           />
 
           <div className="mt-4 text-center">
-            <div className="type-micro text-white/70">{activeItem.type}</div>
+            <div className="type-micro text-white/70">
+              {activeItem.category}
+            </div>
             <div className="mt-2 type-h3 text-white">{activeItem.title}</div>
             <div className="mt-2 type-small text-white/60">
               {activeIndex + 1} / {items.length}
@@ -203,24 +290,15 @@ export default function GalleryImagePage({
   title = "Project Gallery",
   subtitle = "Browse commercial and residential gallery images.",
 }) {
-  const [activeFilter, setActiveFilter] = useState(mode);
+  const [activeFilter, setActiveFilter] = useState("all");
   const [activeIndex, setActiveIndex] = useState(null);
 
-  const availableFilters = useMemo(() => {
-    if (mode === "commercial") {
-      return [{ key: "commercial", label: "Commercial" }];
-    }
+  const availableFilters = useMemo(() => getFilters(mode), [mode]);
 
-    if (mode === "residential") {
-      return [{ key: "residential", label: "Residential" }];
-    }
-
-    return [
-      { key: "all", label: "All" },
-      { key: "commercial", label: "Commercial" },
-      { key: "residential", label: "Residential" },
-    ];
-  }, [mode]);
+  const filteredImages = useMemo(
+    () => getImagesForFilter(activeFilter, mode),
+    [activeFilter, mode]
+  );
 
   const heroImage =
     mode === "residential"
@@ -229,14 +307,8 @@ export default function GalleryImagePage({
         ? MEDIA.commercialHero
         : MEDIA.hero;
 
-  const filteredImages = useMemo(() => {
-    if (activeFilter === "commercial") return COMMERCIAL_IMAGES;
-    if (activeFilter === "residential") return RESIDENTIAL_IMAGES;
-    return ALL_IMAGES;
-  }, [activeFilter]);
-
   useEffect(() => {
-    setActiveFilter(mode);
+    setActiveFilter("all");
     setActiveIndex(null);
   }, [mode]);
 
@@ -245,14 +317,14 @@ export default function GalleryImagePage({
 
   const goPrev = () => {
     setActiveIndex((prev) => {
-      if (prev == null) return prev;
+      if (prev === null) return prev;
       return prev === 0 ? filteredImages.length - 1 : prev - 1;
     });
   };
 
   const goNext = () => {
     setActiveIndex((prev) => {
-      if (prev == null) return prev;
+      if (prev === null) return prev;
       return prev === filteredImages.length - 1 ? 0 : prev + 1;
     });
   };
@@ -269,50 +341,40 @@ export default function GalleryImagePage({
     >
       <section className="bg-[#F5F0EA]">
         <div className="mx-auto max-w-[1440px] px-6 py-14 md:px-10 md:py-16 lg:px-20">
-          <AnimatedSection>
-            <div className="flex flex-wrap gap-3">
-              {availableFilters.map((filter) => (
-                <FilterButton
-                  key={filter.key}
-                  active={activeFilter === filter.key}
-                  onClick={() => setActiveFilter(filter.key)}
-                >
-                  {filter.label}
-                </FilterButton>
-              ))}
-            </div>
-          </AnimatedSection>
+          <div className="flex flex-wrap gap-3">
+            {availableFilters.map((filter) => (
+              <FilterButton
+                key={filter.key}
+                active={activeFilter === filter.key}
+                onClick={() => {
+                  setActiveFilter(filter.key);
+                  setActiveIndex(null);
+                }}
+              >
+                {filter.label}
+              </FilterButton>
+            ))}
+          </div>
 
           <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-7">
             {filteredImages.map((item, index) => (
               <React.Fragment key={item.src}>
-                {MID_GALLERY_CTA_INDEXES.includes(index) && (
-                  <GalleryCheckpointCTA
-                    activeFilter={activeFilter}
-                    index={index}
-                  />
+                {index > 0 && index % 18 === 0 && (
+                  <GalleryCheckpointCTA activeFilter={activeFilter} />
                 )}
 
-                <AnimatedSection delay={(index % 6) * 0.04}>
-                  <button
-                    type="button"
-                    onClick={() => openLightbox(index)}
-                    className="group block w-full overflow-hidden border border-[#1F2E23]/10 bg-white transition-shadow duration-300 hover:shadow-[0_18px_50px_rgba(16,24,18,0.10)]"
-                  >
-                    <div className="aspect-[4/3] overflow-hidden bg-[#E8E0D4]">
-                      <img
-                        src={item.src}
-                        alt={item.title}
-                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                        loading="lazy"
-                        decoding="async"
-                        onError={(e) => {
-                          e.currentTarget.src = item.fallback;
-                        }}
-                      />
-                    </div>
-                  </button>
-                </AnimatedSection>
+                <button
+                  type="button"
+                  onClick={() => openLightbox(index)}
+                  className="group block w-full overflow-hidden border border-[#1F2E23]/10 bg-white transition-shadow duration-300 hover:shadow-[0_18px_50px_rgba(16,24,18,0.10)]"
+                >
+                  <div className="aspect-[4/3] overflow-hidden bg-[#E8E0D4]">
+                    <SafeGalleryImage
+                      item={item}
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    />
+                  </div>
+                </button>
               </React.Fragment>
             ))}
           </div>

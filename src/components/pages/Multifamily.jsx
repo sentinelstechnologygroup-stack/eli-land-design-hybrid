@@ -13,22 +13,22 @@ import { Panel } from "@/components/ui/panel";
 import BottomCTA from "@/components/shared/BottomCTA";
 
 const MEDIA = {
-  hero: "/images/hero/multifamily-hero.jpg",
+  hero: "/images/hero/multifamily-hero.webp",
 };
 
 const IMAGES = [
-  { src: "/images/design/commercial/multifamily/01.jpg", alt: "Multifamily placeholder 01" },
-  { src: "/images/design/commercial/multifamily/02.jpg", alt: "Multifamily placeholder 02" },
-  { src: "/images/design/commercial/multifamily/03.jpg", alt: "Multifamily placeholder 03" },
-  { src: "/images/design/commercial/multifamily/04.jpg", alt: "Multifamily placeholder 04" },
-  { src: "/images/design/commercial/multifamily/05.jpg", alt: "Multifamily placeholder 05" },
-  { src: "/images/design/commercial/multifamily/06.jpg", alt: "Multifamily placeholder 06" },
-  { src: "/images/design/commercial/multifamily/07.jpg", alt: "Multifamily placeholder 07" },
-  { src: "/images/design/commercial/multifamily/08.jpg", alt: "Multifamily placeholder 08" },
-  { src: "/images/design/commercial/multifamily/09.jpg", alt: "Multifamily placeholder 09" },
-  { src: "/images/design/commercial/multifamily/10.jpg", alt: "Multifamily placeholder 10" },
-  { src: "/images/design/commercial/multifamily/11.jpg", alt: "Multifamily placeholder 11" },
-  { src: "/images/design/commercial/multifamily/12.jpg", alt: "Multifamily placeholder 12" },
+  { src: "/images/design/commercial/multifamily/01.webp", alt: "Multifamily placeholder 01" },
+  { src: "/images/design/commercial/multifamily/02.webp", alt: "Multifamily placeholder 02" },
+  { src: "/images/design/commercial/multifamily/03.webp", alt: "Multifamily placeholder 03" },
+  { src: "/images/design/commercial/multifamily/04.webp", alt: "Multifamily placeholder 04" },
+  { src: "/images/design/commercial/multifamily/05.webp", alt: "Multifamily placeholder 05" },
+  { src: "/images/design/commercial/multifamily/06.webp", alt: "Multifamily placeholder 06" },
+  { src: "/images/design/commercial/multifamily/07.webp", alt: "Multifamily placeholder 07" },
+  { src: "/images/design/commercial/multifamily/08.webp", alt: "Multifamily placeholder 08" },
+  { src: "/images/design/commercial/multifamily/09.webp", alt: "Multifamily placeholder 09" },
+  { src: "/images/design/commercial/multifamily/10.webp", alt: "Multifamily placeholder 10" },
+  { src: "/images/design/commercial/multifamily/11.webp", alt: "Multifamily placeholder 11" },
+  { src: "/images/design/commercial/multifamily/12.webp", alt: "Multifamily placeholder 12" },
 ];
 
 export default function Multifamily() {

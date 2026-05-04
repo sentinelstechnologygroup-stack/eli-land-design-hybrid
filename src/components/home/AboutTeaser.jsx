@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 import AnimatedSection from "../shared/AnimatedSection";
 import { ROUTES } from "@/components/utils/routes";
 
-const IMG = "/images/home/about-teaser.jpg";
+const IMG = "/images/home/about-teaser.webp";
 
 export default function AboutTeaser() {
   return (

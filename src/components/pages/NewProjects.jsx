@@ -44,7 +44,7 @@ export default function NewProjects() {
 
   const heroImage =
     allProjects.find((project) => project.coverImage)?.coverImage ||
-    "/images/hero/projects-hero.jpg";
+    "/images/hero/projects-hero.webp";
 
   return (
     <PageShell

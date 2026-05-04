@@ -6,22 +6,22 @@ import { ROUTES } from "@/components/utils/routes";
 import BottomCTA from "@/components/shared/BottomCTA";
 
 const MEDIA = {
-  hero: "/images/hero/residential-renderings-hero.jpg",
+  hero: "/images/hero/residential-renderings-hero.webp",
 };
 
 const IMAGES = [
-  { src: "/images/design/residential/renderings/01.jpg", alt: "Rendering placeholder 01" },
-  { src: "/images/design/residential/renderings/02.jpg", alt: "Rendering placeholder 02" },
-  { src: "/images/design/residential/renderings/03.jpg", alt: "Rendering placeholder 03" },
-  { src: "/images/design/residential/renderings/04.jpg", alt: "Rendering placeholder 04" },
-  { src: "/images/design/residential/renderings/05.jpg", alt: "Rendering placeholder 05" },
-  { src: "/images/design/residential/renderings/06.jpg", alt: "Rendering placeholder 06" },
-  { src: "/images/design/residential/renderings/07.jpg", alt: "Rendering placeholder 07" },
-  { src: "/images/design/residential/renderings/08.jpg", alt: "Rendering placeholder 08" },
-  { src: "/images/design/residential/renderings/09.jpg", alt: "Rendering placeholder 09" },
-  { src: "/images/design/residential/renderings/10.jpg", alt: "Rendering placeholder 10" },
-  { src: "/images/design/residential/renderings/11.jpg", alt: "Rendering placeholder 11" },
-  { src: "/images/design/residential/renderings/12.jpg", alt: "Rendering placeholder 12" },
+  { src: "/images/design/residential/renderings/01.webp", alt: "Rendering placeholder 01" },
+  { src: "/images/design/residential/renderings/02.webp", alt: "Rendering placeholder 02" },
+  { src: "/images/design/residential/renderings/03.webp", alt: "Rendering placeholder 03" },
+  { src: "/images/design/residential/renderings/04.webp", alt: "Rendering placeholder 04" },
+  { src: "/images/design/residential/renderings/05.webp", alt: "Rendering placeholder 05" },
+  { src: "/images/design/residential/renderings/06.webp", alt: "Rendering placeholder 06" },
+  { src: "/images/design/residential/renderings/07.webp", alt: "Rendering placeholder 07" },
+  { src: "/images/design/residential/renderings/08.webp", alt: "Rendering placeholder 08" },
+  { src: "/images/design/residential/renderings/09.webp", alt: "Rendering placeholder 09" },
+  { src: "/images/design/residential/renderings/10.webp", alt: "Rendering placeholder 10" },
+  { src: "/images/design/residential/renderings/11.webp", alt: "Rendering placeholder 11" },
+  { src: "/images/design/residential/renderings/12.webp", alt: "Rendering placeholder 12" },
 ];
 
 export default function Renderings() {

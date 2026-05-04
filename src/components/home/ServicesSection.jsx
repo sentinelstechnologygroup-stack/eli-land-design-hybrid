@@ -10,7 +10,7 @@ const SERVICES = [
     subtitle: "Master Planning & Outdoor Living",
     description:
       "Comprehensive landscape design for private estates and custom homes—from site analysis and grading plans to planting systems and construction documentation.",
-    image: "/images/home/services-residential.jpg",
+    image: "/images/home/services-residential.webp",
     page: ROUTES.designResidential,
     tags: ["Master Planning", "Grading & Drainage", "Pool & Outdoor Living", "Planting Design"],
   },
@@ -19,7 +19,7 @@ const SERVICES = [
     subtitle: "Multifamily, Office & Retail",
     description:
       "Site planning, grading design, and landscape architecture for commercial developments—multifamily communities, office parks, retail centers, and mixed-use projects.",
-    image: "/images/home/services-commercial.jpg",
+    image: "/images/home/services-commercial.webp",
     page: ROUTES.designCommercial,
     tags: ["Site Planning", "Entry Monuments", "Amenity Design", "Permitting"],
   },
@@ -28,7 +28,7 @@ const SERVICES = [
     subtitle: "Design-Build Implementation",
     description:
       "In-house construction crews executing landscape plans from grading and hardscape installation to irrigation systems and planting—ensuring design intent translates to built reality.",
-    image: "/images/home/services-construction.jpg",
+    image: "/images/home/services-construction.webp",
     page: ROUTES.construction,
     tags: ["Hardscape", "Irrigation", "Grading", "Planting Installation"],
   },

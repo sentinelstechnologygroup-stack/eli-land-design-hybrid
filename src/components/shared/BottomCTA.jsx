@@ -7,7 +7,7 @@ import { ArrowRight } from "lucide-react";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 import { ROUTES } from "@/components/utils/routes";
 
-const IMG = "/images/home/cta.jpg";
+const IMG = "/images/home/cta.webp";
 
 export default function BottomCTA() {
   return (

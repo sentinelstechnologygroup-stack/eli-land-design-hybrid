@@ -5,22 +5,22 @@ import GallerySection from "@/components/gallery/GallerySection";
 import { ROUTES } from "@/components/utils/routes";
 
 const MEDIA = {
-  hero: "/images/hero/lifestyle-center-hero.jpg",
+  hero: "/images/hero/lifestyle-center-hero.webp",
 };
 
 const IMAGES = [
-  { src: "/images/design/commercial/lifestyle-center/01.jpg", alt: "Lifestyle Center placeholder 01" },
-  { src: "/images/design/commercial/lifestyle-center/02.jpg", alt: "Lifestyle Center placeholder 02" },
-  { src: "/images/design/commercial/lifestyle-center/03.jpg", alt: "Lifestyle Center placeholder 03" },
-  { src: "/images/design/commercial/lifestyle-center/04.jpg", alt: "Lifestyle Center placeholder 04" },
-  { src: "/images/design/commercial/lifestyle-center/05.jpg", alt: "Lifestyle Center placeholder 05" },
-  { src: "/images/design/commercial/lifestyle-center/06.jpg", alt: "Lifestyle Center placeholder 06" },
-  { src: "/images/design/commercial/lifestyle-center/07.jpg", alt: "Lifestyle Center placeholder 07" },
-  { src: "/images/design/commercial/lifestyle-center/08.jpg", alt: "Lifestyle Center placeholder 08" },
-  { src: "/images/design/commercial/lifestyle-center/09.jpg", alt: "Lifestyle Center placeholder 09" },
-  { src: "/images/design/commercial/lifestyle-center/10.jpg", alt: "Lifestyle Center placeholder 10" },
-  { src: "/images/design/commercial/lifestyle-center/11.jpg", alt: "Lifestyle Center placeholder 11" },
-  { src: "/images/design/commercial/lifestyle-center/12.jpg", alt: "Lifestyle Center placeholder 12" },
+  { src: "/images/design/commercial/lifestyle-center/01.webp", alt: "Lifestyle Center placeholder 01" },
+  { src: "/images/design/commercial/lifestyle-center/02.webp", alt: "Lifestyle Center placeholder 02" },
+  { src: "/images/design/commercial/lifestyle-center/03.webp", alt: "Lifestyle Center placeholder 03" },
+  { src: "/images/design/commercial/lifestyle-center/04.webp", alt: "Lifestyle Center placeholder 04" },
+  { src: "/images/design/commercial/lifestyle-center/05.webp", alt: "Lifestyle Center placeholder 05" },
+  { src: "/images/design/commercial/lifestyle-center/06.webp", alt: "Lifestyle Center placeholder 06" },
+  { src: "/images/design/commercial/lifestyle-center/07.webp", alt: "Lifestyle Center placeholder 07" },
+  { src: "/images/design/commercial/lifestyle-center/08.webp", alt: "Lifestyle Center placeholder 08" },
+  { src: "/images/design/commercial/lifestyle-center/09.webp", alt: "Lifestyle Center placeholder 09" },
+  { src: "/images/design/commercial/lifestyle-center/10.webp", alt: "Lifestyle Center placeholder 10" },
+  { src: "/images/design/commercial/lifestyle-center/11.webp", alt: "Lifestyle Center placeholder 11" },
+  { src: "/images/design/commercial/lifestyle-center/12.webp", alt: "Lifestyle Center placeholder 12" },
 ];
 
 export default function LifestyleCenter() {

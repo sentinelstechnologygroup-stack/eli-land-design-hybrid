@@ -5,7 +5,7 @@ export const SITE = {
   title: "ELI Land Design",
   description:
     "ELI Land Design is a Texas-based landscape architecture, site planning, and construction firm serving residential and commercial clients throughout The Woodlands, Houston, and surrounding markets.",
-  ogImage: "/images/seo/eli-social.jpg",
+  ogImage: "/images/seo/eli-social.webp",
   location: {
     city: "Houston",
     state: "Texas",

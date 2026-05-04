@@ -5,13 +5,13 @@ export const GALLERY = {
       id: "commercial",
       title: "Commercial",
       subtitle: "Site planning, entries, and amenity spaces for commercial developments.",
-      coverImage: "/images/gallery/covers/commercial.jpg",
+      coverImage: "/images/gallery/covers/commercial.webp",
       tags: ["design", "commercial"],
       items: [
         {
           id: "commercial-001",
           type: "image",
-          src: "/images/gallery/items/commercial-001.jpg",
+          src: "/images/gallery/items/commercial-001.webp",
           alt: "Woodhaven Village — Entry drive and landscape",
           caption: "Entry sequence with native plantings and stone features.",
           featured: true,
@@ -19,7 +19,7 @@ export const GALLERY = {
         {
           id: "commercial-002",
           type: "image",
-          src: "/images/gallery/items/commercial-002.jpg",
+          src: "/images/gallery/items/commercial-002.webp",
           alt: "Vargos on the Lake — Commercial landscape",
           caption: "Lakefront commercial development with natural stone.",
           featured: false,
@@ -27,7 +27,7 @@ export const GALLERY = {
         {
           id: "commercial-003",
           type: "image",
-          src: "/images/gallery/items/commercial-003.jpg",
+          src: "/images/gallery/items/commercial-003.webp",
           alt: "Office entry — Landscape architecture",
           caption: "Refined entry plaza with integrated lighting.",
           featured: true,
@@ -38,13 +38,13 @@ export const GALLERY = {
       id: "residential",
       title: "Residential",
       subtitle: "Custom estate landscapes and outdoor living environments.",
-      coverImage: "/images/gallery/covers/residential.jpg",
+      coverImage: "/images/gallery/covers/residential.webp",
       tags: ["design", "residential"],
       items: [
         {
           id: "residential-001",
           type: "image",
-          src: "/images/gallery/items/residential-001.jpg",
+          src: "/images/gallery/items/residential-001.webp",
           alt: "Carlton Woods Estate — Pool and outdoor living",
           caption: "Resort-style outdoor living with custom pool and kitchen.",
           featured: true,
@@ -52,7 +52,7 @@ export const GALLERY = {
         {
           id: "residential-002",
           type: "image",
-          src: "/images/gallery/items/residential-002.jpg",
+          src: "/images/gallery/items/residential-002.webp",
           alt: "Southfork Estates — Garden landscape",
           caption: "Multi-acre estate with formal and naturalized gardens.",
           featured: true,
@@ -60,7 +60,7 @@ export const GALLERY = {
         {
           id: "residential-003",
           type: "image",
-          src: "/images/gallery/items/residential-003.jpg",
+          src: "/images/gallery/items/residential-003.webp",
           alt: "The Reserve — Private garden",
           caption: "Elegant residential landscape with focus on entertaining.",
           featured: false,
@@ -71,13 +71,13 @@ export const GALLERY = {
       id: "construction",
       title: "Construction",
       subtitle: "Precision execution from grading to final planting.",
-      coverImage: "/images/gallery/covers/construction.jpg",
+      coverImage: "/images/gallery/covers/construction.webp",
       tags: ["build", "construction"],
       items: [
         {
           id: "construction-001",
           type: "image",
-          src: "/images/gallery/items/construction-001.jpg",
+          src: "/images/gallery/items/construction-001.webp",
           alt: "Hardscape construction — Stone patio",
           caption: "Custom stone patio with integrated fire feature.",
           featured: true,
@@ -85,7 +85,7 @@ export const GALLERY = {
         {
           id: "construction-002",
           type: "image",
-          src: "/images/gallery/items/construction-002.jpg",
+          src: "/images/gallery/items/construction-002.webp",
           alt: "Landscape installation — Planting phase",
           caption: "Expert plant installation with attention to mature form.",
           featured: false,

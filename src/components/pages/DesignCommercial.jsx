@@ -12,16 +12,16 @@ import BottomCTA from "@/components/shared/BottomCTA";
 import HubBreakCTA from "@/components/home/HubBreakCTA";
 
 const MEDIA = {
-  hero: "//images/hero/commercial-hero.jpg",
-  card1: "/images/design/commercial/thumbnails/lifestyle-center.jpg",
-  card2: "/images/design/commercial/thumbnails/multifamily.jpg",
-  card3: "/images/design/commercial/thumbnails/office.jpg",
-  card4: "/images/design/commercial/thumbnails/renderings.jpg",
-  support: "/images/design/commercial-support.jpg",
+  hero: "//images/hero/commercial-hero.webp",
+  card1: "/images/design/commercial/thumbnails/lifestyle-center.webp",
+  card2: "/images/design/commercial/thumbnails/multifamily.webp",
+  card3: "/images/design/commercial/thumbnails/office.webp",
+  card4: "/images/design/commercial/thumbnails/renderings.webp",
+  support: "/images/design/commercial-support.webp",
 
-  tileCommercial: "/images/design/hub/tile-commercial.jpg",
-  tileResidential: "/images/design/hub/tile-residential.jpg",
-  hubSupport: "/images/design/hub/support.jpg",
+  tileCommercial: "/images/design/hub/tile-commercial.webp",
+  tileResidential: "/images/design/hub/tile-residential.webp",
+  hubSupport: "/images/design/hub/support.webp",
 };
 
 const TAGS = [

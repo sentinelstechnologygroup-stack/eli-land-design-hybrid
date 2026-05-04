@@ -9,7 +9,7 @@ import { Panel } from "@/components/ui/panel";
 import { Button } from "@/components/ui/button";
 
 const MEDIA = {
-  hero: "/images/hero/reviews-hero.jpg",
+  hero: "/images/hero/reviews-hero.webp",
 };
 
 const REVIEW_SOURCES = [

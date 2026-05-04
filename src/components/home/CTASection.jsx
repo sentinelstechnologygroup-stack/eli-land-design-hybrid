@@ -10,7 +10,7 @@ export default function CTASection() {
     <section className="relative w-full overflow-hidden">
       <div className="absolute inset-0">
         <img
-          src="/images/home/cta.jpg"
+          src="/images/home/cta.webp"
           alt="Landscape design project"
           className="h-full w-full object-cover"
         />

@@ -8,10 +8,10 @@ import AnimatedSection from "@/components/shared/AnimatedSection";
 import { Panel } from "@/components/ui/panel";
 
 const MEDIA = {
-  hero: "/images/hero/about-hero.jpg",
-  authority: "/images/about/authority.jpg",
-  chris: "/images/about/chris.jpg",
-  matt: "/images/about/matt.jpg",
+  hero: "/images/hero/about-hero.webp",
+  authority: "/images/about/authority.webp",
+  chris: "/images/about/chris.webp",
+  matt: "/images/about/matt.webp",
 };
 
 const METRICS = [

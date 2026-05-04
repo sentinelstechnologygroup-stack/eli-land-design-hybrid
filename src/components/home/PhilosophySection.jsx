@@ -2,7 +2,7 @@
 import React from "react";
 
 const MEDIA = {
-  panel: "/images/home/philosophy-panel.jpg",
+  panel: "/images/home/philosophy-panel.webp",
 };
 
 export default function PhilosophySection() {

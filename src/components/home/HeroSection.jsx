@@ -10,27 +10,27 @@ import { trackCTA } from "@/lib/intelligence";
 
 const HERO_IMAGES = [
   {
-    src: "/images/hero/home-hero-01.jpg",
+    src: "/images/hero/home-hero-01.webp",
     alt: "Residential landscape architecture project featuring custom home, outdoor living space, and waterfront design in The Woodlands, Texas",
   },
   {
-    src: "/images/hero/home-hero-02.jpg",
+    src: "/images/hero/home-hero-02.webp",
     alt: "Commercial landscape architecture and site planning project for multi-family development in the Houston area",
   },
   {
-    src: "/images/hero/home-hero-03.jpg",
+    src: "/images/hero/home-hero-03.webp",
     alt: "Residential landscape architecture project with lawn grading, planting, and outdoor space planning in Texas",
   },
   {
-    src: "/images/hero/home-hero-04.jpg",
+    src: "/images/hero/home-hero-04.webp",
     alt: "Commercial landscape architecture project with apartment complex, hardscape, and amenity layout design",
   },
   {
-    src: "/images/hero/home-hero-05.jpg",
+    src: "/images/hero/home-hero-05.webp",
     alt: "Residential landscape architecture project featuring luxury outdoor living, pool planning, and architectural lighting",
   },
   {
-    src: "/images/hero/home-hero-06.jpg",
+    src: "/images/hero/home-hero-06.webp",
     alt: "Commercial landscape architecture project with pool amenity, hardscape, and community layout for multi-family development",
   },
 ];

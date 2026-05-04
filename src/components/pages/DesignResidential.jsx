@@ -12,17 +12,17 @@ import PortfolioMarquee from "@/components/portfolio/PortfolioMarquee";
 import { ROUTES } from "@/components/utils/routes";
 
 const MEDIA = {
-  hero: "/images/hero/residential-hero.jpg",
-  masterPlans: "/images/design/residential/thumbnails/master-plans-grading.jpg",
-  poolOutdoor: "/images/design/residential/thumbnails/pool-outdoor-living.jpg",
-  drainagePlanting: "/images/design/residential/thumbnails/drainage-planting-design.jpg",
-  renderings: "/images/design/residential/thumbnails/renderings.jpg",
-  support: "/images/design/residential/support.jpg",
+  hero: "/images/hero/residential-hero.webp",
+  masterPlans: "/images/design/residential/thumbnails/master-plans-grading.webp",
+  poolOutdoor: "/images/design/residential/thumbnails/pool-outdoor-living.webp",
+  drainagePlanting: "/images/design/residential/thumbnails/drainage-planting-design.webp",
+  renderings: "/images/design/residential/thumbnails/renderings.webp",
+  support: "/images/design/residential/support.webp",
 
-  tileMasterPlans: "/images/design/residential/thumbnails/master-plans-grading.jpg",
-  tilePoolOutdoor: "/images/design/residential/thumbnails/pool-outdoor-living.jpg",
-  tileDrainagePlanting: "/images/design/residential/thumbnails/drainage-planting-design.jpg",
-  tileRenderings: "/images/design/residential/thumbnails/renderings.jpg",
+  tileMasterPlans: "/images/design/residential/thumbnails/master-plans-grading.webp",
+  tilePoolOutdoor: "/images/design/residential/thumbnails/pool-outdoor-living.webp",
+  tileDrainagePlanting: "/images/design/residential/thumbnails/drainage-planting-design.webp",
+  tileRenderings: "/images/design/residential/thumbnails/renderings.webp",
 };
 
 const GRID_ITEMS = [

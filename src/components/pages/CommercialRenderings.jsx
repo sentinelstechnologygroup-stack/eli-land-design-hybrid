@@ -6,22 +6,22 @@ import { ROUTES } from "@/components/utils/routes";
 import BottomCTA from "@/components/shared/BottomCTA";
 
 const MEDIA = {
-  hero: "/images/hero/commercial-renderings-hero.jpg",
+  hero: "/images/hero/commercial-renderings-hero.webp",
 };
 
 const IMAGES = [
-  { src: "/images/design/commercial/renderings/01.jpg", alt: "Commercial rendering placeholder 01" },
-  { src: "/images/design/commercial/renderings/02.jpg", alt: "Commercial rendering placeholder 02" },
-  { src: "/images/design/commercial/renderings/03.jpg", alt: "Commercial rendering placeholder 03" },
-  { src: "/images/design/commercial/renderings/04.jpg", alt: "Commercial rendering placeholder 04" },
-  { src: "/images/design/commercial/renderings/05.jpg", alt: "Commercial rendering placeholder 05" },
-  { src: "/images/design/commercial/renderings/06.jpg", alt: "Commercial rendering placeholder 06" },
-  { src: "/images/design/commercial/renderings/07.jpg", alt: "Commercial rendering placeholder 07" },
-  { src: "/images/design/commercial/renderings/08.jpg", alt: "Commercial rendering placeholder 08" },
-  { src: "/images/design/commercial/renderings/09.jpg", alt: "Commercial rendering placeholder 09" },
-  { src: "/images/design/commercial/renderings/10.jpg", alt: "Commercial rendering placeholder 10" },
-  { src: "/images/design/commercial/renderings/11.jpg", alt: "Commercial rendering placeholder 11" },
-  { src: "/images/design/commercial/renderings/12.jpg", alt: "Commercial rendering placeholder 12" },
+  { src: "/images/design/commercial/renderings/01.webp", alt: "Commercial rendering placeholder 01" },
+  { src: "/images/design/commercial/renderings/02.webp", alt: "Commercial rendering placeholder 02" },
+  { src: "/images/design/commercial/renderings/03.webp", alt: "Commercial rendering placeholder 03" },
+  { src: "/images/design/commercial/renderings/04.webp", alt: "Commercial rendering placeholder 04" },
+  { src: "/images/design/commercial/renderings/05.webp", alt: "Commercial rendering placeholder 05" },
+  { src: "/images/design/commercial/renderings/06.webp", alt: "Commercial rendering placeholder 06" },
+  { src: "/images/design/commercial/renderings/07.webp", alt: "Commercial rendering placeholder 07" },
+  { src: "/images/design/commercial/renderings/08.webp", alt: "Commercial rendering placeholder 08" },
+  { src: "/images/design/commercial/renderings/09.webp", alt: "Commercial rendering placeholder 09" },
+  { src: "/images/design/commercial/renderings/10.webp", alt: "Commercial rendering placeholder 10" },
+  { src: "/images/design/commercial/renderings/11.webp", alt: "Commercial rendering placeholder 11" },
+  { src: "/images/design/commercial/renderings/12.webp", alt: "Commercial rendering placeholder 12" },
 ];
 
 export default function CommercialRenderings() {
