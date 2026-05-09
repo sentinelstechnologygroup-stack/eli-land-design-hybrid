@@ -1,10 +1,17 @@
 // src/app/layout.jsx
 
 import { Montserrat, Roboto } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
-import { SITE } from "@/lib/seo";
+import { SITE } from "@/config/site";
+import { getPageMetadata } from "@/config/seo";
+import {
+  organizationSchema,
+  websiteSchema,
+  serviceSchema,
+} from "@/config/schema";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -22,17 +29,26 @@ const roboto = Roboto({
 
 export const metadata = {
   metadataBase: new URL(SITE.url),
-  title: "ELI Land Design",
-  description:
-    "Landscape architecture, site planning, and construction services.",
+  ...getPageMetadata("home"),
 };
 
 export default function RootLayout({ children }) {
+  const structuredData = [organizationSchema, websiteSchema, serviceSchema];
+
   return (
     <html lang="en" className={`${montserrat.variable} ${roboto.variable}`}>
       <body className="bg-[#F5F0EA] text-[#1F2E23]">
+        <Script id="eli-structured-data" type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </Script>
+
+        <Script src="/sis-config.js" strategy="afterInteractive" />
+        <Script src="/sis-tracker.js" strategy="afterInteractive" />
+
         <SiteHeader />
+
         <div className="pt-[74px]">{children}</div>
+
         <SiteFooter />
       </body>
     </html>

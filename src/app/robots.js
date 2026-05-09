@@ -1,7 +1,16 @@
 // src/app/robots.js
+
+import { SITE } from "@/config/site";
+
 export default function robots() {
   return {
-    rules: [{ userAgent: "*", allow: "/" }],
-    sitemap: "https://eli-land-design-hybrid.vercel.app/sitemap.xml",
+    rules: [
+      {
+        userAgent: "*",
+        allow: "/",
+        disallow: ["/sis", "/systems/sis", "/api/private"],
+      },
+    ],
+    sitemap: `${SITE.url}/sitemap.xml`,
   };
 }

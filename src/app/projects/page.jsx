@@ -1,6 +1,7 @@
 // src/app/projects/page.jsx
-import { notFound } from "next/navigation";
+
+import { redirect } from "next/navigation";
 
 export default function Page() {
-  notFound();
+  redirect("/gallery");
 }

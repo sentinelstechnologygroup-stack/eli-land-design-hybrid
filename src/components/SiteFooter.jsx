@@ -4,6 +4,7 @@
 import React from "react";
 import Link from "next/link";
 import { ROUTES } from "@/components/utils/routes";
+import { SITE } from "@/config/site";
 
 const FOOTER_LINKS = [
   { label: "Home", href: ROUTES.home },
@@ -22,8 +23,8 @@ export default function SiteFooter() {
         <div className="grid gap-10 md:grid-cols-3 md:gap-12">
           <div>
             <img
-              src="/logo/WEBSITE LOGO 2026 ALL WHITE.png"
-              alt="ELI Land Design"
+              src={SITE.whiteLogo}
+              alt={SITE.name}
               className="h-36 w-auto object-contain"
               loading="lazy"
               decoding="async"
@@ -43,6 +44,10 @@ export default function SiteFooter() {
                 <Link
                   key={link.label}
                   href={link.href}
+                  data-sis-event="cta_click"
+                  data-sis-label={`footer_nav_${link.label
+                    .toLowerCase()
+                    .replaceAll(" ", "_")}`}
                   className="w-fit type-small text-[#F5F0EA]/72 no-underline transition-colors hover:text-[#F5F0EA] focus:outline-none focus:ring-2 focus:ring-[#F5F0EA]/20"
                 >
                   {link.label}
@@ -56,20 +61,24 @@ export default function SiteFooter() {
 
             <div className="mt-5 flex flex-col gap-3 type-small text-[#F5F0EA]/72 md:text-[14px] md:leading-[1.8]">
               <a
-                href="tel:+12812592610"
+                href={SITE.phoneHref}
+                data-sis-event="phone_click"
+                data-sis-label="footer_phone"
                 className="w-fit no-underline transition-colors hover:text-[#F5F0EA]"
               >
-                (281) 259-2610
+                {SITE.phoneDisplay}
               </a>
 
               <a
-                href="mailto:info@elilanddesign.com"
+                href={`mailto:${SITE.email}`}
+                data-sis-event="email_click"
+                data-sis-label="footer_email"
                 className="w-fit no-underline transition-colors hover:text-[#F5F0EA]"
               >
-                info@elilanddesign.com
+                {SITE.email}
               </a>
 
-              <span>The Woodlands / Houston, TX</span>
+              <span>{SITE.market}</span>
             </div>
           </div>
         </div>

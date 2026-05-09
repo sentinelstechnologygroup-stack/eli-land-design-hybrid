@@ -55,6 +55,7 @@ const MAIN_PANELS = [
     title: "Commercial Landscape Architecture",
     href: ROUTES.commercialGallery,
     label: "View Gallery",
+    sisLabel: "home_panel_commercial_gallery",
     image: "/images/hero/commercial-hero.webp",
     includes: [
       "Apartments",
@@ -67,6 +68,7 @@ const MAIN_PANELS = [
     title: "Residential Landscape Architecture",
     href: ROUTES.residentialGalleryMain,
     label: "View Gallery",
+    sisLabel: "home_panel_residential_gallery",
     image: "/images/hero/residential-hero.webp",
     includes: [
       "Pools & outdoor living",
@@ -79,6 +81,7 @@ const MAIN_PANELS = [
     title: "About ELI Land Design",
     href: ROUTES.about,
     label: "View Page",
+    sisLabel: "home_panel_about",
     image: "/images/hero/about-hero.webp",
     includes: [
       "Firm background",
@@ -90,6 +93,7 @@ const MAIN_PANELS = [
     title: "Gallery",
     href: ROUTES.gallery,
     label: "View Gallery",
+    sisLabel: "home_panel_gallery",
     image: "/images/hero/gallery-hero.webp",
     includes: [
       "Commercial renderings",
@@ -101,17 +105,15 @@ const MAIN_PANELS = [
     title: "Client Reviews",
     href: ROUTES.reviews,
     label: "View Reviews",
+    sisLabel: "home_panel_reviews",
     image: "/images/hero/reviews-hero.webp",
-    includes: [
-      "Client feedback",
-      "Project experience",
-      "Service quality",
-    ],
+    includes: ["Client feedback", "Project experience", "Service quality"],
   },
   {
     title: "Careers at ELI Land Design",
     href: ROUTES.careersAtEli,
     label: "View Careers",
+    sisLabel: "home_panel_careers",
     image: "/images/hero/careers-hero.webp",
     includes: [
       "Design production",
@@ -125,6 +127,8 @@ function PanelCard({ item }) {
   return (
     <Link
       href={item.href}
+      data-sis-event="gallery_card_click"
+      data-sis-label={item.sisLabel}
       className="group relative block min-h-[440px] overflow-hidden border border-black/10 bg-[#E6DED2] shadow-[0_20px_60px_rgba(31,46,35,0.10)] transition-transform duration-300 hover:-translate-y-1"
     >
       <img
@@ -135,7 +139,6 @@ function PanelCard({ item }) {
         decoding="async"
       />
 
-      {/* Image stays visible, text areas get stronger protection */}
       <div className="absolute inset-0 bg-[#040907]/20" />
       <div className="absolute inset-0 bg-gradient-to-r from-[#040907]/72 via-[#040907]/34 to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-b from-[#040907]/66 via-[#040907]/22 to-transparent" />
@@ -225,7 +228,6 @@ export default function Home() {
           </div>
         ))}
 
-        {/* Lighter homepage hero treatment */}
         <div className="absolute inset-0 bg-[#040907]/18" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#040907]/52 via-[#040907]/16 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#040907]/24 via-transparent to-transparent" />
@@ -234,7 +236,7 @@ export default function Home() {
           <div className="mx-auto w-full max-w-[1440px] px-6 md:px-10 lg:px-20">
             <div className="max-w-none">
               <h1
-               className="font-serif-display max-w-none text-[clamp(2.05rem,4.1vw,4.4rem)] font-semibold leading-[0.96] tracking-[-0.03em] text-white"
+                className="font-serif-display max-w-none text-[clamp(2.05rem,4.1vw,4.4rem)] font-semibold leading-[0.96] tracking-[-0.03em] text-white"
                 style={{
                   textShadow:
                     "0 4px 24px rgba(0,0,0,0.76), 0 2px 12px rgba(0,0,0,0.6)",
@@ -265,6 +267,8 @@ export default function Home() {
               <div className="mt-8">
                 <Link
                   href={ROUTES.gallery}
+                  data-sis-event="cta_click"
+                  data-sis-label="home_hero_view_gallery"
                   className="inline-flex h-12 items-center justify-center gap-3 bg-[#6B7F5E] px-8 text-[#F5F0EA] transition hover:bg-[#5C714F]"
                 >
                   View gallery
@@ -307,6 +311,8 @@ export default function Home() {
                   idx === currentSlide ? "bg-white" : "bg-white/30"
                 }`}
                 aria-label={`Go to homepage hero slide ${idx + 1}`}
+                data-sis-event="gallery_view"
+                data-sis-label={`home_hero_slide_${idx + 1}`}
               />
             ))}
           </div>

@@ -2,7 +2,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Phone, Mail, MapPin, CheckCircle2, X } from "lucide-react";
+import { Phone, Mail, MapPin, X } from "lucide-react";
 import PageShell from "@/components/shared/PageShell";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 import { Panel } from "@/components/ui/panel";
@@ -47,6 +47,12 @@ export default function ContactClient() {
         throw new Error("Form submission failed.");
       }
 
+      if (typeof window !== "undefined" && window.SIS?.track) {
+        window.SIS.track("form_submit", {
+          label: "contact_form_success",
+        });
+      }
+
       form.reset();
       setSubmitted(true);
     } catch (error) {
@@ -88,6 +94,8 @@ export default function ContactClient() {
                         </div>
                         <a
                           href="tel:2812592610"
+                          data-sis-event="phone_click"
+                          data-sis-label="contact_page_phone"
                           className="font-sans-clean text-lg text-[#1F2E23] transition-colors hover:text-[#545E55]"
                         >
                           281.259.2610
@@ -103,6 +111,8 @@ export default function ContactClient() {
                         </div>
                         <a
                           href="mailto:info@elilanddesign.com"
+                          data-sis-event="email_click"
+                          data-sis-label="contact_page_email"
                           className="font-sans-clean text-lg text-[#1F2E23] transition-colors hover:text-[#545E55]"
                         >
                           info@elilanddesign.com
@@ -140,7 +150,12 @@ export default function ContactClient() {
 
               <AnimatedSection>
                 <div>
-                  <form onSubmit={handleSubmit} className="space-y-8">
+                  <form
+                    onSubmit={handleSubmit}
+                    className="space-y-8"
+                    data-sis-form="true"
+                    data-sis-label="contact_form"
+                  >
                     <div>
                       <FieldLabel>Full Name *</FieldLabel>
                       <input
@@ -231,6 +246,8 @@ export default function ContactClient() {
                       size="eli"
                       className="w-full"
                       disabled={isSubmitting}
+                      data-sis-event="cta_click"
+                      data-sis-label="contact_form_send_message"
                     >
                       {isSubmitting ? "Sending..." : "Send Message"}
                     </Button>
@@ -296,13 +313,17 @@ export default function ContactClient() {
               <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
                 <a
                   href="tel:2812592610"
+                  data-sis-event="phone_click"
+                  data-sis-label="contact_success_modal_call_now"
                   className="inline-flex items-center justify-center border border-[#1F2E23] px-6 py-3 font-sans-clean text-xs font-semibold uppercase tracking-[0.22em] text-[#1F2E23] transition hover:bg-[#1F2E23] hover:text-[#F8F4ED]"
                 >
                   Call Now
                 </a>
 
                 <a
-                  href="/projects"
+                  href="/gallery"
+                  data-sis-event="cta_click"
+                  data-sis-label="contact_success_modal_view_our_work"
                   className="inline-flex items-center justify-center bg-[#1F2E23] px-6 py-3 font-sans-clean text-xs font-semibold uppercase tracking-[0.22em] text-[#F8F4ED] transition hover:bg-[#545E55]"
                 >
                   View Our Work
@@ -313,6 +334,8 @@ export default function ContactClient() {
                 Need to add something? Email{" "}
                 <a
                   href="mailto:info@elilanddesign.com"
+                  data-sis-event="email_click"
+                  data-sis-label="contact_success_modal_email"
                   className="underline underline-offset-4 transition hover:text-[#1F2E23]"
                 >
                   info@elilanddesign.com

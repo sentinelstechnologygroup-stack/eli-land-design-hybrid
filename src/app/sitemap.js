@@ -1,29 +1,27 @@
 // src/app/sitemap.js
-const baseUrl = "https://eli-land-design-hybrid.vercel.app";
+
+import { SITE } from "@/config/site";
 
 const routes = [
   "/",
   "/about",
-  "/design",
-  "/design/commercial",
-  "/design/residential",
-  "/design/residential/master-plans",
-  "/design/residential/pool-outdoor-living",
-  "/design/residential/drainage-planting",
-  "/construction",
-  "/projects",
   "/gallery",
+  "/gallery/commercial",
+  "/gallery/residential",
+  "/gallery/renderings",
   "/reviews",
   "/contact",
   "/careers-at-eli",
+  "/construction",
 ];
 
 export default function sitemap() {
   const now = new Date();
+
   return routes.map((path) => ({
-    url: `${baseUrl}${path}`,
+    url: `${SITE.url}${path}`,
     lastModified: now,
-    changeFrequency: "monthly",
-    priority: path === "/" ? 1 : 0.7,
+    changeFrequency: path === "/" ? "weekly" : "monthly",
+    priority: path === "/" ? 1 : path.includes("gallery") ? 0.85 : 0.7,
   }));
 }
