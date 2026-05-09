@@ -135,35 +135,37 @@ function PanelCard({ item }) {
         decoding="async"
       />
 
-      {/* Lighter panel overlay: image stays visible, text remains protected */}
-      <div className="absolute inset-0 bg-[#040907]/26" />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#040907]/52 via-[#040907]/18 to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#040907]/28 via-transparent to-transparent" />
+      {/* Image stays visible, text areas get stronger protection */}
+      <div className="absolute inset-0 bg-[#040907]/20" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#040907]/72 via-[#040907]/34 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#040907]/66 via-[#040907]/22 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[#040907]/72 via-[#040907]/26 to-transparent" />
 
       <div className="relative z-10 flex min-h-[440px] flex-col p-5 md:p-6">
-        <div>
+        <div className="max-w-[94%] md:max-w-[88%]">
           <h2
             className="text-[22px] font-semibold tracking-[-0.02em] text-white md:text-[26px]"
             style={{
               textShadow:
-                "0 3px 16px rgba(0,0,0,0.65), 0 1px 8px rgba(0,0,0,0.45)",
+                "0 4px 18px rgba(0,0,0,0.95), 0 1px 8px rgba(0,0,0,0.82)",
             }}
           >
             {item.title}
           </h2>
 
-          <div className="mt-3 h-[2px] w-full bg-white/65" />
+          <div className="mt-3 h-[2px] w-full bg-white/80" />
 
           <ul className="mt-4 space-y-1.5">
             {item.includes.map((entry) => (
               <li
                 key={`${item.title}-${entry}`}
-                className="flex items-start gap-2 text-[14px] leading-[1.6] text-white md:text-[15px]"
+                className="flex items-start gap-2 text-[14px] font-semibold leading-[1.6] text-white md:text-[15px]"
                 style={{
-                  textShadow: "0 2px 10px rgba(0,0,0,0.5)",
+                  textShadow:
+                    "0 4px 16px rgba(0,0,0,0.95), 0 1px 8px rgba(0,0,0,0.82)",
                 }}
               >
-                <span className="mt-[9px] h-[5px] w-[5px] shrink-0 bg-white/85" />
+                <span className="mt-[9px] h-[5px] w-[5px] shrink-0 bg-white" />
                 <span>{entry}</span>
               </li>
             ))}
@@ -172,15 +174,16 @@ function PanelCard({ item }) {
 
         <div className="mt-auto flex items-center justify-between pt-5">
           <span
-            className="inline-flex items-center gap-2 text-[13px] font-semibold uppercase tracking-[0.14em] text-white"
+            className="inline-flex items-center gap-2 bg-[#040907]/52 px-3 py-2 text-[13px] font-semibold uppercase tracking-[0.14em] text-white backdrop-blur-[1px]"
             style={{
-              textShadow: "0 2px 10px rgba(0,0,0,0.55)",
+              textShadow:
+                "0 4px 16px rgba(0,0,0,0.95), 0 1px 8px rgba(0,0,0,0.82)",
             }}
           >
             {item.label}
           </span>
 
-          <span className="inline-flex h-11 w-11 items-center justify-center border border-white/25 bg-white/14 text-white backdrop-blur-sm transition-colors duration-300 group-hover:bg-white/22">
+          <span className="inline-flex h-11 w-11 items-center justify-center border border-white/40 bg-[#040907]/46 text-white backdrop-blur-sm transition-colors duration-300 group-hover:bg-[#040907]/58">
             <ArrowUpRight className="h-4 w-4" />
           </span>
         </div>
@@ -223,7 +226,7 @@ export default function Home() {
         ))}
 
         {/* Lighter homepage hero treatment */}
-        <div className="absolute inset-0 bg-[#040907]/24" />
+        <div className="absolute inset-0 bg-[#040907]/18" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#040907]/52 via-[#040907]/16 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#040907]/24 via-transparent to-transparent" />
 
@@ -231,17 +234,21 @@ export default function Home() {
           <div className="mx-auto w-full max-w-[1440px] px-6 md:px-10 lg:px-20">
             <div className="max-w-none">
               <h1
-                className="font-serif-display text-[clamp(2.45rem,5vw,4.75rem)] font-semibold leading-[0.94] tracking-[-0.03em] text-white"
+               className="font-serif-display max-w-none text-[clamp(2.05rem,4.1vw,4.4rem)] font-semibold leading-[0.96] tracking-[-0.03em] text-white"
                 style={{
                   textShadow:
                     "0 4px 24px rgba(0,0,0,0.76), 0 2px 12px rgba(0,0,0,0.6)",
                 }}
               >
-                Landscape Architecture,
-                <br />
-                Site Planning & Landscape
-                <br />
-                Construction Service
+                <span className="block whitespace-nowrap">
+                  Landscape Architecture,
+                </span>
+                <span className="block whitespace-nowrap">
+                  Site Planning &amp; Landscape
+                </span>
+                <span className="block whitespace-nowrap">
+                  Construction Service
+                </span>
               </h1>
 
               <p
