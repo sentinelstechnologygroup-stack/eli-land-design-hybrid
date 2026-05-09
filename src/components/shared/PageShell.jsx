@@ -24,7 +24,7 @@ export default function PageShell({
   currentPageName,
 }) {
   return (
-    <div className="min-h-screen bg-[#F5F0EA] text-[#1F2E23]">
+    <div className="min-h-screen bg-[#F7F5EF] text-[#1F2E23]">
       <SiteHeader currentPageName={currentPageName} />
 
       <main>

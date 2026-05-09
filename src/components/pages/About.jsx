@@ -9,7 +9,7 @@ import { Panel } from "@/components/ui/panel";
 
 const MEDIA = {
   hero: "/images/hero/about-hero.webp",
-  authority: "/images/about/authority.webp",
+  authority: "/images/renderings/commercial/29.webp",
   chris: "/images/about/chris.webp",
   matt: "/images/about/matt.webp",
 };
@@ -62,7 +62,10 @@ const HISTORY = [
 const TIMELINE = [
   { year: "1997", label: "Founded by Chris K. Eiseman" },
   { year: "2002", label: "Chris graduates Texas A&M" },
-  { year: "2012", label: "Matt Louderback joins as Professional Landscape Architect" },
+  {
+    year: "2012",
+    label: "Matt Louderback joins as Professional Landscape Architect",
+  },
   { year: "Today", label: "27+ years of experience" },
 ];
 
@@ -132,7 +135,7 @@ export default function About() {
               <Panel className="overflow-hidden border border-[#1F2E23]/10 bg-white shadow-none">
                 <img
                   src={MEDIA.authority}
-                  alt="Landscape planning and construction documentation"
+                  alt="Commercial landscape architecture rendering"
                   className="aspect-[4/3] w-full object-cover"
                   loading="lazy"
                   decoding="async"
@@ -152,9 +155,9 @@ export default function About() {
 
             <AnimatedSection delay={0.08}>
               <p className="type-body text-eli-muted">
-                ELI focuses on creating landscapes that are not only
-                visually compelling, but also buildable, efficient, and durable
-                over time. Every project is approached with a balance of design
+                ELI focuses on creating landscapes that are not only visually
+                compelling, but also buildable, efficient, and durable over
+                time. Every project is approached with a balance of design
                 intent, engineering awareness, and construction coordination.
               </p>
             </AnimatedSection>
@@ -169,10 +172,9 @@ export default function About() {
 
             <AnimatedSection delay={0.24}>
               <p className="type-body text-eli-muted">
-                We specialize in technically challenging sites and
-                complex coordination environments where planning quality
-                directly impacts buildability, schedule, and long-term
-                performance.
+                We specialize in technically challenging sites and complex
+                coordination environments where planning quality directly
+                impacts buildability, schedule, and long-term performance.
               </p>
             </AnimatedSection>
           </div>

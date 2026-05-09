@@ -91,13 +91,15 @@ export default function HeroSection() {
                 delay: 0.25,
                 ease: [0.33, 1, 0.68, 1],
               }}
-              className="font-serif-display max-w-[920px] text-[clamp(2.6rem,5vw,4.75rem)] font-semibold leading-[0.94] tracking-[-0.03em] text-[#F5F0EA] [text-shadow:0_4px_22px_rgba(0,0,0,0.58)]"
+              className="font-serif-display max-w-none text-[clamp(2.1rem,4.35vw,4.65rem)] font-semibold leading-[0.94] tracking-[-0.03em] text-white"
+              style={{
+                textShadow:
+                  "0 4px 24px rgba(0,0,0,0.76), 0 2px 12px rgba(0,0,0,0.6)",
+              }}
             >
-              Landscape Architecture,
-              <br />
-              Site Planning & Landscape
-              <br />
-              Construction Service
+              <span className="block whitespace-nowrap">Landscape Architecture,</span>
+              <span className="block whitespace-nowrap">Site Planning &amp; Landscape</span>
+              <span className="block whitespace-nowrap">Construction Service</span>
             </motion.h1>
 
             <motion.p
@@ -110,7 +112,7 @@ export default function HeroSection() {
               }}
                 className="mt-5 text-white text-[15px] md:text-[17px] font-medium whitespace-nowrap"
             >
-              High-end residential and commercial landscape design across The Woodlands and Greater Houston.
+              Residential and commercial landscape design across The Woodlands and Greater Houston.
             </motion.p>
 
             <motion.div
