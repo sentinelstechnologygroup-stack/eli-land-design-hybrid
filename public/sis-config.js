@@ -3,7 +3,7 @@
 window.SIS_CONFIG = {
   clientId: "eli-land-design",
   clientName: "ELI Land Design",
-  siteUrl: "https://eli-land-design-hybrid.vercel.app",
+  siteurl: "https://elilanddesign.com",
   productionUrl: "https://elilanddesign.com",
   industry: "Landscape Architecture",
   market: "The Woodlands / Greater Houston",

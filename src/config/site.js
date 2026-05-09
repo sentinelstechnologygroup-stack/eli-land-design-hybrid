@@ -3,7 +3,7 @@
 export const SITE = {
   name: "ELI Land Design",
   legalName: "ELI Land Design",
-  url: "https://eli-land-design-hybrid.vercel.app",
+  url: "https://elilanddesign.com",
   productionUrl: "https://elilanddesign.com",
   phoneDisplay: "(281) 259-2610",
   phoneHref: "tel:+12812592610",
